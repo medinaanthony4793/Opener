@@ -7434,6 +7434,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Story",
+            "regex": "http(?:s)?://(?:www\\.)(ft\\.com)/(content|video)/(.*)$",
+            "testInputs": [
+                "https://www.ft.com/content/50e3e97a-0a86-11e9-9fe8-acdb36967cfc",
+                "https://www.ft.com/video/abfad6c3-4098-4d84-81ac-1cc334683f3e"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "ft",
+                    "format": "ft://www.$1",
+                    "testResults": [
+                        "ft://www.ft.com/content/50e3e97a-0a86-11e9-9fe8-acdb36967cfc",
+                        "ft://www.ft.com/video/abfad6c3-4098-4d84-81ac-1cc334683f3e"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -8905,6 +8923,12 @@
             "storeIdentifier": "1371929193",
             "scheme": "grape://",
             "docs": "https://db.tt/xAauKtgWxJ"
+        },
+        {
+            "displayName": "Financial Times",
+            "identifier": "ft",
+            "storeIdentifier": "1200842933",
+            "scheme": "ft://"
         }
     ],
     "browsers": [
