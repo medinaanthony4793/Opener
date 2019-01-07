@@ -9626,7 +9626,24 @@
                 "sitesucker:http://www.opener.link/",
                 "sitesucker:https://twitter.com/openerapp"
             ]
-        }
+        },
+        {
+            "displayName": "RBVEA Web",
+            "identifier": "rbveaweb",
+            "scheme": "RBVEAWeb://",
+            "storeIdentifier": "989804926",
+            "regex": "(.+)$",
+            "script": "function process(url, completionHandler) { completionHandler('RBVEAWeb://open-url?url=' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completionHandler) { completionHandler('RBVEAWeb://open-url?url=' + encodeURIComponent(url)); }",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "RBVEAWeb://open-url?url=http%3A%2F%2Fwww.opener.link%2F",
+                "RBVEAWeb://open-url?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
+            ]
+        },
     ],
     "previews": [
         {
