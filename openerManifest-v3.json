@@ -9631,7 +9631,7 @@
             "displayName": "RBVEA Web",
             "identifier": "rbveaweb",
             "scheme": "RBVEAWeb://",
-            "storeIdentifier": "989804926",
+            "storeIdentifier": "1448098664",
             "regex": "(.+)$",
             "script": "function process(url, completionHandler) { completionHandler('RBVEAWeb://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('RBVEAWeb://open-url?url=' + encodeURIComponent(url)); }",
