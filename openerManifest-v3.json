@@ -7756,7 +7756,7 @@
             "displayName": "Weibo",
             "identifier": "weibo",
             "storeIdentifier": "350962117",
-            "scheme": "weibo://"
+            "scheme": "sinaweibo://"
         },
         {
             "displayName": "PPHub",
