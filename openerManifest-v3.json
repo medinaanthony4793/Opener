@@ -2118,7 +2118,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://((?:(?:\\w+\\.)?(?:youtube\\.com|youtu\\.be))/.*)$",
+            "regex": "http(?:s)?://((?:(?:\\w+\\.)?(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2133,7 +2133,8 @@
                 "https://www.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
                 "https://www.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ",
                 "https://www.youtube.com/playlist?list=PL2ED57C3E5C561B91",
-                "https://www.youtube.com/vintagespace"
+                "https://www.youtube.com/vintagespace",
+                "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description"
             ],
             "formats": [
                 {
@@ -2153,7 +2154,8 @@
                         "vnd.youtube://www.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
                         "vnd.youtube://www.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ",
                         "vnd.youtube://www.youtube.com/playlist?list=PL2ED57C3E5C561B91",
-                        "vnd.youtube://www.youtube.com/vintagespace"
+                        "vnd.youtube://www.youtube.com/vintagespace",
+                        null
                     ]
                 }
             ]
@@ -9681,6 +9683,12 @@
             "param": "url",
             "tests": {
                 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwjbyv_kobXVAhUJjlQKHbf6A_cQFggwMAI&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F44698788%2Fxcode-9-ios-11-nsurlconnection-sendasynchronousrequest-": "https://stackoverflow.com/questions/44698788/xcode-9-ios-11-nsurlconnection-sendasynchronousrequest-"
+            }
+        },
+        "http(?:s)?://(\\w+\\.)*youtube(\\.\\w+)/redirect.*$": {
+            "param": "q",
+            "tests": {
+                "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description": "https://www.instagram.com/buzzfeedmexico"
             }
         },
         "(?:(?i)http(?:s)?://[^/]+.(?:cdn.ampproject.org))/(?:\\w(?:/(s))?)/(.*)$": {
