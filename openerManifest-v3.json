@@ -3352,9 +3352,9 @@
             "formats": [
                 {
                     "appIdentifier": "medium",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*window.top.location = validate.\"http(?:s)?://(?:\\w+\\.)*medium\\.com(/.*?)(?:&amp;|\").*').exec(res); var match = null; if (results != null && results.length > 1) { match = 'medium://' + results[1]; }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(medium://.*?)\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); }",
                     "testResults": [
-                        "medium:///@GabbiSolarPower/diary-of-a-solar-powered-person-page-5-491c58421916?source=linkShare-684149027d58-1544581697"
+                        "medium:///p/491c58421916?link_click_id=615568367535852283"
                     ]
                 }
             ]
