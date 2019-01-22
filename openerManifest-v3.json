@@ -4497,7 +4497,7 @@
                 {
                     "appIdentifier": "evernote",
                     "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(evernote://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(evernote://.*?)\"').exec(res)[1]; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(evernote://.*?)\".*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
                     "testResults": [
                         "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d/",
                         "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d/"
