@@ -4488,8 +4488,9 @@
         },
         {
             "title": "Open Note",
-            "regex": "http(?:s)?://(?:www\\.)evernote\\.com/shard/s\\d+/sh/([:hex:]+-)*[:hex:]+/[:hex:]+.*$",
+            "regex": "http(?:s)?://(?:www\\.)evernote\\.com/shard/s\\d+/(?:sh|nl)/([:hex:]+-)*[:hex:]+/[:hex:]+.*$",
             "testInputs": [
+                "https://www.evernote.com/shard/s69/nl/7633933/e431cabb-3ece-4a8b-9b82-74ff084a788d/",
                 "https://www.evernote.com/shard/s69/sh/e431cabb-3ece-4a8b-9b82-74ff084a788d/b5b1ca28e7d947370a8c8ebb0e81b3e6"
             ],
             "formats": [
@@ -4498,6 +4499,7 @@
                     "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(evernote://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(evernote://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
+                        "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d/",
                         "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d/"
                     ]
                 }
