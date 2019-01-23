@@ -4488,19 +4488,34 @@
         },
         {
             "title": "Open Note",
-            "regex": "http(?:s)?://(?:www\\.)evernote\\.com/shard/s\\d+/(?:sh|nl)/([:hex:]+-)*[:hex:]+/[:hex:]+.*$",
+            "regex": "http(?:s)?://(?:www\\.)evernote\\.com/shard/(s\\d+)/nl/(\\d+)/(([:hex:]+-)*[:hex:]+).*?$",
+            "note": "'private' note type, owned by active user. https://bit.ly/2MsjMSt",
             "testInputs": [
-                "https://www.evernote.com/shard/s69/nl/7633933/e431cabb-3ece-4a8b-9b82-74ff084a788d/",
+                "https://www.evernote.com/shard/s69/nl/7633933/e431cabb-3ece-4a8b-9b82-74ff084a788d/"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "evernote",
+                    "format": "evernote:///view/$2/$1/$3/$3",
+                    "testResults": [
+                        "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Note",
+            "regex": "http(?:s)?://(?:www\\.)evernote\\.com/shard/(s\\d+)/sh/(([:hex:]+-)*[:hex:]+).*?$",
+            "note": "ONLY works for notes the active user owns, can't open arbitrary notes. User id path component is omitted. https://bit.ly/2MsjMSt",
+            "testInputs": [
                 "https://www.evernote.com/shard/s69/sh/e431cabb-3ece-4a8b-9b82-74ff084a788d/b5b1ca28e7d947370a8c8ebb0e81b3e6"
             ],
             "formats": [
                 {
                     "appIdentifier": "evernote",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(evernote://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(evernote://.*?)\".*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
+                    "format": "evernote:///view//$1/$2/$2",
                     "testResults": [
-                        "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d/",
-                        "evernote:///view/7633933/s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d/"
+                        "evernote:///view//s69/e431cabb-3ece-4a8b-9b82-74ff084a788d/e431cabb-3ece-4a8b-9b82-74ff084a788d"
                     ]
                 }
             ]
