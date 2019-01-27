@@ -9715,11 +9715,12 @@
                 "https://thepostermovement-tumblr-com.cdn.ampproject.org/c/thepostermovement.tumblr.com/post/163639670215/blade-runner-2049-by-raborlatte-posters/amp": "http://thepostermovement.tumblr.com/post/163639670215/blade-runner-2049-by-raborlatte-posters/amp"
             }
         },
-        "http(?:s)?://l\\.(messenger|facebook)\\.com/l\\.php.*$": {
+        "http(?:s)?://l\\.(messenger|facebook|workplace)\\.com/l\\.php.*$": {
             "param": "u",
             "tests": {
                 "https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fdominiquecrenn%2Fstatus%2F1009122219052716033&h=AT3NbNfy0YjZSm3aFoNrgsfB3tVS9wb2D-PEHADnPdbGVIlHTuScyJExmWa6q5hlL0s-Tg753uksiJG_dusXonuf-18Ghrh1KK_PhpKvz3Em1L8rc6Rt7zjEyISchPALg5kbJBtSChL2_MqbVEarRA": "https://twitter.com/dominiquecrenn/status/1009122219052716033",
-                "https://l.messenger.com/l.php?u=https%3A%2F%2Ftwitter.com%2FOpenerApp%2Fstatus%2F960747968574849025&h=ATMFKeV37EBYtyu3JB0NatoCI5yEGIwAq3UD_GL-hFDKo8y-67d9fqGlN0Fc62vEgQxte71CCmPIO5AIVmPD3EaP6ciUOaNcdLy29IifshQx9nd1OIF9lK6GXwoi1_HF7C_gZ82m9LW3MSh0askAZJxoTu9hAsbfp4o": "https://twitter.com/OpenerApp/status/960747968574849025"
+                "https://l.messenger.com/l.php?u=https%3A%2F%2Ftwitter.com%2FOpenerApp%2Fstatus%2F960747968574849025&h=ATMFKeV37EBYtyu3JB0NatoCI5yEGIwAq3UD_GL-hFDKo8y-67d9fqGlN0Fc62vEgQxte71CCmPIO5AIVmPD3EaP6ciUOaNcdLy29IifshQx9nd1OIF9lK6GXwoi1_HF7C_gZ82m9LW3MSh0askAZJxoTu9hAsbfp4o": "https://twitter.com/OpenerApp/status/960747968574849025",
+                "https://l.workplace.com/l.php?u=https%3A%2F%2Ftwitter.com%2Ffromedome%2Fstatus%2F1088895797712818176%3Fs%3D21": "https://twitter.com/fromedome/status/1088895797712818176?s=21"
             }
         },
         "http(?:s)?://out\\.reddit\\.com.*$": {
