@@ -3367,6 +3367,16 @@
                     "notes": "Narwhal doesn't tolerate queries it seems https://twitter.com/jad_chaar/status/770055945707716608"
                 },
                 {
+                    "appIdentifier": "comet",
+                    "format": "comet://$2",
+                    "testResults": [
+                        "comet://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "comet://reddit.com/r/gaming/",
+                        "comet://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        null
+                    ]
+                },
+                {
                     "appIdentifier": "readder",
                     "format": "readder://open-url/https://$2",
                     "testResults": [
@@ -9085,6 +9095,12 @@
             "identifier": "ft",
             "storeIdentifier": "1200842933",
             "scheme": "ft://"
+        },
+        {
+            "displayName": "Comet",
+            "identifier": "comet",
+            "storeIdentifier": "1146204813",
+            "scheme": "comet://"
         }
     ],
     "browsers": [
