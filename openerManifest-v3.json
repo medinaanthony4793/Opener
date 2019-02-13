@@ -3377,22 +3377,22 @@
                     ]
                 },
                 {
+                    "appIdentifier": "slide",
+                    "format": "slide://$2",
+                    "testResults": [
+                        "slide://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "slide://reddit.com/r/gaming/",
+                        "slide://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        null
+                    ]
+                },
+                {
                     "appIdentifier": "readder",
                     "format": "readder://open-url/https://$2",
                     "testResults": [
                         "readder://open-url/https://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
                         "readder://open-url/https://reddit.com/r/gaming/",
                         "readder://open-url/https://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
-                        null
-                    ]
-                },
-                {
-                    "appIdentifier": "monochrome",
-                    "format": "com.falconassets.monochrome://$2",
-                    "testResults": [
-                        "com.falconassets.monochrome://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
-                        "com.falconassets.monochrome://reddit.com/r/gaming/",
-                        "com.falconassets.monochrome://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 },
@@ -3417,12 +3417,12 @@
                     ]
                 },
                 {
-                    "appIdentifier": "slide",
-                    "format": "slide://$2",
+                    "appIdentifier": "monochrome",
+                    "format": "com.falconassets.monochrome://$2",
                     "testResults": [
-                        "slide://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
-                        "slide://reddit.com/r/gaming/",
-                        "slide://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        "com.falconassets.monochrome://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "com.falconassets.monochrome://reddit.com/r/gaming/",
+                        "com.falconassets.monochrome://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 }
