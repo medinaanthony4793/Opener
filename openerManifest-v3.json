@@ -8153,8 +8153,8 @@
         {
             "displayName": "nicoli",
             "identifier": "nicoli",
-            "storeIdentifier": "918184283",
             "scheme": "nicolihttp://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/nicoli-114.jpg",
             "docs": "https://db.tt/jes30BC1aR and https://db.tt/YFaVbFzlcb"
         },
         {
@@ -8639,8 +8639,8 @@
         {
             "displayName": "Cosmos",
             "identifier": "cosmos",
-            "storeIdentifier": "1260925935",
-            "scheme": "cosmos://"
+            "scheme": "cosmos://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/cosmos-114.jpg"
         },
         {
             "displayName": "Daum",
