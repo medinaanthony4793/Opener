@@ -3499,7 +3499,7 @@
             "formats": [
                 {
                     "appIdentifier": "medium",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(medium://.*?)\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(medium://.*?)\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1].replace(RegExp('link_click_id=\\\\d+'), ''); }; completionHandler(match); }",
                     "testResults": [
                         "medium:///p/491c58421916?link_click_id=615568367535852283"
                     ]
