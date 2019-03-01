@@ -7618,6 +7618,23 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Status",
+            "includeHeaders": true,
+            "regex": "http(?:s)?://\\w+(?:\\.\\w+)+/(?:@[^/]+|(?:web|users/\\w+)/statuses)/(\\d+).*?\\n.*(?i)(?:server\":\"mastodon).*",
+            "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
+            "testsThatCantBeRunCuzHeaders": [
+                "https://mastodon.technology/web/statuses/101673699373863528",
+                "https://masthead.social/@editor/101672869547896675",
+                "https://mastodon.technology/users/JPEG/statuses/101658532656614023"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "mast",
+                    "format": "com.shi.mastodon://id=$1"
+                }
+            ]
         }
     ],
     "apps": [
@@ -9101,6 +9118,14 @@
             "identifier": "sspai",
             "storeIdentifier": "1191720421",
             "scheme": "sspai://"
+        },
+        {
+            "displayName": "Mast",
+            "identifier": "mast",
+            "storeIdentifier": "1437429129",
+            "scheme": "com.shi.mastodon://",
+            "docs": "https://bit.ly/2H94C4f"
+            ,"new":1
         }
     ],
     "browsers": [
