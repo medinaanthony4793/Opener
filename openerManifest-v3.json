@@ -3508,9 +3508,9 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+/(?!\\?.*)(.+)\\n.*\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\".*$",
+            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+/(?!@.*)(?!\\?.*)(.+)\\n.*\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\".*$",
             "includeHeaders": true,
-            "note": "URLs like https://500ish.com/?foo=bar should not be handled by this action.",
+            "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should not be handled by this action.",
             "formats": [
                 {
                     "appIdentifier": "medium",
@@ -3520,14 +3520,14 @@
         },
         {
             "title": "Open Publication",
-            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(?:/(?:\\?.*)?)?\\n.*\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\".*$",
+            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(?:/?(?:(?:@|\\?).*)?)?\\n.*\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\".*$",
             "includeHeaders": true,
-            "note": "URLs like https://500ish.com/?foo=bar should be handled as publications by this action. The prior 'open link' action will fail for those because they require a lookup in the page's markup to derive a deep link.",
+            "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should be handled as publications by this action. The prior 'open link' action will fail for those because they require a lookup in the page's markup to derive a deep link.",
             "formats": [
                 {
                     "appIdentifier": "medium",
                     "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(medium://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url.split('\\n')[0], true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.split('\\n')[0]); var match = RegExp('(medium://.*?)\"').exec(res)[1]; completionHandler(match); }"
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.split(/@|\\n/)[0]); var results = RegExp('(medium://.*?)\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }"
                 }
             ]
         },
