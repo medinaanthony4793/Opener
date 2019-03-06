@@ -7635,6 +7635,22 @@
                     "format": "com.shi.mastodon://id=$1"
                 }
             ]
+        },
+        {
+            "title": "Open Question",
+            "regex": "http(?:s)?://detail\\.chiebukuro\\.yahoo\\.co\\.jp/qa/question_detail/q(\\d+).*?$",
+            "testInputs": [
+                "https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q13203620018"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "yahooqajp",
+                    "format": "yjchiebukuro://?qid=$1",
+                    "testResults": [
+                        "yjchiebukuro://?qid=13203620018"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9125,6 +9141,14 @@
             "storeIdentifier": "1437429129",
             "scheme": "com.shi.mastodon://",
             "docs": "https://bit.ly/2H94C4f"
+            ,"new":1
+        },
+        {
+            "displayName": "Yahoo! Q&A JP",
+            "identifier": "yahooqajp",
+            "storeIdentifier": "354626165",
+            "country": "jp",
+            "scheme": "yjchiebukuro://"
             ,"new":1
         }
     ],
