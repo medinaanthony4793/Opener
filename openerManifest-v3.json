@@ -2618,22 +2618,6 @@
             ]
         },
         {
-            "title": "Open Post",
-            "regex": "http(?:s)?://(?:www\\.)?flipagram\\.com/f/(\\w+).*$",
-            "testInputs": [
-                "http://flipagram.com/f/V5uj3BU9CR"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "flipagram",
-                    "format": "flipagram://flipagram/$1",
-                    "testResults": [
-                        "flipagram://flipagram/V5uj3BU9CR"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Dubsmash",
             "regex": "http(?:s)?://api\\.dubsmash\\.com/goto/(\\w+).*$",
             "testInputs": [
@@ -8797,12 +8781,6 @@
             "identifier": "ft",
             "storeIdentifier": "1200842933",
             "scheme": "ft://"
-        },
-        {
-            "displayName": "Flipagram",
-            "identifier": "flipagram",
-            "storeIdentifier": "512727332",
-            "scheme": "flipagram://"
         },
         {
             "displayName": "Foursquare",
