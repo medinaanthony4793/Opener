@@ -2999,13 +2999,13 @@
                 "https://www.soundcloud.com/ukgoldfilm/sets/uk-gold-soundtrack",
                 "https://www.soundcloud.com/ukgoldfilm/sets/uk-gold-soundtrack/",
                 "https://www.soundcloud.com/ukgoldfilm/sets/uk-gold-soundtrack?foo=bar",
-                "https://www.soundcloud.com/ukgoldfilm/sets/uk-gold-soundtrack/?foo=bar"
+                "https://www.soundcloud.com/ukgoldfilm/sets/uk-gold-soundtrack/?foo=bar",
+                "https://soundcloud.com/lane8music/lane-8-spring-2019-mixtape"
             ],
             "formats": [
                 {
                     "appIdentifier": "soundcloud",
-                    "script": "function process(url, completionHandler) { url = 'https://api.soundcloud.com/resolve?client_id=27fcfadd796648a26072b6041ff5bf74&url=' + url; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var result = JSON.parse(xmlhttp.responseText); var appURL = null; if (result['kind'] === 'track') { appURL = 'soundcloud://sounds:' + result['id']; } else if (result['kind'] === 'user') { appURL = 'soundcloud://users:' + result['id']; } else if (result['kind'] === 'playlist') { appURL = 'soundcloud://sets:' + result['id']; } completionHandler(appURL); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { url = 'https://api.soundcloud.com/resolve?client_id=27fcfadd796648a26072b6041ff5bf74&url=' + url; var result = jsonRequest(url); var appURL = null; if (result['kind'] === 'track') { appURL = 'soundcloud://sounds:' + result['id']; } else if (result['kind'] === 'user') { appURL = 'soundcloud://users:' + result['id']; } else if (result['kind'] === 'playlist') { appURL = 'soundcloud://sets:' + result['id']; } completionHandler(appURL); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(soundcloud://.*?)\".*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
                     "testResults": [
                         "soundcloud://sounds:192620860",
                         "soundcloud://sounds:192620860",
@@ -3015,10 +3015,11 @@
                         "soundcloud://users:139227139",
                         "soundcloud://users:139227139",
                         "soundcloud://users:139227139",
-                        "soundcloud://sets:83870213",
-                        "soundcloud://sets:83870213",
-                        "soundcloud://sets:83870213",
-                        "soundcloud://sets:83870213"
+                        "soundcloud://playlists:83870213",
+                        "soundcloud://playlists:83870213",
+                        "soundcloud://playlists:83870213",
+                        "soundcloud://playlists:83870213",
+                        "soundcloud://sounds:584813445"
                     ]
                 }
             ]
