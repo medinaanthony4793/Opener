@@ -1176,22 +1176,6 @@
             ]
         },
         {
-            "title": "Open Journal",
-            "regex": "http(?:s)?://app\\.gowander\\.co/web/v1/journals/(\\d+).*$",
-            "testInputs": [
-                "http://app.gowander.co/web/v1/journals/219"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "wander",
-                    "format": "comgowanderwander://journals/$1",
-                    "testResults": [
-                        "comgowanderwander://journals/219"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Profile",
             "regex": "http(?:s?)://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest\\.com/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(?:/|/?\\?.*)?$",
             "testInputs": [
@@ -9048,12 +9032,6 @@
             "storeIdentifier": "692753615",
             "country": "es",
             "scheme": "wallapop://"
-        },
-        {
-            "displayName": "Wander",
-            "identifier": "wander",
-            "storeIdentifier": "944064086",
-            "scheme": "comgowanderwander://"
         },
         {
             "displayName": "We Heart It",
