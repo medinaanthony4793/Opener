@@ -9102,7 +9102,6 @@
             "storeIdentifier": "1437429129",
             "scheme": "com.shi.mastodon://",
             "docs": "https://bit.ly/2H94C4f"
-            ,"new":1
         },
         {
             "displayName": "Yahoo! Q&A JP",
@@ -9110,7 +9109,6 @@
             "storeIdentifier": "354626165",
             "country": "jp",
             "scheme": "yjchiebukuro://"
-            ,"new":1
         }
     ],
     "browsers": [
