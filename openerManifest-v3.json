@@ -6418,7 +6418,7 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "telegramx",
+                    "appIdentifier": "telegram",
                     "format": "tg://resolve?domain=$1",
                     "testResults": [
                         "tg://resolve?domain=MacStories",
@@ -6442,7 +6442,7 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "telegramx",
+                    "appIdentifier": "telegram",
                     "format": "tg://addstickers?set=$1",
                     "testResults": [
                         "tg://addstickers?set=NickSantini",
@@ -7719,9 +7719,9 @@
             "scheme": "narwhal://"
         },
         {
-            "displayName": "Telegram X",
-            "identifier": "telegramx",
-            "storeIdentifier": "898228810",
+            "displayName": "Telegram",
+            "identifier": "telegram",
+            "storeIdentifier": "686449807",
             "scheme": "tg://"
         },
         {
