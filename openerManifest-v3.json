@@ -7626,6 +7626,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Recipe",
+            "regex": "http(?:s)?://cooking\\.nytimes\\.com/recipes/(\\d+).*?$",
+            "testInputs": [
+                "https://cooking.nytimes.com/recipes/1020075-caramelized-onion-and-poppy-seed-hamantaschen"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "nytcooking",
+                    "format": "nytcooking://cooking.nytimes.com/recipes/$1",
+                    "testResults": [
+                        "nytcooking://cooking.nytimes.com/recipes/1020075"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9111,6 +9127,12 @@
             "storeIdentifier": "354626165",
             "country": "jp",
             "scheme": "yjchiebukuro://"
+        },
+        {
+            "displayName": "NYT Cooking",
+            "identifier": "nytcooking",
+            "storeIdentifier": "911422904",
+            "scheme": "nytcooking://"
         }
     ],
     "browsers": [
