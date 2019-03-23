@@ -9856,6 +9856,10 @@
         {
             "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/member_illust\\.php?.*illust_id=(\\d+).*?$",
             "format": "https://embed.pixiv.net/decorate.php?illust_id=$1"
+        },
+        {
+            "regex": "http(?:s)?://itunes\\.apple\\.com/(?!.*/story/.*).*?/(?:id)?(\\d+).*?$",
+            "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://itunes\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
         }
     ],
     "redirectRules": {
