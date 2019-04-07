@@ -5584,11 +5584,12 @@
         },
         {
             "title": "Open Story",
-            "regex": "http(?:s)?://(?:www\\.)?apple\\.news/([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "http(?:s)?://(?:(?:www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
             "testInputs": [
                 "https://apple.news/A_qfzJD7KTsqhuT5Ci4XcIw",
                 "https://apple.news/AW5OfgikKQs-rRr_tfTb37w",
-                "https://apple.news/AKY74NN47QC6Ae4io2CrxmQ"
+                "https://apple.news/AKY74NN47QC6Ae4io2CrxmQ",
+                "https://news.apple.com/AKY74NN47QC6Ae4io2CrxmQ"
             ],
             "formats": [
                 {
@@ -5597,6 +5598,7 @@
                     "testResults": [
                         "applenews:/A_qfzJD7KTsqhuT5Ci4XcIw",
                         "applenews:/AW5OfgikKQs-rRr_tfTb37w",
+                        "applenews:/AKY74NN47QC6Ae4io2CrxmQ",
                         "applenews:/AKY74NN47QC6Ae4io2CrxmQ"
                     ]
                 }
