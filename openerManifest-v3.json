@@ -1510,16 +1510,6 @@
                         "moke:///status?mid=D5ZxyE1tM&id=",
                         "moke:///status?mid=&id=4066781620224386"
                     ]
-                },
-                {
-                    "appIdentifier": "cosmos",
-                    "format": "cosmos://detail?link=$1",
-                    "testResults": [
-                        "cosmos://detail?link=http://weibo.com/2616423197/Cmjs2vh5Q?from=page_1005052616423197_profile&wvr=6&mod=weibotime",
-                        "cosmos://detail?link=http://m.weibo.cn/5524254784/D5ZxyE1tM",
-                        "cosmos://detail?link=http://m.weibo.cn/status/D5ZxyE1tM",
-                        "cosmos://detail?link=http://m.weibo.cn/status/4066781620224386"
-                    ]
                 }
             ]
         },
@@ -1553,14 +1543,6 @@
                     "testResults": [
                         "moke:///status?mid=&id=4202871811882629",
                         "moke:///status?mid=&id=4202871811882629"
-                    ]
-                },
-                {
-                    "appIdentifier": "cosmos",
-                    "format": "cosmos://detail?link=https://m.weibo.cn/status/$1",
-                    "testResults": [
-                        "cosmos://detail?link=https://m.weibo.cn/status/4202871811882629",
-                        "cosmos://detail?link=https://m.weibo.cn/status/4202871811882629"
                     ]
                 }
             ]
@@ -4928,15 +4910,6 @@
                         "catchapp://app?id=989565871",
                         "catchapp://app?id=989565871",
                         "catchapp://app?id=904280696"
-                    ]
-                },
-                {
-                    "appIdentifier": "freshgrapefruit",
-                    "format": "xmstatuscn://appinfo?id=$1",
-                    "testResults": [
-                        "xmstatuscn://appinfo?id=989565871",
-                        "xmstatuscn://appinfo?id=989565871",
-                        "xmstatuscn://appinfo?id=904280696"
                     ]
                 }
             ]
@@ -8767,12 +8740,6 @@
             "docs": "https://citymapper.com/tools/1053/launch-citymapper-for-directions"
         },
         {
-            "displayName": "Cosmos",
-            "identifier": "cosmos",
-            "scheme": "cosmos://",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/cosmos-114.jpg"
-        },
-        {
             "displayName": "Daum",
             "identifier": "daum",
             "storeIdentifier": "365494029",
@@ -9144,13 +9111,6 @@
             "identifier": "nicoseiga",
             "storeIdentifier": "1045938821",
             "scheme": "nicoseiga://"
-        },
-        {
-            "displayName": "\u9c9c\u67da\u5e94\u7528",
-            "identifier": "freshgrapefruit",
-            "scheme": "xmstatuscn://",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/freshgrapefruit-114.jpg",
-            "docs": "https://db.tt/N2AInHnMZ5"
         },
         {
             "displayName": "LIKEtoKNOW.it",
