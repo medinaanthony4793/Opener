@@ -9683,23 +9683,6 @@
             ]
         },
         {
-            "displayName": "Endless",
-            "identifier": "endlessbrowser",
-            "scheme": "endlesshttps://",
-            "storeIdentifier": "974745755",
-            "regex": "http((?:s)?.*)",
-            "format": "endlesshttp$1",
-            "docs": "https://goo.gl/xOwauK",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "endlesshttp://www.opener.link/",
-                "endlesshttps://twitter.com/openerapp"
-            ]
-        },
-        {
             "displayName": "Onion Browser",
             "identifier": "onionbrowser",
             "scheme": "onionhttp://",
