@@ -7642,6 +7642,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:www\\.)?liketoknow\\.it/(.+)$",
+            "testInputs": [
+                "https://www.liketoknow.it/ltk/7dAiHuJA1yx37wfETjZqUy",
+                "https://www.liketoknow.it/marvelousinthemidwest"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "liketoknowit",
+                    "format": "com.rewardstyle.lt://$1",
+                    "testResults": [
+                        "com.rewardstyle.lt://ltk/7dAiHuJA1yx37wfETjZqUy",
+                        "com.rewardstyle.lt://marvelousinthemidwest"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9133,6 +9151,12 @@
             "scheme": "xmstatuscn://",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/freshgrapefruit-114.jpg",
             "docs": "https://db.tt/N2AInHnMZ5"
+        },
+        {
+            "displayName": "LIKEtoKNOW.it",
+            "identifier": "liketoknowit",
+            "storeIdentifier": "1154027990",
+            "scheme": "com.rewardstyle.ltk://"
         }
     ],
     "browsers": [
