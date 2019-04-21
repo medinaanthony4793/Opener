@@ -4136,18 +4136,6 @@
                     ]
                 },
                 {
-                    "appIdentifier": "wikiwand",
-                    "format": "wikiwand-article://$2/$3",
-                    "testResults": [
-                        null,
-                        "wikiwand-article://en/Bottle_opener",
-                        "wikiwand-article://en/Soylent",
-                        "wikiwand-article://zh-yue/%E9%96%8B%E4%BF%A1%E5%88%80",
-                        "wikiwand-article://zh/%E5%90%89%E9%87%8E%E5%AE%B6",
-                        "wikiwand-article://zh/%E4%B9%A0%E8%BF%91%E5%B9%B3"
-                    ]
-                },
-                {
                     "appIdentifier": "wikipanion",
                     "format": "wplink://$2.wikipedia.org/wiki/$3",
                     "testResults": [
@@ -4195,6 +4183,18 @@
                         "curiosity://p/zh/41419",
                         "curiosity://p/zh/112582"
                     ]
+                },
+                {
+                    "appIdentifier": "wikiwand",
+                    "format": "wikiwand-article://$2/$3",
+                    "testResults": [
+                        null,
+                        "wikiwand-article://en/Bottle_opener",
+                        "wikiwand-article://en/Soylent",
+                        "wikiwand-article://zh-yue/%E9%96%8B%E4%BF%A1%E5%88%80",
+                        "wikiwand-article://zh/%E5%90%89%E9%87%8E%E5%AE%B6",
+                        "wikiwand-article://zh/%E4%B9%A0%E8%BF%91%E5%B9%B3"
+                    ]
                 }
             ]
         },
@@ -4234,15 +4234,6 @@
                     ]
                 },
                 {
-                    "appIdentifier": "wikiwand",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale = null; if (match[2] != null) { locale = match[2] } else if (match[3] != null) { locale = match[3]; } var pageid = null; if (match[1] != null) { pageid = match[1] } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikiwand-article://' + locale + '/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale = null; if (match[2] != null) { locale = match[2] } else if (match[3] != null) { locale = match[3]; } var pageid = null; if (match[1] != null) { pageid = match[1] } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikiwand-article://' + locale + '/' + encodeURIComponent(title)); }",
-                    "testResults": [
-                        "wikiwand-article://en/Noe%20Valley%2C%20San%20Francisco",
-                        "wikiwand-article://en/Noe%20Valley%2C%20San%20Francisco"
-                    ]
-                },
-                {
                     "appIdentifier": "wikipanion",
                     "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale = null; if (match[2] != null) { locale = match[2] } else if (match[3] != null) { locale = match[3]; } var pageid = null; if (match[1] != null) { pageid = match[1] } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wplink://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale = null; if (match[2] != null) { locale = match[2] } else if (match[3] != null) { locale = match[3]; } var pageid = null; if (match[1] != null) { pageid = match[1] } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wplink://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); }",
@@ -4275,6 +4266,15 @@
                     "testResults": [
                         "curiosity://p/en/351344",
                         "curiosity://p/en/351344"
+                    ]
+                },
+                {
+                    "appIdentifier": "wikiwand",
+                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale = null; if (match[2] != null) { locale = match[2] } else if (match[3] != null) { locale = match[3]; } var pageid = null; if (match[1] != null) { pageid = match[1] } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikiwand-article://' + locale + '/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
+                    "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale = null; if (match[2] != null) { locale = match[2] } else if (match[3] != null) { locale = match[3]; } var pageid = null; if (match[1] != null) { pageid = match[1] } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikiwand-article://' + locale + '/' + encodeURIComponent(title)); }",
+                    "testResults": [
+                        "wikiwand-article://en/Noe%20Valley%2C%20San%20Francisco",
+                        "wikiwand-article://en/Noe%20Valley%2C%20San%20Francisco"
                     ]
                 }
             ]
@@ -4496,22 +4496,6 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s?)://((?:\\w+\\.)*stackoverflow\\.com/.*)",
-            "testInputs": [
-                "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "stackoverflow",
-                    "format": "com.stackexchange.stackoverflow://$1",
-                    "testResults": [
-                        "com.stackexchange.stackoverflow://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Open Link",
             "regex": "http(?:s?)://((?:\\w+\\.)*(?:(?:stackoverflow|stackexchange|serverfault|superuser|stackapps)\\.com|mathoverflow\\.net)/.*)",
             "testInputs": [
                 "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
@@ -4522,6 +4506,22 @@
                     "format": "se-zaphod://$1",
                     "testResults": [
                         "se-zaphod://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s?)://((?:\\w+\\.)*stackoverflow\\.com/.*)",
+            "testInputs": [
+                "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "stackoverflow",
+                    "format": "com.stackexchange.stackoverflow://$1",
+                    "testResults": [
+                        "com.stackexchange.stackoverflow://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
                     ]
                 }
             ]
@@ -8435,8 +8435,8 @@
         {
             "displayName": "Wikiwand",
             "identifier": "wikiwand",
-            "storeIdentifier": "947444965",
             "scheme": "wikiwand-article://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/wikiwand-114.jpg",
             "docs": "https://wikiwand-ios.uservoice.com/knowledgebase/articles/513725-does-the-wikiwand-ios-app-support-url-schemes"
         },
         {
@@ -8578,8 +8578,8 @@
         {
             "displayName": "Stack Overflow",
             "identifier": "stackoverflow",
-            "storeIdentifier": "1155618808",
-            "scheme": "com.stackexchange.stackoverflow://"
+            "scheme": "com.stackexchange.stackoverflow://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/stack-overflow-114.jpg"
         },
         {
             "displayName": "Zillow",
