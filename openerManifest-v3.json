@@ -5605,6 +5605,28 @@
             ]
         },
         {
+            "title": "View Other Options",
+            "regex": "http(?:s)?://(?:(?:www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
+            "testInputs": [
+                "https://apple.news/A_qfzJD7KTsqhuT5Ci4XcIw",
+                "https://apple.news/AW5OfgikKQs-rRr_tfTb37w",
+                "https://apple.news/AKY74NN47QC6Ae4io2CrxmQ",
+                "https://news.apple.com/AKY74NN47QC6Ae4io2CrxmQ"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "opener",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = null; if (results != null && results.length > 1) { match = 'opener://x-callback-url/show-options?url=' + encodeURIComponent(results[1]); }; completionHandler(match); }",
+                    "testResults": [
+                        "opener://x-callback-url/show-options?url=http%3A%2F%2Fwww.theguardian.com%2Fcommentisfree%2F2015%2Fdec%2F10%2Fcalais-jungle-refugee-camp-volunteer-conditions%3FCMP%3Doth_b-aplnews_d-1",
+                        "opener://x-callback-url/show-options?url=http%3A%2F%2Fwww.chron.com%2Fentertainment%2Fpreview%2Farticle%2FFree-Press-Summer-Fest-favorite-to-return-to-6690333.php",
+                        null,
+                        null
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Restaurant",
             "regex": "http(?:s)?://(?:\\w+\\.)+?opentable(?:\\.\\w+)+(?:/restaurants/.*/(\\d+)|.*rid=(\\d+).*||.*\\n.*er=(\\d+).*)$",
             "includeHeaders": true,
@@ -9119,6 +9141,12 @@
             "identifier": "liketoknowit",
             "storeIdentifier": "1154027990",
             "scheme": "com.rewardstyle.ltk://"
+        },
+        {
+            "displayName": "Opener",
+            "identifier": "opener",
+            "storeIdentifier": "989565871",
+            "scheme": "opener://"
         }
     ],
     "browsers": [
