@@ -9146,7 +9146,7 @@
             "displayName": "Opener",
             "identifier": "opener",
             "storeIdentifier": "989565871",
-            "scheme": "opener://"
+            "scheme": "noscheme://"
         }
     ],
     "browsers": [
