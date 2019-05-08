@@ -6288,24 +6288,6 @@
             ]
         },
         {
-            "title": "Open Event",
-            "regex": "http(?:s)?://(?:www\\.)?ticketfly\\.com/(?:purchase/)?event/(\\d+).*?$",
-            "testInputs": [
-                "https://www.ticketfly.com/purchase/event/1149311?utm_medium=bks&q=7f08e68e-54f8-4a11-97a5-83e3a4ff26e6&p=52397049-9a9e-4a1b-890d-d89b23974338&ts=1459546965&c=ticketfly&e=00767&rt=Safetynet&h=11e704795341a4f34b97a6a6db0ec49f",
-                "https://www.ticketfly.com/event/1149311"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "ticketfly",
-                    "format": "ticketfly://app/events/$1",
-                    "testResults": [
-                        "ticketfly://app/events/1149311",
-                        "ticketfly://app/events/1149311"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Recommendation",
             "regex": "http(?:s)?://rex\\.is/p/(\\d+).*?$",
             "testInputs": [
@@ -9033,12 +9015,6 @@
             "identifier": "thescore",
             "storeIdentifier": "285692706",
             "scheme": "thescore://"
-        },
-        {
-            "displayName": "Ticketfly",
-            "identifier": "ticketfly",
-            "storeIdentifier": "943114354",
-            "scheme": "ticketfly://"
         },
         {
             "displayName": "Tieba",
