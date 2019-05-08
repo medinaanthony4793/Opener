@@ -62,7 +62,7 @@ while actionIndex < len(data['actions']):
         
         formatKeys = format.keys()
         for keyIndex,key in enumerate(formatKeys):
-            if not key in ["appIdentifier", "format", "script", "script2"]:
+            if not key in ["appIdentifier", "app", "format", "script", "script2"]:
                 # print "Removing " + key + " from format"
                 format.pop(key, None)
             elif (key == "script2" or key == "script") and mangle:
