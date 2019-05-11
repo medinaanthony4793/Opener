@@ -7576,12 +7576,13 @@
         {
             "title": "Open Status",
             "includeHeaders": true,
-            "regex": "http(?:s)?://\\w+(?:\\.\\w+)+/(?:@[^/]+|(?:web|users/\\w+)/statuses)/(\\d+).*?\\n.*(?i)(?:server\":\"mastodon).*",
+            "regex": "http(?:s)?://\\w+(?:\\.\\w+)+/(?:@[^/]+|(?:web|users/\\w+)/statuses)/(\\d+).*?\\n.*(?i)(?:server\":\"[^\"]*mastodon).*",
             "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
             "testsThatCantBeRunCuzHeaders": [
                 "https://mastodon.technology/web/statuses/101673699373863528",
                 "https://masthead.social/@editor/101672869547896675",
-                "https://mastodon.technology/users/JPEG/statuses/101658532656614023"
+                "https://mastodon.technology/users/JPEG/statuses/101658532656614023",
+                "https://niu.moe/@mrjunge/102078356387296311"
             ],
             "formats": [
                 {
