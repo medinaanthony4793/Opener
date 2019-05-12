@@ -7640,6 +7640,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*rightmove\\.co\\.uk/property[^/]+/property-(\\d+).*$",
+            "testInputs": [
+                "https://www.rightmove.co.uk/property-for-sale/property-74972759.html",
+                "https://www.rightmove.co.uk/property-to-rent/property-61343787.html"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "rightmove",
+                    "format": "rightmove://PROPERTY_DETAILS?propertyId=$1",
+                    "testResults": [
+                        "rightmove://PROPERTY_DETAILS?propertyId=74972759",
+                        "rightmove://PROPERTY_DETAILS?propertyId=61343787"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9118,6 +9136,12 @@
             "identifier": "liketoknowit",
             "storeIdentifier": "1154027990",
             "scheme": "com.rewardstyle.ltk://"
+        },
+        {
+            "displayName": "Rightmove",
+            "identifier": "rightmove",
+            "storeIdentifier": "605841731",
+            "scheme": "rightmove://"
         },
         {
             "displayName": "Opener",
