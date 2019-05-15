@@ -5615,7 +5615,12 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "opener",
+                    "app": {
+                        "displayName": "Opener",
+                        "identifier": "applenews-openerredirect",
+                        "storeIdentifier": "989565871",
+                        "scheme": "opener://"
+                    },
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = null; if (results != null && results.length > 1) { match = 'opener://x-callback-url/show-options?url=' + encodeURIComponent(results[1]); }; completionHandler(match); }",
                     "testResults": [
                         "opener://x-callback-url/show-options?url=http%3A%2F%2Fwww.theguardian.com%2Fcommentisfree%2F2015%2Fdec%2F10%2Fcalais-jungle-refugee-camp-volunteer-conditions%3FCMP%3Doth_b-aplnews_d-1",
@@ -9141,13 +9146,7 @@
             "displayName": "Rightmove",
             "identifier": "rightmove",
             "storeIdentifier": "323822803",
-            "scheme": "rightmove://"
-        },
-        {
-            "displayName": "Opener",
-            "identifier": "opener",
-            "storeIdentifier": "989565871",
-            "scheme": "noscheme://"
+            "scheme": "rightmove://",
         }
     ],
     "browsers": [
