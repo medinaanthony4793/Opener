@@ -3130,12 +3130,13 @@
         },
         {
             "title": "Add iTunes Podcast",
-            "regex": "http(?:s)?://(?:geo\\.)?(itunes\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
+            "regex": "http(?:s)?://(?:geo\\.)?((itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
             "testInputs": [
                 "https://itunes.apple.com/us/podcast/serial/id917918570?mt=2",
                 "https://itunes.apple.com/us/podcast/episode-01-the-alibi/id917918570?i=319686008&mt=2",
                 "https://itunes.apple.com/us/podcast/id909109678",
-                "https://itunes.apple.com/podcast/id909109678"
+                "https://itunes.apple.com/podcast/id909109678",
+                "https://podcasts.apple.com/us/podcast/next-to-normal-story-slam/id1463199977"
             ],
             "formats": [
                 {
@@ -3146,7 +3147,8 @@
                         "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fpodcast%2Fserial%2Fid917918570%3Fmt%3D2",
                         "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fpodcast%2Fepisode-01-the-alibi%2Fid917918570%3Fi%3D319686008%26mt%3D2",
                         "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fpodcast%2Fid909109678",
-                        "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fpodcast%2Fid909109678"
+                        "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fpodcast%2Fid909109678",
+                        "overcast://x-callback-url/add?url=https%3A%2F%2Fpodcasts.apple.com%2Fus%2Fpodcast%2Fnext-to-normal-story-slam%2Fid1463199977"
                     ]
                 },
                 {
@@ -3156,7 +3158,8 @@
                         "castro://subscribe/itunes.apple.com/us/podcast/serial/id917918570?mt=2",
                         "castro://subscribe/itunes.apple.com/us/podcast/episode-01-the-alibi/id917918570?i=319686008&mt=2",
                         "castro://subscribe/itunes.apple.com/us/podcast/id909109678",
-                        "castro://subscribe/itunes.apple.com/podcast/id909109678"
+                        "castro://subscribe/itunes.apple.com/podcast/id909109678",
+                        "castro://subscribe/podcasts.apple.com/us/podcast/next-to-normal-story-slam/id1463199977"
                     ]
                 },
                 {
@@ -3166,7 +3169,8 @@
                         "pktc://subscribe/itunes.apple.com/us/podcast/serial/id917918570?mt=2",
                         "pktc://subscribe/itunes.apple.com/us/podcast/episode-01-the-alibi/id917918570?i=319686008&mt=2",
                         "pktc://subscribe/itunes.apple.com/us/podcast/id909109678",
-                        "pktc://subscribe/itunes.apple.com/podcast/id909109678"
+                        "pktc://subscribe/itunes.apple.com/podcast/id909109678",
+                        "pktc://subscribe/podcasts.apple.com/us/podcast/next-to-normal-story-slam/id1463199977"
                     ]
                 }
             ]
