@@ -9146,7 +9146,7 @@
             "displayName": "Rightmove",
             "identifier": "rightmove",
             "storeIdentifier": "323822803",
-            "scheme": "rightmove://",
+            "scheme": "rightmove://"
         }
     ],
     "browsers": [
