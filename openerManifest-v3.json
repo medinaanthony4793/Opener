@@ -5617,7 +5617,7 @@
                 {
                     "app": {
                         "displayName": "Opener",
-                        "identifier": "applenews-openerredirect",
+                        "identifier": "applenews-otherapp",
                         "storeIdentifier": "989565871",
                         "scheme": "opener://"
                     },
