@@ -7367,24 +7367,6 @@
             ]
         },
         {
-            "title": "Open Campaign",
-            "regex": "http(s)?://(www\\.)?(indiegogo\\.com/projects/.*|igg\\.me/at/.*)$",
-            "testInputs": [
-                "https://www.indiegogo.com/projects/foster-the-people-anti-bullying-project#/",
-                "http://igg.me/at/bugsonthemenu?1SZR0"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "indiegogo",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(indiegogo://campaigns/\\\\d+).*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
-                    "testResults": [
-                        "indiegogo://campaigns/1498429",
-                        "indiegogo://campaigns/1494528"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Link",
             "regex": "http(?:s)?://derstandard\\.at/(.+)$",
             "testInputs": [
@@ -8870,12 +8852,6 @@
             "identifier": "hypemachine",
             "storeIdentifier": "414315986",
             "scheme": "hypem://"
-        },
-        {
-            "displayName": "Indiegogo",
-            "identifier": "indiegogo",
-            "storeIdentifier": "752234889",
-            "scheme": "indiegogo://"
         },
         {
             "displayName": "Inquire",
