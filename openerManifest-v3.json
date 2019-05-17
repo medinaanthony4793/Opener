@@ -3831,18 +3831,20 @@
         },
         {
             "title": "Open Event",
-            "regex": "http(?:s?)://(?:m\\.|mobile\\.|www\\.)?meetup\\.com/([a-zA-Z0-9_\\-%]+)(?:/.*)?/(\\d+).*$",
+            "regex": "http(?:s?)://(?:m\\.|mobile\\.|www\\.)?meetup\\.com/((?:.*/)?events/\\d+).*$",
             "testInputs": [
                 "http://www.meetup.com/Mobilize-MN/events/221392586/",
-                "http://www.meetup.com/svmobiledev/events/226384871/?joinFrom=event&success=profileUpdatedEventWelcome"
+                "http://www.meetup.com/svmobiledev/events/226384871/?joinFrom=event&success=profileUpdatedEventWelcome",
+                "https://www.meetup.com/swift-language/events/261472504"
             ],
             "formats": [
                 {
                     "appIdentifier": "meetup",
-                    "format": "meetup://events/$2",
+                    "format": "meetup://$1",
                     "testResults": [
-                        "meetup://events/221392586",
-                        "meetup://events/226384871"
+                        "meetup://Mobilize-MN/events/221392586",
+                        "meetup://svmobiledev/events/226384871",
+                        "meetup://swift-language/events/261472504"
                     ]
                 },
                 {
@@ -3851,7 +3853,8 @@
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var res = jsonRequest(url); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('comgooglemaps://?q=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "comgooglemaps://?q=44.975250244140625,-93.25302124023438",
-                        null
+                        null,
+                        "comgooglemaps://?q=37.77650451660156,-122.39203643798828"
                     ]
                 },
                 {
@@ -3860,7 +3863,8 @@
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var res = jsonRequest(url); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('maps://maps.apple.com/maps?q=' + encodeURIComponent(res['venue']['name']) + '&ll=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "maps://maps.apple.com/maps?q=Day%20Block%20Event%20Center&ll=44.975250244140625,-93.25302124023438",
-                        null
+                        null,
+                        "maps://maps.apple.com/maps?q=Lyft&ll=37.77650451660156,-122.39203643798828"
                     ]
                 },
                 {
@@ -3869,7 +3873,8 @@
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier;  var res = jsonRequest(url); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('waze://?q=' + encodeURIComponent(res['venue']['name']) + '&ll=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "waze://?q=Day%20Block%20Event%20Center&ll=44.975250244140625,-93.25302124023438",
-                        null
+                        null,
+                        "waze://?q=Lyft&ll=37.77650451660156,-122.39203643798828"
                     ]
                 },
                 {
@@ -3878,7 +3883,8 @@
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier;  var res = jsonRequest(url); if (res['venue'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('transit://directions?to=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "transit://directions?to=44.975250244140625,-93.25302124023438",
-                        null
+                        null,
+                        "transit://directions?to=37.77650451660156,-122.39203643798828"
                     ]
                 },
                 {
@@ -3887,7 +3893,8 @@
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier;  var res = jsonRequest(url); if (res['venue'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('citymapper://x-callback-url/directions?endcoord=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "citymapper://x-callback-url/directions?endcoord=44.975250244140625,-93.25302124023438",
-                        null
+                        null,
+                        "citymapper://x-callback-url/directions?endcoord=37.77650451660156,-122.39203643798828"
                     ]
                 }
             ]
