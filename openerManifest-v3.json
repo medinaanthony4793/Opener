@@ -638,7 +638,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?([^/|%2F]+)(?:/|%2F)(?:posts|videos)(?:/|%2F)(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?!\\d+)(?:[^/|%2F]+)(?:/|%2F)(?:posts|videos)(?:/|%2F)(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/timonus/posts/10154879225363318",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
@@ -650,7 +650,8 @@
                 "https://www.facebook.com/n/?dbhuynh%2Fposts%2F10107195283476043",
                 "https://www.facebook.com/verge/videos/1558737434162594/",
                 "https://www.facebook.com/techcrunch/videos/10156003235202952/",
-                "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186"
+                "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186",
+                "https://www.facebook.com/48894759275/posts/10157755508369276?sfns=mo"
             ],
             "formats": [
                 {
@@ -667,7 +668,46 @@
                         "fb://story/?id=1201819_10107195283476043",
                         "fb://story/?id=193742123995472_1558737434162594",
                         "fb://story/?id=8062627951_10156003235202952",
+                        null,
                         null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Post",
+            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(\\d+)(?:/|%2F)(?:posts|videos)(?:/|%2F)(\\d+).*$",
+            "testInputs": [
+                "https://www.facebook.com/timonus/posts/10154879225363318",
+                "https://www.facebook.com/dbhuynh/posts/10107195283476043",
+                "https://www.facebook.com/n/?timonus/posts/10154879225363318",
+                "https://www.facebook.com/n/?dbhuynh/posts/10107195283476043",
+                "https://www.facebook.com/n?timonus/posts/10154879225363318",
+                "https://www.facebook.com/n?dbhuynh/posts/10107195283476043",
+                "https://www.facebook.com/n/?timonus%2Fposts%2F10154879225363318",
+                "https://www.facebook.com/n/?dbhuynh%2Fposts%2F10107195283476043",
+                "https://www.facebook.com/verge/videos/1558737434162594/",
+                "https://www.facebook.com/techcrunch/videos/10156003235202952/",
+                "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186",
+                "https://www.facebook.com/48894759275/posts/10157755508369276?sfns=mo"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "facebook",
+                    "format": "fb://story/?id=$1_$2",
+                    "testResults": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "fb://story/?id=48894759275_10157755508369276"
                     ]
                 }
             ]
