@@ -5724,6 +5724,13 @@
             ],
             "formats": [
                 {
+                    "appIdentifier": "hack",
+                    "format": "hack://item?id=$1",
+                    "testResults": [
+                        "hack://item?id=10781731"
+                    ]
+                },
+                {
                     "appIdentifier": "boreal",
                     "format": "borealhn://post?$1",
                     "testResults": [
@@ -5757,11 +5764,51 @@
             ],
             "formats": [
                 {
+                    "appIdentifier": "hack",
+                    "format": "hack://user?id=$1",
+                    "testResults": [
+                        "hack://user?id=_jomo",
+                        "hack://user?id=_jomo"
+                    ]
+                },
+                {
                     "appIdentifier": "boreal",
                     "format": "borealhn://profile?$1",
                     "testResults": [
                         "borealhn://profile?_jomo",
                         "borealhn://profile?_jomo"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://news\\.ycombinator\\.com/from.*(?:\\?|&)site=([^&]+).*?$",
+            "testInputs": [
+                "https://news.ycombinator.com/from?site=matrix.org"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "hack",
+                    "format": "hack://site?id=$1",
+                    "testResults": [
+                        "hack://site?id=matrix.org"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://news\\.ycombinator\\.com/front.*(?:\\?|&)day=([^&]+).*?$",
+            "testInputs": [
+                "https://news.ycombinator.com/front?day=2018-05-10"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "hack",
+                    "format": "hack://date?id=$1",
+                    "testResults": [
+                        "hack://date?id=2018-05-10"
                     ]
                 }
             ]
@@ -9214,6 +9261,13 @@
             "identifier": "amaroq",
             "storeIdentifier": "1214116200",
             "scheme": "amaroq://"
+        },
+        {
+            "displayName": "HACK",
+            "identifier": "hack",
+            "storeIdentifier": "1464477788",
+            "scheme": "hack://",
+            "docs": "https://db.tt/qT9KXSfk95"
         }
     ],
     "browsers": [
