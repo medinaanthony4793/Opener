@@ -3170,7 +3170,7 @@
         },
         {
             "title": "Add iTunes Podcast",
-            "regex": "http(?:s)?://(?:geo\\.)?((itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
+            "regex": "http(?:s)?://(?:geo\\.)?((?:itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
             "testInputs": [
                 "https://itunes.apple.com/us/podcast/serial/id917918570?mt=2",
                 "https://itunes.apple.com/us/podcast/episode-01-the-alibi/id917918570?i=319686008&mt=2",
@@ -4928,21 +4928,23 @@
         },
         {
             "title": "View App",
-            "regex": "http(?:s)?://(?:geo\\.)?itunes\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+).*$",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+).*$",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
                 "https://geo.itunes.apple.com/us/app/opener-open-links-in-apps/id989565871",
-                "https://itunes.apple.com/us/app/things-3/id904280696?mt=12"
+                "https://itunes.apple.com/us/app/things-3/id904280696?mt=12",
+                "https://apps.apple.com/us/app/hack-for-hacker-news-reader-yc/id1464477788"
             ],
             "formats": [
                 {
                     "appIdentifier": "appstore",
-                    "script": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:geo\\\\.)?itunes\\\\.apple\\\\.com/(?:.*/)*app/(?:.*/)?id(\\\\d+).*$').exec(url); var match = null; if (results != null && results.length > 1) { match = 'itms-apps://itunes.apple.com/app/id' + results[1] + '?at=1001l3kM'; }; completionHandler(match); }",
-                    "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:geo\\\\.)?itunes\\\\.apple\\\\.com/(?:.*/)*app/(?:.*/)?id(\\\\d+).*$').exec(url); var match = null; if (results != null && results.length > 1) { match = 'itms-apps://itunes.apple.com/app/id' + results[1] + '?at=1001l3kM'; }; completionHandler(match); }",
+                    "script": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:geo\\\\.)?(?:itunes|apps)\\\\.apple\\\\.com/(?:.*/)*app/(?:.*/)?id(\\\\d+).*$').exec(url); var match = null; if (results != null && results.length > 1) { match = 'itms-apps://itunes.apple.com/app/id' + results[1] + '?at=1001l3kM'; }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:geo\\\\.)?(?:itunes|apps)\\\\.apple\\\\.com/(?:.*/)*app/(?:.*/)?id(\\\\d+).*$').exec(url); var match = null; if (results != null && results.length > 1) { match = 'itms-apps://itunes.apple.com/app/id' + results[1] + '?at=1001l3kM'; }; completionHandler(match); }",
                     "testResults": [
                         "itms-apps://itunes.apple.com/app/id989565871?at=1001l3kM",
                         "itms-apps://itunes.apple.com/app/id989565871?at=1001l3kM",
-                        "itms-apps://itunes.apple.com/app/id904280696?at=1001l3kM"
+                        "itms-apps://itunes.apple.com/app/id904280696?at=1001l3kM",
+                        "itms-apps://itunes.apple.com/app/id1464477788?at=1001l3kM"
                     ]
                 },
                 {
@@ -4951,7 +4953,8 @@
                     "testResults": [
                         "catchapp://app?id=989565871",
                         "catchapp://app?id=989565871",
-                        "catchapp://app?id=904280696"
+                        "catchapp://app?id=904280696",
+                        "catchapp://app?id=1464477788"
                     ]
                 },
                 {
@@ -4960,14 +4963,15 @@
                     "testResults": [
                         "catchapp://app?id=989565871",
                         "catchapp://app?id=989565871",
-                        "catchapp://app?id=904280696"
+                        "catchapp://app?id=904280696",
+                        "catchapp://app?id=1464477788"
                     ]
                 }
             ]
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:geo\\.)?itunes\\.apple\\.com/(?:.*/)*(artist|album|music-video)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)*(artist|album|music-video)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
                 "https://itunes.apple.com/us/album/guero/id485498129",
@@ -4977,7 +4981,8 @@
                 "https://itunes.apple.com/us/tv-season/breaking-bad-season-1/id271383858",
                 "https://itunes.apple.com/us/tv-season/pilot/id271383858?i=271866344",
                 "https://geo.itunes.apple.com/us/app/opener-open-links-in-apps/id989565871",
-                "https://itunes.apple.com/us/album/audio-video-disco/470073062"
+                "https://itunes.apple.com/us/album/audio-video-disco/470073062",
+                "https://music.apple.com/us/album/caravelle/1440885023"
             ],
             "formats": [
                 {
@@ -4992,7 +4997,8 @@
                         null,
                         null,
                         null,
-                        "itms://itunes.apple.com/album/id470073062?at=1001l3kM&"
+                        "itms://itunes.apple.com/album/id470073062?at=1001l3kM&",
+                        "itms://itunes.apple.com/album/id1440885023?at=1001l3kM&"
                     ]
                 },
                 {
@@ -5007,7 +5013,8 @@
                         null,
                         null,
                         null,
-                        "music://itunes.apple.com/album/id470073062?at=1001l3kM&"
+                        "music://itunes.apple.com/album/id470073062?at=1001l3kM&",
+                        "music://itunes.apple.com/album/id1440885023?at=1001l3kM&"
                     ]
                 }
             ]
@@ -5046,15 +5053,17 @@
         },
         {
             "title": "View Book",
-            "regex": "http(?:s)?://(?:geo\\.)?itunes\\.apple\\.com/(?:.*/)*(book)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|books)\\.apple\\.com/(?:.*/)*(book)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
             "testInputs": [
-                "https://itunes.apple.com/book/id1296848713"
+                "https://itunes.apple.com/book/id1296848713",
+                "https://books.apple.com/book/id1296848713"
             ],
             "formats": [
                 {
                     "appIdentifier": "ibooks",
                     "format": "itms-books://itunes.apple.com/book/id$2?at=1001l3kM&$3",
                     "testResults": [
+                        "itms-books://itunes.apple.com/book/id1296848713?at=1001l3kM&",
                         "itms-books://itunes.apple.com/book/id1296848713?at=1001l3kM&"
                     ]
                 }
@@ -5062,23 +5071,25 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "http(?:s)?://((?:geo\\.)?itunes\\.apple\\.com/(?:.*/)?playlist/.*)$",
+            "regex": "http(?:s)?://((?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)?playlist/.*)$",
             "testInputs": [
-                "https://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
+                "https://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday",
+                "https://music.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
             ],
             "formats": [
                 {
                     "appIdentifier": "applemusic",
                     "format": "music://$1",
                     "testResults": [
-                        "music://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
+                        "music://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday",
+                        "music://music.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
                     ]
                 }
             ]
         },
         {
             "title": "View Item",
-            "regex": "(http(?:s)?://(?:geo\\.)?itunes\\.apple\\.com/(?!.*/(?:story|podcast)/.*)(?:.*/)?id(\\d+).*)$",
+            "regex": "(http(?:s)?://(?:geo\\.)?(?:itunes|apps|music|books)\\.apple\\.com/(?!.*/(?:story|podcast)/.*)(?:.*/)?id(\\d+).*)$",
             "note": "same as blink entry below",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
@@ -5111,11 +5122,12 @@
         },
         {
             "title": "View App",
-            "regex": "http(?:s)?://(?:geo\\.)?itunes\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+)(?!.*(?:&|\\?)mt=12.*).*$",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+)(?!.*(?:&|\\?)mt=12.*).*$",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
                 "https://geo.itunes.apple.com/us/app/opener-open-links-in-apps/id989565871",
-                "https://itunes.apple.com/us/app/things-3/id904280696?mt=12"
+                "https://itunes.apple.com/us/app/things-3/id904280696?mt=12",
+                "https://apps.apple.com/us/app/hack-for-hacker-news-reader-yc/id1464477788"
             ],
             "formats": [
                 {
@@ -5124,7 +5136,8 @@
                     "testResults": [
                         "wshlst://989565871",
                         "wshlst://989565871",
-                        null
+                        null,
+                        "wshlst://1464477788"
                     ]
                 },
                 {
@@ -5133,7 +5146,8 @@
                     "testResults": [
                         "pricetag://app?url=https://itunes.apple.com/app/id989565871",
                         "pricetag://app?url=https://itunes.apple.com/app/id989565871",
-                        null
+                        null,
+                        "pricetag://app?url=https://itunes.apple.com/app/id1464477788"
                     ]
                 }
             ]
@@ -9930,7 +9944,7 @@
             "format": "https://embed.pixiv.net/decorate.php?illust_id=$1"
         },
         {
-            "regex": "http(?:s)?://itunes\\.apple\\.com/(?!.*/story/.*).*?/(?:id)?(\\d+).*?$",
+            "regex": "http(?:s)?://(?:itunes|apps|music|books)\\.apple\\.com/(?!.*/story/.*).*?/(?:id)?(\\d+).*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://itunes\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
         }
     ],
