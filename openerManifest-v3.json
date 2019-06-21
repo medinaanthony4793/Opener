@@ -7777,6 +7777,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open JSON",
+            "regex": "(http(?:s)?://([^?]+(?:\\.json).*))$",
+            "testInputs": [
+                "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "jayson",
+                    "script2": "function process(url, completionHandler) { completionHandler('jayson://view?link=' + encodeURIComponent(url)); }",
+                    "testResults": [
+                        "jayson://view?link=https%3A%2F%2Fraw.githubusercontent.com%2Ftimonus%2FOpenerManifest%2Fmaster%2FopenerManifest-v3.json"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9268,6 +9284,12 @@
             "identifier": "iheartradio",
             "storeIdentifier": "290638154",
             "scheme": "ihr://"
+        },
+        {
+            "displayName": "Jayson",
+            "identifier": "jayson",
+            "storeIdentifier": "1447750768",
+            "scheme": "jayson://"
         }
     ],
     "browsers": [
