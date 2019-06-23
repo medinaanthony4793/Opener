@@ -5724,6 +5724,13 @@
             ],
             "formats": [
                 {
+                    "appIdentifier": "octal",
+                    "format": "octal://item?id=$1",
+                    "testResults": [
+                        "octal://item?id=10781731"
+                    ]
+                },
+                {
                     "appIdentifier": "hack",
                     "format": "hack://item?id=$1",
                     "testResults": [
@@ -5763,6 +5770,14 @@
                 "https://news.ycombinator.com/user?id=_jomo&blah=blah"
             ],
             "formats": [
+                {
+                    "appIdentifier": "octal",
+                    "format": "octal://user?id=$1",
+                    "testResults": [
+                        "octal://user?id=_jomo",
+                        "octal://user?id=_jomo"
+                    ]
+                },
                 {
                     "appIdentifier": "hack",
                     "format": "hack://user?id=$1",
@@ -9284,6 +9299,13 @@
             "identifier": "iheartradio",
             "storeIdentifier": "290638154",
             "scheme": "ihr://"
+        },
+        {
+            "displayName": "Octal",
+            "identifier": "octal",
+            "storeIdentifier": "1308885491",
+            "scheme": "octal://",
+            "docs": "https://db.tt/arGn8KwhFi, https://github.com/dangwu/Octal/issues/72"
         },
         {
             "displayName": "Jayson",
