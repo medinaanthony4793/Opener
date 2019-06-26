@@ -3829,25 +3829,6 @@
             ]
         },
         {
-            "title": "Open Frontback",
-            "regex": "http(s?)://(www\\.)?(frontback\\.me/p|frntb\\.ac)/[a-zA-Z0-9]+(\\S*)$",
-            "testInputs": [
-                "http://frontback.me/p/4EWgW7lD",
-                "http://frntb.ac/QNCJ0YvE"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "frontback",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(frontback://posts/\\\\d+)').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(frontback://posts/\\\\d+)').exec(res)[1]; completionHandler(match); }",
-                    "testResults": [
-                        "frontback://posts/1628618",
-                        "frontback://posts/2006271"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Event",
             "regex": "http(?:s)?://(?:www\\.)?eventbrite(?:\\.\\w+)+/e(?:vent)?/(?:[a-zA-Z0-9_]+-)*(\\d+).*$",
             "testInputs": [
@@ -9043,12 +9024,6 @@
             "identifier": "flipboard",
             "storeIdentifier": "358801284",
             "scheme": "flipboard://"
-        },
-        {
-            "displayName": "Frontback",
-            "identifier": "frontback",
-            "storeIdentifier": "673566671",
-            "scheme": "frontback://"
         },
         {
             "displayName": "Google+",
