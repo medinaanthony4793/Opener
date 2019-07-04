@@ -5194,6 +5194,22 @@
             ]
         },
         {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:www\\.)?(giphy\\.com/.*)$",
+            "testInputs": [
+                "https://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "giphy",
+                    "format": "giphy://$1",
+                    "testResults": [
+                        "giphy://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Shot",
             "regex": "http(?:s)?://(?:(?!help)\\w+\\.)?dribbble\\.com/shots/(\\d+).*?$",
             "testInputs": [
@@ -9287,6 +9303,12 @@
             "identifier": "istandard",
             "storeIdentifier": "376832518",
             "scheme": "iStandard://"
+        },
+        {
+            "displayName": "GIPHY",
+            "identifier": "giphy",
+            "storeIdentifier": "974748812",
+            "scheme": "giphy://"
         }
     ],
     "browsers": [
