@@ -5195,16 +5195,19 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?(giphy\\.com/.*)$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/gifs/(.*)$",
+            "note": "Links to channels don't seem to work right now",
             "testInputs": [
-                "https://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD"
+                "https://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
+                "https://giphy.com/channel/closeup"
             ],
             "formats": [
                 {
                     "appIdentifier": "giphy",
-                    "format": "giphy://$1",
+                    "format": "giphy://shortcut/gifs/$1",
                     "testResults": [
-                        "giphy://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD"
+                        "giphy://shortcut/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
+                        null
                     ]
                 }
             ]
@@ -10041,6 +10044,10 @@
         {
             "regex": "http(?:s)?://(?:itunes|apps|music|books)\\.apple\\.com/(?!.*/story/.*).*?/(?:id)?(\\d+).*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://\\\\w+\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
+        },
+        {
+            "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/gifs/(?:.+-)*([^-/]*)",
+            "format": "https://media.giphy.com/media/$1/giphy.gif"
         }
     ],
     "redirectRules": {
