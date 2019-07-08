@@ -5194,7 +5194,7 @@
             ]
         },
         {
-            "title": "Open Link",
+            "title": "View GIF",
             "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/gifs/(.*)$",
             "note": "Links to channels don't seem to work right now",
             "testInputs": [
@@ -5208,6 +5208,24 @@
                     "testResults": [
                         "giphy://shortcut/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
                         null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "View GIF",
+            "regex": "http(?:s)?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(?:-.*)?$",
+            "testInputs": [
+                "https://gfycat.com/keyaridcalf",
+                "https://gfycat.com/amp/keyaridcalf-workaholics-gif"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "gfycat",
+                    "format": "gfycat://$1",
+                    "testResults": [
+                        "gfycat://keyaridcalf",
+                        "gfycat://keyaridcalf"
                     ]
                 }
             ]
@@ -9312,6 +9330,12 @@
             "identifier": "giphy",
             "storeIdentifier": "974748812",
             "scheme": "giphy://"
+        },
+        {
+            "displayName": "Gfycat",
+            "identifier": "gfycat",
+            "storeIdentifier": "1034129733",
+            "scheme": "gfycat://"
         }
     ],
     "browsers": [
@@ -10048,6 +10072,11 @@
         {
             "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/gifs/(?:.+-)*(\\w+).*?$",
             "format": "https://media.giphy.com/media/$1/giphy.gif"
+        },
+        {
+            "regex": "http(?:s)?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(?:-.*)?$",
+            "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)*gfycat\\\\.com(?:/amp)?/([^-]*)(?:-.*)?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.gfycat.com/v1/gfycats/' + identifier; var res = jsonRequest(requestURL); var imageURL = null; if (res != null && res['gfyItem'] != null) { imageURL = res['gfyItem']['gifUrl']; }; completionHandler(imageURL); }",
+            "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
         }
     ],
     "redirectRules": {
