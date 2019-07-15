@@ -7812,7 +7812,7 @@
             ]
         },
         {
-            "title": "Open JSON",
+            "title": "Open File",
             "regex": "(http(?:s)?://([^?]+(?:\\.json).*))$",
             "testInputs": [
                 "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json"
