@@ -7903,8 +7903,8 @@
         {
             "displayName": "Musi",
             "identifier": "musi",
-            "storeIdentifier": "591560124",
             "scheme": "musi://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/musi-114.jpg",
             "docs": "https://db.tt/u0SzsnCf7u"
         },
         {
@@ -8233,9 +8233,8 @@
         {
             "displayName": "music.163.com",
             "identifier": "orpheus",
-            "storeIdentifier": "590338362",
-            "country": "cn",
-            "scheme": "orpheus://"
+            "scheme": "orpheus://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/orpheus-114.jpg"
         },
         {
             "displayName": "VSCO",
