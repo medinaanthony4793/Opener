@@ -10106,13 +10106,17 @@
                 "https://l.workplace.com/l.php?u=https%3A%2F%2Ftwitter.com%2Ffromedome%2Fstatus%2F1088895797712818176%3Fs%3D21": "https://twitter.com/fromedome/status/1088895797712818176?s=21"
             }
         },
-        "http(?:s)?://(\\w+\\.)*facebook\\.com/login(/)?(.*)(\\?|&)next": {
+        "http(?:s)?://(\\w+\\.)*facebook\\.com/login(?:\\.php)?(/)?(.*)(\\?|&)next": {
             "param": "next",
             "tests": {
                 "https://www.facebook.com/login/?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
                 "https://www.facebook.com/login?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
                 "https://www.facebook.com/login/?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
-                "https://www.facebook.com/login?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/"
+                "https://www.facebook.com/login?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
+                "https://www.facebook.com/login.php/?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
+                "https://www.facebook.com/login.php?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
+                "https://www.facebook.com/login.php/?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
+                "https://www.facebook.com/login.php?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/"
             }
         },
         "http(?:s)?://l\\.instagram\\.com/.*$": {
