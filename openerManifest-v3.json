@@ -6017,10 +6017,11 @@
         },
         {
             "title": "Open Story",
-            "regex": "http(?:s)?://(?:www\\.|m\\.|mobile\\.)(nytimes\\.com/\\d+/\\d+/\\d+.*)$",
+            "regex": "http(?:s)?://(?:www\\.|m\\.|mobile\\.)(nytimes\\.com/\\w+/\\w+/.*)$",
             "testInputs": [
                 "http://www.nytimes.com/2016/01/04/us/politics/bernie-sanders-needing-early-lift-builds-iowa-ground-operation.html?ref=politics",
-                "https://m.nytimes.com/2016/01/01/us/politics/state-department-hillary-clinton-email.html?ref=topics"
+                "https://m.nytimes.com/2016/01/01/us/politics/state-department-hillary-clinton-email.html?ref=topics",
+                "https://www.nytimes.com/guides/smarterliving/how-to-start-exercising"
             ],
             "formats": [
                 {
@@ -6028,7 +6029,8 @@
                     "format": "nytimes://www.$1",
                     "testResults": [
                         "nytimes://www.nytimes.com/2016/01/04/us/politics/bernie-sanders-needing-early-lift-builds-iowa-ground-operation.html?ref=politics",
-                        "nytimes://www.nytimes.com/2016/01/01/us/politics/state-department-hillary-clinton-email.html?ref=topics"
+                        "nytimes://www.nytimes.com/2016/01/01/us/politics/state-department-hillary-clinton-email.html?ref=topics",
+                        "nytimes://www.nytimes.com/guides/smarterliving/how-to-start-exercising"
                     ]
                 }
             ]
