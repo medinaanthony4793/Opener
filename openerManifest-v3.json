@@ -870,24 +870,6 @@
             ]
         },
         {
-            "title": "View App",
-            "regex": "http(?:s)?://apps\\.getpebble\\.com/(?:\\w+/)*application(?:s)?/([:hex:]+)",
-            "testInputs": [
-                "https://apps.getpebble.com/en_US/application/555c5ce445377a3938000095",
-                "https://apps.getpebble.com/applications/52d66b10333d76e3d0000001"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "pebbletime",
-                    "format": "pebble-3://appstore/$1",
-                    "testResults": [
-                        "pebble-3://appstore/555c5ce445377a3938000095",
-                        "pebble-3://appstore/52d66b10333d76e3d0000001"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Photo",
             "regex": "http(?:s?)://(?:www\\.)?500px\\.com/photo/(\\d+)(?:(?:/|\\?).*)?$",
             "testInputs": [
@@ -9127,12 +9109,6 @@
             "identifier": "peach",
             "storeIdentifier": "1067891186",
             "scheme": "peach://"
-        },
-        {
-            "displayName": "Pebble Time",
-            "identifier": "pebbletime",
-            "storeIdentifier": "957997620",
-            "scheme": "pebble-3://"
         },
         {
             "displayName": "Product Hunt",
