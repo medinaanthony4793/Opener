@@ -7810,6 +7810,32 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*(?:lih\\.kg/|lihkg\\.com/thread/)(\\d+)(?:/page/(\\d+))?.*?$",
+            "testInputs": [
+                "https://lihkg.com/thread/1470105/page/1?fbclid=IwAR0KBRh5nWNwD8BllSvWYt26vnRfqMq3K73lO_5iuVCZnLSh0jP74q5ZhTI",
+                "https://lih.kg/1492195",
+                "https://lihkg.com/thread/1492195/page/1",
+                "https://lihkg.com/thread/1492195/",
+                "https://lihkg.com/thread/1492195/page/20",
+                "https://lih.kg/dHnkuT"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "lihkg",
+                    "format": "lihkg://open_topic?thread_id=$1&page=$2&order=reply_time",
+                    "testResults": [
+                        "lihkg://open_topic?thread_id=1470105&page=1&order=reply_time",
+                        "lihkg://open_topic?thread_id=1492195&page=&order=reply_time",
+                        "lihkg://open_topic?thread_id=1492195&page=1&order=reply_time",
+                        "lihkg://open_topic?thread_id=1492195&page=&order=reply_time",
+                        "lihkg://open_topic?thread_id=1492195&page=20&order=reply_time",
+                        null
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9313,6 +9339,12 @@
             "identifier": "gfycat",
             "storeIdentifier": "1034129733",
             "scheme": "gfycat://"
+        },
+        {
+            "displayName": "LIHKG",
+            "identifier": "lihkg",
+            "storeIdentifier": "1178373396",
+            "scheme": "lihkg://"
         }
     ],
     "browsers": [
