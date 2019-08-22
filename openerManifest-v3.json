@@ -8845,7 +8845,7 @@
         {
             "displayName": "YouPlayer",
             "identifier": "youplayer",
-            "storeIdentifier": "561921453",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/youplayer-114.jpg",
             "scheme": "youplayer://"
         },
         {
@@ -9487,7 +9487,7 @@
             "displayName": "Opera Mini",
             "identifier": "operamini",
             "scheme": "opera-http://",
-            "storeIdentifier": "363729560",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/operamini-114.jpg",
             "country": "fr",
             "regex": "(http(?:s)?.*)",
             "format": "opera-$1",
