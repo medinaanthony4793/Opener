@@ -5179,11 +5179,12 @@
         },
         {
             "title": "View GIF",
-            "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/gifs/(.*)$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/(?:gifs|media)/([^/]*).*$",
             "note": "Links to channels don't seem to work right now",
             "testInputs": [
                 "https://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
-                "https://giphy.com/channel/closeup"
+                "https://giphy.com/channel/closeup",
+                "https://media.giphy.com/media/3oz8xwNlejeJDQREic/giphy.gif"
             ],
             "formats": [
                 {
@@ -5191,7 +5192,8 @@
                     "format": "giphy://shortcut/gifs/$1",
                     "testResults": [
                         "giphy://shortcut/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
-                        null
+                        null,
+                        "giphy://shortcut/gifs/3oz8xwNlejeJDQREic"
                     ]
                 }
             ]
