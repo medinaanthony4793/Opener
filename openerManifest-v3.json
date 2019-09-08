@@ -2918,10 +2918,11 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/user/(\\w+)/playlist/([:alnum:]+).*$",
+            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(?:user/(\\w+)/)?playlist/([:alnum:]+).*$",
             "testInputs": [
                 "https://open.spotify.com/user/naveenium/playlist/1zw42kQZUSZlHyVVn8AecH?utm_content=buffer30eb8&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
-                "http://open.spotify.com/user/timonominus/playlist/7rdUGYrNIMEdL6xdJDlMzZ"
+                "http://open.spotify.com/user/timonominus/playlist/7rdUGYrNIMEdL6xdJDlMzZ",
+                "https://open.spotify.com/playlist/37i9dQZF1DX0UrRvztWcAU"
             ],
             "formats": [
                 {
@@ -2929,7 +2930,8 @@
                     "format": "spotify:user:$1:playlist:$2",
                     "testResults": [
                         "spotify:user:naveenium:playlist:1zw42kQZUSZlHyVVn8AecH",
-                        "spotify:user:timonominus:playlist:7rdUGYrNIMEdL6xdJDlMzZ"
+                        "spotify:user:timonominus:playlist:7rdUGYrNIMEdL6xdJDlMzZ",
+                        "spotify:user::playlist:37i9dQZF1DX0UrRvztWcAU"
                     ]
                 }
             ]
