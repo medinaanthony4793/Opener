@@ -10121,7 +10121,7 @@
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://\\\\w+\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
         },
         {
-            "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/gifs/(?:.+-)*(\\w+).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/(?:gifs|media)/(?:.+-)*(\\w+).*?$",
             "format": "https://media.giphy.com/media/$1/giphy.gif"
         },
         {
