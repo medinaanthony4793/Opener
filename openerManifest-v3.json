@@ -2957,6 +2957,24 @@
             ]
         },
         {
+            "title": "Open Podcast",
+            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(episode|show)/([:alnum:]+).*$",
+            "testInputs": [
+                "https://open.spotify.com/show/3pCF6hcNsAHKlKAillCOuZ?si=u93GUXXFTOCXvElU6uClFg",
+                "https://open.spotify.com/episode/1SS11GALLIyBokA9IrF58Q?si=KKFmmLAUSx-RluErg4Eqpw"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "spotify",
+                    "format": "spotify://$1/$2",
+                    "testResults": [
+                        "spotify://show/3pCF6hcNsAHKlKAillCOuZ",
+                        "spotify://episode/1SS11GALLIyBokA9IrF58Q"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open User",
             "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/user/(\\w+)(?!.*/playlist.*).*$",
             "testInputs": [
