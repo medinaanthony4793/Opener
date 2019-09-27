@@ -10054,20 +10054,19 @@
             ]
         },
         {
-            "displayName": "RBVEA Web",
+            "displayName": "RBVEAWeb",
             "identifier": "rbveaweb",
-            "scheme": "RBVEAWeb://",
+            "scheme": "rbveaweb://",
             "storeIdentifier": "1448098664",
-            "regex": "(.+)$",
-            "script": "function process(url, completionHandler) { completionHandler('RBVEAWeb://open-url?url=' + encodeURIComponent(url)); }",
-            "script2": "function process(url, completionHandler) { completionHandler('RBVEAWeb://open-url?url=' + encodeURIComponent(url)); }",
+            "regex": "http(s)?(.*)$",
+            "format": "rbveaweb$1$2",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "RBVEAWeb://open-url?url=http%3A%2F%2Fwww.opener.link%2F",
-                "RBVEAWeb://open-url?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
+                "rbveaweb://www.opener.link/",
+                "rbveawebs://twitter.com/openerapp"
             ]
         },
         {
