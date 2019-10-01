@@ -2854,10 +2854,10 @@
             "formats": [
                 {
                     "appIdentifier": "bilibili",
-                    "format": "bilibili://?av=$1",
+                    "format": "bilibili://av/$1",
                     "testResults": [
-                        "bilibili://?av=2782208",
-                        "bilibili://?av=2782168"
+                        "bilibili://av/2782208",
+                        "bilibili://av/2782168"
                     ]
                 }
             ]
@@ -4895,18 +4895,18 @@
         },
         {
             "title": "Open Illustration",
-            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/member_illust\\.php?.*illust_id=(\\d+).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/.*?/artworks/(\\d+).*$",
             "testInputs": [
-                "http://touch.pixiv.net/member_illust.php?mode=medium&illust_id=29635750",
-                "http://www.pixiv.net/member_illust.php?illust_id=18514081&mode=medium"
+                "https://www.pixiv.net/en/artworks/72321279",
+                "https://www.pixiv.net/artworks/72321279"
             ],
             "formats": [
                 {
                     "appIdentifier": "pixiv",
                     "format": "pixiv://illusts/$1",
                     "testResults": [
-                        "pixiv://illusts/29635750",
-                        "pixiv://illusts/18514081"
+                        "pixiv://illusts/72321279",
+                        "pixiv://illusts/72321279"
                     ]
                 }
             ]
