@@ -4895,8 +4895,9 @@
         },
         {
             "title": "Open Illustration",
-            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/.*?/artworks/(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?artworks/|member_illust\\.php?.*illust_id=)(\\d+).*$",
             "testInputs": [
+                "http://www.pixiv.net/member_illust.php?illust_id=18514081&mode=medium",
                 "https://www.pixiv.net/en/artworks/72321279",
                 "https://www.pixiv.net/artworks/72321279"
             ],
@@ -4905,6 +4906,7 @@
                     "appIdentifier": "pixiv",
                     "format": "pixiv://illusts/$1",
                     "testResults": [
+                        "pixiv://illusts/18514081",
                         "pixiv://illusts/72321279",
                         "pixiv://illusts/72321279"
                     ]
