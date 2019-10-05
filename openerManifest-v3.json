@@ -5044,7 +5044,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|tv)\\.apple\\.com/(?:.*/)*(movie|tv-season)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|tv)\\.apple\\.com/(?:.*/)*(movie|tv-season|show)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
                 "https://itunes.apple.com/us/album/guero/id485498129",
