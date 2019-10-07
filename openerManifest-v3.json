@@ -261,6 +261,22 @@
             ]
         },
         {
+            "title": "Open Event",
+            "regex": "http(?:s?)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/i/events/(\\d+).*$",
+            "testInputs": [
+                "https://twitter.com/i/events/1180824138832723968"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "twitter",
+                    "format": "twitter://events/timeline/$1",
+                    "testResults": [
+                        "twitter://events/timeline/1180824138832723968"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Collection",
             "regex": "http(?:s)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@)?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
             "testInputs": [
