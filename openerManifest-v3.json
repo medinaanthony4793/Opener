@@ -829,12 +829,13 @@
                 "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186",
                 "break -- all above should fail to match",
                 "https://www.facebook.com/dickdoorduinfotografie/",
-                "https://www.facebook.com/timonus"
+                "https://www.facebook.com/timonus",
+                "https://m.facebook.com/pages/category/Agricultural-Service/Allathan-Associates-706694322720291/?locale2=en_GB"
             ],
             "formats": [
                 {
                     "appIdentifier": "facebook",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(fb://.*?)\".*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.replace('m.facebook', 'facebook')); var results = RegExp('.*(fb://.*?)\".*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
                     "testResults": [
                         null,
                         null,
@@ -896,7 +897,8 @@
                         null,
                         null,
                         "fb://page/?id=2165095750195382",
-                        null
+                        null,
+                        "fb://page/?id=706694322720291"
                     ]
                 }
             ]
