@@ -2,12 +2,13 @@
     "actions": [
         {
             "title": "Open Tweet",
-            "regex": "http(?:s)?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@?[a-zA-Z0-9_]{1,15}/)?(?:status|i/web/status|statuses)/(\\d+).*$",
+            "regex": "http(?:s)?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@?[a-zA-Z0-9_]{1,15}/)?(?:status|i/web/status|statuses|i/topics/tweet)/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/zpower/status/588561590997352448",
                 "https://mobile.twitter.com/kiebk/status/599159327056863232?cn=cmVwbHk%3D&refsrc=email",
                 "https://twitter.com/i/web/status/814237378382622720",
-                "https://twitter.com/hamburger/statuses/221225038941126657"
+                "https://twitter.com/hamburger/statuses/221225038941126657",
+                "https://twitter.com/i/topics/tweet/1180616320599183360?cn=ZmxleGlibGVfcmVjcw%3D%3D&refsrc=email"
             ],
             "formats": [
                 {
@@ -17,7 +18,8 @@
                         "twitter://status?id=588561590997352448",
                         "twitter://status?id=599159327056863232",
                         "twitter://status?id=814237378382622720",
-                        "twitter://status?id=221225038941126657"
+                        "twitter://status?id=221225038941126657",
+                        "twitter://status?id=1180616320599183360"
                     ]
                 },
                 {
@@ -27,7 +29,8 @@
                         "tweetbot:///status/588561590997352448",
                         "tweetbot:///status/599159327056863232",
                         "tweetbot:///status/814237378382622720",
-                        "tweetbot:///status/221225038941126657"
+                        "tweetbot:///status/221225038941126657",
+                        "tweetbot:///status/1180616320599183360"
                     ]
                 },
                 {
@@ -37,7 +40,8 @@
                         "twitterrific:///tweet?id=588561590997352448",
                         "twitterrific:///tweet?id=599159327056863232",
                         "twitterrific:///tweet?id=814237378382622720",
-                        "twitterrific:///tweet?id=221225038941126657"
+                        "twitterrific:///tweet?id=221225038941126657",
+                        "twitterrific:///tweet?id=1180616320599183360"
                     ]
                 }
             ]
@@ -66,7 +70,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "http(?:s?)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@)?(?!search)([a-zA-Z0-9_]{1,15})(?:/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
+            "regex": "http(?:s?)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@)?(?!search)(?!login)([a-zA-Z0-9_]{1,15})(?:/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
             "testInputs": [
                 "https://mobile.twitter.com/chillmage/with_replies",
                 "https://twitter.com/hashtag/ThingsILearnedFromTheLeft?src=hash",
@@ -75,7 +79,8 @@
                 "https://twitter.com/search?q=opener%20app&src=typd",
                 "https://twitter.com/branches_app/",
                 "https://twitter.com/branches_app/?",
-                "https://mobile.twitter.com/FrancescoD_Ales/following"
+                "https://mobile.twitter.com/FrancescoD_Ales/following",
+                "https://twitter.com/login?redirect_after_login=%2Fi%2Ftopics%2Ftweet%2F1180616320599183360%3Fcn%3DZmxleGlibGVfcmVjcw%253D%253D%26refsrc%3Demail"
             ],
             "formats": [
                 {
@@ -89,7 +94,8 @@
                         null,
                         "twitter://user?screen_name=branches_app",
                         "twitter://user?screen_name=branches_app",
-                        "twitter://user?screen_name=FrancescoD_Ales"
+                        "twitter://user?screen_name=FrancescoD_Ales",
+                        null
                     ]
                 },
                 {
@@ -103,7 +109,8 @@
                         null,
                         "tweetbot:///user_profile/branches_app",
                         "tweetbot:///user_profile/branches_app",
-                        "tweetbot:///user_profile/FrancescoD_Ales"
+                        "tweetbot:///user_profile/FrancescoD_Ales",
+                        null
                     ]
                 },
                 {
@@ -117,7 +124,8 @@
                         null,
                         "twitterrific:///profile?screen_name=branches_app",
                         "twitterrific:///profile?screen_name=branches_app",
-                        "twitterrific:///profile?screen_name=FrancescoD_Ales"
+                        "twitterrific:///profile?screen_name=FrancescoD_Ales",
+                        null
                     ]
                 }
             ]
