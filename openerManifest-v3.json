@@ -3509,7 +3509,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*)$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*)$",
             "testInputs": [
                 "https://medium.com/@timonus",
                 "https://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
@@ -3523,6 +3523,7 @@
                 "https://medium.com//how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc",
                 "https://medium.com//how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc&formCheck=0980fc94e41dc364cc129fd0d7034d86",
                 "https://medium.com/the-mission/how-to-send-emails-to-very-busy-people-and-a-case-study-teardown-8dd7b3428f8e&formCheck=a917221c92021db2523cd48f1fcc4c0b&utm_content=buffer98d42&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+                "https://onezero.medium.com/what-happens-when-your-tweet-becomes-a-subway-ad-696f7ad4ab86",
                 "https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ftimonus%2FTJActivityViewController"
             ],
             "formats": [
@@ -3542,6 +3543,7 @@
                         "medium://how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc?",
                         "medium://how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc?formCheck=0980fc94e41dc364cc129fd0d7034d86",
                         "medium://the-mission/how-to-send-emails-to-very-busy-people-and-a-case-study-teardown-8dd7b3428f8e?formCheck=a917221c92021db2523cd48f1fcc4c0b&utm_content=buffer98d42&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+                        "medium://what-happens-when-your-tweet-becomes-a-subway-ad-696f7ad4ab86?",
                         null
                     ]
                 }
@@ -3558,14 +3560,14 @@
                     "appIdentifier": "medium",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(medium://.*?)\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1].replace(RegExp('link_click_id=\\\\d+'), ''); }; completionHandler(match); }",
                     "testResults": [
-                        "medium:///p/491c58421916?link_click_id=615568367535852283"
+                        "medium:///p/491c58421916?"
                     ]
                 }
             ]
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+/(?!@.*)(?!\\?.*)(.+)\\n.*\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\".*$",
+            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+/(?!@.*)(?!\\?.*)(.+)\\n.*(\"medium-fulfilled-by\"|\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\").*$",
             "includeHeaders": true,
             "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should not be handled by this action.",
             "formats": [
@@ -3577,7 +3579,7 @@
         },
         {
             "title": "Open Publication",
-            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(?:/?(?:(?:@|\\?).*)?)?\\n.*\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\".*$",
+            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(?:/?(?:(?:@|\\?).*)?)?\\n.*(\"medium-fulfilled-by\"|\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\").*$",
             "includeHeaders": true,
             "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should be handled as publications by this action. The prior 'open link' action will fail for those because they require a lookup in the page's markup to derive a deep link.",
             "formats": [
