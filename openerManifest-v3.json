@@ -10246,10 +10246,11 @@
                 "https://www.facebook.com/login.php?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/"
             }
         },
-        "http(?:s)?://l\\.instagram\\.com/.*$": {
+        "http(?:s)?://(l\\.instagram\\.com/|(\\w+\\.)*instagram\\.com/linkshim).*$": {
             "param": "u",
             "tests": {
-                "https://l.instagram.com/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=ATOdA5qfPc7e1I0QtKdMsIX_B6r7wH4MgNVyRjkDSg_qnJXzsyyHOPRlAPbth7ZyPQT-PGR6yNehcg": "https://twitter.com/timonus"
+                "https://l.instagram.com/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=ATOdA5qfPc7e1I0QtKdMsIX_B6r7wH4MgNVyRjkDSg_qnJXzsyyHOPRlAPbth7ZyPQT-PGR6yNehcg": "https://twitter.com/timonus",
+                "https://www.instagram.com/linkshim/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=AT0LfDKXDfqTMV41nrNv8FFYVu3Son_TuNHJHMv6_5-Gomz2gQ3Y9RotGED5QJ1ZOuM0CiMcXD5pRARbAX3m8dXZt0ZhuNNCc3oTHgGyFLU8BzS614wZkKR8Sg": "https://twitter.com/timonus"
             }
         },
         "http(?:s)?://out\\.reddit\\.com.*$": {
