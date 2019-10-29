@@ -8753,8 +8753,8 @@
         {
             "displayName": "YouPlayer",
             "identifier": "youplayer",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/youplayer-114.jpg",
-            "scheme": "youplayer://"
+            "scheme": "youplayer://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/youplayer-114.jpg"
         },
         {
             "displayName": "Behance",
@@ -8799,7 +8799,7 @@
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/ioctocat-114.jpg"
         },
         {
-            "displayName": "\u30cb\u30b3\u30cb\u30b3\u6f2b\u753b",
+            "displayName": "ニコニコ漫画",
             "identifier": "nicoseiga",
             "storeIdentifier": "1045938821",
             "scheme": "nicoseiga://"
