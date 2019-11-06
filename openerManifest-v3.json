@@ -2644,11 +2644,12 @@
         },
         {
             "title": "Open Video",
-            "regex": "http(?:s)?://(?:[a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?:(?!directory)(?:\\w+)/v|videos)/(\\d+).*$",
+            "regex": "http(?:s)?://(?:[a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?:(?!directory)(?:\\w+)/v|videos)/(?:(?i)video(?:%\\d.)*)?(\\d+).*$",
             "testInputs": [
                 "http://www.twitch.tv/fragbitelive/v/4776592",
                 "https://www.twitch.tv/videos/212106676",
-                "https://m.twitch.tv/videos/390659869?t=4h28m20s"
+                "https://m.twitch.tv/videos/390659869?t=4h28m20s",
+                "https://www.twitch.tv/videos/Video%7D%7C%7B502981705"
             ],
             "formats": [
                 {
@@ -2657,7 +2658,8 @@
                     "testResults": [
                         "twitch://video/v4776592",
                         "twitch://video/v212106676",
-                        "twitch://video/v390659869"
+                        "twitch://video/v390659869",
+                        "twitch://video/v502981705"
                     ]
                 }
             ]
