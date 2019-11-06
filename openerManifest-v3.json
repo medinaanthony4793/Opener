@@ -765,11 +765,12 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/story\\.php.*(?:story_fbid=(\\d+).*id=(\\d+)|id=(\\d+).*story_fbid=(\\d+)).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:story|permalink)\\.php.*(?:story_fbid=(\\d+).*id=(\\d+)|id=(\\d+).*story_fbid=(\\d+)).*?$",
             "testInputs": [
                 "https://m.facebook.com/story.php?story_fbid=1558737434162594&id=193742123995472&_rdr",
                 "https://m.facebook.com/story.php?&id=193742123995472&story_fbid=1558737434162594",
-                "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186"
+                "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186",
+                "https://www.facebook.com/permalink.php?story_fbid=812478915870003&id=739313369853225"
             ],
             "formats": [
                 {
@@ -778,7 +779,8 @@
                     "testResults": [
                         "fb://story/?id=193742123995472_1558737434162594",
                         "fb://story/?id=193742123995472_1558737434162594",
-                        "fb://story/?id=206186_10104210605404813"
+                        "fb://story/?id=206186_10104210605404813",
+                        "fb://story/?id=739313369853225_812478915870003"
                     ]
                 }
             ]
