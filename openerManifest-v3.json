@@ -9602,10 +9602,10 @@
             ]
         },
         {
-            "displayName": "Puffin",
+            "displayName": "Puffin Pro",
             "identifier": "puffin",
             "scheme": "puffin-x-callback://",
-            "storeIdentifier": "472937654",
+            "storeIdentifier": "406239138",
             "regex": "http(s)?(.*)$",
             "format": "puffin$1$2",
             "docs": "https://www.puffinbrowser.com/development/",
