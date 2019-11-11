@@ -723,7 +723,6 @@
         {
             "title": "Open Post",
             "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(\\d+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(\\d+).*$",
-            "test": true,
             "testInputs": [
                 "https://www.facebook.com/schrep/posts/10157765076449443",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
