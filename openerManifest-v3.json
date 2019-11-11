@@ -3056,6 +3056,38 @@
         },
         {
             "title": "Open Link",
+            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(track|album)/([:alnum:]+).*$",
+            "testInputs": [
+                "http://open.spotify.com/track/5QZJAcP4nu3xL2NQV4AVHO",
+                "https://play.spotify.com/track/77Ezu3tBE7gmzQ4mRnZZUf?play=true",
+                "http://open.spotify.com/album/6BK3muExDOuk0VnyMn9NVw",
+                "https://open.spotify.com/album/4G8WKL5DGAFbWNTXxp3emz?utm_content=http%3A%2F%2Fsmarturl.it%2FWowGuauSP&utm_medium=email&utm_umg_et=1543198706&utm_source=ExactTarget&utm_campaign=21323559"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "itunesstore",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; }; completionHandler(appURL); }",
+                    "testResults": [
+                        "itmss://itunes.apple.com/us/album/_/887763843?i=887763882&mt=1&app=itunes&at=1000lHKX",
+                        "itmss://itunes.apple.com/us/album/_/978362006?i=978364023&mt=1&app=itunes&at=1000lHKX",
+                        "itmss://itunes.apple.com/us/album/_/958998203?mt=1&app=itunes&at=1000lHKX",
+                        "itmss://itunes.apple.com/us/album/_/1445311414?i=1445311599&mt=1&app=itunes&at=1000lHKX"
+                    ]
+                },
+                {
+                    "appIdentifier": "applemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile']; }; completionHandler(appURL); }",
+                    "testResults": [
+                        "music://itunes.apple.com/us/album/_/887763843?i=887763882&mt=1&app=music&at=1000lHKX",
+                        "music://itunes.apple.com/us/album/_/978362006?i=978364023&mt=1&app=music&at=1000lHKX",
+                        "music://itunes.apple.com/us/album/_/958998203?mt=1&app=music&at=1000lHKX",
+                        "music://itunes.apple.com/us/album/_/1445311414?i=1445311599&mt=1&app=music&at=1000lHKX"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "http(s?)://(www\\.|m\\.)?soundcloud\\.com/[^/]+(/[^/]+)?",
             "testInputs": [
                 "http://m.soundcloud.com/ukgoldfilm/tap24-hiha24-1",
