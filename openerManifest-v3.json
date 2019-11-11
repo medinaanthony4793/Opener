@@ -5090,6 +5090,40 @@
         },
         {
             "title": "Open Link",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)*(album)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "testInputs": [
+                "https://itunes.apple.com/us/artist/beck/id312095",
+                "https://itunes.apple.com/us/album/guero/id485498129",
+                "https://itunes.apple.com/us/album/e-pro/id485498129?i=485498131",
+                "https://itunes.apple.com/us/music-video/strange-apparition/id194085560",
+                "https://itunes.apple.com/us/movie/her-2013/id810314926",
+                "https://itunes.apple.com/us/tv-season/breaking-bad-season-1/id271383858",
+                "https://itunes.apple.com/us/tv-season/pilot/id271383858?i=271866344",
+                "https://geo.itunes.apple.com/us/app/opener-open-links-in-apps/id989565871",
+                "https://itunes.apple.com/us/album/audio-video-disco/470073062",
+                "https://music.apple.com/us/album/caravelle/1440885023"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "spotify",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['spotify'] != null) { var appURL = res['linksByPlatform']['spotify']['nativeAppUriDesktop']; }; completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "spotify:album:2EugWXUZjr78KJFqZavvZT",
+                        "spotify:track:01MBhRpvFkbeRwAp7gcF2W",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "spotify:album:0SuFqlCe5i30Fr75ZlPQVT"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|tv)\\.apple\\.com/(?:.*/)*(movie|tv-season|show)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
