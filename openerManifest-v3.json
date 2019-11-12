@@ -7123,6 +7123,33 @@
                         "pandorav4:/backstage/artist?pandoraId=AR:111861",
                         null
                     ]
+                },
+                {
+                    "appIdentifier": "itunesstore",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; }; completionHandler(appURL); }",
+                    "testResults": [
+                        "itmss://itunes.apple.com/us/album/_/742432549?mt=1&app=itunes&at=1000lHKX",
+                        "a222",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "applemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile']; }; completionHandler(appURL); }",
+                    "testResults": [
+                        "this-needs-fixing",
+                        "music://itunes.apple.com/us/album/_/742432549?mt=1&app=music&at=1000lHKX",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "spotify",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['spotify'] != null) { var appURL = res['linksByPlatform']['spotify']['nativeAppUriDesktop']; }; completionHandler(appURL); }",
+                    "testResults": [
+                        "this-needs-fixing",
+                        "spotify:album:1R8kkopLT4IAxzMMkjic6X",
+                        null
+                    ]
                 }
             ]
         },
