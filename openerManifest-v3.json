@@ -3660,6 +3660,46 @@
         },
         {
             "title": "Open Link",
+            "notes": "Either album or track, same prefix",
+            "regex": "http(?:s)?://music\\.amazon(?:\\.\\w+)+/(albums/\\w.*)$",
+            "testInputs": [
+                "https://music.amazon.com/albums/B003HY3530?trackAsin=B003HXXRHK",
+                "https://music.amazon.com/albums/B003HY3530"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "amazonmusic",
+                    "format": "amznmp3://$1",
+                    "testResults": [
+                        "amznmp3://albums/B003HY3530?trackAsin=B003HXXRHK",
+                        "amznmp3://albums/B003HY3530"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "notes": "Either artist, playlist, or station",
+            "regex": "http(?:s)?://music\\.amazon(?:\\.\\w+)+/((?:artists|user-playlists|stations)/\\w.*)$",
+            "testInputs": [
+                "https://music.amazon.com/artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
+                "https://music.amazon.com/user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
+                "https://music.amazon.com/stations/A2D0X18EHNKEOJ?ref=dm_sh_e19e-7a36-dmcp-812b-23c1e&musicTerritory=US&marketplaceId=ATVPDKIKX0DER"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "amazonmusic",
+                    "format": "amznmp3://$1",
+                    "testResults": [
+                        "amznmp3://artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
+                        "amznmp3://user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
+                        "amznmp3://stations/A2D0X18EHNKEOJ?ref=dm_sh_e19e-7a36-dmcp-812b-23c1e&musicTerritory=US&marketplaceId=ATVPDKIKX0DER"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "http(?:s)?://((?:\\w+\\.)*(?:amazon|amzn)((?:\\.\\w+)+)/.*)$",
             "testInputs": [
                 "http://www.amazon.com/Mondaine-A990-CLOCK-11SBC-Clock-White-Frame/dp/B0016QNNP6/ref=sr_1_1?ie=UTF8&qid=1429471063&sr=8-1&keywords=mondaine+clock",
@@ -9596,6 +9636,12 @@
             "identifier": "istandard",
             "storeIdentifier": "376832518",
             "scheme": "iStandard://"
+        },
+        {
+            "displayName": "Amazon Music",
+            "identifier": "amazonmusic",
+            "storeIdentifier": "510855668",
+            "scheme": "amznmp3://"
         }
     ],
     "browsers": [
