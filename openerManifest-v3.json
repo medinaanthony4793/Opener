@@ -7110,20 +7110,18 @@
             "title": "Open Link",
             "regex": "http(?:s)?://(?:\\w+\\.)?pandora\\.com/(?!station/play/).*",
             "testInputs": [
-                "http://www.pandora.com/fall-out-boy/from-under-cork-tree/dance-dance?station=939625762651725460&shareImp=true&referrer=gonzalez_252",
-                "https://www.pandora.com/chris-brown/x-deluxe-version/do-better",
-                "https://www.pandora.com/station/play/3379768435072334643",
-                "https://www.pandora.com/korn/greatest-hits-vol-1-explicit/word-up"
+                "https://www.pandora.com/artist/lcd-soundsystem/sound-of-silver/someone-great/TRqZxpdPnrfvZgc?part=ug-desktop&corr=1539181200",
+                "https://www.pandora.com/artist/lcd-soundsystem/sound-of-silver/ALwrmd3drc5frqP",
+                "https://www.pandora.com/station/play/3379768435072334643"
             ],
             "formats": [
                 {
                     "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(pandorav\\\\d+:/.*?)\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(pandorav\\\\d+:/.*?)\\\\\\\\\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); }",
                     "testResults": [
-                        "pandorav4:/backstage/track?token=d76f8acfb83a50de&amp;pandoraId=TR:253709&amp;shareImp=true",
-                        "pandorav4:/backstage/track?token=ce2785efb5403508425ba2910f7abf8b&amp;pandoraId=TR:2698967",
-                        null,
-                        "pandorav4:/backstage/track?token=1dd92632839300d3&amp;pandoraId=TR:185713"
+                        "this-needs-fixing",
+                        "pandorav4:/backstage/artist?pandoraId=AR:111861",
+                        null
                     ]
                 }
             ]
