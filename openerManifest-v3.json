@@ -3083,6 +3083,16 @@
                         "music://itunes.apple.com/us/album/_/958998203?mt=1&app=music&at=1000lHKX",
                         "music://itunes.apple.com/us/album/_/1445311414?i=1445311599&mt=1&app=music&at=1000lHKX"
                     ]
+                },
+                {
+                    "appIdentifier": "pandora",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else { type = 'album'; }; var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace('PANDORA_ALBUM::', '').replace('PANDORA_SONG::', ''); }; completionHandler(appURL); }",
+                    "testResults": [
+                        "pandorav4://backstage/track?pandoraId=TR:2731446",
+                        "pandorav4://backstage/track?pandoraId=TR:3218368",
+                        "pandorav4://backstage/album?pandoraId=AL:305605",
+                        "pandorav4://backstage/track?pandoraId=TR:5496931"
+                    ]
                 }
             ]
         },
@@ -5150,6 +5160,22 @@
                         null,
                         null,
                         "spotify:album:0SuFqlCe5i30Fr75ZlPQVT"
+                    ]
+                },
+                {
+                    "appIdentifier": "pandora",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else { type = 'album'; }; var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace('PANDORA_ALBUM::', '').replace('PANDORA_SONG::', ''); }; completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "pandorav4://backstage/album?pandoraId=AL:17936",
+                        "pandorav4://backstage/track?pandoraId=TR:239804",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "pandorav4://backstage/album?pandoraId=AL:1103015"
                     ]
                 }
             ]
