@@ -3093,6 +3093,16 @@
                         "pandorav4://backstage/album?pandoraId=AL:305605",
                         "pandorav4://backstage/track?pandoraId=TR:5496931"
                     ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "amznmp3://albums/B00KWGRKFU?trackAsin=B00KWGRYUQ&do=play",
+                        "amznmp3://albums/B00V8I134A?trackAsin=B00V8I2D26&do=play",
+                        "amznmp3://albums/B00SCIDAO0?do=play",
+                        "amznmp3://albums/B01JR4ZCBG?trackAsin=B01JR4ZETQ&do=play"
+                    ]
                 }
             ]
         },
@@ -5249,6 +5259,22 @@
                         null,
                         "pandorav4://backstage/album?pandoraId=AL:1103015"
                     ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "amznmp3://albums/B000XNVS7I?do=play",
+                        "amznmp3://albums/B000XNVS7I?trackAsin=B000XNZN1U&do=play",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "amznmp3://albums/B0725JVTB4?do=play"
+                    ]
                 }
             ]
         },
@@ -7220,6 +7246,15 @@
                     "testResults": [
                         "this-needs-fixing",
                         "spotify:album:1R8kkopLT4IAxzMMkjic6X",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "this-needs-fixing",
+                        "amznmp3://albums/B000SX9NAC?do=play",
                         null
                     ]
                 }
