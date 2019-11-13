@@ -7215,9 +7215,9 @@
             "formats": [
                 {
                     "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(pandorav\\\\d+:/.*?)\\\\\\\\\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(pandorav\\\\d+:/.*?)\\\\\\\\\"').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; }; if (match == null) { results = RegExp('(pandorav4/createStation.*?)\"').exec(res); if (results != null && results.length > 1) { match = results[1].replace('pandorav4/', 'pandorav4:/'); }; }; completionHandler(match); }",
                     "testResults": [
-                        "this-needs-fixing",
+                        "pandorav4:/createStation?musicId=S857667&source=googdeep",
                         "pandorav4:/backstage/artist?pandoraId=AR:111861",
                         null
                     ]
