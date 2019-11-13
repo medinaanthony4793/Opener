@@ -7226,8 +7226,8 @@
                     "appIdentifier": "itunesstore",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; }; completionHandler(appURL); }",
                     "testResults": [
+                        null,
                         "itmss://itunes.apple.com/us/album/_/742432549?mt=1&app=itunes&at=1000lHKX",
-                        "a222",
                         null
                     ]
                 },
@@ -7235,7 +7235,7 @@
                     "appIdentifier": "applemusic",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile']; }; completionHandler(appURL); }",
                     "testResults": [
-                        "this-needs-fixing",
+                        null,
                         "music://itunes.apple.com/us/album/_/742432549?mt=1&app=music&at=1000lHKX",
                         null
                     ]
@@ -7244,7 +7244,7 @@
                     "appIdentifier": "spotify",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['spotify'] != null) { var appURL = res['linksByPlatform']['spotify']['nativeAppUriDesktop']; }; completionHandler(appURL); }",
                     "testResults": [
-                        "this-needs-fixing",
+                        null,
                         "spotify:album:1R8kkopLT4IAxzMMkjic6X",
                         null
                     ]
@@ -7253,7 +7253,7 @@
                     "appIdentifier": "amazonmusic",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
                     "testResults": [
-                        "this-needs-fixing",
+                        null,
                         "amznmp3://albums/B000SX9NAC?do=play",
                         null
                     ]
