@@ -1965,13 +1965,16 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://((?:www\\.)?google(?:\\.\\w+)+/maps/.*)",
+            "xregex": "http(?:s)?://((?:www\\.)?google(?:\\.\\w+)+/maps.*)",
+            "regex": "http(?:s)?://(((?:www\\.)?google(?:\\.\\w+)+/maps)|(maps\\.google(?:\\.\\w+)+).*)",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
                 "https://www.google.com/maps/place/Indiegogo,+965+Mission+St,+San+Francisco,+CA+94103/data=!4m2!3m1!1s0x808f7e29d40a8017:0x80a0cb606fe684b2?hl=en-US&dg=dbrw&newdg=1",
                 "https://maps.google.com/?q=@37.3161,-122.1836",
                 "http://maps.google.co.jp/maps?f=q&hl=ja&geocode=&q=-39.23774,175.3048&ie=UTF8&ll=-39.23774,175.3048&z=6",
-                "https://www.google.com/maps/dir/214+Homer+Ave,+Palo+Alto,+CA+94301,+USA/San+Francisco+Opera,+San+Francisco+War+Memorial+and+Performing+Arts+Center,+301+Van+Ness+Ave,+San+Francisco,+CA+94102/@37.6108546,-122.4548997,11z/am=t/data=!3m1!4b1!4m19!4m18!1m5!1m1!1s0x808fbb3b6e108ded:0x4a4eb4485d32172b!2m2!1d-122.1585457!2d37.4424932!1m5!1m1!1s0x80858099b080c0e5:0x9ee8deb0a62242a0!2m2!1d-122.4210431!2d37.7785738!2m3!6e1!7e2!8j1450377000!3e3!5i1"
+                "https://www.google.com/maps/dir/214+Homer+Ave,+Palo+Alto,+CA+94301,+USA/San+Francisco+Opera,+San+Francisco+War+Memorial+and+Performing+Arts+Center,+301+Van+Ness+Ave,+San+Francisco,+CA+94102/@37.6108546,-122.4548997,11z/am=t/data=!3m1!4b1!4m19!4m18!1m5!1m1!1s0x808fbb3b6e108ded:0x4a4eb4485d32172b!2m2!1d-122.1585457!2d37.4424932!1m5!1m1!1s0x80858099b080c0e5:0x9ee8deb0a62242a0!2m2!1d-122.4210431!2d37.7785738!2m3!6e1!7e2!8j1450377000!3e3!5i1",
+                "https://www.google.com/maps?t=m&ll=37.780670,-122.442896&q=Marked+Location",
+                "https://www.google.com/maps?q=Taquer%C3%ADa+El+Farolito,+2779+Mission+St,+San+Francisco,+CA+94110&ftid=0x808f7e474d4864e5:0xc3479e37f17ac921&hl=en-US&gl=us&shorturl=1"
             ],
             "formats": [
                 {
@@ -1980,9 +1983,11 @@
                     "testResults": [
                         "comgooglemapsurl://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
                         "comgooglemapsurl://www.google.com/maps/place/Indiegogo,+965+Mission+St,+San+Francisco,+CA+94103/data=!4m2!3m1!1s0x808f7e29d40a8017:0x80a0cb606fe684b2?hl=en-US&dg=dbrw&newdg=1",
-                        null,
-                        null,
-                        "comgooglemapsurl://www.google.com/maps/dir/214+Homer+Ave,+Palo+Alto,+CA+94301,+USA/San+Francisco+Opera,+San+Francisco+War+Memorial+and+Performing+Arts+Center,+301+Van+Ness+Ave,+San+Francisco,+CA+94102/@37.6108546,-122.4548997,11z/am=t/data=!3m1!4b1!4m19!4m18!1m5!1m1!1s0x808fbb3b6e108ded:0x4a4eb4485d32172b!2m2!1d-122.1585457!2d37.4424932!1m5!1m1!1s0x80858099b080c0e5:0x9ee8deb0a62242a0!2m2!1d-122.4210431!2d37.7785738!2m3!6e1!7e2!8j1450377000!3e3!5i1"
+                        "comgooglemapsurl://maps.google.com/?q=@37.3161,-122.1836",
+                        "comgooglemapsurl://maps.google.co.jp/maps?f=q&hl=ja&geocode=&q=-39.23774,175.3048&ie=UTF8&ll=-39.23774,175.3048&z=6",
+                        "comgooglemapsurl://www.google.com/maps/dir/214+Homer+Ave,+Palo+Alto,+CA+94301,+USA/San+Francisco+Opera,+San+Francisco+War+Memorial+and+Performing+Arts+Center,+301+Van+Ness+Ave,+San+Francisco,+CA+94102/@37.6108546,-122.4548997,11z/am=t/data=!3m1!4b1!4m19!4m18!1m5!1m1!1s0x808fbb3b6e108ded:0x4a4eb4485d32172b!2m2!1d-122.1585457!2d37.4424932!1m5!1m1!1s0x80858099b080c0e5:0x9ee8deb0a62242a0!2m2!1d-122.4210431!2d37.7785738!2m3!6e1!7e2!8j1450377000!3e3!5i1",
+                        "comgooglemapsurl://www.google.com/maps?t=m&ll=37.780670,-122.442896&q=Marked+Location",
+                        "comgooglemapsurl://www.google.com/maps?q=Taquer%C3%ADa+El+Farolito,+2779+Mission+St,+San+Francisco,+CA+94110&ftid=0x808f7e474d4864e5:0xc3479e37f17ac921&hl=en-US&gl=us&shorturl=1"
                     ]
                 }
             ]
@@ -2078,16 +2083,6 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "googlemaps",
-                    "format": "comgooglemapsurl://$1",
-                    "testResults": [
-                        null,
-                        null,
-                        null,
-                        "comgooglemapsurl://www.google.com/maps?q=Taquer%C3%ADa+El+Farolito,+2779+Mission+St,+San+Francisco,+CA+94110&ftid=0x808f7e474d4864e5:0xc3479e37f17ac921&hl=en-US&gl=us&shorturl=1"
-                    ]
-                },
-                {
                     "appIdentifier": "applemaps",
                     "format": "maps://maps.apple.com/maps$2",
                     "testResults": [
@@ -2119,16 +2114,6 @@
                 "https://www.google.com/maps?q=Taquer%C3%ADa+El+Farolito,+2779+Mission+St,+San+Francisco,+CA+94110&ftid=0x808f7e474d4864e5:0xc3479e37f17ac921&hl=en-US&gl=us&shorturl=1"
             ],
             "formats": [
-                {
-                    "appIdentifier": "googlemaps",
-                    "format": "comgooglemapsurl://$1",
-                    "testResults": [
-                        null,
-                        "comgooglemapsurl://maps.google.com/?q=@37.3161,-122.1836",
-                        "comgooglemapsurl://maps.google.co.jp/maps?f=q&hl=ja&geocode=&q=-39.23774,175.3048&ie=UTF8&ll=-39.23774,175.3048&z=6",
-                        null
-                    ]
-                },
                 {
                     "appIdentifier": "applemaps",
                     "format": "maps://maps.apple.com/maps$2",
