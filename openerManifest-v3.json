@@ -1155,7 +1155,7 @@
         },
         {
             "title": "Open Blog",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "regex": "http(?:s)?://(?!.*\\.tumblr\\.com)[a-zA-Z0-9-\\.]+/(?!post|image|tagged|app|search).*\\n.*\"(?:(?i)X-Tumblr-User)\":\"([a-zA-Z0-9_\\-]+)\".*$",
             "formats": [
                 {
@@ -1225,7 +1225,7 @@
         {
             "title": "Open Post",
             "regex": "http(?:s)?://(?!.*\\.tumblr\\.com)[a-zA-Z0-9-.]+/(?!tagged)\\w+/(\\d+).*\\n.*\"(?:(?i)X-Tumblr-User)\":\"([a-zA-Z0-9_\\-]+)\".*$",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "formats": [
                 {
                     "appIdentifier": "tumblr",
@@ -3631,7 +3631,7 @@
         {
             "title": "Open Link",
             "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+/(?!@.*)(?!\\?.*)(.+)\\n.*(\"medium-fulfilled-by\"|\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\").*$",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should not be handled by this action.",
             "formats": [
                 {
@@ -3643,7 +3643,7 @@
         {
             "title": "Open Publication",
             "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(?:/?(?:(?:@|\\?).*)?)?\\n.*(\"medium-fulfilled-by\"|\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\").*$",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should be handled as publications by this action. The prior 'open link' action will fail for those because they require a lookup in the page's markup to derive a deep link.",
             "formats": [
                 {
@@ -5982,7 +5982,7 @@
         {
             "title": "Open Restaurant",
             "regex": "http(?:s)?://(?:\\w+\\.)+?opentable(?:\\.\\w+)+(?:/restaurants/.*/(\\d+)|.*rid=(\\d+).*||.*\\n.*er=(\\d+).*)$",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "testInputs": [
                 "http://m.opentable.com/restaurants/le-zinc/7644?rid=7644&restref=&ref=",
                 "http://www.opentable.com/nextavailabletable.aspx?hpu=626690729&shpu=1&cop=1&m=8&d=12%2f12%2f2015+09%3a15%3a00+PM&p=2&rid=52456&mode=singlerest"
@@ -8008,7 +8008,7 @@
         },
         {
             "title": "Open Link",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "regex": "http(?:s)?://\\w+(?:\\.\\w+)+/(@|users/|web/accounts/)([^/]+).*?$\\n.*(?i)(?:server\":\"[^\"]*mastodon).*",
             "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
             "testsThatCantBeRunCuzHeaders": [
@@ -8028,7 +8028,7 @@
         },
         {
             "title": "Open Status",
-            "includeHeaders": true,
+            "includeHeaders": 1,
             "regex": "http(?:s)?://\\w+(?:\\.\\w+)+/(?:@[^/]+|(?:(?:web|users/\\w+)/statuses))/(\\d+).*?\\n.*(?i)(?:server\":\"[^\"]*mastodon).*",
             "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
             "testsThatCantBeRunCuzHeaders": [
