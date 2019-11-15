@@ -2146,7 +2146,8 @@
                 "http://maps.apple.com/?lsp=6489&sll=34.045802,-118.260574&q=645%20W%209th%20St%20%23110-140%20Los%20Angeles%20CA%2090015-1640%20United%20States",
                 "http://maps.apple.com/?lsp=9902&auid=5554799088491316685&sll=28.026687,-81.617854&q=Dundee%20Elementary%20School&hnear=215%20E%20Frederick%20Ave%2C%20Dundee%2C%20FL%20%2033838-4238%2C%20United%20States",
                 "https://maps.apple.com/?address=1%20Dana%20St,%20Cambridge,%20MA%20%2002138,%20United%20States&ll=42.369732,-71.110707&q=1%20Dana%20St",
-                "https://maps.apple.com?address=1%20Dana%20St,%20Cambridge,%20MA%20%2002138,%20United%20States&ll=42.369732,-71.110707&q=1%20Dana%20St"
+                "https://maps.apple.com?address=1%20Dana%20St,%20Cambridge,%20MA%20%2002138,%20United%20States&ll=42.369732,-71.110707&q=1%20Dana%20St",
+                "https://maps.apple.com/?ll=37.336733,-122.031641&q=Marked%20Location&_ext=EiYplZqo4IaqQkAxpge19GKCXsA5E3DOPK2rQkBByor116mBXsBQBA%3D%3D&t=m"
             ],
             "formats": [
                 {
@@ -2159,21 +2160,23 @@
                         "maps://maps.apple.com/maps?lsp=6489&sll=34.045802,-118.260574&q=645%20W%209th%20St%20%23110-140%20Los%20Angeles%20CA%2090015-1640%20United%20States",
                         "maps://maps.apple.com/maps?lsp=9902&auid=5554799088491316685&sll=28.026687,-81.617854&q=Dundee%20Elementary%20School&hnear=215%20E%20Frederick%20Ave%2C%20Dundee%2C%20FL%20%2033838-4238%2C%20United%20States",
                         "maps://maps.apple.com/maps?address=1%20Dana%20St,%20Cambridge,%20MA%20%2002138,%20United%20States&ll=42.369732,-71.110707&q=1%20Dana%20St",
-                        "maps://maps.apple.com/maps?address=1%20Dana%20St,%20Cambridge,%20MA%20%2002138,%20United%20States&ll=42.369732,-71.110707&q=1%20Dana%20St"
+                        "maps://maps.apple.com/maps?address=1%20Dana%20St,%20Cambridge,%20MA%20%2002138,%20United%20States&ll=42.369732,-71.110707&q=1%20Dana%20St",
+                        "maps://maps.apple.com/maps?ll=37.336733,-122.031641&q=Marked%20Location&_ext=EiYplZqo4IaqQkAxpge19GKCXsA5E3DOPK2rQkBByor116mBXsBQBA%3D%3D&t=m"
                     ]
                 },
                 {
                     "appIdentifier": "googlemaps",
-                    "script": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleAddress != null && appleAddress.length > 0) { googleQ = appleAddress; } else if (appleQ != null) { googleQ = appleQ; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '&'; } query = query + 'center=' + googleCenter; } var url = 'comgooglemaps://?' + query; completionHandler(url); }",
-                    "script2": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleAddress != null && appleAddress.length > 0) { googleQ = appleAddress; } else if (appleQ != null) { googleQ = appleQ; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '&'; } query = query + 'center=' + googleCenter; } var url = 'comgooglemaps://?' + query; completionHandler(url); }",
+                    "script": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleAddress != null && appleAddress.length > 0) { googleQ = appleAddress; } else if (appleQ != null) { googleQ = appleQ; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '%20'; } query = query + '@' + googleCenter; } var url = 'comgooglemaps://?' + query; completionHandler(url); }",
+                    "script2": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleAddress != null && appleAddress.length > 0) { googleQ = appleAddress; } else if (appleQ != null) { googleQ = appleQ; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '%20'; } query = query + '@' + googleCenter; } var url = 'comgooglemaps://?' + query; completionHandler(url); }",
                     "testResults": [
-                        "comgooglemaps://?q=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&center=37.760092,-122.414035",
-                        "comgooglemaps://?q=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&center=37.760092,-122.414035",
-                        "comgooglemaps://?q=967%20Mission%20St%20San%20Francisco%20CA%2094103%20United%20States&center=37.781510,-122.407999",
-                        "comgooglemaps://?q=645%20W%209th%20St%20%23110-140%20Los%20Angeles%20CA%2090015-1640%20United%20States&center=34.045802,-118.260574",
-                        "comgooglemaps://?q=215%20E%20Frederick%20Ave%2C%20Dundee%2C%20FL%20%2033838-4238%2C%20United%20States&center=28.026687,-81.617854",
-                        "comgooglemaps://?q=1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States&center=42.369732,-71.110707",
-                        "comgooglemaps://?q=1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States&center=42.369732,-71.110707"
+                        "comgooglemaps://?q=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States%20@37.760092,-122.414035",
+                        "comgooglemaps://?q=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States%20@37.760092,-122.414035",
+                        "comgooglemaps://?q=967%20Mission%20St%20San%20Francisco%20CA%2094103%20United%20States%20@37.781510,-122.407999",
+                        "comgooglemaps://?q=645%20W%209th%20St%20%23110-140%20Los%20Angeles%20CA%2090015-1640%20United%20States%20@34.045802,-118.260574",
+                        "comgooglemaps://?q=215%20E%20Frederick%20Ave%2C%20Dundee%2C%20FL%20%2033838-4238%2C%20United%20States%20@28.026687,-81.617854",
+                        "comgooglemaps://?q=1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States%20@42.369732,-71.110707",
+                        "comgooglemaps://?q=1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States%20@42.369732,-71.110707",
+                        "comgooglemaps://?q=Marked%20Location%20@37.336733,-122.031641"
                     ]
                 },
                 {
@@ -2187,7 +2190,8 @@
                         "waze://?q=645%20W%209th%20St%20%23110-140%20Los%20Angeles%20CA%2090015-1640%20United%20States&ll=34.045802,-118.260574",
                         "waze://?q=Dundee%20Elementary%20School%2C215%20E%20Frederick%20Ave%2C%20Dundee%2C%20FL%20%2033838-4238%2C%20United%20States&ll=28.026687,-81.617854",
                         "waze://?q=1%20Dana%20St%2C1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States&ll=42.369732,-71.110707",
-                        "waze://?q=1%20Dana%20St%2C1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States&ll=42.369732,-71.110707"
+                        "waze://?q=1%20Dana%20St%2C1%20Dana%20St%2C%20Cambridge%2C%20MA%20%2002138%2C%20United%20States&ll=42.369732,-71.110707",
+                        "waze://?q=Marked%20Location&ll=37.336733,-122.031641"
                     ]
                 }
             ]
