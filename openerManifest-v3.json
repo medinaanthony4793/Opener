@@ -3075,7 +3075,7 @@
                 },
                 {
                     "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else { type = 'album'; } var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace('PANDORA_ALBUM::', '').replace('PANDORA_SONG::', ''); } completionHandler(appURL); }",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
                     "testResults": [
                         "pandorav4://backstage/track?pandoraId=TR:2731446",
                         "pandorav4://backstage/track?pandoraId=TR:3218368",
@@ -3710,7 +3710,7 @@
                 },
                 {
                     "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else { type = 'album'; } var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace('PANDORA_ALBUM::', '').replace('PANDORA_SONG::', ''); } completionHandler(appURL); }",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
                     "testResults": [
                         null,
                         "pandorav4://backstage/album?pandoraId=AL:134106"
@@ -5253,7 +5253,7 @@
                 },
                 {
                     "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else { type = 'album'; } var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace('PANDORA_ALBUM::', '').replace('PANDORA_SONG::', ''); } completionHandler(appURL); }",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
                     "testResults": [
                         null,
                         "pandorav4://backstage/album?pandoraId=AL:17936",
