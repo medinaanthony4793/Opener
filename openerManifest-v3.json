@@ -6633,9 +6633,10 @@
         },
         {
             "title": "Open Gallery",
-            "regex": "http(?:s)?://([^\\.]+)\\.deviantart\\.com/gallery/\\d+.*$",
+            "regex": "http(?:s)?://([^\\.]+)\\.deviantart\\.com/(?:[^/]+/)*gallery/\\d+.*$",
             "testInputs": [
-                "http://daekazu.deviantart.com/gallery/778245/Pink-Sugar"
+                "http://daekazu.deviantart.com/gallery/778245/Pink-Sugar",
+                "https://www.deviantart.com/daekazu/gallery/778245/Pink-Sugar"
             ],
             "formats": [
                 {
@@ -6643,6 +6644,7 @@
                     "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('://gallery/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://gallery/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('://gallery/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://gallery/' + match); }",
                     "testResults": [
+                        "deviantart://gallery/daekazu/D70348AB-51C4-4086-088F-BA379308C7EA",
                         "deviantart://gallery/daekazu/D70348AB-51C4-4086-088F-BA379308C7EA"
                     ]
                 }
