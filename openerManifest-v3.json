@@ -3054,16 +3054,6 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "itunesstore",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; } completionHandler(appURL); }",
-                    "testResults": [
-                        "itmss://itunes.apple.com/us/album/_/887763843?i=887763882&mt=1&app=itunes&at=1000lHKX",
-                        "itmss://itunes.apple.com/us/album/_/978362006?i=978364023&mt=1&app=itunes&at=1000lHKX",
-                        "itmss://itunes.apple.com/us/album/_/958998203?mt=1&app=itunes&at=1000lHKX",
-                        "itmss://itunes.apple.com/us/album/_/1445311414?i=1445311599&mt=1&app=itunes&at=1000lHKX"
-                    ]
-                },
-                {
                     "appIdentifier": "applemusic",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile']; } completionHandler(appURL); }",
                     "testResults": [
@@ -3074,23 +3064,13 @@
                     ]
                 },
                 {
-                    "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "appIdentifier": "itunesstore",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; } completionHandler(appURL); }",
                     "testResults": [
-                        "pandorav4://backstage/track?pandoraId=TR:2731446",
-                        "pandorav4://backstage/track?pandoraId=TR:3218368",
-                        "pandorav4://backstage/album?pandoraId=AL:305605",
-                        "pandorav4://backstage/track?pandoraId=TR:5496931"
-                    ]
-                },
-                {
-                    "appIdentifier": "amazonmusic",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
-                    "testResults": [
-                        "amznmp3://albums/B00KWGRKFU?trackAsin=B00KWGRYUQ&do=play",
-                        "amznmp3://albums/B00V8I134A?trackAsin=B00V8I2D26&do=play",
-                        "amznmp3://albums/B00SCIDAO0?do=play",
-                        "amznmp3://albums/B01JR4ZCBG?trackAsin=B01JR4ZETQ&do=play"
+                        "itmss://itunes.apple.com/us/album/_/887763843?i=887763882&mt=1&app=itunes&at=1000lHKX",
+                        "itmss://itunes.apple.com/us/album/_/978362006?i=978364023&mt=1&app=itunes&at=1000lHKX",
+                        "itmss://itunes.apple.com/us/album/_/958998203?mt=1&app=itunes&at=1000lHKX",
+                        "itmss://itunes.apple.com/us/album/_/1445311414?i=1445311599&mt=1&app=itunes&at=1000lHKX"
                     ]
                 },
                 {
@@ -3111,6 +3091,26 @@
                         "soundcloud://sounds:210502043",
                         "soundcloud://playlists:249614331",
                         null
+                    ]
+                },
+                {
+                    "appIdentifier": "pandora",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        "pandorav4://backstage/track?pandoraId=TR:2731446",
+                        "pandorav4://backstage/track?pandoraId=TR:3218368",
+                        "pandorav4://backstage/album?pandoraId=AL:305605",
+                        "pandorav4://backstage/track?pandoraId=TR:5496931"
+                    ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "amznmp3://albums/B00KWGRKFU?trackAsin=B00KWGRYUQ&do=play",
+                        "amznmp3://albums/B00V8I134A?trackAsin=B00V8I2D26&do=play",
+                        "amznmp3://albums/B00SCIDAO0?do=play",
+                        "amznmp3://albums/B01JR4ZCBG?trackAsin=B01JR4ZETQ&do=play"
                     ]
                 }
             ]
@@ -3703,14 +3703,6 @@
                     ]
                 },
                 {
-                    "appIdentifier": "itunesstore",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; } completionHandler(appURL); }",
-                    "testResults": [
-                        null,
-                        null
-                    ]
-                },
-                {
                     "appIdentifier": "applemusic",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile']; } completionHandler(appURL); }",
                     "testResults": [
@@ -3719,11 +3711,11 @@
                     ]
                 },
                 {
-                    "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "appIdentifier": "itunesstore",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; } completionHandler(appURL); }",
                     "testResults": [
                         null,
-                        "pandorav4://backstage/album?pandoraId=AL:134106"
+                        null
                     ]
                 },
                 {
@@ -3740,6 +3732,14 @@
                     "testResults": [
                         null,
                         "soundcloud://playlists:241266882"
+                    ]
+                },
+                {
+                    "appIdentifier": "pandora",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "pandorav4://backstage/album?pandoraId=AL:134106"
                     ]
                 }
             ]
@@ -5270,38 +5270,6 @@
                     ]
                 },
                 {
-                    "appIdentifier": "pandora",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
-                    "testResults": [
-                        null,
-                        "pandorav4://backstage/album?pandoraId=AL:17936",
-                        "pandorav4://backstage/track?pandoraId=TR:239804",
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        "pandorav4://backstage/album?pandoraId=AL:1103015"
-                    ]
-                },
-                {
-                    "appIdentifier": "amazonmusic",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
-                    "testResults": [
-                        null,
-                        "amznmp3://albums/B000XNVS7I?do=play",
-                        "amznmp3://albums/B000XNVS7I?trackAsin=B000XNZN1U&do=play",
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        "amznmp3://albums/B0725JVTB4?do=play"
-                    ]
-                },
-                {
                     "appIdentifier": "youtube",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['youtube'] != null) { var appURL = res['linksByPlatform']['youtube']['url'].replace(RegExp('^.*?\\\\w+://', 'g'), 'vnd.youtube://'); } completionHandler(appURL); }",
                     "testResults": [
@@ -5331,6 +5299,38 @@
                         null,
                         null,
                         "soundcloud://playlists:324155826"
+                    ]
+                },
+                {
+                    "appIdentifier": "pandora",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "pandorav4://backstage/album?pandoraId=AL:17936",
+                        "pandorav4://backstage/track?pandoraId=TR:239804",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "pandorav4://backstage/album?pandoraId=AL:1103015"
+                    ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "amznmp3://albums/B000XNVS7I?do=play",
+                        "amznmp3://albums/B000XNVS7I?trackAsin=B000XNZN1U&do=play",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "amznmp3://albums/B0725JVTB4?do=play"
                     ]
                 }
             ]
@@ -7280,11 +7280,11 @@
                     ]
                 },
                 {
-                    "appIdentifier": "itunesstore",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; } completionHandler(appURL); }",
+                    "appIdentifier": "spotify",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['spotify'] != null) { var appURL = res['linksByPlatform']['spotify']['nativeAppUriDesktop']; } completionHandler(appURL); }",
                     "testResults": [
                         null,
-                        "itmss://itunes.apple.com/us/album/_/742432549?mt=1&app=itunes&at=1000lHKX",
+                        "spotify:album:1R8kkopLT4IAxzMMkjic6X",
                         null
                     ]
                 },
@@ -7298,20 +7298,11 @@
                     ]
                 },
                 {
-                    "appIdentifier": "spotify",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['spotify'] != null) { var appURL = res['linksByPlatform']['spotify']['nativeAppUriDesktop']; } completionHandler(appURL); }",
+                    "appIdentifier": "itunesstore",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['itunes'] != null) { var appURL = res['linksByPlatform']['itunes']['nativeAppUriMobile']; } completionHandler(appURL); }",
                     "testResults": [
                         null,
-                        "spotify:album:1R8kkopLT4IAxzMMkjic6X",
-                        null
-                    ]
-                },
-                {
-                    "appIdentifier": "amazonmusic",
-                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
-                    "testResults": [
-                        null,
-                        "amznmp3://albums/B000SX9NAC?do=play",
+                        "itmss://itunes.apple.com/us/album/_/742432549?mt=1&app=itunes&at=1000lHKX",
                         null
                     ]
                 },
@@ -7330,6 +7321,15 @@
                     "testResults": [
                         null,
                         "soundcloud://playlists:241266863",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "amznmp3://albums/B000SX9NAC?do=play",
                         null
                     ]
                 }
