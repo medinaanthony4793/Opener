@@ -123,7 +123,7 @@ if 'browsers' in data:
                     
 # Strip unneeded keys from previews
 if 'previews' in data:
-    previewKeysToKeep = ["regex", "format", "script", "script2"]
+    previewKeysToKeep = ["regex", "format", "script", "script2", "canSave"]
     for index,preview in enumerate(data['previews']):
     	keys = preview.keys()
     	for keyIndex,key in enumerate(keys):
