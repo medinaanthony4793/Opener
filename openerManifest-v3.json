@@ -3102,6 +3102,16 @@
                         "vnd.youtube://www.youtube.com/playlist?list=PLVqbInNnwpZ7rFiMaqzOiuGtf4H4WIlZ5",
                         "vnd.youtube://www.youtube.com/watch?v=hL2m9ikzvhI"
                     ]
+                },
+                {
+                    "appIdentifier": "soundcloud",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['soundcloud'] != null) { var entityId = res['linksByPlatform']['soundcloud']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'sounds'; } else if (entityId.indexOf('PLAYLIST') != -1) { type = 'playlists'; } if (type != null) { var appURL = 'soundcloud://' + type + ':' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "soundcloud://sounds:210502043",
+                        "soundcloud://playlists:249614331",
+                        null
+                    ]
                 }
             ]
         },
@@ -3722,6 +3732,14 @@
                     "testResults": [
                         "vnd.youtube://www.youtube.com/watch?v=tW8FKkVnqng",
                         "vnd.youtube://www.youtube.com/playlist?list=PL317B1490BF2793B9"
+                    ]
+                },
+                {
+                    "appIdentifier": "soundcloud",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['soundcloud'] != null) { var entityId = res['linksByPlatform']['soundcloud']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'sounds'; } else if (entityId.indexOf('PLAYLIST') != -1) { type = 'playlists'; } if (type != null) { var appURL = 'soundcloud://' + type + ':' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "soundcloud://playlists:241266882"
                     ]
                 }
             ]
@@ -5297,6 +5315,22 @@
                         null,
                         null,
                         "vnd.youtube://www.youtube.com/playlist?list=PLzT5Xiez1FIGfiGeLxA0HlYwpwP3aeMRK"
+                    ]
+                },
+                {
+                    "appIdentifier": "soundcloud",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['soundcloud'] != null) { var entityId = res['linksByPlatform']['soundcloud']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'sounds'; } else if (entityId.indexOf('PLAYLIST') != -1) { type = 'playlists'; } if (type != null) { var appURL = 'soundcloud://' + type + ':' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "soundcloud://playlists:241267239",
+                        "soundcloud://sounds:431801247",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "soundcloud://playlists:324155826"
                     ]
                 }
             ]
@@ -7287,6 +7321,15 @@
                     "testResults": [
                         "vnd.youtube://www.youtube.com/watch?v=eISo-iFGGDg",
                         "vnd.youtube://www.youtube.com/playlist?list=PLDIxWXRU4UDq5rPhv-P-dHXFadb0FSBjQ",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "soundcloud",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['soundcloud'] != null) { var entityId = res['linksByPlatform']['soundcloud']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'sounds'; } else if (entityId.indexOf('PLAYLIST') != -1) { type = 'playlists'; } if (type != null) { var appURL = 'soundcloud://' + type + ':' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "soundcloud://playlists:241266863",
                         null
                     ]
                 }
