@@ -10526,6 +10526,11 @@
             "regex": "http(?:s)?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(?:-.*)?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)*gfycat\\\\.com(?:/amp)?/([^-]*)(?:-.*)?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.gfycat.com/v1/gfycats/' + identifier; var res = jsonRequest(requestURL); var imageURL = null; if (res != null && res['gfyItem'] != null) { imageURL = res['gfyItem']['gifUrl']; } completionHandler(imageURL); }",
             "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
+        },
+        {
+            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/(\\w+)/playlist|artist)/.*$",
+            "script2": "function process(url, completionHandler) { var res = jsonRequest('https://embed.spotify.com/oembed?url=' + encodeURIComponent(url)); match = res != null ? res['thumbnail_url'] : null; completionHandler(match); }",
+            "docs": "https://stackoverflow.com/a/16496995/3943258 / https://twitter.com/nicklas2k/status/330094611202723840"
         }
     ],
     "redirectRules": {
