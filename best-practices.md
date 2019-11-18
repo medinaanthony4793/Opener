@@ -13,7 +13,7 @@ function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); x
 `script2` field:
 
 ```javascript
-function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(YOUR_REGEX_HERE).*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1] }; completionHandler(match); }
+function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(YOUR_REGEX_HERE).*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; } completionHandler(match); }
 ```
 
 ## URL Encoding
