@@ -16,6 +16,14 @@ function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); x
 function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(YOUR_REGEX_HERE).*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }
 ```
 
+## Using a regex to extract from input
+
+`script2` field:
+
+```
+function process(url, completionHandler) { var res = RegExp('YOUR_REGEX_HERE').exec(url); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(/* do something to generate URL here */); }
+```
+
 ## URL Encoding
 
 Replace `YOUR_*_HERE`.
