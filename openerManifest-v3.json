@@ -3565,6 +3565,16 @@
                         "com.falconassets.monochrome://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
+                },
+                {
+                    "appIdentifier": "baconreader",
+                    "format": "baconreader://$2",
+                    "testResults": [
+                        "baconreader://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "baconreader://reddit.com/r/gaming/",
+                        "baconreader://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        null
+                    ]
                 }
             ]
         },
@@ -9786,6 +9796,12 @@
             "identifier": "amazonmusic",
             "storeIdentifier": "510855668",
             "scheme": "amznmp3://"
+        },
+        {
+            "displayName": "BaconReader",
+            "identifier": "baconreader",
+            "storeIdentifier": "725730936",
+            "scheme": "baconreader://"
         }
     ],
     "browsers": [
