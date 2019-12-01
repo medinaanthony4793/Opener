@@ -10525,6 +10525,7 @@
         {
             "regex": "http(?:s)?://(?:\\w+\\.)?imgur\\.com/(?:gallery/|a/|r/.*/)?(\\w+).*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?imgur\\\\.com/(?:gallery/|a/|r/.*/)?(\\\\w+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.imgur.com/3/image/' + identifier + '.json?client_id=5db623156c4be49'; var res = jsonRequest(requestURL); var imageURL = 'https://i.imgur.com/' + identifier + 'h.jpg'; if (res != null && res['data'] != null && res['data']['animated'] == 1) { imageURL = res['data']['link']; } completionHandler(imageURL); }",
+            "canSave": 1,
             "docs": "https://thomas.vanhoutte.be/miniblog/imgur-thumbnail-trick/, https://api.imgur.com/models/image"
         },
         {
@@ -10537,11 +10538,13 @@
         },
         {
             "regex": "http(?:s)?://(?:\\w+\\.)*giphy\\.com/(?:gifs|media)/(?:.+-)*(\\w+).*?$",
-            "format": "https://media.giphy.com/media/$1/giphy.gif"
+            "format": "https://media.giphy.com/media/$1/giphy.gif",
+            "canSave": 1
         },
         {
             "regex": "http(?:s)?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(?:-.*)?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)*gfycat\\\\.com(?:/amp)?/([^-]*)(?:-.*)?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.gfycat.com/v1/gfycats/' + identifier; var res = jsonRequest(requestURL); var imageURL = null; if (res != null && res['gfyItem'] != null) { imageURL = res['gfyItem']['gifUrl']; } completionHandler(imageURL); }",
+            "canSave": 1,
             "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
         },
         {
@@ -10552,6 +10555,7 @@
         {
             "regex": "http(?:s)?://((?!www\\.)(?:([a-zA-Z0-9\\-]+)\\.)(?:\\w+\\.)*wikipedia\\.(?:com|org)/(?:[^/]+/)?(.*))$",
             "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb = null; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
+            "canSave": 1,
             "docs": "Copied from Curiosity's rules (two should match) and https://stackoverflow.com/a/43039946/3943258"
         }
     ],
