@@ -9801,7 +9801,8 @@
             "displayName": "BaconReader",
             "identifier": "baconreader",
             "storeIdentifier": "725730936",
-            "scheme": "baconreader://"
+            "scheme": "baconreader://",
+            "docs": "https://db.tt/YiwQSygnrO"
         }
     ],
     "browsers": [
