@@ -3507,12 +3507,12 @@
                     "notes": "Narwhal doesn't tolerate queries it seems https://twitter.com/jad_chaar/status/770055945707716608"
                 },
                 {
-                    "appIdentifier": "comet",
-                    "format": "comet://$2",
+                    "appIdentifier": "baconreader",
+                    "format": "baconreader://$2",
                     "testResults": [
-                        "comet://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
-                        "comet://reddit.com/r/gaming/",
-                        "comet://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        "baconreader://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "baconreader://reddit.com/r/gaming/",
+                        "baconreader://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 },
@@ -3527,12 +3527,12 @@
                     ]
                 },
                 {
-                    "appIdentifier": "readder",
-                    "format": "readder://open-url/https://$2",
+                    "appIdentifier": "comet",
+                    "format": "comet://$2",
                     "testResults": [
-                        "readder://open-url/https://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
-                        "readder://open-url/https://reddit.com/r/gaming/",
-                        "readder://open-url/https://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        "comet://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "comet://reddit.com/r/gaming/",
+                        "comet://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 },
@@ -3543,6 +3543,16 @@
                         "amrc://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
                         "amrc://reddit.com/r/gaming/",
                         "amrc://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "readder",
+                    "format": "readder://open-url/https://$2",
+                    "testResults": [
+                        "readder://open-url/https://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "readder://open-url/https://reddit.com/r/gaming/",
+                        "readder://open-url/https://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 },
@@ -3563,16 +3573,6 @@
                         "com.falconassets.monochrome://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
                         "com.falconassets.monochrome://reddit.com/r/gaming/",
                         "com.falconassets.monochrome://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
-                        null
-                    ]
-                },
-                {
-                    "appIdentifier": "baconreader",
-                    "format": "baconreader://$2",
-                    "testResults": [
-                        "baconreader://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
-                        "baconreader://reddit.com/r/gaming/",
-                        "baconreader://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 }
