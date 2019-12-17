@@ -8275,6 +8275,26 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://photos\\.google(\\.\\w+)+/share/.*$",
+            "testInputs": [
+                "https://photos.app.goo.gl/tJauJwkXnLTsReGX7",
+                "https://photos.google.com/share/AF1QipP7JbEKCF8_oDGDaXMvV1glnBGEHyP0goeCZpx5VFY5pNonLUaPfgzsqWBwTIAVHA?key=ZWpaRUNZZXBkazBVaDc1TEFQTFQ3R0FCWk1jS1d3",
+                "https://photos.google.com/share/AF1QipNUX_bH-s1HJcdz5ZG41hMdCEJwv-l0avx5-NnNOKv4_q0HrDq-KSwNOuqn5TE-_Q?key=TnFXWlozcERDc2R2WURlamVUWEp1bTJ4VDZQWVVn"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "googlephotos",
+                    "script2": "function process(url, completionHandler) { completionHandler('googlephotos://photos.app.goo.gl?link=' + encodeURIComponent(url)); }",
+                    "testResults": [
+                        null,
+                        "googlephotos://photos.app.goo.gl?link=https%3A%2F%2Fphotos.google.com%2Fshare%2FAF1QipP7JbEKCF8_oDGDaXMvV1glnBGEHyP0goeCZpx5VFY5pNonLUaPfgzsqWBwTIAVHA%3Fkey%3DZWpaRUNZZXBkazBVaDc1TEFQTFQ3R0FCWk1jS1d3",
+                        "googlephotos://photos.app.goo.gl?link=https%3A%2F%2Fphotos.google.com%2Fshare%2FAF1QipNUX_bH-s1HJcdz5ZG41hMdCEJwv-l0avx5-NnNOKv4_q0HrDq-KSwNOuqn5TE-_Q%3Fkey%3DTnFXWlozcERDc2R2WURlamVUWEp1bTJ4VDZQWVVn"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -9803,6 +9823,12 @@
             "scheme": "nicolihttp://",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/nicoli-114.jpg",
             "docs": "https://db.tt/jes30BC1aR and https://db.tt/YFaVbFzlcb"
+        },
+        {
+            "displayName": "Google Photos",
+            "identifier": "googlephotos",
+            "storeIdentifier": "962194608",
+            "scheme": "googlephotos://"
         }
     ],
     "browsers": [
