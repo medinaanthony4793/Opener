@@ -2389,21 +2389,6 @@
                     ]
                 },
                 {
-                    "appIdentifier": "waffle",
-                    "format": "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=$1",
-                    "testResults": [
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=MTY1Kje0yLg",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=0uY7gLZDmn4",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=MFzDaBzBlL0",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=mzun7_Ynmks",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=JEiSTzK-A2A",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=yWDJoJm-Rk0",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=S4WNO4tchUk",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=ngElkyQ6Rhs",
-                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=KVQxACAEpso"
-                    ]
-                },
-                {
                     "appIdentifier": "musi",
                     "format": "musi://track/$1",
                     "testResults": [
@@ -2446,6 +2431,21 @@
                         "protube://video/S4WNO4tchUk",
                         "protube://video/ngElkyQ6Rhs",
                         "protube://video/KVQxACAEpso"
+                    ]
+                },
+                {
+                    "appIdentifier": "waffle",
+                    "format": "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=$1",
+                    "testResults": [
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=MTY1Kje0yLg",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=0uY7gLZDmn4",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=MFzDaBzBlL0",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=mzun7_Ynmks",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=JEiSTzK-A2A",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=yWDJoJm-Rk0",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=S4WNO4tchUk",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=ngElkyQ6Rhs",
+                        "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=KVQxACAEpso"
                     ]
                 },
                 {
@@ -6789,22 +6789,6 @@
             ]
         },
         {
-            "title": "Open Recommendation",
-            "regex": "http(?:s)?://rex\\.is/p/(\\d+).*?$",
-            "testInputs": [
-                "https://rex.is/p/70731"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "rex",
-                    "format": "rex://pick/$1/view",
-                    "testResults": [
-                        "rex://pick/70731/view"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Track",
             "regex": "http(?:s)?://(?:www\\.)?(soundhound\\.com/?.*t=\\d+.*)$",
             "testInputs": [
@@ -7553,24 +7537,6 @@
                         "zomato://review/30981346",
                         "zomato://review/30981346",
                         "zomato://pv/u_NTk2NzA0MjIzMT"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)?eventshigh\\.com/(.*)$",
-            "testInputs": [
-                "https://www.eventshigh.com/detail/chennai/012f0b70d10a36ac7cc6396a4a0d9802-business-storytelling-for-corporates-start",
-                "https://www.eventshigh.com/chennai/outdoors"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "eventshigh",
-                    "format": "ehapp://$1",
-                    "testResults": [
-                        "ehapp://detail/chennai/012f0b70d10a36ac7cc6396a4a0d9802-business-storytelling-for-corporates-start",
-                        "ehapp://chennai/outdoors"
                     ]
                 }
             ]
@@ -9045,8 +9011,8 @@
         {
             "displayName": "Waffle",
             "identifier": "waffle",
-            "storeIdentifier": "1193772661",
-            "scheme": "com.arturremizov.waffle://"
+            "scheme": "com.arturremizov.waffle://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/waffle-140.jpg"
         },
         {
             "displayName": "Behance",
@@ -9069,9 +9035,9 @@
         {
             "displayName": "PipTube",
             "identifier": "piptube",
-            "storeIdentifier": "1064959109",
             "platform": "pad",
-            "scheme": "piptube://"
+            "scheme": "piptube://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/piptube-114.jpg"
         },
         {
             "displayName": "Eventbrite",
@@ -9478,12 +9444,6 @@
             "scheme": "dubsmash://"
         },
         {
-            "displayName": "Events High",
-            "identifier": "eventshigh",
-            "storeIdentifier": "1061912828",
-            "scheme": "ehapp://"
-        },
-        {
             "displayName": "FRESH!",
             "identifier": "amebafresh",
             "storeIdentifier": "1026540588",
@@ -9669,12 +9629,6 @@
             "identifier": "quip",
             "storeIdentifier": "647922896",
             "scheme": "quip://"
-        },
-        {
-            "displayName": "REX",
-            "identifier": "rex",
-            "storeIdentifier": "965827767",
-            "scheme": "rex://"
         },
         {
             "displayName": "Runkeeper",
@@ -10476,22 +10430,6 @@
             "testResults": [
                 "lionapp://www.opener.link/",
                 "lionapp://twitter.com/openerapp"
-            ]
-        },
-        {
-            "displayName": "RBVEAWeb",
-            "identifier": "rbveaweb",
-            "scheme": "rbveaweb://",
-            "storeIdentifier": "1448098664",
-            "regex": "http(s)?(.*)$",
-            "format": "rbveaweb$1$2",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "rbveaweb://www.opener.link/",
-                "rbveawebs://twitter.com/openerapp"
             ]
         },
         {
