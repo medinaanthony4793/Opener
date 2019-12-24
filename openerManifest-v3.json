@@ -5674,7 +5674,7 @@
         },
         {
             "title": "Open Track",
-            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!/)?track/(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?track/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/track/35470518",
                 "http://tidal.com/#!/track/35470518"
@@ -5692,7 +5692,7 @@
         },
         {
             "title": "Open Album",
-            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!/)?album/(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?album/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/album/52690849",
                 "http://tidal.com/#!/album/52690849"
@@ -5710,7 +5710,7 @@
         },
         {
             "title": "Open Artist",
-            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!/)?artist/(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?artist/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/artist/6277037",
                 "http://tidal.com/#!/artist/6277037"
@@ -5728,7 +5728,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!/)?playlist/([a-fA-F0-9\\-]+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?playlist/([a-fA-F0-9\\-]+).*$",
             "testInputs": [
                 "http://tidal.com/playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42",
                 "http://tidal.com/#!/playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42"
