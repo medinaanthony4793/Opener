@@ -3112,6 +3112,16 @@
                         "amznmp3://albums/B00SCIDAO0?do=play",
                         "amznmp3://albums/B01JR4ZCBG?trackAsin=B01JR4ZETQ&do=play"
                     ]
+                },
+                {
+                    "appIdentifier": "tidal",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['tidal'] != null) { var entityId = res['linksByPlatform']['tidal']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'tidal://' + type + '/' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        "tidal://track/34181256",
+                        "tidal://track/58080510",
+                        "tidal://album/44096055",
+                        null
+                    ]
                 }
             ]
         },
@@ -3750,6 +3760,14 @@
                     "testResults": [
                         null,
                         "pandorav4://backstage/album?pandoraId=AL:134106"
+                    ]
+                },
+                {
+                    "appIdentifier": "tidal",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['tidal'] != null) { var entityId = res['linksByPlatform']['tidal']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'tidal://' + type + '/' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "tidal://album/3821703"
                     ]
                 }
             ]
@@ -5341,6 +5359,22 @@
                         null,
                         null,
                         "amznmp3://albums/B0725JVTB4?do=play"
+                    ]
+                },
+                {
+                    "appIdentifier": "tidal",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['tidal'] != null) { var entityId = res['linksByPlatform']['tidal']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'tidal://' + type + '/' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "tidal://album/35730523",
+                        "tidal://track/35730524",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "tidal://album/73858363"
                     ]
                 }
             ]
@@ -7408,6 +7442,15 @@
                     "testResults": [
                         null,
                         "amznmp3://albums/B000SX9NAC?do=play",
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "tidal",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['tidal'] != null) { var entityId = res['linksByPlatform']['tidal']['entityUniqueId']; var type = null; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'tidal://' + type + '/' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "tidal://album/141254",
                         null
                     ]
                 }
