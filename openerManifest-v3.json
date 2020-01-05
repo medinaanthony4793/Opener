@@ -5481,6 +5481,25 @@
             ]
         },
         {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(tv\\.apple\\.com/.+)$",
+            "docs": "https://twitter.com/devarty/status/1213892785763487745 / https://www.macstories.net/ios/how-to-open-the-apple-tv-front-page-and-individual-shows-directly-in-the-tv-app/",
+            "testInputs": [
+                "https://tv.apple.com/show/umc.cmc.6wsi780sz5tdbqcf11k76mkp7",
+                "https://tv.apple.com/movie/umc.cmc.49wovq1nj958nx4lzr8sj0o8b"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "appletv",
+                    "format": "com.apple.tv://$1",
+                    "testResults": [
+                        "com.apple.tv://tv.apple.com/show/umc.cmc.6wsi780sz5tdbqcf11k76mkp7",
+                        "com.apple.tv://tv.apple.com/movie/umc.cmc.49wovq1nj958nx4lzr8sj0o8b"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "View App",
             "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+)(?!.*(?:&|\\?)mt=12.*).*$",
             "testInputs": [
@@ -9908,6 +9927,12 @@
             "identifier": "googlephotos",
             "storeIdentifier": "962194608",
             "scheme": "googlephotos://"
+        },
+        {
+            "displayName": "Apple TV",
+            "identifier": "appletv",
+            "storeIdentifier": "1174078549",
+            "scheme": "com.apple.tv://"
         }
     ],
     "browsers": [
