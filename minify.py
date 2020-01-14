@@ -41,6 +41,8 @@ for appIndex,app in enumerate(data['apps']):
 		if not key in appKeysToKeep:
 			# print "Removing " + key + " from " + app["identifier"]
 			app.pop(key, None)
+		elif key == 'scheme':
+			app[key] = app[key].replace('://', ':');
 			
 # Strip unneeded keys from actions
 actionIndex = 0
@@ -68,7 +70,8 @@ while actionIndex < len(data['actions']):
             elif (key == "script2" or key == "script") and mangle:
                 format[key] = minify(format[key], mangle=True)
                 # print format[key]
-                
+            elif key == 'app' and format['app']['scheme'] != None:
+                format['app']['scheme'] = format['app']['scheme'].replace('://', ':')
 
         # Ensure only necessary script is included
         if not 'format' in formatKeys:
@@ -106,6 +109,8 @@ if 'browsers' in data:
 			elif (key == "script2" or key == "script") and mangle:
 				browser[key] = minify(browser[key], mangle=True)
 				# print browser[key]
+			elif key == 'scheme':
+				browser[key] = browser[key].replace('://', ':');
     
         # Ensure only necessary script is included
 		if not 'format' in browserKeys:
