@@ -34,7 +34,7 @@ for i in range(2,len(sys.argv)):
 # Strip unneeded keys from apps
 appKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
 if not stripNewField:
-    appKeysToKeep.append("new");
+    appKeysToKeep.append("new")
 for appIndex,app in enumerate(data['apps']):
 	appKeys = app.keys()
 	for keyIndex,key in enumerate(appKeys):
@@ -42,7 +42,7 @@ for appIndex,app in enumerate(data['apps']):
 			# print "Removing " + key + " from " + app["identifier"]
 			app.pop(key, None)
 		elif key == 'scheme':
-			app[key] = app[key].replace('://', ':');
+			app[key] = app[key].replace('://', ':')
 			
 # Strip unneeded keys from actions
 actionIndex = 0
@@ -95,7 +95,7 @@ while actionIndex < len(data['actions']):
 # Strip unneeded keys from browsers
 browserKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
 if not stripNewField:
-    browserKeysToKeep.append("new");
+    browserKeysToKeep.append("new")
 if 'browsers' in data:
 	browserIndex = 0
 	while browserIndex < len(data['browsers']):
@@ -110,7 +110,7 @@ if 'browsers' in data:
 				browser[key] = minify(browser[key], mangle=True)
 				# print browser[key]
 			elif key == 'scheme':
-				browser[key] = browser[key].replace('://', ':');
+				browser[key] = browser[key].replace('://', ':')
     
         # Ensure only necessary script is included
 		if not 'format' in browserKeys:
