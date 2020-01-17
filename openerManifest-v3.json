@@ -5138,16 +5138,18 @@
         },
         {
             "title": "Open Profile",
-            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/member\\.php?.*id=(\\d+).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?users/|member\\.php?.*id=)(\\d+).*$",
             "testInputs": [
                 "http://touch.pixiv.net/member.php?id=395595",
-                "http://www.pixiv.net/member.php?id=395595"
+                "http://www.pixiv.net/member.php?id=395595",
+                "https://www.pixiv.net/en/users/395595"
             ],
             "formats": [
                 {
                     "appIdentifier": "pixiv",
                     "format": "pixiv://users/$1",
                     "testResults": [
+                        "pixiv://users/395595",
                         "pixiv://users/395595",
                         "pixiv://users/395595"
                     ]
