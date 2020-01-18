@@ -10756,5 +10756,43 @@
                 "https://twitter.com/i/redirect?url=https%3A%2F%2Ftwitter.com%2Fi%2Fevents%2F1180824138832723968%3Fcn%3DZmxleGlibGVfcmVjc18y%26refsrc%3Demail&t=1+1570380899543&cn=ZmxleGlibGVfcmVjc18y&sig=a393f55f1c1e1ca0bae933b0adc256b3f9e0dea7&iid=20d1000f765847d085d99c843677ddf2&uid=298542384&nid=244+277221392": "https://twitter.com/i/events/1180824138832723968?cn=ZmxleGlibGVfcmVjc18y&refsrc=email"
             }
         }
-    }
+    },
+    "categories": [
+        {
+            "title": "New",
+            "identifier": 65
+        },        
+        {
+            "title": "Popular",
+            "identifier": 66
+        },
+        {
+            "title": "Browsers",
+            "identifier": 67
+        },
+        {
+            "title": "Social",
+            "identifier": 0
+        },
+        {
+            "title": "Video",
+            "identifier": 1
+        },
+        {
+            "title": "Music",
+            "identifier": 2
+        },
+        {
+            "title": "Shopping",
+            "identifier": 3
+        },
+        {
+            "title": "Photography & Art",
+            "identifier": 4
+        },
+        {
+            "title": "Maps & Navigation",
+            "identifier": 5
+        }
+    ]
 }
