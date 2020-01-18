@@ -32,7 +32,7 @@ for i in range(2,len(sys.argv)):
         mangle = False
 
 # Strip unneeded keys from apps
-appKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
+appKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country", "categories"]
 if not stripNewField:
     appKeysToKeep.append("new")
 for appIndex,app in enumerate(data['apps']):
@@ -93,7 +93,7 @@ while actionIndex < len(data['actions']):
         actionIndex = actionIndex - 1
 
 # Strip unneeded keys from browsers
-browserKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
+browserKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2", "categories"]
 if not stripNewField:
     browserKeysToKeep.append("new")
 if 'browsers' in data:
@@ -148,6 +148,15 @@ if 'redirectRules' in data:
     		if not key in ruleKeysToKeep:
     			# print "Removing " + key + " from " + ruleRegex
     			rule.pop(key, None)
+                
+if 'categories' in data:
+    keysToKeep = ["title", "identifier"]
+    for index,category in enumerate(data['categories']):
+    	keys = category.keys()
+    	for keyIndex,key in enumerate(keys):
+    		if not key in keysToKeep:
+    			# print "Removing " + key + " from " + ruleRegex
+    			category.pop(key, None)
 
 				
 data = json.dumps(data, separators=(',',':'))
