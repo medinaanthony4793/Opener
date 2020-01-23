@@ -8458,7 +8458,7 @@
             "displayName": "App Store",
             "identifier": "appstore",
             "scheme": "itms-apps://",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/appstore-ios11-120.jpg"
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/appstore-120.jpg"
         },
         {
             "displayName": "Google Maps",
@@ -9942,7 +9942,7 @@
             "displayName": "Safari",
             "identifier": "safari",
             "scheme": "https://",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/safari-ios11-120.jpg",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/safari-120.jpg",
             "regex": "(.+)$",
             "format": "$1",
             "testInputs": [
