@@ -128,16 +128,19 @@ if 'browsers' in data:
                     
 # Strip unneeded keys from previews
 if 'previews' in data:
-    previewKeysToKeep = ["regex", "format", "script", "script2", "canSave"]
-    for index,preview in enumerate(data['previews']):
-    	keys = preview.keys()
-    	for keyIndex,key in enumerate(keys):
-    		if not key in previewKeysToKeep:
-				# print 'Removing ' + key
-				preview.pop(key, None)
-    		elif (key == "script2" or key == "script") and mangle:
-				preview[key] = minify(preview[key], mangle=True)
-				# print preview[key]
+    if stripNewField:
+        data.pop('previews', None)
+    else:
+        previewKeysToKeep = ["regex", "format", "script", "script2", "canSave"]
+        for index,preview in enumerate(data['previews']):
+        	keys = preview.keys()
+        	for keyIndex,key in enumerate(keys):
+        		if not key in previewKeysToKeep:
+    				# print 'Removing ' + key
+    				preview.pop(key, None)
+        		elif (key == "script2" or key == "script") and mangle:
+    				preview[key] = minify(preview[key], mangle=True)
+    				# print preview[key]
 
 if 'redirectRules' in data:
     ruleKeysToKeep = ["param", "format"]
