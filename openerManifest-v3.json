@@ -6590,11 +6590,14 @@
         },
         {
             "title": "Open Doc",
-            "regex": "http(?:s)?://(docs\\.google\\.com/.*document/d/.*)$",
+            "regex": "http(?:s)?://(docs\\.google\\.com/.*document/(?:u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
+                "https://docs.google.com/document/u/0/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/spreadsheets/d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
-                "https://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
+                "https://docs.google.com/spreadsheets/u/1d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
+                "https://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing",
+                "https://docs.google.com/presentation/u/2d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
             ],
             "formats": [
                 {
@@ -6602,6 +6605,9 @@
                     "format": "googledocs://$1",
                     "testResults": [
                         "googledocs://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
+                        "googledocs://docs.google.com/document/u/0/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
+                        null,
+                        null,
                         null,
                         null
                     ]
@@ -6610,11 +6616,14 @@
         },
         {
             "title": "Open Sheet",
-            "regex": "http(?:s)?://(docs\\.google\\.com/.*spreadsheets/d/.*)$",
+            "regex": "http(?:s)?://(docs\\.google\\.com/.*spreadsheets/(?:u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
+                "https://docs.google.com/document/u/0d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/spreadsheets/d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
-                "https://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
+                "https://docs.google.com/spreadsheets/u/1/d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
+                "https://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing",
+                "https://docs.google.com/presentation/u/2d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
             ],
             "formats": [
                 {
@@ -6622,7 +6631,10 @@
                     "format": "googlesheets://$1",
                     "testResults": [
                         null,
+                        null,
                         "googlesheets://docs.google.com/spreadsheets/d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
+                        "googlesheets://docs.google.com/spreadsheets/u/1/d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
+                        null,
                         null
                     ]
                 }
@@ -6630,11 +6642,14 @@
         },
         {
             "title": "Open Slides",
-            "regex": "http(?:s)?://(docs\\.google\\.com/.*presentation/d/.*)$",
+            "regex": "http(?:s)?://(docs\\.google\\.com/.*presentation/(?:u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
+                "https://docs.google.com/document/u/0d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/spreadsheets/d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
-                "https://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
+                "https://docs.google.com/spreadsheets/u/1d/1CsyrNTdFMASIySE0AS6piHIKoKRPHR9V5ctRTg-kilU/edit?usp=sharing",
+                "https://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing",
+                "https://docs.google.com/presentation/u/2/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
             ],
             "formats": [
                 {
@@ -6643,7 +6658,10 @@
                     "testResults": [
                         null,
                         null,
-                        "googleslides://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
+                        null,
+                        null,
+                        "googleslides://docs.google.com/presentation/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing",
+                        "googleslides://docs.google.com/presentation/u/2/d/1CntJ96QwyuQ72EO3Bu58SVyg-Ua1G7-Ev2RJBXDQSUU/edit?usp=sharing"
                     ]
                 }
             ]
