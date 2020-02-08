@@ -2197,6 +2197,22 @@
             ]
         },
         {
+            "title": "Open Collection",
+            "regex": "http(?:s)?://(collections\\.apple\\.com/.*)$",
+            "testInputs": [
+                "https://collections.apple.com/collection?_col=CgcxLzMxLzIwEg0Irk0Qr9%2BCmIiSz%2FkEEg4Irk0QorvTr%2FXIjdyiARIOCK5NEJefgoXilL6esgESDgiuTRDM8uqdsMXMuu0BEg4Irk0Qj%2BCD%2Bo2Kj9WoAQ%3D%3D"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "applemaps",
+                    "format": "maps://$1",
+                    "testResults": [
+                        "maps://collections.apple.com/collection?_col=CgcxLzMxLzIwEg0Irk0Qr9%2BCmIiSz%2FkEEg4Irk0QorvTr%2FXIjdyiARIOCK5NEJefgoXilL6esgESDgiuTRDM8uqdsMXMuu0BEg4Irk0Qj%2BCD%2Bo2Kj9WoAQ%3D%3D"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Link",
             "regex": "http(?:s)?://(?:www\\.)?waze\\.to(?:/)?\\?([^#]+).*$",
             "testInputs": [
