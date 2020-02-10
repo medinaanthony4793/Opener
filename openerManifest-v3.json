@@ -1839,12 +1839,13 @@
         },
         {
             "title": "Open Listing",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?airbnb(?:\\.\\w+)+/(?:rooms|listings)/(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*airbnb(?:\\.\\w+)+/(?:rooms|listings)/(\\d+).*$",
             "testInputs": [
                 "https://m.airbnb.com/listings/3342418",
                 "https://airbnb.com/rooms/3342418",
                 "https://www.airbnb.com/rooms/3342418",
-                "https://www.airbnb.fr/rooms/5224117"
+                "https://www.airbnb.fr/rooms/5224117",
+                "https://th.airbnb.com/rooms/27010371"
             ],
             "formats": [
                 {
@@ -1854,22 +1855,25 @@
                         "airbnb://rooms/3342418",
                         "airbnb://rooms/3342418",
                         "airbnb://rooms/3342418",
-                        "airbnb://rooms/5224117"
+                        "airbnb://rooms/5224117",
+                        "airbnb://rooms/27010371"
                     ]
                 }
             ]
         },
         {
             "title": "Open Experience",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?airbnb(?:\\.\\w+)+/experiences/(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*airbnb(?:\\.\\w+)+/experiences/(\\d+).*$",
             "testInputs": [
-                "https://www.airbnb.com/experiences/70986?source=p2&searchId=648044c8-7f3b-4d66-bc3d-d65b1a86a6ac&pdpReferrer=12&pdpContext%5Bmt_pdp_referrer_id%5D=25"
+                "https://www.airbnb.com/experiences/70986?source=p2&searchId=648044c8-7f3b-4d66-bc3d-d65b1a86a6ac&pdpReferrer=12&pdpContext%5Bmt_pdp_referrer_id%5D=25",
+                "http://th.airbnb.com/experiences/70986"
             ],
             "formats": [
                 {
                     "appIdentifier": "airbnb",
                     "format": "airbnb://d/experiences/$1",
                     "testResults": [
+                        "airbnb://d/experiences/70986",
                         "airbnb://d/experiences/70986"
                     ]
                 }
