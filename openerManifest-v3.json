@@ -8445,6 +8445,81 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(song|album)\\.link/(\\w+/)?(s|i)/.*$",
+            "note": "from https://github.com/songlink/docs/blob/master/ios-shortcuts.md. Should also match https://song.link/i/1443109064 and https://song.link/us/i/1443109064 (outdated?)",
+            "testInputs": [
+                "https://song.link/s/1GZH9Sv6zCIse2GKihRHKy",
+                "https://album.link/s/31qVWUdRrlb8thMvts0yYL"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "spotify",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('SPOTIFY_SONG')) { completionHandler('spotify:track:' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('SPOTIFY_ALBUM')) { completionHandler('spotify:album:' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "spotify:track:1GZH9Sv6zCIse2GKihRHKy",
+                        "spotify:album:31qVWUdRrlb8thMvts0yYL"
+                    ]
+                },
+                {
+                    "appIdentifier": "applemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('ITUNES_SONG')) { var requestURL = 'https://api.song.link/v1-alpha.1/links?type=song&platform=itunes&id=' + res['entitiesByUniqueId'][key]['id']; var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile']; } completionHandler(appURL); } else if (key.includes('ITUNES_ALBUM')) { completionHandler('music://itunes.apple.com/album/id' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "music://itunes.apple.com/us/album/_/1474018185?i=1474018186&mt=1&app=music&at=1000lHKX",
+                        "music://itunes.apple.com/album/id1484742845"
+                    ]
+                },
+                {
+                    "appIdentifier": "itunesstore",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('ITUNES_SONG')) { var requestURL = 'https://api.song.link/v1-alpha.1/links?type=song&platform=itunes&id=' + res['entitiesByUniqueId'][key]['id']; var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['appleMusic'] != null) { var appURL = res['linksByPlatform']['appleMusic']['nativeAppUriMobile'].replace('music://', 'itms://'); } completionHandler(appURL); } else if (key.includes('ITUNES_ALBUM')) { completionHandler('itms://itunes.apple.com/album/id' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "itms://itunes.apple.com/us/album/_/1474018185?i=1474018186&mt=1&app=music&at=1000lHKX",
+                        "itms://itunes.apple.com/album/id1484742845"
+                    ]
+                },
+                {
+                    "appIdentifier": "youtube",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('YOUTUBE_VIDEO')) { completionHandler('vnd.youtube://www.youtube.com/watch?v=' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('YOUTUBE_PLAYLIST')) { completionHandler('vnd.youtube://www.youtube.com/playlist?list=' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "vnd.youtube://www.youtube.com/watch?v=ZjuA_o6Jzyo",
+                        "vnd.youtube://www.youtube.com/playlist?list=PLHwvDXmNUa92NlFPooY1P5tfDo4T85ORz"
+                    ]
+                },
+                {
+                    "appIdentifier": "soundcloud",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('SOUNDCLOUD_SONG')) { completionHandler('soundcloud://sounds:' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('SOUNDCLOUD_PLAYLIST')) { completionHandler('soundcloud://playlists:' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        null,
+                        "soundcloud://playlists:991346893"
+                    ]
+                },
+                {
+                    "appIdentifier": "pandora",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('PANDORA_SONG')) { completionHandler('pandorav4://backstage/track?pandoraId=' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('PANDORA_ALBUM')) { completionHandler('pandorav4://backstage/album?pandoraId=' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "pandorav4://backstage/track?pandoraId=TR:20593906",
+                        "pandorav4://backstage/album?pandoraId=AL:4715643"
+                    ]
+                },
+                {
+                    "appIdentifier": "amazonmusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('AMAZON_SONG')) { completionHandler('amznmp3://albums/_?trackAsin=' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('AMAZON_ALBUM')) { completionHandler('amznmp3://albums/' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "amznmp3://albums/_?trackAsin=B07VQLSD1K",
+                        "amznmp3://albums/B07ZJKS6D1"
+                    ]
+                },
+                {
+                    "appIdentifier": "tidal",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('TIDAL_SONG')) { completionHandler('tidal://track/' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('TIDAL_ALBUM')) { completionHandler('tidal://album/' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "tidal://track/113929184",
+                        "tidal://album/130691516"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
