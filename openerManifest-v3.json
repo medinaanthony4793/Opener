@@ -5865,18 +5865,18 @@
                     "testResults": [
                         "vnd.youtube://www.youtube.com/watch?v=NWUtG6UQeGQ",
                         "vnd.youtube://www.youtube.com/watch?v=NWUtG6UQeGQ",
-                        "todo43",
-                        "todo44"
+                        null,
+                        null
                     ]
                 },
                 {
                     "appIdentifier": "soundcloud",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url.replace('/#!/', '/')); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['soundcloud'] != null) { var entityId = res['linksByPlatform']['soundcloud']['entityUniqueId']; var type; if (entityId.indexOf('SONG') != -1) { type = 'sounds'; } else if (entityId.indexOf('PLAYLIST') != -1) { type = 'playlists'; } if (type != null) { var appURL = 'soundcloud://' + type + ':' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
                     "testResults": [
-                        "todo51",
-                        "todo52",
-                        "todo53",
-                        "todo54"
+                        null,
+                        null,
+                        null,
+                        null
                     ]
                 },
                 {
