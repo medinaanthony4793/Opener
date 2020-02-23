@@ -6747,6 +6747,26 @@
             ]
         },
         {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(byte\\.co/.*)$",
+            "testInputs": [
+                "http://byte.co/timonus",
+                "https://byte.co/timonus/BOhVuUQzRBU",
+                "https://byte.co/b/BOhVuUQzRBU"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "byte",
+                    "format": "byte://$1",
+                    "testResults": [
+                        "byte://byte.co/timonus",
+                        "byte://byte.co/timonus/BOhVuUQzRBU",
+                        "byte://byte.co/b/BOhVuUQzRBU"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Post",
             "regex": "http(?:s)?://(?:www\\.)?wear\\.jp/[^/]+/coordinate/(\\d+).*?$",
             "testInputs": [
@@ -10048,6 +10068,12 @@
             "scheme": "nicolihttp://",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/nicoli-114.jpg",
             "docs": "https://db.tt/jes30BC1aR and https://db.tt/YFaVbFzlcb"
+        },
+        {
+            "displayName": "byte",
+            "identifier": "byte",
+            "storeIdentifier": "1441800002",
+            "scheme": "byte://"
         }
     ],
     "browsers": [
