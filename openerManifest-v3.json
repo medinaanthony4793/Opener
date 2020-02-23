@@ -1969,7 +1969,6 @@
         },
         {
             "title": "Open Link",
-            "xregex": "http(?:s)?://((?:www\\.)?google(?:\\.\\w+)+/maps.*)",
             "regex": "http(?:s)?://(((?:www\\.)?google(?:\\.\\w+)+/maps)|(maps\\.google(?:\\.\\w+)+).*)",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
