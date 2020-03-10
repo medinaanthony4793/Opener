@@ -10798,8 +10798,8 @@
             "docs": "https://thomas.vanhoutte.be/miniblog/imgur-thumbnail-trick/, https://api.imgur.com/models/image"
         },
         {
-            "regex": "http(?:s)?://(?:\\w+\\.)?pixiv\\.net/member_illust\\.php?.*illust_id=(\\d+).*?$",
-            "format": "https://embed.pixiv.net/decorate.php?illust_id=$1"
+            "regex": "http(?:s)?://((?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?artworks/|member_illust\\.php?.*illust_id=)(\\d+).*)$",
+            "format": "https://embed.pixiv.net/decorate.php?illust_id=$2"
         },
         {
             "regex": "http(?:s)?://(?:itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(?:id)?(\\d+).*?$",
