@@ -3119,6 +3119,16 @@
                     ]
                 },
                 {
+                    "appIdentifier": "youtubemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['youtube'] != null) { var appURL = res['linksByPlatform']['youtube']['url'].replace(RegExp('^.*?\\\\w+://', 'g'), 'youtubemusic://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "youtubemusic://www.youtube.com/watch?v=LXkpWY5Y02Q",
+                        "youtubemusic://www.youtube.com/watch?v=MCxpwylKFNE",
+                        "youtubemusic://www.youtube.com/playlist?list=PLVqbInNnwpZ7rFiMaqzOiuGtf4H4WIlZ5",
+                        "youtubemusic://www.youtube.com/watch?v=hL2m9ikzvhI"
+                    ]
+                },
+                {
                     "appIdentifier": "pandora",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
                     "testResults": [
@@ -3777,6 +3787,14 @@
                     "testResults": [
                         null,
                         "soundcloud://playlists:241266882"
+                    ]
+                },
+                {
+                    "appIdentifier": "youtubemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['youtube'] != null) { var appURL = res['linksByPlatform']['youtube']['url'].replace(RegExp('^.*?\\\\w+://', 'g'), 'youtubemusic://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "youtubemusic://www.youtube.com/watch?v=tW8FKkVnqng",
+                        "youtubemusic://www.youtube.com/playlist?list=PL317B1490BF2793B9"
                     ]
                 },
                 {
@@ -5375,6 +5393,22 @@
                     ]
                 },
                 {
+                    "appIdentifier": "youtubemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['youtube'] != null) { var appURL = res['linksByPlatform']['youtube']['url'].replace(RegExp('^.*?\\\\w+://', 'g'), 'youtubemusic://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        null,
+                        "youtubemusic://www.youtube.com/playlist?list=PLB862877AF2DB0B89",
+                        "youtubemusic://www.youtube.com/watch?v=RIrG6xBW5Wk",
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "youtubemusic://www.youtube.com/playlist?list=PLzT5Xiez1FIGfiGeLxA0HlYwpwP3aeMRK"
+                    ]
+                },
+                {
                     "appIdentifier": "pandora",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['pandora'] != null) { var entityId = res['linksByPlatform']['pandora']['entityUniqueId']; var type; if (entityId.indexOf('SONG') != -1) { type = 'track'; } else if (entityId.indexOf('ALBUM') != -1) { type = 'album'; } if (type != null) { var appURL = 'pandorav4://backstage/' + type + '?pandoraId=' + entityId.replace(RegExp('.*_.*::', 'g'), ''); } } completionHandler(appURL); }",
                     "testResults": [
@@ -5898,6 +5932,16 @@
                     "testResults": [
                         null,
                         null,
+                        null,
+                        null
+                    ]
+                },
+                {
+                    "appIdentifier": "youtubemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['youtube'] != null) { var appURL = res['linksByPlatform']['youtube']['url'].replace(RegExp('^.*?\\\\w+://', 'g'), 'youtubemusic://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "youtubemusic://www.youtube.com/watch?v=NWUtG6UQeGQ",
+                        "youtubemusic://www.youtube.com/watch?v=NWUtG6UQeGQ",
                         null,
                         null
                     ]
@@ -7539,6 +7583,15 @@
                     ]
                 },
                 {
+                    "appIdentifier": "youtubemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['youtube'] != null) { var appURL = res['linksByPlatform']['youtube']['url'].replace(RegExp('^.*?\\\\w+://', 'g'), 'youtubemusic://'); } completionHandler(appURL); }",
+                    "testResults": [
+                        "youtubemusic://www.youtube.com/watch?v=eISo-iFGGDg",
+                        "youtubemusic://www.youtube.com/playlist?list=PLDIxWXRU4UDq5rPhv-P-dHXFadb0FSBjQ",
+                        null
+                    ]
+                },
+                {
                     "appIdentifier": "amazonmusic",
                     "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['linksByPlatform'] != null && res['linksByPlatform']['amazonMusic'] != null) { var appURL = res['linksByPlatform']['amazonMusic']['url'].replace(RegExp('^.*?\\\\w+/', 'g'), 'amznmp3://'); } completionHandler(appURL); }",
                     "testResults": [
@@ -8536,6 +8589,14 @@
                     "testResults": [
                         null,
                         "soundcloud://playlists:991346893"
+                    ]
+                },
+                {
+                    "appIdentifier": "youtubemusic",
+                    "script2": "function process(url, completionHandler) { var requestURL = 'https://api.song.link/v1-alpha.1/links?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['entitiesByUniqueId'] != null) { for (var key in res['entitiesByUniqueId']) { if (key.includes('YOUTUBE_VIDEO')) { completionHandler('vnd.youtube://www.youtube.com/watch?v=' + res['entitiesByUniqueId'][key]['id']); } else if (key.includes('YOUTUBE_PLAYLIST')) { completionHandler('youtubemusic://www.youtube.com/playlist?list=' + res['entitiesByUniqueId'][key]['id']); } } } completionHandler(null); }",
+                    "testResults": [
+                        "youtubemusic://www.youtube.com/watch?v=ZjuA_o6Jzyo",
+                        "youtubemusic://www.youtube.com/playlist?list=PLHwvDXmNUa92NlFPooY1P5tfDo4T85ORz"
                     ]
                 },
                 {
