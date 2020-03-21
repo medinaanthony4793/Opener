@@ -1958,7 +1958,7 @@
             ]
         },
         {
-            "title": "Open Business Photos",
+            "title": "View Photos",
             "regex": "http(?:s?)://(?:www\\.|mobile\\.|m\\.)?yelp(?:\\.[a-z]+)+/biz_photos/([a-zA-Z0-9%\\-]+).*$",
             "testInputs": [
                 "http://www.yelp.com/biz_photos/service-max-cleaning-and-restoration-miami-3"
@@ -3353,7 +3353,7 @@
             ]
         },
         {
-            "title": "Add iTunes Podcast",
+            "title": "Add Podcast",
             "regex": "http(?:s)?://(?:geo\\.)?((?:itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
             "testInputs": [
                 "https://itunes.apple.com/us/podcast/serial/id917918570?mt=2",
