@@ -5527,6 +5527,26 @@
             ]
         },
         {
+            "title": "View Podcast",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|podcasts)\\.apple\\.com/((?:.*/)*(podcast)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?)$",
+            "testInputs": [
+                "https://podcasts.apple.com/us/podcast/rumble-with-michael-moore/id1490354763#episodeGuid=8c3df791-b5f5-4afd-afbd-3b7c161f97fd",
+                "https://podcasts.apple.com/us/podcast/rumble-with-michael-moore/id1490354763",
+                "http://itunes.apple.com/podcast/id1490354763"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "applepodcasts",
+                    "format": "podcasts://itunes.apple.com/$1",
+                    "testResults": [
+                        "podcasts://itunes.apple.com/us/podcast/rumble-with-michael-moore/id1490354763#episodeGuid=8c3df791-b5f5-4afd-afbd-3b7c161f97fd",
+                        "podcasts://itunes.apple.com/us/podcast/rumble-with-michael-moore/id1490354763",
+                        "podcasts://itunes.apple.com/podcast/id1490354763"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Playlist",
             "regex": "http(?:s)?://((?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)?playlist/.*)$",
             "testInputs": [
@@ -10182,6 +10202,12 @@
             "identifier": "pixez",
             "storeIdentifier": "1494435126",
             "scheme": "pixez://"
+        },
+        {
+            "displayName": "Apple Podcasts",
+            "identifier": "applepodcasts",
+            "storeIdentifier": "525463029",
+            "scheme": "podcasts://"
         }
     ],
     "browsers": [
