@@ -9254,7 +9254,7 @@
             "scheme": "goodreads://"
         },
         {
-            "displayName": "iBooks",
+            "displayName": "Apple Books",
             "identifier": "ibooks",
             "storeIdentifier": "364709193",
             "scheme": "itms-books://"
