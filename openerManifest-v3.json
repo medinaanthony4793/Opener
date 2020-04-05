@@ -8662,6 +8662,26 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://((?:\\w+\\.)*zoom\\.us)/j/(\\d*)(?:.*?(pwd=\\w+).*?|.*)$",
+            "testInputs": [
+                "https://zoom.us/j/7083784912?pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
+                "https://us04web.zoom.us/j/9702782093?pwd=TUdSajFTaXpuSmpKSHhXRUZNWUJYQT09",
+                "https://vanderbilt.zoom.us/j/117407117"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "zoom",
+                    "format": "zoomus://$1/join?action=join&confno=$2&$3",
+                    "testResults": [
+                        "zoomus://zoom.us/join?action=join&confno=7083784912&pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
+                        "zoomus://us04web.zoom.us/join?action=join&confno=9702782093&pwd=TUdSajFTaXpuSmpKSHhXRUZNWUJYQT09",
+                        "zoomus://vanderbilt.zoom.us/join?action=join&confno=117407117&"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10204,10 +10224,17 @@
             "scheme": "pixez://"
         },
         {
+            "displayName": "Zoom",
+            "identifier": "zoom",
+            "storeIdentifier": "546505307",
+            "scheme": "zoomus://"
+        },
+        {
             "displayName": "Apple Podcasts",
             "identifier": "applepodcasts",
             "storeIdentifier": "525463029",
             "scheme": "podcasts://"
+            ,"new":1
         }
     ],
     "browsers": [
