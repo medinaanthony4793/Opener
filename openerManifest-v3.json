@@ -8665,11 +8665,12 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://((?:\\w+\\.)*zoom\\.us)/j/(\\d*)(?:.*?(pwd=\\w+).*?|.*)$",
+            "regex": "http(?:s)?://((?:\\w+\\.)*zoom\\.(?:us|com)(?:\\.\\w+)*)/j/(\\d*)(?:.*?(pwd=\\w+).*?|.*)$",
             "testInputs": [
                 "https://zoom.us/j/7083784912?pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
                 "https://us04web.zoom.us/j/9702782093?pwd=TUdSajFTaXpuSmpKSHhXRUZNWUJYQT09",
-                "https://vanderbilt.zoom.us/j/117407117"
+                "https://vanderbilt.zoom.us/j/117407117",
+                "https://zoom.com.cn/j/3702319312"
             ],
             "formats": [
                 {
@@ -8678,7 +8679,8 @@
                     "testResults": [
                         "zoomus://zoom.us/join?action=join&confno=7083784912&pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
                         "zoomus://us04web.zoom.us/join?action=join&confno=9702782093&pwd=TUdSajFTaXpuSmpKSHhXRUZNWUJYQT09",
-                        "zoomus://vanderbilt.zoom.us/join?action=join&confno=117407117&"
+                        "zoomus://vanderbilt.zoom.us/join?action=join&confno=117407117&",
+                        "zoomus://zoom.com.cn/join?action=join&confno=3702319312&"
                     ]
                 }
             ]
@@ -10234,7 +10236,6 @@
             "identifier": "applepodcasts",
             "storeIdentifier": "525463029",
             "scheme": "podcasts://"
-            ,"new":1
         }
     ],
     "browsers": [
