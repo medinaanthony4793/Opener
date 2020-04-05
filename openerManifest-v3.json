@@ -5509,6 +5509,24 @@
             ]
         },
         {
+            "title": "View Audibook",
+            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|books)\\.apple\\.com/(?:.*/)*(audiobook)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "testInputs": [
+                "https://books.apple.com/us/audiobook/artemis-unabridged/id1299364718",
+                "http://itunes.apple.com/audiobook/id1299364718"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "ibooks",
+                    "format": "itms-books://itunes.apple.com/audiobook/id$2?at=1001l3kM&$3",
+                    "testResults": [
+                        "itms-books://itunes.apple.com/audiobook/id1299364718?at=1001l3kM&",
+                        "itms-books://itunes.apple.com/audiobook/id1299364718?at=1001l3kM&"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Playlist",
             "regex": "http(?:s)?://((?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)?playlist/.*)$",
             "testInputs": [
