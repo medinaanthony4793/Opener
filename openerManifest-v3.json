@@ -9809,8 +9809,8 @@
         {
             "displayName": "Monochrome",
             "identifier": "monochrome",
-            "storeIdentifier": "1128991367",
             "scheme": "com.falconassets.monochrome://",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/monochrome.jpg",
             "docs": "https://bit.ly/2Gn5AWf (hard copy https://db.tt/wfRHS2GF3s)"
         },
         {
