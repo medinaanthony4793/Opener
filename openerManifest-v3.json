@@ -3624,6 +3624,85 @@
             ]
         },
         {
+            "title": "Open Link",
+            "regex": "http(s)?://reddit\\.app\\.link/.+$",
+            "testInputs": [
+                "https://reddit.app.link/l67tKPXrtS"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "reddit",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); }",
+                    "testResults": [
+                        "reddit:///r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "apollo",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'apollo://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "apollo://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "narwhal",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'narwhal://open-url/' + encodeURIComponent('https://www.reddit.com/' + results[2]); }; completionHandler(match); }",
+                    "testResults": [
+                        "narwhal://open-url/https%3A%2F%2Fwww.reddit.com%2Fr%2FWatchPeopleDieInside%2Fcomments%2Fa44jvb%2Falex_jones_has_finally_lost_it%2F"
+                    ]
+                },
+                {
+                    "appIdentifier": "baconreader",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'baconreader://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "baconreader://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "slide",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'slide://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "slide://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "comet",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'comet://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "comet://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "amrc",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'amrc://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "amrc://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "readder",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'readder://open-url/https://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "readder://open-url/https://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "beam",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'beamapp://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "beamapp://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                },
+                {
+                    "appIdentifier": "monochrome",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'com.falconassets.monochrome://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "testResults": [
+                        "com.falconassets.monochrome://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Document",
             "regex": "http(?:s)?://(?:\\w+\\.)?scribd\\.com(?:/\\w+)*/(?:doc|embeds)/(\\d+).*$",
             "testInputs": [
