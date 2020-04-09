@@ -3917,6 +3917,22 @@
         },
         {
             "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*watch\\.amazon(?:\\.\\w+)+/(.*)$",
+            "testInputs": [
+                "https://watch.amazon.com/detail?asin=B0868TBBQV&territory=US&ref_=share_ios_movie&r=web"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "amazonprimevideo",
+                    "format": "aiv://$1",
+                    "testResults": [
+                        "aiv://detail?asin=B0868TBBQV&territory=US&ref_=share_ios_movie&r=web"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "http(?:s)?://((?:\\w+\\.)*(?:amazon|amzn)((?:\\.\\w+)+)/.*)$",
             "testInputs": [
                 "http://www.amazon.com/Mondaine-A990-CLOCK-11SBC-Clock-White-Frame/dp/B0016QNNP6/ref=sr_1_1?ie=UTF8&qid=1429471063&sr=8-1&keywords=mondaine+clock",
@@ -10315,6 +10331,12 @@
             "identifier": "applepodcasts",
             "storeIdentifier": "525463029",
             "scheme": "podcasts://"
+        },
+        {
+            "displayName": "Prime Video",
+            "identifier": "amazonprimevideo",
+            "storeIdentifier": "545519333",
+            "scheme": "aiv://"
         }
     ],
     "browsers": [
