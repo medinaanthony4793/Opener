@@ -8379,11 +8379,13 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)?tiktok\\.com/.+$",
+            "regex": "http(?:s)?://(?!vm)(?:\\w+\\.)?tiktok\\.com/.+$",
             "testInputs": [
                 "https://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
                 "https://t.tiktok.com/i18n/share/video/6611871928930012418/?region=PH&mid=6360467876020751105&u_code=d2g7ai3j6cbjc4&&iid=6611859828577126145&utm_campaign=sever_share&utm_medium=android&app=tiktok&utm_source=twitter",
-                "https://t.tiktok.com/i18n/share/challenge/1615191334550530?utm_campaign=client_share&app=tiktok&utm_medium=ios&tt_from=copy&utm_source=copy&iid=6618689673571174145"
+                "https://t.tiktok.com/i18n/share/challenge/1615191334550530?utm_campaign=client_share&app=tiktok&utm_medium=ios&tt_from=copy&utm_source=copy&iid=6618689673571174145",
+                "https://vm.tiktok.com/7PDf8Q/",
+                "https://www.tiktok.com/@chunkysdead?language=en&sec_uid=MS4wLjABAAAAO_9DL8UYqvAl2dLW5MYKzypggSDbn1rIjgJ-gSbp4KG0_d0dibKG7GfSCKwJBjvI&u_code=db0h2kj2k84hk8&utm_campaign=client_share&app=musically&utm_medium=ios&user_id=6794243058260739077&tt_from=copy&utm_source=copy&source=h5_m"
             ],
             "formats": [
                 {
@@ -8392,7 +8394,9 @@
                     "testResults": [
                         "snssdk1233://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
                         "snssdk1233://t.tiktok.com/i18n/share/video/6611871928930012418/?region=PH&mid=6360467876020751105&u_code=d2g7ai3j6cbjc4&&iid=6611859828577126145&utm_campaign=sever_share&utm_medium=android&app=tiktok&utm_source=twitter",
-                        "snssdk1233://t.tiktok.com/i18n/share/challenge/1615191334550530?utm_campaign=client_share&app=tiktok&utm_medium=ios&tt_from=copy&utm_source=copy&iid=6618689673571174145"
+                        "snssdk1233://t.tiktok.com/i18n/share/challenge/1615191334550530?utm_campaign=client_share&app=tiktok&utm_medium=ios&tt_from=copy&utm_source=copy&iid=6618689673571174145",
+                        null,
+                        "snssdk1233://www.tiktok.com/@chunkysdead?language=en&sec_uid=MS4wLjABAAAAO_9DL8UYqvAl2dLW5MYKzypggSDbn1rIjgJ-gSbp4KG0_d0dibKG7GfSCKwJBjvI&u_code=db0h2kj2k84hk8&utm_campaign=client_share&app=musically&utm_medium=ios&user_id=6794243058260739077&tt_from=copy&utm_source=copy&source=h5_m"
                     ]
                 }
             ]
