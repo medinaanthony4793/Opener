@@ -8378,7 +8378,7 @@
             ]
         },
         {
-            "title": "Open Video",
+            "title": "Open Link",
             "regex": "http(?:s)?://(?:\\w+\\.)?tiktok\\.com/.+$",
             "testInputs": [
                 "https://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
