@@ -11008,6 +11008,23 @@
                 "srcfari://www.opener.link/",
                 "srcfari://twitter.com/openerapp"
             ]
+        },
+        {
+            "displayName": "Inspect",
+            "identifier": "inspect",
+            "storeIdentifier": "1203594958",
+            "scheme": "inspect://",
+            "regex": "http(?:s)?(.*)",
+            "script": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "inspect://open-url?url=http%3A%2F%2Fwww.opener.link%2F",
+                "inspect://open-url?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
+            ]
         }
     ],
     "previews": [
