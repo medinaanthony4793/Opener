@@ -629,8 +629,8 @@
                 {
                     "appIdentifier": "facebook",
                     "note": "when using UIWebView processor the loaded page doesn't seem to include fb:// links, so we fish for facebook.\\w+/groups/\\d+ instead",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*facebook(?:\\\\.\\\\w+)+/groups/(\\\\d+).*').exec(res); var match; if (results != null && results.length > 1) { match = 'fb://group/?id=' + results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(fb://group(?:/)?\\\\?id=\\\\d+).*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('facebook(?:\\\\.\\\\w+)+/groups/(\\\\d+)').exec(res); var match; if (results != null && results.length > 1) { match = 'fb://group/?id=' + results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(fb://group(?:/)?\\\\?id=\\\\d+)').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         null,
                         null,
@@ -860,7 +860,7 @@
             "formats": [
                 {
                     "appIdentifier": "facebook",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.replace('m.facebook', 'facebook')); var results = RegExp('.*(fb://.*?)\".*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.replace('m.facebook', 'facebook')); var results = RegExp('(fb://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         null,
                         null,
@@ -3001,7 +3001,7 @@
             "formats": [
                 {
                     "appIdentifier": "spotify",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(spotify://.*?)\".*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(spotify://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         null,
                         null,
