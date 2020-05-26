@@ -8767,6 +8767,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*craigslist\\.org/(.*)$",
+            "testInputs": [
+                "https://sfbay.craigslist.org/pen/sop/d/palo-alto-apple-32-pro-display-xdr/7128524663.html"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "craigslist",
+                    "format": "craigslist://$1",
+                    "testResults": [
+                        "craigslist://pen/sop/d/palo-alto-apple-32-pro-display-xdr/7128524663.html"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10319,6 +10335,12 @@
             "identifier": "nicoseiga",
             "storeIdentifier": "1045938821",
             "scheme": "nicoseiga://"
+        },
+        {
+            "displayName": "craigslist",
+            "identifier": "craigslist",
+            "storeIdentifier": "1336642410",
+            "scheme": "craigslist://"
         }
     ],
     "browsers": [
