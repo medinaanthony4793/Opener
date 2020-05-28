@@ -6,7 +6,7 @@
 
 There are four main entities (apps, actions, formats, and browsers) under three top level keys (`apps`, `actions`, and `browsers`) that define a many-to-many relationship between web URLs and the apps they can be opened in.
 
-![](graphic.jpg)
+![](graphic.png)
 
 Actions contain formats as child dictionaries, and formats are matched with apps through identifiers. Browsers contain keys from each of the action, app, and format constructs and are intended to be capable of handling any http or https URL as an input.
 
