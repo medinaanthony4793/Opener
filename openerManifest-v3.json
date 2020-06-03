@@ -680,7 +680,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(?!\\d+)(?:[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:%\\w.*?(?:/|%2F))?(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(?!\\d+)(?:[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:.*?(?:/|%2F))?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/schrep/posts/10157765076449443",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
@@ -701,7 +701,7 @@
             "formats": [
                 {
                     "appIdentifier": "facebook",
-                    "script2": "function process(url, completionHandler) { var urlResults = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?facebook\\\\.com/(?:n/?\\\\?)?((?:groups(?:/|%2F))?[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:%\\\\w.*?(?:/|%2F))?(\\\\d+)').exec(url); var profileURL = 'https://www.facebook.com/' + urlResults[1]; var res = httpRequest(profileURL); var results = RegExp('\"entity_id\\\":\"(\\\\d+)\"').exec(res); var match = results != null && results.length > 1 ? 'fb://story/?id=' + results[1] + '_' + urlResults[2] : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var urlResults = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?facebook\\\\.com/(?:n/?\\\\?)?((?:groups(?:/|%2F))?[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:.*?(?:/|%2F))?(\\\\d+)').exec(url); var profileURL = 'https://www.facebook.com/' + urlResults[1]; var res = httpRequest(profileURL); var results = RegExp('\"entity_id\\\":\"(\\\\d+)\"').exec(res); var match = results != null && results.length > 1 ? 'fb://story/?id=' + results[1] + '_' + urlResults[2] : null; completionHandler(match); }",
                     "testResults": [
                         "fb://story/?id=514244442_10157765076449443",
                         "fb://story/?id=1201819_10107195283476043",
