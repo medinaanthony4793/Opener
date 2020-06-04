@@ -3730,7 +3730,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?!link\\.)(?:\\w+\\.)*medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*)$",
+            "regex": "http(?:s)?://((?!link\\.)(?:\\w+\\.)*medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*))$",
             "testInputs": [
                 "https://medium.com/@timonus",
                 "https://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
@@ -3751,21 +3751,21 @@
             "formats": [
                 {
                     "appIdentifier": "medium",
-                    "format": "medium://$1?$2",
+                    "format": "medium://$1",
                     "testResults": [
-                        "medium://@timonus?",
-                        "medium://@HelloAngels/hello-color-genomics-c679cddd7ed8?",
-                        "medium://technology-musings/my-rocky-first-24hrs-with-the-%E1%B4%A1%E1%B4%80%E1%B4%9B%E1%B4%84%CA%9C-67c841702a70?",
-                        "medium://p/822960e8653d?",
-                        "medium://@moskov/work-hard-live-well-ead679cb506d#af15--share-0-106?",
-                        "medium://@tikhon/founders-it-s-not-1990-stop-treating-your-employees-like-it-is-523f48fe90cb#.cdu7fela3?",
-                        "medium://@timonus?",
-                        "medium://@HelloAngels/hello-color-genomics-c679cddd7ed8?",
-                        "medium://@cba/highlights?",
-                        "medium://how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc?",
-                        "medium://how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc?formCheck=0980fc94e41dc364cc129fd0d7034d86",
-                        "medium://the-mission/how-to-send-emails-to-very-busy-people-and-a-case-study-teardown-8dd7b3428f8e?formCheck=a917221c92021db2523cd48f1fcc4c0b&utm_content=buffer98d42&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
-                        "medium://what-happens-when-your-tweet-becomes-a-subway-ad-696f7ad4ab86?",
+                        "medium://medium.com/@timonus",
+                        "medium://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
+                        "medium://medium.com/technology-musings/my-rocky-first-24hrs-with-the-%E1%B4%A1%E1%B4%80%E1%B4%9B%E1%B4%84%CA%9C-67c841702a70",
+                        "medium://www.medium.com/p/822960e8653d",
+                        "medium://medium.com/@moskov/work-hard-live-well-ead679cb506d#af15--share-0-106",
+                        "medium://medium.com/@tikhon/founders-it-s-not-1990-stop-treating-your-employees-like-it-is-523f48fe90cb#.cdu7fela3",
+                        "medium://medium.com/@timonus",
+                        "medium://www.medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
+                        "medium://medium.com/@cba/highlights",
+                        "medium://medium.com//how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc",
+                        "medium://medium.com//how-to-get-over-the-need-to-be-liked-by-everyone-you-meet-463d9ef529cc&formCheck=0980fc94e41dc364cc129fd0d7034d86",
+                        "medium://medium.com/the-mission/how-to-send-emails-to-very-busy-people-and-a-case-study-teardown-8dd7b3428f8e&formCheck=a917221c92021db2523cd48f1fcc4c0b&utm_content=buffer98d42&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
+                        "medium://onezero.medium.com/what-happens-when-your-tweet-becomes-a-subway-ad-696f7ad4ab86",
                         null,
                         null
                     ]
