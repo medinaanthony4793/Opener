@@ -654,14 +654,15 @@
         },
         {
             "title": "Open Photo",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:photo\\.php.*(?:\\?|&)fbid=|[^/]+/photos/[^/]+/)(\\d+).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:photo(?:\\.php)?.*(?:\\?|&)fbid=|[^/]+/photos/[^/]+/)(\\d+).*?$",
             "testInputs": [
                 "https://m.facebook.com/photo.php?fbid=10153892256554365",
                 "https://facebook.com/photo.php?fbid=10153892256554365",
                 "https://www.facebook.com/mauriciomacri/photos/a.105382683477.113835.55432788477/10153903314573478/",
                 "https://www.facebook.com/mauriciomacri/photos/a.105382683477.113835.55432788477/10153903314573478/?type=3&theater",
                 "https://www.facebook.com/n?photo.php&fbid=10159121928595063&set=a.10152710534540063.1073741825.776810062&type=3&medium=email&mid=5578d48f70a02G2a0d62e5G5578d928d0cd4G314&bcode=2.1503640444.AbwuEhN1mfMcSUYCPrA",
-                "https://www.facebook.com/n/?photo.php&fbid=10159121928595063&set=a.10152710534540063.1073741825.776810062&type=3&medium=email&mid=5578d48f70a02G2a0d62e5G5578d928d0cd4G314&bcode=2.1503640444.AbwuEhN1mfMcSUYCPrA"
+                "https://www.facebook.com/n/?photo.php&fbid=10159121928595063&set=a.10152710534540063.1073741825.776810062&type=3&medium=email&mid=5578d48f70a02G2a0d62e5G5578d928d0cd4G314&bcode=2.1503640444.AbwuEhN1mfMcSUYCPrA",
+                "https://www.facebook.com/photo?fbid=1363164317164442&set=ms.c.eJxFztsNAzAIQ9GNKozNI~%3BsvViUl6e~_RrwBMIsNZSDHsg4E2rcpaD~_pA34WInUh~_wZtNAH~_InVQPKOWFTCce1AHPAYWxSVv24CTym0jxW8QAkhtYNWCxH8v2e3Y~%3BcUBfLXQvrA~-~-.bps"
             ],
             "formats": [
                 {
@@ -673,7 +674,8 @@
                         "fb://photo/?id=10153903314573478",
                         "fb://photo/?id=10153903314573478",
                         "fb://photo/?id=10159121928595063",
-                        "fb://photo/?id=10159121928595063"
+                        "fb://photo/?id=10159121928595063",
+                        "fb://photo/?id=1363164317164442"
                     ]
                 }
             ]
@@ -694,6 +696,7 @@
                 "https://www.facebook.com/theclinicmiddleeast/videos/%D8%A7%D9%84%D8%A3%D8%B3%D8%AA%D8%A7%D8%B0-%D8%A7%D9%84%D8%AF%D9%83%D8%AA%D9%88%D8%B1-%D9%87%D8%A7%D9%86%D9%89-%D8%B1%D8%A7%D8%AC%D9%89-%D9%8A%D8%AA%D8%AD%D8%AF%D8%AB-%D8%B9%D9%86-%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D9%81%D8%B8%D8%A9-%D8%B9%D9%84%D9%89-%D8%A7%D9%84%D9%82%D9%84%D8%A8/193851438356037/",
                 "https://www.facebook.com/techcrunch/videos/10156003235202952/",
                 "https://www.facebook.com/groups/pebble.junkies/permalink/2509170195827142/",
+                "https://www.facebook.com/LeeCampComedian/videos/lee-camp-live-stream-near-w-house-/686219335549785/",
                 "https://www.facebook.com/groups/2091316597837496/permalink/2160376570931498/",
                 "https://www.facebook.com/story.php?story_fbid=10104210605404813&id=206186",
                 "https://www.facebook.com/48894759275/posts/10157755508369276?sfns=mo"
@@ -715,6 +718,7 @@
                         "fb://story/?id=309379733187186_193851438356037",
                         "fb://story/?id=8062627951_10156003235202952",
                         "fb://story/?id=595923150485199_2509170195827142",
+                        "fb://story/?id=108248262571903_686219335549785",
                         null,
                         null,
                         null
