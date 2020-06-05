@@ -4469,17 +4469,19 @@
             ]
         },
         {
-            "title": "Open Activity",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?strava\\.com/activities/(\\d+).*$",
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:www\\.|m\\.)?strava\\.com/((?:activities|athletes)/\\d+).*$",
             "testInputs": [
-                "https://www.strava.com/activities/304977054"
+                "https://www.strava.com/activities/304977054",
+                "https://www.strava.com/athletes/24752860"
             ],
             "formats": [
                 {
                     "appIdentifier": "strava",
-                    "format": "strava://activities/$1",
+                    "format": "strava://$1",
                     "testResults": [
-                        "strava://activities/304977054"
+                        "strava://activities/304977054",
+                        "strava://athletes/24752860"
                     ]
                 }
             ]
