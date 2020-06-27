@@ -859,12 +859,13 @@
                 "break -- all above should fail to match",
                 "https://www.facebook.com/dickdoorduinfotografie/",
                 "https://www.facebook.com/timonus",
-                "https://m.facebook.com/pages/category/Agricultural-Service/Allathan-Associates-706694322720291/?locale2=en_GB"
+                "https://m.facebook.com/pages/category/Agricultural-Service/Allathan-Associates-706694322720291/?locale2=en_GB",
+                "https://m.facebook.com/Alteama.co/"
             ],
             "formats": [
                 {
                     "appIdentifier": "facebook",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.replace('m.facebook', 'facebook')); var results = RegExp('(fb://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url.replace('m.facebook', 'facebook')); var results = RegExp('ios.*?(fb://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         null,
                         null,
@@ -928,7 +929,8 @@
                         null,
                         "fb://page/?id=2165095750195382",
                         null,
-                        "fb://page/?id=706694322720291"
+                        "fb://page/?id=706694322720291",
+                        "fb://page/?id=1738406109724419"
                     ]
                 }
             ]
