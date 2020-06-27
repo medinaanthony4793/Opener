@@ -2317,6 +2317,54 @@
         },
         {
             "title": "Open Link",
+            "regex": "http(?:s)?://((?:music\\.(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
+            "testInputs": [
+                "https://m.youtube.com/watch?v=MTY1Kje0yLg",
+                "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
+                "https://www.youtube.com/watch?v=MFzDaBzBlL0&app=desktop",
+                "https://youtu.be/mzun7_Ynmks",
+                "http://youtu.be/JEiSTzK-A2A",
+                "https://youtu.be/yWDJoJm-Rk0?t=4m30s",
+                "https://www.youtube.com/watch?v=S4WNO4tchUk",
+                "https://www.youtube.com/watch?v=ngElkyQ6Rhs",
+                "https://www.youtube.com/user/timonominus",
+                "https://m.youtube.com/user/timonominus",
+                "https://www.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
+                "https://www.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ",
+                "https://www.youtube.com/playlist?list=PL2ED57C3E5C561B91",
+                "https://www.youtube.com/vintagespace",
+                "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description",
+                "https://music.youtube.com/watch?v=KVQxACAEpso&feature=share",
+                "https://music.youtube.com/explore"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "youtubemusic",
+                    "format": "youtubemusic://$1",
+                    "testResults": [
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        null,
+                        "youtubemusic://music.youtube.com/watch?v=KVQxACAEpso&feature=share",
+                        "youtubemusic://music.youtube.com/explore"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "http(?:s)?://((?:(?:\\w+\\.)?(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
@@ -2361,7 +2409,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "http(?:s)?://(?:www\\.|m\\.|music\\.)?(?:youtu\\.be/|youtube\\.com/(?:embed/|.*(?:\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
+            "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:youtu\\.be/|youtube\\.com/(?:embed/|.*(?:\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2374,21 +2422,6 @@
                 "https://music.youtube.com/watch?v=KVQxACAEpso&feature=share"
             ],
             "formats": [
-                {
-                    "appIdentifier": "youtubemusic",
-                    "format": "youtubemusic://$1$2",
-                    "testResults": [
-                        "youtubemusic://MTY1Kje0yLg",
-                        "youtubemusic://0uY7gLZDmn4?start=96",
-                        "youtubemusic://MFzDaBzBlL0",
-                        "youtubemusic://mzun7_Ynmks",
-                        "youtubemusic://JEiSTzK-A2A",
-                        "youtubemusic://yWDJoJm-Rk0?t=4m30s",
-                        "youtubemusic://S4WNO4tchUk",
-                        "youtubemusic://ngElkyQ6Rhs",
-                        "youtubemusic://KVQxACAEpso"
-                    ]
-                },
                 {
                     "appIdentifier": "ivory",
                     "format": "ivory://https://www.youtube.com/watch?v=$1",
