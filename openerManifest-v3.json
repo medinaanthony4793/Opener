@@ -11100,7 +11100,7 @@
         },
         {
             "regex": "http(?:s)?://(?:\\w+\\.)?imgur\\.com/(?:gallery/|a/|r/.*/)?(\\w+).*?$",
-            "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?imgur\\\\.com/(?:gallery/|a/|r/.*/)?(\\\\w+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.imgur.com/3/image/' + identifier + '.json?client_id=5db623156c4be49'; var res = jsonRequest(requestURL); var imageURL = 'https://i.imgur.com/' + identifier + 'h.jpg'; if (res != null && res['data'] != null && res['data']['animated'] == 1) { imageURL = res['data']['link']; } completionHandler(imageURL); }",
+            "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?imgur\\\\.com/(?:gallery/|a/|r/.*/)?(\\\\w+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.imgur.com/3/image/' + identifier + '.json?client_id=5db623156c4be49'; var res = jsonRequest(requestURL); var imageURL = 'https://i.imgur.com/' + identifier + 'h.jpg'; if (res != null && res['data'] != null && res['data']['animated'] == 1 && res['data']['link'].endsWith('gif')) { imageURL = res['data']['link']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://thomas.vanhoutte.be/miniblog/imgur-thumbnail-trick/, https://api.imgur.com/models/image"
         },
