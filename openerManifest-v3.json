@@ -3996,43 +3996,6 @@
             ]
         },
         {
-            "title": "Open Product",
-            "regex": "http(?:s)?://(?:\\w+\\.)*(?:amazon|amzn)((?:\\.\\w+)+)/(?:.*?/)?(?:(?:(?:dp|gp)(?:/aw/d)?)|product|.*/ASIN)/([a-zA-Z0-9]+).*$",
-            "testInputs": [
-                "http://www.amazon.com/Mondaine-A990-CLOCK-11SBC-Clock-White-Frame/dp/B0016QNNP6/ref=sr_1_1?ie=UTF8&qid=1429471063&sr=8-1&keywords=mondaine+clock",
-                "http://www.amazon.com/dp/B0016QNNP6",
-                "http://www.amazon.com/gp/product/B0016QNNP6",
-                "http://www.amazon.com/dp/B0016QNNP6/ref=cm_sw_su_dp",
-                "http://www.amazon.com/gp/product/B0016QNNP6",
-                "http://www.amazon.co.uk/Untitled/dp/1472230078/ref=sr_1_1/277-2117425-9287062?ie=UTF8&qid=1428652808&sr=8-1&keywords=9781472230072",
-                "http://www.amazon.de/dp/B00N5BQ62",
-                "http://smile.amazon.com/dp/0812522397/ref=cm_sw_r_awd_m6xOvb9NW6G48",
-                "http://www.amazon.com/Adjustable-Flashlight-Bright-Batteries-Included/dp/B005FEGYCO",
-                "http://www.amazon.com/gp/aw/d/B005FEGYCO/ref=mp_s_a_1_1?qid=1444785369&sr=8-1&pi=SY200_QL40&keywords=flashlight&dpPl=1&dpID=41uqlYcT30L&ref=plSrch",
-                "http://www.amazon.com/exec/obidos/ASIN/0812972155/codihorr-20"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "associate",
-                    "script": "function process(url, completionHandler) { completionHandler('associate://x-callback-url/convert?url=' + encodeURIComponent(url)); }",
-                    "script2": "function process(url, completionHandler) { completionHandler('associate://x-callback-url/convert?url=' + encodeURIComponent(url)); }",
-                    "testResults": [
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2FMondaine-A990-CLOCK-11SBC-Clock-White-Frame%2Fdp%2FB0016QNNP6%2Fref%3Dsr_1_1%3Fie%3DUTF8%26qid%3D1429471063%26sr%3D8-1%26keywords%3Dmondaine%2Bclock",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2Fdp%2FB0016QNNP6",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2FB0016QNNP6",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2Fdp%2FB0016QNNP6%2Fref%3Dcm_sw_su_dp",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2Fgp%2Fproduct%2FB0016QNNP6",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.co.uk%2FUntitled%2Fdp%2F1472230078%2Fref%3Dsr_1_1%2F277-2117425-9287062%3Fie%3DUTF8%26qid%3D1428652808%26sr%3D8-1%26keywords%3D9781472230072",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.de%2Fdp%2FB00N5BQ62",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fsmile.amazon.com%2Fdp%2F0812522397%2Fref%3Dcm_sw_r_awd_m6xOvb9NW6G48",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2FAdjustable-Flashlight-Bright-Batteries-Included%2Fdp%2FB005FEGYCO",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2Fgp%2Faw%2Fd%2FB005FEGYCO%2Fref%3Dmp_s_a_1_1%3Fqid%3D1444785369%26sr%3D8-1%26pi%3DSY200_QL40%26keywords%3Dflashlight%26dpPl%3D1%26dpID%3D41uqlYcT30L%26ref%3DplSrch",
-                        "associate://x-callback-url/convert?url=http%3A%2F%2Fwww.amazon.com%2Fexec%2Fobidos%2FASIN%2F0812972155%2Fcodihorr-20"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Deal",
             "regex": "http(?:s)?://(?:www\\.)groupon(?:\\.\\w+)+/deals/.*$",
             "formats": [
@@ -9827,13 +9790,6 @@
             "identifier": "asana",
             "storeIdentifier": "489969512",
             "scheme": "asana://"
-        },
-        {
-            "displayName": "Associate",
-            "identifier": "associate",
-            "storeIdentifier": "1083291558",
-            "scheme": "associate://",
-            "docs": "http://squibner.com/associate/associate-url-scheme"
         },
         {
             "displayName": "Beam",
