@@ -8776,6 +8776,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Video",
+            "regex": "http(?:s)?://(?:\\w+\\.)*dailymotion\\.com/video/(\\w+).*?$",
+            "testInputs": [
+                "https://www.dailymotion.com/video/x7v8llj"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "dailymotion",
+                    "format": "dailymotion://video/$1",
+                    "testResults": [
+                        "dailymotion://video/x7v8llj"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10327,6 +10343,12 @@
             "identifier": "craigslist",
             "storeIdentifier": "1336642410",
             "scheme": "craigslist://"
+        },
+        {
+            "displayName": "Dailymotion",
+            "identifier": "dailymotion",
+            "storeIdentifier": "336978041",
+            "scheme": "dailymotion://"
         }
     ],
     "browsers": [
