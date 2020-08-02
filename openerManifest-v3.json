@@ -2321,54 +2321,6 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://((?:music\\.(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
-            "testInputs": [
-                "https://m.youtube.com/watch?v=MTY1Kje0yLg",
-                "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
-                "https://www.youtube.com/watch?v=MFzDaBzBlL0&app=desktop",
-                "https://youtu.be/mzun7_Ynmks",
-                "http://youtu.be/JEiSTzK-A2A",
-                "https://youtu.be/yWDJoJm-Rk0?t=4m30s",
-                "https://www.youtube.com/watch?v=S4WNO4tchUk",
-                "https://www.youtube.com/watch?v=ngElkyQ6Rhs",
-                "https://www.youtube.com/user/timonominus",
-                "https://m.youtube.com/user/timonominus",
-                "https://www.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
-                "https://www.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ",
-                "https://www.youtube.com/playlist?list=PL2ED57C3E5C561B91",
-                "https://www.youtube.com/vintagespace",
-                "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description",
-                "https://music.youtube.com/watch?v=KVQxACAEpso&feature=share",
-                "https://music.youtube.com/explore"
-            ],
-            "formats": [
-                {
-                    "appIdentifier": "youtubemusic",
-                    "format": "youtubemusic://$1",
-                    "testResults": [
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        "youtubemusic://music.youtube.com/watch?v=KVQxACAEpso&feature=share",
-                        "youtubemusic://music.youtube.com/explore"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Open Link",
             "regex": "http(?:s)?://((?:(?:\\w+\\.)?(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
@@ -2611,6 +2563,54 @@
                     "format": "protube://playlist/$1",
                     "testResults": [
                         "protube://playlist/PL2ED57C3E5C561B91"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*((?:(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
+            "testInputs": [
+                "https://m.youtube.com/watch?v=MTY1Kje0yLg",
+                "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
+                "https://www.youtube.com/watch?v=MFzDaBzBlL0&app=desktop",
+                "https://youtu.be/mzun7_Ynmks",
+                "http://youtu.be/JEiSTzK-A2A",
+                "https://youtu.be/yWDJoJm-Rk0?t=4m30s",
+                "https://www.youtube.com/watch?v=S4WNO4tchUk",
+                "https://www.youtube.com/watch?v=ngElkyQ6Rhs",
+                "https://www.youtube.com/user/timonominus",
+                "https://m.youtube.com/user/timonominus",
+                "https://www.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
+                "https://www.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ",
+                "https://www.youtube.com/playlist?list=PL2ED57C3E5C561B91",
+                "https://www.youtube.com/vintagespace",
+                "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description",
+                "https://music.youtube.com/watch?v=KVQxACAEpso&feature=share",
+                "https://music.youtube.com/explore"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "youtubemusic",
+                    "format": "youtubemusic://music.$1",
+                    "testResults": [
+                        "youtubemusic://music.youtube.com/watch?v=MTY1Kje0yLg",
+                        "youtubemusic://music.youtube.com/embed/0uY7gLZDmn4?start=96",
+                        "youtubemusic://music.youtube.com/watch?v=MFzDaBzBlL0&app=desktop",
+                        "youtubemusic://music.youtu.be/mzun7_Ynmks",
+                        "youtubemusic://music.youtu.be/JEiSTzK-A2A",
+                        "youtubemusic://music.youtu.be/yWDJoJm-Rk0?t=4m30s",
+                        "youtubemusic://music.youtube.com/watch?v=S4WNO4tchUk",
+                        "youtubemusic://music.youtube.com/watch?v=ngElkyQ6Rhs",
+                        "youtubemusic://music.youtube.com/user/timonominus",
+                        "youtubemusic://music.youtube.com/user/timonominus",
+                        "youtubemusic://music.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
+                        "youtubemusic://music.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ",
+                        "youtubemusic://music.youtube.com/playlist?list=PL2ED57C3E5C561B91",
+                        "youtubemusic://music.youtube.com/vintagespace",
+                        null,
+                        "youtubemusic://music.youtube.com/watch?v=KVQxACAEpso&feature=share",
+                        "youtubemusic://music.youtube.com/explore"
                     ]
                 }
             ]
