@@ -4670,6 +4670,10 @@
             "regex": "http(?:s?)://((?:\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
+                    "appIdentifier": "github",
+                    "format": "github://$1"
+                },
+                {
                     "appIdentifier": "ioctocat",
                     "format": "ioc://$1"
                 },
@@ -10329,6 +10333,12 @@
             "identifier": "dailymotion",
             "storeIdentifier": "336978041",
             "scheme": "dailymotion://"
+        },
+        {
+            "displayName": "GitHub",
+            "identifier": "github",
+            "storeIdentifier": "1477376905",
+            "scheme": "github://"
         }
     ],
     "browsers": [
