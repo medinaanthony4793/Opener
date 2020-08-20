@@ -3011,9 +3011,9 @@
                     "appIdentifier": "spotify",
                     "format": "spotify://playlist/$1",
                     "testResults": [
-                        "spotify://user/naveenium/playlist/1zw42kQZUSZlHyVVn8AecH",
-                        "spotify://user/timonominus/playlist/7rdUGYrNIMEdL6xdJDlMzZ",
-                        null
+                        "spotify://playlist/1zw42kQZUSZlHyVVn8AecH",
+                        "spotify://playlist/7rdUGYrNIMEdL6xdJDlMzZ",
+                        "spotify://playlist/37i9dQZF1DX0UrRvztWcAU"
                     ]
                 }
             ]
