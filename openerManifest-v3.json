@@ -4667,12 +4667,18 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s?)://((?:\\w+\\.)*github\\.com/.*)",
+            "regex": "http(?:s?)://((?!gist\\.)(?:\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
                     "appIdentifier": "github",
                     "format": "github://$1"
-                },
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s?)://((?:\\w+\\.)*github\\.com/.*)",
+            "formats": [
                 {
                     "appIdentifier": "ioctocat",
                     "format": "ioc://$1"
