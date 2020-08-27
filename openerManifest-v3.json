@@ -3941,7 +3941,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://((?:\\w+\\.)*(?:amazon|amzn)((?:\\.\\w+)+)/.*)$",
+            "regex": "http(?:s)?://((?:\\w+\\.)*amazon((?:\\.\\w+)+)/.*)$",
             "testInputs": [
                 "http://www.amazon.com/Mondaine-A990-CLOCK-11SBC-Clock-White-Frame/dp/B0016QNNP6/ref=sr_1_1?ie=UTF8&qid=1429471063&sr=8-1&keywords=mondaine+clock",
                 "http://www.amazon.com/dp/B0016QNNP6",
@@ -11065,7 +11065,7 @@
             "docs": "https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api"
         },
         {
-            "regex": "http(?:s)?://(?:\\w+\\.)*(?:amazon|amzn)((?:\\.\\w+)+)/(?:.*?/)?(?:(?:(?:dp|gp)(?:/aw/d)?)|product|.*/ASIN)/([a-zA-Z0-9]+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*amazon((?:\\.\\w+)+)/(?:.*?/)?(?:(?:(?:dp|gp)(?:/aw/d)?)|product|.*/ASIN)/([a-zA-Z0-9]+).*$",
             "format": "http://images.amazon.com/images/P/$2.01.LZZZZZZZZZ.jpg",
             "docs": "https://www.safaribooksonline.com/library/view/amazon-hacks/0596005423/ch01s07.html (backup https://db.tt/VqIjZyXRgw) and http://aaugh.com/imageabuse.html"
         },
