@@ -8782,6 +8782,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://((\\w+\\.)*target(\\.\\w+)+/(?!gift-registry.*)(.*)$)",
+            "testInputs": [
+                "https://www.target.com/p/doom-eternal-xbox-one-digital/-/A-77435284",
+                "https://www.target.com/gift-registry/giftgiver?registryId=7321c1abb48948e297661a1bd6edfe40&type=BABY&ref=reg_home_friends_fam"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "target",
+                    "format": "target://$1",
+                    "testResults": [
+                        "target://www.target.com/p/doom-eternal-xbox-one-digital/-/A-77435284",
+                        null
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10345,6 +10363,13 @@
             "identifier": "github",
             "storeIdentifier": "1477376905",
             "scheme": "github://"
+            ,"new":1
+        },
+        {
+            "displayName": "Target",
+            "identifier": "target",
+            "storeIdentifier": "297430070",
+            "scheme": "target://"
         }
     ],
     "browsers": [
