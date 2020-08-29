@@ -8800,6 +8800,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Comic",
+            "regex": "http(?:s)?://(?:www\\.|m\\.)?xkcd\\.com/(\\d+).*?$",
+            "testInputs": [
+                "http://xkcd.com/1508/",
+                "http://m.xkcd.com/1694/"
+            ],
+            "formats": [
+                {
+                    "appIdentifier": "xkcdy",
+                    "format": "xkcdy://comics/$1",
+                    "testResults": [
+                        "xkcdy://comics/1508",
+                        "xkcdy://comics/1694"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10370,6 +10388,12 @@
             "identifier": "target",
             "storeIdentifier": "297430070",
             "scheme": "target://"
+        },
+        {
+            "displayName": "XKCDY",
+            "identifier": "xkcdy",
+            "storeIdentifier": "1520259318",
+            "scheme": "xkcdy://"
         }
     ],
     "browsers": [
