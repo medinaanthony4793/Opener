@@ -24,7 +24,7 @@ for i in range(2,len(sys.argv)):
     val = sys.argv[i]
     if val == '--prefer-script-v1':
         preferredScriptName = 'script'
-        data.pop('redirectRules', None) # Also strip the "redirectRules" entry, which isn't supported by older versions of the app.
+        data.pop('redirects', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
         data.pop('previews', None) # Ditto for "previews".
     elif val == '--strip-new':
         stripNewField = True
@@ -32,7 +32,7 @@ for i in range(2,len(sys.argv)):
         mangle = False
 
 # Strip unneeded keys from apps
-appKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
+appKeysToKeep = ["identifier", "name", "displayName", "storeId", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
 if not stripNewField:
     appKeysToKeep.append("new")
 for appIndex,app in enumerate(data['apps']):
@@ -51,7 +51,7 @@ while actionIndex < len(data['actions']):
     actionIndex = actionIndex + 1
     actionKeys = action.keys()
     for keyIndex,key in enumerate(actionKeys):
-        if not key in ["title", "regex", "includeHeaders", "formats"]:
+        if not key in ["title", "regex", "headers", "includeHeaders", "formats"]:
             # print "Removing " + key + " from action"
             action.pop(key, None)
 
@@ -60,11 +60,11 @@ while actionIndex < len(data['actions']):
     while formatIndex < len(action['formats']):
         format = action['formats'][formatIndex]
         formatIndex = formatIndex + 1
-        # print '== ' + format['appIdentifier'] + ' ' + action['title'] + ' =='
+        # print '== ' + format['appId'] + ' ' + action['title'] + ' =='
         
         formatKeys = format.keys()
         for keyIndex,key in enumerate(formatKeys):
-            if not key in ["appIdentifier", "app", "format", "script", "script2"]:
+            if not key in ["appId", "appIdentifier", "app", "format", "script", "script2"]:
                 # print "Removing " + key + " from format"
                 format.pop(key, None)
             elif (key == "script2" or key == "script") and mangle:
@@ -76,14 +76,14 @@ while actionIndex < len(data['actions']):
         # Ensure only necessary script is included
         if not 'format' in formatKeys:
             if preferredScriptName == 'script2' and 'script2' in formatKeys:
-                # print 'Removing v1 script from ' + format['appIdentifier']
+                # print 'Removing v1 script from ' + format['appId']
                 format.pop('script', None)
             elif preferredScriptName == 'script':
                 if 'script' in formatKeys:
-                    # print 'Removing v2 script from ' + format['appIdentifier']
+                    # print 'Removing v2 script from ' + format['appId']
                     format.pop('script2', None)
                 else:
-                    # print 'Removing format ' + format['appIdentifier'] + ' from ' + action['title']
+                    # print 'Removing format ' + format['appId'] + ' from ' + action['title']
                     action['formats'].remove(format)
                     formatIndex = formatIndex - 1
 
@@ -93,7 +93,7 @@ while actionIndex < len(data['actions']):
         actionIndex = actionIndex - 1
 
 # Strip unneeded keys from browsers
-browserKeysToKeep = ["identifier", "displayName", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
+browserKeysToKeep = ["identifier", "name", "displayName", "storeId", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
 if not stripNewField:
     browserKeysToKeep.append("new")
 if 'browsers' in data:
@@ -142,6 +142,16 @@ if 'previews' in data:
     				preview[key] = minify(preview[key], mangle=True)
     				# print preview[key]
 
+if 'redirects' in data:
+    ruleKeysToKeep = ["param", "format"]
+    for ruleIndex,ruleRegex in enumerate(data['redirects']):
+        rule = data['redirects'][ruleRegex]
+    	ruleKeys = rule.keys()
+    	for keyIndex,key in enumerate(ruleKeys):
+    		if not key in ruleKeysToKeep:
+    			# print "Removing " + key + " from " + ruleRegex
+    			rule.pop(key, None)
+                
 if 'redirectRules' in data:
     ruleKeysToKeep = ["param", "format"]
     for ruleIndex,ruleRegex in enumerate(data['redirectRules']):
