@@ -8792,7 +8792,7 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "target",
+                    "appId": "target",
                     "format": "target://$1",
                     "testResults": [
                         "target://www.target.com/p/doom-eternal-xbox-one-digital/-/A-77435284",
@@ -8810,7 +8810,7 @@
             ],
             "formats": [
                 {
-                    "appIdentifier": "xkcdy",
+                    "appId": "xkcdy",
                     "format": "xkcdy://comics/$1",
                     "testResults": [
                         "xkcdy://comics/1508",
