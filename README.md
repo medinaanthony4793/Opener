@@ -17,9 +17,9 @@ The `apps` top level key in the manifest contains an ordered list of dictionarie
 <table>
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
 <tr><td><code>identifier</code></td><td>string</td><td>A human-readable identifier for this app, used elsewhere in the manifest.</td></tr>
-<tr><td><code>displayName</code></td><td>string</td><td>The user-facing name for this app within Opener.</td></tr>
-<tr><td><code>storeIdentifier</code></td><td>number as string</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
-<tr><td><code>iconURL</code></td><td>URL string</td><td>A URL to an icon for this app, mutually exclusive with <code>storeIdentifier</code>. This is intended for first party app support.</td></tr>
+<tr><td><code>name</code></td><td>string</td><td>The user-facing name for this app within Opener.</td></tr>
+<tr><td><code>storeId</code></td><td>number as string</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
+<tr><td><code>iconURL</code></td><td>URL string</td><td>A URL to an icon for this app, mutually exclusive with <code>storeId</code>. This is intended for first party app support.</td></tr>
 <tr><td><code>scheme</code></td><td>URL string</td><td>A URL containing only the scheme that will open this app.</td></tr>
 <tr><td><code>new</code></td><td>bool</td><td>Indicates whether or not this app will be include in the "New Apps" group in Opener.</td></tr>
 <tr><td><code>platform</code></td><td>string</td><td>Specifies if this app should only show up on iPhone/iPod Touch (value=<code>phone</code>) or on iPad (value=<code>pad</code>), shows on both if unspecified. (Opener 1.0.1 and above)</td></tr>
@@ -31,8 +31,8 @@ For example, if Opener were to include itself as an app
 ```json5
 {
     "identifier": "opener",
-    "storeIdentifier": "989565871",
-    "displayName": "Opener",
+    "storeId": "989565871",
+    "name": "Opener",
     "scheme": "opener://",
     "new": true
 }
@@ -49,7 +49,7 @@ The `actions` top level key in the manifest contains a list of dictionaries, eac
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
 <tr><td><code>title</code></td><td>string</td><td>The user-facing title for this action.</td></tr>
 <tr><td><code>regex</code></td><td>string</td><td>A regular expression string that the input URL is matched against. If this regex is matched by Opener for a given input, this action will appear in the list of available opening options.</td></tr>
-<tr><td><code>includeHeaders</code></td><td>bool</td><td>Indicates if headers should be included in the string that <code>regex</code> is matched with. If <code>true</code>, the headers are included in the input as a JSON encoded string separated from the input URL by a newline. (Opener 1.0.2 and above)</td></tr>
+<tr><td><code>headers</code></td><td>bool</td><td>Indicates if headers should be included in the string that <code>regex</code> is matched with. If <code>true</code>, the headers are included in the input as a JSON encoded string separated from the input URL by a newline. (Opener 1.0.2 and above)</td></tr>
 <tr><td><code>formats</code></td><td>array of dictionaries</td><td>Specifies the apps that an action can be opened in (see <a href="#formats">below</a>).</td></tr>
 </table>
 
@@ -59,7 +59,7 @@ Because an action could taken in multiple apps, there's an array within each act
 
 <table>
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
-<tr><td><code>appIdentifier</code></td><td>string</td><td>The identifier of the app that this action applies to. Should match the <code>identifier</code> of an app.</td></tr>
+<tr><td><code>appId</code></td><td>string</td><td>The identifier of the app that this action applies to. Should match the <code>identifier</code> of an app.</td></tr>
 <tr><td><code>format</code></td><td>string</td><td>The regex template applied to the input. Mutually exclusive with <code>script</code>.</td></tr>
 </table>
 
@@ -147,7 +147,7 @@ For example
 }
 ```
 
-Testing formats that have `includeHeaders` is not currently possible.
+Testing formats that have `headers` is not currently possible.
 
 ## Browsers
 
@@ -156,9 +156,9 @@ Support for opening any http or https URL in browsers was added in Opener 1.1. B
 <table>
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
 <tr><td><code>identifier</code></td><td>string</td><td>A human-readable identifier for this app, used elsewhere in the manifest.</td></tr>
-<tr><td><code>displayName</code></td><td>string</td><td>The user-facing name for this app within Opener.</td></tr>
-<tr><td><code>storeIdentifier</code></td><td>number as string</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
-<tr><td><code>iconURL</code></td><td>URL string</td><td>A URL to an icon for this app, mutually exclusive with <code>storeIdentifier</code>. This is intended for first party app support.</td></tr>
+<tr><td><code>name</code></td><td>string</td><td>The user-facing name for this app within Opener.</td></tr>
+<tr><td><code>storeId</code></td><td>number as string</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
+<tr><td><code>iconURL</code></td><td>URL string</td><td>A URL to an icon for this app, mutually exclusive with <code>storeId</code>. This is intended for first party app support.</td></tr>
 <tr><td><code>scheme</code></td><td>URL string</td><td>A URL containing only the scheme that will open this app.</td></tr>
 <tr><td><code>new</code></td><td>bool</td><td>Indicates whether or not this app will be include in the "New Apps" group in Opener.</td></tr>
 <tr><td><code>platform</code></td><td>string</td><td>Specifies if this app should only show up on iPhone/iPod Touch (value=<code>phone</code>) or on iPad (value=<code>pad</code>), shows on both if unspecified. (Opener 1.0.1 and above)</td></tr>
@@ -174,10 +174,10 @@ For example, here's Google Chrome's dictionary:
 
 ```json5
 {
-    "displayName": "Chrome",
+    "name": "Chrome",
     "identifier": "chrome",
     "scheme": "googlechrome://",
-    "storeIdentifier": "535886823",
+    "storeId": "535886823",
     "regex": "http(s)?(.*)$",
     "format": "googlechrome$1$2",
     "testInputs": [
@@ -193,7 +193,7 @@ For example, here's Google Chrome's dictionary:
 
 ## Redirect Rules
 
-There's a fourth top-level key in the manifest named `redirectRules` that's not directly tied to opening in particular apps. If Opener's unable to resolve a URL into a set of actions it performs a HTTP `HEAD` request to follow its input URL to its final destination, then retries resolving on that URL. For example, a bit.ly link to a Tweet wouldn't naturally resolve because Opener has no way of knowing the bit.ly link points to a Tweet, so we perform a `HEAD` request to get the final URL, which does resolve.
+There's a fourth top-level key in the manifest named `redirects` that's not directly tied to opening in particular apps. If Opener's unable to resolve a URL into a set of actions it performs a HTTP `HEAD` request to follow its input URL to its final destination, then retries resolving on that URL. For example, a bit.ly link to a Tweet wouldn't naturally resolve because Opener has no way of knowing the bit.ly link points to a Tweet, so we perform a `HEAD` request to get the final URL, which does resolve.
 
 Some popular services have URL redirection that doesn't work when followed through an HTTP `HEAD` request, but instead require loading HTML to get a redirect to occur. Links of this variety break Opener's system for resolving URLs, and loading up an invisible web page just to see if something redirects doesn't seem acceptable. Some of these services include
 
@@ -203,11 +203,11 @@ Some popular services have URL redirection that doesn't work when followed throu
 - Tumblr
 - Pinterest
 
-`redirectRules` solves this by serving as a static set of rules for mapping input URLs to what they'd redirect to if they were loaded up as HTML from services like this. The format for these rules is pretty simple.
+`redirects` solves this by serving as a static set of rules for mapping input URLs to what they'd redirect to if they were loaded up as HTML from services like this. The format for these rules is pretty simple.
 
 <table>
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
-<tr><td>Dictionary key</td><td>string</td><td>The keys for the entries in <code>redirectRules</code> are regular expressions to match. If a match is found, the rule within it used.</td>
+<tr><td>Dictionary key</td><td>string</td><td>The keys for the entries in <code>redirects</code> are regular expressions to match. If a match is found, the rule within it used.</td>
 <tr><td><code>param</code></td><td>string</td><td>A URL query parameter name. If the rule is matched, the value for <code>param</code> is used as the resulting URL to redirect to. Mutually exclusive with <code>format</code>.</td>
 <tr><td><code>format</code></td><td>string</td><td>A regex template to be used on the input if the rule is matched. Mutually exclusive with <code>param</code></td>
 </table>
@@ -220,7 +220,7 @@ So, for example if links like `https://mycoolsite.com/redirect?redirecturl=fooba
 }
 ```
 
-`redirectRules` also supports lightweight tests in the form of a dictionary under the `tests` key. The keys of `tests` are sample inputs, and the values are the expected outputs.
+`redirects` also supports lightweight tests in the form of a dictionary under the `tests` key. The keys of `tests` are sample inputs, and the values are the expected outputs.
 
 ```
 "https://mycoolsite\\.com/redirect.*$" {
@@ -231,7 +231,7 @@ So, for example if links like `https://mycoolsite.com/redirect?redirecturl=fooba
 }
 ```
 
-`redirectRules` are only supported by Opener version 1.5.8 and above.
+`redirects` are only supported by Opener version 1.5.8 and above.
 
 ## Minify Script
 
@@ -249,8 +249,9 @@ The manifest file has a `-v3` on the end, this indicates the major version of th
 
 <table>
 <tr><th>Manifest Version</th><th>App Version</th><th>Changes</th></tr>
-<tr><td>v2</td><td>1.0.10</td><td>Made app dictionary <code>storeIdentifier</code> field optional. This was required in v1. Change was made in order to support first party apps, which lack an iTunes identifier.</td></tr>
+<tr><td>v2</td><td>1.0.10</td><td>Made app dictionary <code>storeId</code> field optional. This was required in v1. Change was made in order to support first party apps, which lack an iTunes identifier.</td></tr>
 <tr><td>v3</td><td>1.1.8</td><td>Add support for <code>script2</code> field, which is processed using JavaScriptCore instead of a <code>UIWebView</code>.</td></tr>
+<tr><td>v4</td><td>1.8.10</td><td>Shrink numerous fields (`displayName`=`name`, `storeIdentifier`=`storeId`, `appIdentifier`=`appId`, `includeHeaders`=`headers`, `redirectRules`=`redirects`) and removed trailing `:`s from `scheme` field such that all keys and many more values fit in [tagged pointers to occupy less memory](https://www.mikeash.com/pyblog/friday-qa-2015-07-31-tagged-pointer-strings.html).</td></tr>
 </table>
 
 ## Contributing
