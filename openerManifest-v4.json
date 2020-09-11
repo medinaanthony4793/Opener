@@ -8818,6 +8818,16 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://((\\w+\\.)*notion\\.(so|com)/.+)$",
+            "formats": [
+                {
+                    "appId": "notion",
+                    "format": "notion://$1"
+                }
+            ]
         }
     ],
     "apps": [
@@ -10393,6 +10403,12 @@
             "identifier": "istandard",
             "storeId": "376832518",
             "scheme": "iStandard"
+        },
+        {
+            "name": "Notion",
+            "identifier": "notion",
+            "storeId": "1232780281",
+            "scheme": "notion://"
         }
     ],
     "browsers": [
