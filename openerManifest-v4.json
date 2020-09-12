@@ -10408,7 +10408,7 @@
             "name": "Notion",
             "identifier": "notion",
             "storeId": "1232780281",
-            "scheme": "notion://"
+            "scheme": "notion"
         }
     ],
     "browsers": [
