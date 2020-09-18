@@ -11227,7 +11227,7 @@
                 "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description": "https://www.instagram.com/buzzfeedmexico"
             }
         },
-        "(?:(?i)http(?:s)?://[^/]+.(?:cdn.ampproject.org|google.com/amp))/(?:\\w(?:/(s))?)/(.*)$": {
+        "(?:(?i)http(?:s)?://[^/]+.(?:cdn.ampproject.org/\\w|google.com/amp))/(?:(s)/)?(.*)$": {
             "format": "http$1://$2",
             "docs": "https://developers.google.com/amp/cache/overview",
             "tests": {
