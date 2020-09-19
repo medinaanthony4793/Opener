@@ -11226,12 +11226,13 @@
                 "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description": "https://www.instagram.com/buzzfeedmexico"
             }
         },
-        "(?:(?i)http(?:s)?://[^/]+.(?:cdn.ampproject.org/\\w|google.com/amp))/(?:(s)/)?(.*)$": {
+        "(?:(?i)http(?:s)?://[^/]+.(?:cdn.ampproject.org/\\w|google.com(?:\\.\\w+)*/amp))/(?:(s)/)?(.*)$": {
             "format": "http$1://$2",
             "docs": "https://developers.google.com/amp/cache/overview",
             "tests": {
                 "https://thepostermovement-tumblr-com.cdn.ampproject.org/c/thepostermovement.tumblr.com/post/163639670215/blade-runner-2049-by-raborlatte-posters/amp": "http://thepostermovement.tumblr.com/post/163639670215/blade-runner-2049-by-raborlatte-posters/amp",
-                "https://www.google.com/amp/s/amp.reddit.com/r/MechanicalKeyboards/comments/8e5zxl/mech_keyboard_tier_list/": "https://amp.reddit.com/r/MechanicalKeyboards/comments/8e5zxl/mech_keyboard_tier_list/"
+                "https://www.google.com/amp/s/amp.reddit.com/r/MechanicalKeyboards/comments/8e5zxl/mech_keyboard_tier_list/": "https://amp.reddit.com/r/MechanicalKeyboards/comments/8e5zxl/mech_keyboard_tier_list/",
+                "https://www.google.com.au/amp/s/www.devdiscourse.com/article/entertainment/1216447-mindhunter-season-3-possibilities-cast-revealed-what-we-know-so-far%3famp": "https://www.devdiscourse.com/article/entertainment/1216447-mindhunter-season-3-possibilities-cast-revealed-what-we-know-so-far%3famp"
             }
         },
         "http(?:s)?://l\\.(messenger|facebook|workplace)\\.com/l\\.php.*$": {
