@@ -9079,8 +9079,7 @@
             "name": "CornerTube",
             "identifier": "cornertube",
             "storeId": "1073199994",
-            "scheme": "cornertube",
-            "platform": "pad"
+            "scheme": "cornertube"
         },
         {
             "name": "iTunes Store",
