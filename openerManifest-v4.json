@@ -11153,6 +11153,22 @@
                 "sitesucker:http://www.opener.link/",
                 "sitesucker:https://twitter.com/openerapp"
             ]
+        },
+        {
+            "name": "Apple News",
+            "identifier": "applenews",
+            "storeId": "1066498020",
+            "scheme": "applenews",
+            "regex": "http(?:s)?://(.*)$",
+            "format": "applenews://$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "applenews://www.opener.link/",
+                "applenews://twitter.com/openerapp"
+            ]
         }
     ],
     "previews": [
