@@ -11346,6 +11346,12 @@
                 "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf",
                 "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?foo=bar&si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf"
             }
+        },
+        "(http(?:s)?://((?:\\w+\\.)*amazon((?:\\.\\w+)+)/.*?))(?:\\?|&)?ref=\\w+(.*?)$": {
+            "format": "$1$2",
+            "test": {
+                "https://www.amazon.com/dp/B081SHMJ77/ref=cm_sw_r_sms_api_i_7s1AFbE3WS0G8": "https://www.amazon.com/dp/B081SHMJ77/"
+            }
         }
     }
 }
