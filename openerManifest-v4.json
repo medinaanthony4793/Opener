@@ -3572,11 +3572,11 @@
                 },
                 {
                     "appId": "apollo",
-                    "format": "apollo://$2",
+                    "format": "apollo://www.$2",
                     "testResults": [
-                        "apollo://reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
-                        "apollo://reddit.com/r/gaming/",
-                        "apollo://reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
+                        "apollo://www.reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
+                        "apollo://www.reddit.com/r/gaming/",
+                        "apollo://www.reddit.com/r/spotify?utm_source=mweb_redirect&compact=true",
                         null
                     ]
                 },
@@ -3680,9 +3680,9 @@
                 },
                 {
                     "appId": "apollo",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'apollo://reddit.com/' + results[2]; }; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(reddit:(?:/)+(.*?))(\\\\?|\").*').exec(res); var match = null; if (results != null && results.length > 2) { match = 'apollo://www.reddit.com/' + results[2]; }; completionHandler(match); }",
                     "testResults": [
-                        "apollo://reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
+                        "apollo://www.reddit.com/r/WatchPeopleDieInside/comments/a44jvb/alex_jones_has_finally_lost_it/"
                     ]
                 },
                 {
