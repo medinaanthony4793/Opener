@@ -569,7 +569,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?events/(?:[^/]+/)*?(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?events/(?:[^/]+/)*?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/events/878295485593070/",
                 "https://www.facebook.com/n?events/878295485593070/",
@@ -593,7 +593,7 @@
         },
         {
             "title": "Open Group",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?groups/(?:[^/]+/)?(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?groups/(?:[^/]+/)?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/groups/158306764190707/",
                 "https://www.facebook.com/groups/158306764190707",
@@ -643,7 +643,7 @@
         },
         {
             "title": "Open Group",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/groups/(?!\\d+)[^/]+(/(?!\\d+)[^/]*)?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/groups/(?!\\d+)[^/]+(/(?!\\d+)[^/]*)?$",
             "testInputs": [
                 "https://www.facebook.com/groups/158306764190707/",
                 "https://www.facebook.com/groups/158306764190707",
@@ -691,7 +691,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:photo(?:\\.php)?.*(?:\\?|&)fbid=|[^/]+/photos/[^/]+/)(\\d+).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?(?:photo(?:\\.php)?.*(?:\\?|&)fbid=|[^/]+/photos/[^/]+/)(\\d+).*?$",
             "testInputs": [
                 "https://m.facebook.com/photo.php?fbid=10153892256554365",
                 "https://facebook.com/photo.php?fbid=10153892256554365",
@@ -719,7 +719,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(?!\\d+)(?:[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:.*?(?:/|%2F))?(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(?!\\d+)(?:[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:.*?(?:/|%2F))?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/schrep/posts/10157765076449443",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
@@ -765,7 +765,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(\\d+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(\\d+).*$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(\\d+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/schrep/posts/10157765076449443",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
@@ -809,7 +809,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?:story|permalink)\\.php.*(?:story_fbid=(\\d+).*id=(\\d+)|id=(\\d+).*story_fbid=(\\d+)).*?$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:story|permalink)\\.php.*(?:story_fbid=(\\d+).*id=(\\d+)|id=(\\d+).*story_fbid=(\\d+)).*?$",
             "testInputs": [
                 "https://m.facebook.com/story.php?story_fbid=1558737434162594&id=193742123995472&_rdr",
                 "https://m.facebook.com/story.php?&id=193742123995472&story_fbid=1558737434162594",
@@ -831,7 +831,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)?facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*)(.*)$",
+            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*)(.*)$",
             "note": "This is meant as a catchall fallback that will run if all other dedicated Facebook actions fail. It tries to use markup on the page to open links, which works for things like Pages and some users.",
             "testInputs": [
                 "https://www.facebook.com/events/878295485593070/",
