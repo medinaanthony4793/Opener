@@ -553,16 +553,18 @@
         },
         {
             "title": "Open Effect",
-            "regex": "http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/a/r.*effect_id=(\\d+).*?$",
+            "regex": "http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?:a/r.*effect_id=|ar/)(\\d+).*?$",
             "testInputs": [
-                "https://www.instagram.com/a/r/?effect_id=389420945098555"
+                "https://www.instagram.com/a/r/?effect_id=389420945098555",
+                "https://www.instagram.com/ar/757239068446091"
             ],
             "formats": [
                 {
                     "appId": "instagram",
                     "format": "instagram://story-camera/?effect_id=$1",
                     "testResults": [
-                        "instagram://story-camera/?effect_id=389420945098555"
+                        "instagram://story-camera/?effect_id=389420945098555",
+                        "instagram://story-camera/?effect_id=757239068446091"
                     ]
                 }
             ]
