@@ -11281,6 +11281,12 @@
                 "https://www.instagram.com/linkshim/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=AT0LfDKXDfqTMV41nrNv8FFYVu3Son_TuNHJHMv6_5-Gomz2gQ3Y9RotGED5QJ1ZOuM0CiMcXD5pRARbAX3m8dXZt0ZhuNNCc3oTHgGyFLU8BzS614wZkKR8Sg": "https://twitter.com/timonus"
             }
         },
+        "(http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am))/accounts/login(?:/?).*?(?:\\?|&)next=(.*)$": {
+            "format": "$1$2",
+            "tests": {
+                "https://www.instagram.com/accounts/login/?next=/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg": "https://www.instagram.com/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg"
+            }
+        },
         "http(?:s)?://out\\.reddit\\.com.*$": {
             "param": "url",
             "tests": {
