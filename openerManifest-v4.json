@@ -11229,6 +11229,11 @@
             "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
             "canSave": 1,
             "docs": "Copied from Curiosity's rules (two should match) and https://stackoverflow.com/a/43039946/3943258"
+        },
+        {
+            "regex": "http(?:s?)://(?:www\\.)?(dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*)$",
+            "script2": "function process(url, completionHandler) { completionHandler('https://dl.' + RegExp('http(?:s?)://(?:www\\.)?(dropbox\\.com/s/\\\\w+.*)$').exec(url)[1]); }",
+            "canSave": 1
         }
     ],
     "redirects": {
