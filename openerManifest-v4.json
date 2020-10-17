@@ -8863,6 +8863,42 @@
                     "format": "notion://$1"
                 }
             ]
+        },
+        {
+            "title": "Open Meeting",
+            "regex": "http(?:s)?://((?:.+\\.)+webex\\.com/.*)(?:(?i)(?:mtid=))(.+)$",
+            "testInputs": [
+                "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MTID=t4387317225f2575a17bb75824f10022c",
+                "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c"
+            ],
+            "formats": [
+                {
+                    "appId": "webex",
+                    "format": "wbx://$1MK=$2",
+                    "testResults": [
+                        "wbx://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Meeting",
+            "regex": "http(?:s)?://((?:.+\\.)+webex\\.com/.*((?i)(?:mk=))(.+))$",
+            "testInputs": [
+                "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MTID=t4387317225f2575a17bb75824f10022c",
+                "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c"
+            ],
+            "formats": [
+                {
+                    "appId": "webex",
+                    "format": "wbx://$1",
+                    "testResults": [
+                        null,
+                        "wbx://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10449,6 +10485,13 @@
             "identifier": "nicoseiga",
             "storeId": "1045938821",
             "scheme": "nicoseiga"
+        },
+        {
+            "name": "Webex Meet",
+            "identifier": "webex",
+            "storeId": "298844386",
+            "scheme": "wbx",
+            "docs": "https://www.ketianyun.com/files/docfile/pdf/IOS_wbx_scheme.pdf"
         }
     ],
     "browsers": [
