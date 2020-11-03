@@ -2268,6 +2268,56 @@
         },
         {
             "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*waze\\.com/livemap/directions.*latlng=((?:\\d|.)*(?:%2C|,)(?:\\d|.)*).*?$",
+            "testInputs": [
+                "https://www.waze.com/livemap/directions?latlng=37.789814%2C-122.395356",
+                "https://www.waze.com/livemap/directions?latlng=37.789814,-122.395356"
+            ],
+            "formats": [
+                {
+                    "appId": "waze",
+                    "format": "waze://?ll=$1",
+                    "testResults": [
+                        "waze://?ll=37.789814%2C-122.395356",
+                        "waze://?ll=37.789814,-122.395356"
+                    ]
+                },
+                {
+                    "appId": "applemaps",
+                    "format": "maps://maps.apple.com/maps?q=$1&ll=$1",
+                    "testResults": [
+                        "maps://maps.apple.com/maps?q=37.789814%2C-122.395356&ll=37.789814%2C-122.395356",
+                        "maps://maps.apple.com/maps?q=37.789814,-122.395356&ll=37.789814,-122.395356"
+                    ]
+                },
+                {
+                    "appId": "googlemaps",
+                    "format": "comgooglemaps://?q=$1&center=$1",
+                    "testResults": [
+                        "comgooglemaps://?q=37.789814%2C-122.395356&center=37.789814%2C-122.395356",
+                        "comgooglemaps://?q=37.789814,-122.395356&center=37.789814,-122.395356"
+                    ]
+                },
+                {
+                    "appId": "citymapper",
+                    "format": "citymapper://x-callback-url/directions?endcoord=$1",
+                    "testResults": [
+                        "citymapper://x-callback-url/directions?endcoord=37.789814%2C-122.395356",
+                        "citymapper://x-callback-url/directions?endcoord=37.789814,-122.395356"
+                    ]
+                },
+                {
+                    "appId": "transit",
+                    "format": "transit://directions?to=$1",
+                    "testResults": [
+                        "transit://directions?to=37.789814%2C-122.395356",
+                        "transit://directions?to=37.789814,-122.395356"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "http(?:s)?://(?:www\\.)?waze\\.to(?:/)?\\?([^#]+).*$",
             "testInputs": [
                 "http://waze.to/?ll=34.042892,-118.245853&navigate=yes",
