@@ -8949,6 +8949,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(s)?://sports\\.yahoo\\.com/.+$",
+            "testInputs": [
+                "https://sports.yahoo.com/from-ruins-to-renaissance-how-the-sports-card-market-became-appealing-to-investors-183139381.html"
+            ],
+            "formats": [
+                {
+                    "appId": "yahoosports",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(ysportacular://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "ysportacular://v2/news/details?articleUuid=60eb833f-8780-3be5-90c9-469c9f6a8fcc&src=web"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10542,6 +10558,12 @@
             "storeId": "298844386",
             "scheme": "wbx",
             "docs": "https://www.ketianyun.com/files/docfile/pdf/IOS_wbx_scheme.pdf"
+        },
+        {
+            "name": "Yahoo Sports",
+            "identifier": "yahoosports",
+            "storeId": "286058814",
+            "scheme": "ysportacular"
         }
     ],
     "browsers": [
