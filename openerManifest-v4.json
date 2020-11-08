@@ -11290,11 +11290,6 @@
     ],
     "previews": [
         {
-            "regex": "http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?:[a-zA-Z0-9_\\.]{1,30}/)?(?:p|tv)/([a-zA-Z0-9_\\-\\.]+).*$",
-            "format": "https://www.instagram.com/p/$1/media/?size=l",
-            "docs": "https://www.instagram.com/developer/embedding/"
-        },
-        {
             "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:youtu\\.be/|youtube\\.com/(?:embed/|.*(?:\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
             "format": "https://img.youtube.com/vi/$1/hqdefault.jpg",
             "docs": "https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api"
