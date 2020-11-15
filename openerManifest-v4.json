@@ -11356,7 +11356,7 @@
         "http(?:s)?://(\\w+\\.)*google(\\.\\w+)/url.*q=[^&]+.*$": {
             "param": "q",
             "tests": {
-                "https://www.google.com/url?q=https://tools.usps.com/go/TrackConfirmAction?tLabels%3D9400109898642582249765&source=gmail-imap&ust=1605928088000000&usg=AOvVaw2boSYz56UApStkErTM9ceq": "https://tools.usps.com/go/TrackConfirmAction?tLabels%3D9400109898642582249765"
+                "https://www.google.com/url?q=https://tools.usps.com/go/TrackConfirmAction?tLabels%3D9400109898642582249765&source=gmail-imap&ust=1605928088000000&usg=AOvVaw2boSYz56UApStkErTM9ceq": "https://tools.usps.com/go/TrackConfirmAction?tLabels=9400109898642582249765"
             }
         },
         "http(?:s)?://(\\w+\\.)*youtube(\\.\\w+)/redirect.*$": {
