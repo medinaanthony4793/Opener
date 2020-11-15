@@ -11481,6 +11481,21 @@
             "test": {
                 "https://www.amazon.com/dp/B081SHMJ77/ref=cm_sw_r_sms_api_i_7s1AFbE3WS0G8": "https://www.amazon.com/dp/B081SHMJ77/"
             }
+        },
+        "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?:.*)\\?(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
+            "format": "$1&$web_only=true$2",
+            "docs": "Pesky Branch.io links (*.app.link) use HTML redirects by default, which breaks Opener. In order to force a Branch link to HTTP redirect to its underlying web link you can add query param $web_onyl=true (yes, including the '$'). Found from docs here https://bit.ly/2EjUPHd and here https://bit.ly/2EswGit. NOTE: Tests for this rule also apply to the following rule.",
+            "tests": {
+                "https://rsci.app.link/IrW5wDIMzS?_p=f6523a44f42bc2626680177a2e": "https://rsci.app.link/IrW5wDIMzS?_p=f6523a44f42bc2626680177a2e&$web_only=true",
+                "https://rsci.app.link/IrW5wDIMzS": "https://rsci.app.link/IrW5wDIMzS?$web_only=true",
+                "https://bnc.lt/focc/IieWSuUHJR": "https://bnc.lt/focc/IieWSuUHJR?$web_only=true",
+                "https://bnc.lt/focc/IieWSuUHJR?foo=bar": "https://bnc.lt/focc/IieWSuUHJR?foo=bar&$web_only=true",
+                "https://bnc.lt/focc/IieWSuUHJR?$web_only=true&foo=bar": "https://bnc.lt/focc/IieWSuUHJR?$web_only=true&foo=bar",
+                "https://bnc.lt/focc/IieWSuUHJR?foo=bar&$web_only=true": "https://bnc.lt/focc/IieWSuUHJR?foo=bar&$web_only=true"
+            }
+        },
+        "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?!.*\\?.*)(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
+            "format": "$1?$web_only=true$2"
         }
     }
 }
