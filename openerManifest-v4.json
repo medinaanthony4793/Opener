@@ -11331,7 +11331,7 @@
         },
         {
             "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/(\\w+)/playlist|artist)/.*$",
-            "script2": "function process(url, completionHandler) { var res = jsonRequest('https://embed.spotify.com/oembed?url=' + encodeURIComponent(url)); match = res != null ? res['thumbnail_url'] : null; completionHandler(match); }",
+            "script2": "function process(url, completionHandler) { var res = jsonRequest('https://embed.spotify.com/oembed?url=' + encodeURIComponent(url.split('&')[0])); match = res != null ? res['thumbnail_url'] : null; completionHandler(match); }",
             "docs": "https://stackoverflow.com/a/16496995/3943258 / https://twitter.com/nicklas2k/status/330094611202723840"
         },
         {
