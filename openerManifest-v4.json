@@ -11476,10 +11476,11 @@
                 "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?foo=bar&si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf"
             }
         },
-        "(http(?:s)?://((?:\\w+\\.)*amazon((?:\\.\\w+)+)/.*?))(?:\\?|&)?ref(?:=|%3D)\\w+(.*?)$": {
+        "(http(?:s)?://(?:(?:\\w+\\.)*amazon(?:(?:\\.\\w+)+)/.*?))(?:\\?|&)?ref(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
             "test": {
-                "https://www.amazon.com/dp/B081SHMJ77/ref=cm_sw_r_sms_api_i_7s1AFbE3WS0G8": "https://www.amazon.com/dp/B081SHMJ77/"
+                "https://www.amazon.com/dp/B081SHMJ77/ref=cm_sw_r_sms_api_i_7s1AFbE3WS0G8": "https://www.amazon.com/dp/B081SHMJ77/",
+                "https://www.amazon.com/dp/B081RJ8DW1/ref=cm_sw_r_cp_api_fabc_V2NVFbX5E8KHT?_encoding=UTF8&psc=1": "https://www.amazon.com/dp/B081RJ8DW1/?_encoding=UTF8&psc=1"
             }
         },
         "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?:.*)\\?(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
