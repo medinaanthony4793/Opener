@@ -1304,7 +1304,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "http(?:s?)://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest\\.com/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(?:/|/?\\?.*)?$",
+            "regex": "http(?:s?)://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(?:/|/?\\?.*)?$",
             "testInputs": [
                 "https://pinterest.com/cnnr/",
                 "https://www.pinterest.com/cnnr/",
@@ -1342,7 +1342,7 @@
         },
         {
             "title": "Open Board",
-            "regex": "http(?:s?)://(?!(?:help|blog|engineering|ct|newsroom)\\.)(?:\\w+\\.)?pinterest\\.com/(?!pin|search|explore|categories|discover)([a-zA-Z0-9-_]+)(?:/)(?!pins)([a-zA-Z0-9-_]+).*?$",
+            "regex": "http(?:s?)://(?!(?:help|blog|engineering|ct|newsroom)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?!pin|search|explore|categories|discover)([a-zA-Z0-9-_]+)(?:/)(?!pins)([a-zA-Z0-9-_]+).*?$",
             "testInputs": [
                 "https://pinterest.com/cnnr/what-time-is-it/",
                 "https://www.pinterest.com/cnnr/what-time-is-it/",
@@ -1386,7 +1386,7 @@
         },
         {
             "title": "Open Pin",
-            "regex": "http(?:s?)://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest\\.com/pin/(?!create)([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "http(?:s?)://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/pin/(?!create)([a-zA-Z0-9_\\-]+).*?$",
             "testInputs": [
                 "https://pinterest.com/pin/515380751084154703/",
                 "https://www.pinterest.com/pin/515380751084154703/",
@@ -1416,7 +1416,7 @@
         },
         {
             "title": "Open Search",
-            "regex": "http(?:s)?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest\\.com/search/([^/|\\?]+).*q=([^&]+).*$",
+            "regex": "http(?:s)?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/search/([^/|\\?]+).*q=([^&]+).*$",
             "testInputs": [
                 "https://pinterest.com/search/pins/?q=cute%20animal",
                 "https://www.pinterest.com/search/pins/?q=cute%20animal",
@@ -1440,7 +1440,7 @@
         },
         {
             "title": "Open Category",
-            "regex": "http(?:s)?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest\\.com/(?:categories|explore)(/[^\\/\\?#]+)?.*?",
+            "regex": "http(?:s)?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?:categories|explore)(/[^\\/\\?#]+)?.*?",
             "testInputs": [
                 "https://www.pinterest.com/categories",
                 "https://www.pinterest.com/categories/",
