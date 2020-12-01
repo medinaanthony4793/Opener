@@ -3819,7 +3819,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://((?!link\\.)(?:\\w+\\.)*medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*))$",
+            "regex": "http(?:s)?://((?!link\\.)(?:(\\w|-)+\\.)*medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*))$",
             "testInputs": [
                 "https://medium.com/@timonus",
                 "https://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
@@ -3835,7 +3835,8 @@
                 "https://medium.com/the-mission/how-to-send-emails-to-very-busy-people-and-a-case-study-teardown-8dd7b3428f8e&formCheck=a917221c92021db2523cd48f1fcc4c0b&utm_content=buffer98d42&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
                 "https://onezero.medium.com/what-happens-when-your-tweet-becomes-a-subway-ad-696f7ad4ab86",
                 "https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ftimonus%2FTJActivityViewController",
-                "https://link.medium.com/97LvGxM9m1"
+                "https://link.medium.com/97LvGxM9m1",
+                "https://erik-engheim.medium.com/why-is-apples-m1-chip-so-fast-3262b158cba2"
             ],
             "formats": [
                 {
@@ -3856,7 +3857,8 @@
                         "medium://medium.com/the-mission/how-to-send-emails-to-very-busy-people-and-a-case-study-teardown-8dd7b3428f8e&formCheck=a917221c92021db2523cd48f1fcc4c0b&utm_content=buffer98d42&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
                         "medium://onezero.medium.com/what-happens-when-your-tweet-becomes-a-subway-ad-696f7ad4ab86",
                         null,
-                        null
+                        null,
+                        "medium://erik-engheim.medium.com/why-is-apples-m1-chip-so-fast-3262b158cba2"
                     ]
                 }
             ]
