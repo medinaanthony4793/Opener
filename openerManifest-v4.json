@@ -11501,6 +11501,12 @@
         },
         "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?!.*\\?.*)(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
             "format": "$1?$web_only=true$2"
+        },
+        "https(?:s)?://(?:www\\.)?opener\\.link/r\\?.*url=.+$": {
+            "param": "url",
+            "tests": {
+                "https://opener.link/r?url=https%3A%2F%2Ftwitter.com%2Ftimonus": "https://twitter.com/timonus"
+            }
         }
     }
 }
