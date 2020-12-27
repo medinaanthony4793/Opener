@@ -7691,24 +7691,6 @@
             ]
         },
         {
-            "title": "Open Video",
-            "regex": "http(?:s)?://(?:www\\.)?abemafresh\\.tv/(?:[^/]+)/(\\d+).*?$",
-            "testInputs": [
-                "https://abemafresh.tv/official2/46773",
-                "http://abemafresh.tv/pico/47464"
-            ],
-            "formats": [
-                {
-                    "appId": "amebafresh",
-                    "format": "amebafresh://program/$1",
-                    "testResults": [
-                        "amebafresh://program/46773",
-                        "amebafresh://program/47464"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Link",
             "regex": "(http(?:s)?://(\\w+\\.)?namu\\.wiki/.*)$",
             "testInputs": [
@@ -10091,12 +10073,6 @@
             "identifier": "espn",
             "storeId": "317469184",
             "scheme": "sportscenter"
-        },
-        {
-            "name": "FRESH!",
-            "identifier": "amebafresh",
-            "storeId": "1026540588",
-            "scheme": "amebafresh"
         },
         {
             "name": "Fancy",
