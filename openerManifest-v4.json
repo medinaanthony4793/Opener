@@ -10785,8 +10785,8 @@
         {
             "name": "Smooz",
             "identifier": "smooz",
-            "storeId": "1151364449",
             "scheme": "smooz",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/smooz-120.jpg",
             "regex": "(http(?:s)?.*)",
             "format": "smooz://url/$1",
             "docs": "https://bit.ly/2Jh15Pz",
