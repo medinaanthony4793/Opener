@@ -11266,6 +11266,22 @@
             "testResults": [
                 "yandexbrowser-open-url://www.opener.link/"
             ]
+        },
+        {
+            "name": "Command",
+            "identifier": "command",
+            "storeId": "1485289520",
+            "scheme": "command",
+            "regex": "http(?:s)?://(.*)$",
+            "format": "command://$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "command://www.opener.link/",
+                "command://twitter.com/openerapp"
+            ]
         }
     ],
     "previews": [
