@@ -8951,6 +8951,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "http(?:s)?://(?:\\w+\\.)*(cbsnews\\.com/.*)$",
+            "testInputs": [
+                "https://www.cbsnews.com/live-updates/trump-pardons-capitol-security-inauguration/"
+            ],
+            "formats": [
+                {
+                    "appId": "cbsnews",
+                    "format": "cbsnewsapp://$1",
+                    "testResults": [
+                        "cbsnewsapp://cbsnews.com/live-updates/trump-pardons-capitol-security-inauguration/"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10544,6 +10560,12 @@
             "identifier": "yahoosports",
             "storeId": "286058814",
             "scheme": "ysportacular"
+        },
+        {
+            "name": "CBS News",
+            "identifier": "cbsnews",
+            "storeId": "334256223",
+            "scheme": "cbsnewsapp"
         }
     ],
     "browsers": [
