@@ -8637,16 +8637,20 @@
         },
         {
             "title": "Open File",
-            "regex": "(http(?:s)?://([^?]+(?:\\.json).*))$",
+            "regex": "(http(?:s)?://([^?]+(?:\\.json)(?!\\w)(.*)))$",
             "testInputs": [
-                "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json"
+                "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json",
+                "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json?foo=bar",
+                "https://www.jsonline.com/in-depth/news/solutions/2021/01/19/sen-ron-johnson-calls-editorial-unhinged-editorial-board-responds/4204754001/"
             ],
             "formats": [
                 {
                     "appId": "jayson",
                     "script2": "function process(url, completionHandler) { completionHandler('jayson:///view?link=' + encodeURIComponent(url)); }",
                     "testResults": [
-                        "jayson:///view?link=https%3A%2F%2Fraw.githubusercontent.com%2Ftimonus%2FOpenerManifest%2Fmaster%2FopenerManifest-v3.json"
+                        "jayson:///view?link=https%3A%2F%2Fraw.githubusercontent.com%2Ftimonus%2FOpenerManifest%2Fmaster%2FopenerManifest-v3.json",
+                        "jayson:///view?link=https%3A%2F%2Fraw.githubusercontent.com%2Ftimonus%2FOpenerManifest%2Fmaster%2FopenerManifest-v3.json%3Ffoo%3Dbar",
+                        null
                     ]
                 }
             ]
