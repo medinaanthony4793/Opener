@@ -8971,6 +8971,26 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Product",
+            "regex": "http(?:s)?://(?:www\\.)walmart\\.com/ip/(?:[^/]+/)?(\\d+).*?$",
+            "testInputs": [
+                "https://www.walmart.com/ip/XB1-Xbox-Series-X/606518560",
+                "https://www.walmart.com/ip/443574645",
+                "https://www.walmart.com/cp/xbox-series/9206773"
+            ],
+            "formats": [
+                {
+                    "appId": "walmart",
+                    "format": "walmart://ip/$1",
+                    "testResults": [
+                        "walmart://ip/606518560",
+                        "walmart://ip/443574645",
+                        null
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10564,6 +10584,12 @@
             "identifier": "yahoosports",
             "storeId": "286058814",
             "scheme": "ysportacular"
+        },
+        {
+            "name": "Walmart",
+            "identifier": "walmart",
+            "storeId": "338137227",
+            "scheme": "walmart"
         },
         {
             "name": "CBS News",
