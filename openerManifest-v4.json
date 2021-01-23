@@ -7187,16 +7187,16 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?anchor\\.fm/(w/.*)$",
+            "regex": "http(?:s)?://(?:www\\.)?(anchor\\.fm/.*)$",
             "testInputs": [
-                "https://anchor.fm/w/991A5F"
+                "https://anchor.fm/quietonset/episodes/36---Mank--Citizen-Kane--HBOxWarner--The-Mandalorian-enh9o8"
             ],
             "formats": [
                 {
                     "appId": "anchor",
-                    "format": "anchorfm://app/$1",
+                    "format": "anchorfm://$1",
                     "testResults": [
-                        "anchorfm://app/w/991A5F"
+                        "anchorfm://anchor.fm/quietonset/episodes/36---Mank--Citizen-Kane--HBOxWarner--The-Mandalorian-enh9o8"
                     ]
                 }
             ]
