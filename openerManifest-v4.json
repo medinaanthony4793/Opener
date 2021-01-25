@@ -6399,18 +6399,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.)?(?:secure\\.|secure1\\.|secure2\\.)?(?:store\\.)?apple\\.com/(?:.*)?hk-zh(/.*)?(?:order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
-            "formats": [
-                {
-                    "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
-                    "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
-                }
-            ]
-        },
-        {
-            "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.)?(?:secure\\.|secure1\\.|secure2\\.)?(?:store\\.)?apple\\.com/(?:.*)?hk-zh(/.*)?(?:order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
+            "regex": "http(s)?://(www\\.)?(secure\\.|secure1\\.|secure2\\.)?(store\\.)?apple\\.com/(.*)?hk-zh(/.*)?(order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6465,7 +6454,7 @@
         },
         {
             "title": "View Other Options",
-            "regex": "http(?:s)?://(?:(?:www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "http(s)?://((www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
             "testInputs": [
                 "https://apple.news/A_qfzJD7KTsqhuT5Ci4XcIw",
                 "https://apple.news/AW5OfgikKQs-rRr_tfTb37w",
@@ -7489,7 +7478,7 @@
         },
         {
             "title": "Stream Media",
-            "regex": "(http(?:s)?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v))/?(\\?.*)?$",
+            "regex": "(http(s)?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v))/?(\\?.*)?$",
             "useful": "http://stackoverflow.com/a/27755/3943258",
             "testInputs": [
                 "https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
@@ -7530,7 +7519,7 @@
         },
         {
             "title": "Download Media",
-            "regex": "(http(?:s)?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v))/?(\\?.*)?$",
+            "regex": "(http(s)?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v))/?(\\?.*)?$",
             "useful": "http://stackoverflow.com/a/27755/3943258",
             "testInputs": [
                 "https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
@@ -7558,7 +7547,7 @@
         },
         {
             "title": "Stream Media",
-            "regex": "http(?:s)?://(?:www\\.)?streamable\\.com/(\\w+)/?(\\?.*)?$$",
+            "regex": "http(s)?://(www\\.)?streamable\\.com/(\\w+)/?(\\?.*)?$",
             "notes": "No tests because there's an expiring token on the end of these URLs, but you can test with this https://streamable.com/y11x2",
             "formats": [
                 {
@@ -7580,7 +7569,7 @@
         },
         {
             "title": "Download Media",
-            "regex": "http(?:s)?://(?:www\\.)?streamable\\.com/(\\w+)/?(\\?.*)?$$",
+            "regex": "http(s)?://(www\\.)?streamable\\.com/(\\w+)/?(\\?.*)?$",
             "notes": "No tests because there's an expiring token on the end of these URLs, but you can test with this https://streamable.com/y11x2",
             "formats": [
                 {
