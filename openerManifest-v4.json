@@ -364,7 +364,7 @@
         },
         {
             "title": "Open Mute Filter",
-            "regex": "http(?:s)?://(?:www\\.)?tapbots\\.com.*\\?url=(.*)$",
+            "regex": "http(s)?://(www\\.)?tapbots\\.com.*\\?url=(.*)$",
             "testInputs": [
                 "https://tapbots.com/tweetbot/mute?url=tweetbot%3A%2F%2F%2Fmute%2Fkeyword%3Fregex%3D1%26text%3D%2528%253Fi%2529%2528keep%2520calm%2520and%2520%255Cw%252B%2529",
                 "http://tapbots.com/?url=tweetbot%3A%2F%2F%2Fmute%2Fkeyword%3FmuteLists%3D1%26regex%3D1%26text%3D%2528%253Fi%2529%2528pok.%2528%255CS%2529%257B3%252C%257D%257Cgym%2528%2520%2529%253Fbattle%2529"
@@ -399,7 +399,7 @@
         },
         {
             "title": "Compose Tweet",
-            "regex": "http(?:s?)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/intent/tweet(?:/)?\\?.*$",
+            "regex": "http(s?)://(mobile\\.|www\\.|m\\.)?twitter\\.com/intent/tweet(/)?\\?.*$",
             "testInputs": [
                 "https://twitter.com/intent/tweet/?url=https%3A%2F%2Fon.nrdc.org%2F2PyiQjG&text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20&original_referer=https%3A%2F%2Fact.nrdc.org%2Fletter%2Fkeystone-xl-181102%3Fsource%3Dact_nrdcnewsletter%26tkd%3D1023667%26utm_source%3Dnewsletterne%26utm_medium%3Dmainlinkne%26utm_campaign%3Demail%26t%3D7%26akid%3D2816%252E1023667%252EBUjNPI",
                 "https://twitter.com/intent/tweet?url=https%3A%2F%2Fon.nrdc.org%2F2PyiQjG&text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20",
@@ -453,7 +453,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?:[a-zA-Z0-9_\\.]{1,30}/)?(?:p|tv|reel)/([a-zA-Z0-9_\\-\\.]+).*$",
+            "regex": "http(s)?://(www\\.)?(instagram\\.com|instagr\\.am)/([a-zA-Z0-9_\\.]{1,30}/)?(p|tv|reel)/([a-zA-Z0-9_\\-\\.]+).*$",
             "testInputs": [
                 "http://instagram.com/p/zAoa96gwQg",
                 "https://instagram.com/p/zAoa96gwQg/",
@@ -645,7 +645,7 @@
         },
         {
             "title": "Open Group",
-            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/groups/(?!\\d+)[^/]+(/(?!\\d+)[^/]*)?$",
+            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/groups/(?!\\d+)[^/]+(/(?!\\d+)[^/]*)?$",
             "testInputs": [
                 "https://www.facebook.com/groups/158306764190707/",
                 "https://www.facebook.com/groups/158306764190707",
@@ -721,7 +721,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?(?:groups(?:/|%2F))?(?!\\d+)(?:[^/|%2F]+)(?:/|%2F)(?:posts|videos|permalink)(?:/|%2F)(?:.*?(?:/|%2F))?(\\d+).*$",
+            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/(n/?\\?)?(groups(/|%2F))?(?!\\d+)([^/|%2F]+)(/|%2F)(posts|videos|permalink)(/|%2F)(.*?(/|%2F))?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/schrep/posts/10157765076449443",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
@@ -833,7 +833,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)*facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*)(.*)$",
+            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*)(.*)$",
             "note": "This is meant as a catchall fallback that will run if all other dedicated Facebook actions fail. It tries to use markup on the page to open links, which works for things like Pages and some users.",
             "testInputs": [
                 "https://www.facebook.com/events/878295485593070/",
@@ -1120,7 +1120,7 @@
         },
         {
             "title": "Open Journal",
-            "regex": "http(s)?://(?:[a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(m)?/(?:[a-zA-Z0-9_\\-\\.]+/)?journal/\\w+.*$",
+            "regex": "http(s)?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(m)?/([a-zA-Z0-9_\\-\\.]+/)?journal/\\w+.*$",
             "testInputs": [
                 "http://artistinitiative.vsco.co/journal/a-century-of-artifice-launch-recap",
                 "http://vsco.co/brendanryan/journal/iceland"
@@ -1139,7 +1139,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "http(s)?://(?:[a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(m)?((/[a-zA-Z0-9_\\-\\.]+)?(/(collection|images)|(/)?\\?).*|/)?$",
+            "regex": "http(s)?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(m)?((/[a-zA-Z0-9_\\-\\.]+)?(/(collection|images)|(/)?\\?).*|/)?$",
             "testInputs": [
                 "http://vsco.co/vsco/collection/1",
                 "http://vsco.vsco.co/",
@@ -1257,7 +1257,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(?:s)?://(?:www\\.)?([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/tagged/(\\d+)(?:(?:/|\\?|#).*)?$",
+            "regex": "http(s)?://(www\\.)?([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/tagged/(\\d+)((/|\\?|#).*)?$",
             "todo": "this is incorrect, this URL represents a search within a blog",
             "testInputs": [
                 "http://2kindsofpeople.tumblr.com/tagged/003"
@@ -1468,7 +1468,7 @@
         },
         {
             "title": "Open Topic",
-            "regex": "http(?:s)?://(?:www\\.)?flipboard\\.com/topic/.*$",
+            "regex": "http(s)?://(www\\.)?flipboard\\.com/topic/.*$",
             "testInputs": [
                 "https://flipboard.com/topic/independenceday"
             ],
@@ -1485,7 +1485,7 @@
         },
         {
             "title": "Open Section",
-            "regex": "http(?:s)?://(?:www\\.)?flipboard\\.com/(@\\w+(?:/\\w*(-\\w*)+)?|section/.*).*$",
+            "regex": "http(s)?://(www\\.)?flipboard\\.com/(@\\w+(/\\w*(-\\w*)+)?|section/.*).*$",
             "testInputs": [
                 "https://flipboard.com/@timonus",
                 "https://flipboard.com/@timonus/aural-siebp7eqy",
@@ -1759,7 +1759,7 @@
         },
         {
             "title": "Open List",
-            "regex": "http(?:s)?://(m\\.|mobile\\.|www\\.)?foursquare\\.com/(?:(?:user/\\d+|[a-zA-Z0-9_%\\-]+)/list|list)/[a-zA-Z0-9_%\\-]+.*$",
+            "regex": "http(s)?://(m\\.|mobile\\.|www\\.)?foursquare\\.com/((user/\\d+|[a-zA-Z0-9_%\\-]+)/list|list)/[a-zA-Z0-9_%\\-]+.*$",
             "testInputs": [
                 "https://foursquare.com/foursquare/list/13-architectural-marvels-in-nyc",
                 "https://foursquare.com/foursquare/list/5550f48b498e5d3067c36795",
@@ -1852,7 +1852,7 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "http(?:s)?://(?:www\\.)?swarmapp\\.com/c/([a-zA-Z0-9_-]+)(?:.*)$",
+            "regex": "http(s)?://(www\\.)?swarmapp\\.com/c/([a-zA-Z0-9_-]+)(.*)$",
             "testInputs": [
                 "https://www.swarmapp.com/c/cnwYJbPfuAd"
             ],
@@ -2810,7 +2810,7 @@
         },
         {
             "title": "Open File",
-            "regex": "http(?:s?)://(?:www\\.)?dropbox\\.com/s/\\w+.*$",
+            "regex": "http(s?)://(www\\.)?dropbox\\.com/s/\\w+.*$",
             "testInputs": [
                 "https://www.dropbox.com/s/i2iy9bgprh52k4c/1435444012.108938.jpg?dl=0"
             ],
@@ -2827,7 +2827,7 @@
         },
         {
             "title": "Open Folder",
-            "regex": "http(?:s?)://(?:www\\.)?dropbox\\.com/sh/\\w+.*$",
+            "regex": "http(s?)://(www\\.)?dropbox\\.com/sh/\\w+.*$",
             "testInputs": [
                 "https://www.dropbox.com/sh/a7sn3ichcezsw43/AACFYITTfhjek2w7LITs4Slma?dl=0"
             ],
@@ -3165,7 +3165,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(track|album)/([:alnum:]+).*$",
+            "regex": "http(s?)://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album)/([:alnum:]+).*$",
             "testInputs": [
                 "http://open.spotify.com/track/5QZJAcP4nu3xL2NQV4AVHO",
                 "https://play.spotify.com/track/77Ezu3tBE7gmzQ4mRnZZUf?play=true",
@@ -3496,7 +3496,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "http(?:s)?://(?:www\\.)?producthunt\\.com/(?:posts|tech|games|podcasts|books|)/([a-zA-Z0-9_\\-%]+).*$",
+            "regex": "http(s)?://(www\\.)?producthunt\\.com/(posts|tech|games|podcasts|books|)/([a-zA-Z0-9_\\-%]+).*$",
             "testInputs": [
                 "http://www.producthunt.com/posts/opener",
                 "http://www.producthunt.com/tech/free",
@@ -3517,7 +3517,7 @@
         },
         {
             "title": "Open User",
-            "regex": "http(?:s)?://(?:www\\.)?producthunt\\.com/@(\\w+)(?!.*/collections/.*)(.*)$",
+            "regex": "http(s)?://(www\\.)?producthunt\\.com/@(\\w+)(?!.*/collections/.*)(.*)$",
             "testInputs": [
                 "http://www.producthunt.com/@timonus"
             ],
@@ -3534,7 +3534,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "http(?:s)?://(?:www\\.)?producthunt\\.com/@(?:\\w+)/collections/.*$",
+            "regex": "http(s)?://(www\\.)?producthunt\\.com/@(\\w+)/collections/.*$",
             "testInputs": [
                 "http://www.producthunt.com/@timonus/collections/tijo"
             ],
@@ -3551,7 +3551,7 @@
         },
         {
             "title": "Open Talk",
-            "regex": "http(?:s?)://(?:www\\.)?ted\\.com/talks/(\\w+).*$",
+            "regex": "http(s?)://(www\\.)?ted\\.com/talks/(\\w+).*$",
             "testInputs": [
                 "http://www.ted.com/talks/roman_mars_why_city_flags_may_be_the_worst_designed_thing_you_ve_never_noticed?share=194536fc14",
                 "http://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend?language=en"
@@ -3867,7 +3867,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://link\\.medium\\.com/.+",
+            "regex": "http(s)?://link\\.medium\\.com/.+",
             "testInputs": [
                 "https://link.medium.com/IrW5wDIMzS",
                 "https://link.medium.com/97LvGxM9m1"
@@ -3897,7 +3897,7 @@
         },
         {
             "title": "Open Publication",
-            "regex": "http(?:s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(?:/?(?:(?:@|\\?).*)?)?\\n.*(\"medium-fulfilled-by\"|\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\").*$",
+            "regex": "http(s)?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+(/?((@|\\?).*)?)?\\n.*(\"medium-fulfilled-by\"|\"((?i)x-powered-by)\":\"((?i)kale|medium)\").*$",
             "headers": 1,
             "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should be handled as publications by this action. The prior 'open link' action will fail for those because they require a lookup in the page's markup to derive a deep link.",
             "formats": [
@@ -4066,7 +4066,7 @@
         },
         {
             "title": "Open Deal",
-            "regex": "http(?:s)?://(?:www\\.)groupon(?:\\.\\w+)+/deals/.*$",
+            "regex": "http(s)?://(www\\.)groupon(\\.\\w+)+/deals/.*$",
             "formats": [
                 {
                     "appId": "groupon",
@@ -4544,7 +4544,7 @@
         },
         {
             "title": "Open Run",
-            "regex": "http(?:s)?://(?:www\\.)?runkeeper\\.com/(?:user/\\w+/activity/\\d+|activity/?.*)",
+            "regex": "http(s)?://(www\\.)?runkeeper\\.com/(user/\\w+/activity/\\d+|activity/?.*)",
             "testInputs": [
                 "http://runkeeper.com/user/AhmedAltayeb/activity/622221438",
                 "http://runkeeper.com/activity?userId=17521263&trip=593152993"
@@ -4780,7 +4780,7 @@
         },
         {
             "title": "Show Repository",
-            "regex": "http(?:s)?://(?:(?:(?!gist)\\w+\\.)*(?:(github)\\.com|(bitbucket)\\.org|(gitlab)\\.com)/([^/]+)/([^/]+?)(?:\\.git)?((/)?\\?.*$)?)$",
+            "regex": "http(s)?://(((?!gist)\\w+\\.)*((github)\\.com|(bitbucket)\\.org|(gitlab)\\.com)/([^/]+)/([^/]+?)(\\.git)?((/)?\\?.*$)?)$",
             "testInputs": [
                 "https://github.com/timonus/OpenerManifest/blob/master/.gitignore",
                 "https://github.com/timonus",
@@ -5185,7 +5185,7 @@
         },
         {
             "title": "Open Action",
-            "regex": "http(?:s)?://(?:www\\.)?launchcenterpro\\.com/(\\w{6}).*$",
+            "regex": "http(s)?://(www\\.)?launchcenterpro\\.com/(\\w{6}).*$",
             "testInputs": [
                 "https://launchcenterpro.com/4w666m"
             ],
@@ -5306,7 +5306,7 @@
         },
         {
             "title": "Open Listing",
-            "regex": "http(?:s)?://(?:\\w+\\.)?trulia\\.com/property/\\d+.*$",
+            "regex": "http(s)?://(\\w+\\.)?trulia\\.com/property/\\d+.*$",
             "formats": [
                 {
                     "appId": "trulia",
@@ -5317,7 +5317,7 @@
         },
         {
             "title": "Open Listing",
-            "regex": "http(?:s)?://(?:\\w+\\.)?trulia\\.com/rental(?:-community)?/\\d+.*$",
+            "regex": "http(s)?://(\\w+\\.)?trulia\\.com/rental(-community)?/\\d+.*$",
             "formats": [
                 {
                     "appId": "truliarent",
@@ -5497,7 +5497,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)*(album)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "http(s)?://(geo\\.)?(itunes|music)\\.apple\\.com/(.*/)*(album)/(.*/)?(id)?(\\d+).*?((\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
                 "https://itunes.apple.com/us/album/guero/id485498129",
@@ -6083,7 +6083,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?(?:track|album)/(\\d+).*$",
+            "regex": "http(s)?://(\\w+\\.)*tidal\\.com/(#!|browse/)?(track|album)/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/track/35470518",
                 "http://tidal.com/#!/track/35470518",
@@ -6289,7 +6289,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:tools\\.|trkcnfrm\\.smi\\.|trkcnfrm1\\.smi\\.)?usps\\.com.*(?:\\?|&)(?:tLabels|strOrigTrackNum|origTrackNum|qtc_tLabels1|formattedLabel)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(tools\\.|trkcnfrm\\.smi\\.|trkcnfrm1\\.smi\\.)?usps\\.com.*(\\?|&)(tLabels|strOrigTrackNum|origTrackNum|qtc_tLabels1|formattedLabel)=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6300,7 +6300,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:wwwapps\\.|campusship\\.)?ups\\.com.*(?:\\?|&)(?:InquiryNumber1|tracknum|trackNums|inquiry1|trackingNumber|InquiryNumber)=(\\w+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(wwwapps\\.|campusship\\.)?ups\\.com.*(\\?|&)(InquiryNumber1|tracknum|trackNums|inquiry1|trackingNumber|InquiryNumber)=(\\w+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6311,7 +6311,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:spportal\\.)?(?:fedex|federalexpress)\\.com.*(?:\\?|&)(?:tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID)=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6322,7 +6322,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:track\\.)?(?:dhl|dhl-usa|airborne)\\.com.*(?:\\?|&)(?:AWB|ShipmentNumber|shipmentNumber)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(track\\.)?(dhl|dhl-usa|airborne)\\.com.*(\\?|&)(AWB|ShipmentNumber|shipmentNumber)=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6333,7 +6333,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.|m\\.)?(?:webtrack\\.)?(?:dhlglobalmail\\.com|dhlgm\\.mytracking\\.net).*(?:\\?|&)(?:trackingnumber|TrackingID)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(webtrack\\.)?(dhlglobalmail\\.com|dhlgm\\.mytracking\\.net).*(\\?|&)(trackingnumber|TrackingID)=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6344,7 +6344,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:(?:\\w+\\.)*dhl\\.de|webportal-at\\.dhl\\.com).*(?:\\?|&)(?:idc|packet_id|sid|AWB|ic)=(\\d+).*$",
+            "regex": "http(s)?://((\\w+\\.)*dhl\\.de|webportal-at\\.dhl\\.com).*(\\?|&)(idc|packet_id|sid|AWB|ic)=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6355,7 +6355,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:\\w+\\.)*dhl\\.co\\.uk.*(?:\\?|&)PCL_NO=(\\d+).*$",
+            "regex": "http(s)?://(\\w+\\.)*dhl\\.co\\.uk.*(\\?|&)PCL_NO=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6366,7 +6366,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://checkout\\.google\\.com.*(?:\\?|&)t=(\\d+).*$",
+            "regex": "http(s)?://checkout\\.google\\.com.*(\\?|&)t=(\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6377,7 +6377,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:\\w+\\.)?ontrac\\.com.*(?:\\?|&)tracking_number=(\\w+).*$",
+            "regex": "http(s)?://(\\w+\\.)?ontrac\\.com.*(\\?|&)tracking_number=(\\w+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6388,18 +6388,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.)?(?:secure\\.|secure1\\.|secure2\\.)?(?:store\\.)?apple\\.com/(?:.*)?(?!hk-zh/|jp/)(?:order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
-            "formats": [
-                {
-                    "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
-                    "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
-                }
-            ]
-        },
-        {
-            "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.)?(?:secure\\.|secure1\\.|secure2\\.)?(?:store\\.)?apple\\.com/(?:.*)?hk-zh(/.*)?(?:order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
+            "regex": "http(s)?://(www\\.)?(secure\\.|secure1\\.|secure2\\.)?(store\\.)?apple\\.com/(.*)?(?!hk-zh/|jp/)(order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6421,7 +6410,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:www\\.)?applestore\\.bridge-point\\.com.*(?:\\?|&)sc=(\\w+).*$",
+            "regex": "http(?:s)?://(?:www\\.)?(?:secure\\.|secure1\\.|secure2\\.)?(?:store\\.)?apple\\.com/(?:.*)?hk-zh(/.*)?(?:order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6432,7 +6421,18 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(?:s)?://(?:\\w+\\.)*(amazon(?:\\.\\w+)+).*(?:\\?|&)(?:trackingNumber|orderId|orderID|oid|orderIDs)=(\\d{3,3}-\\d+-\\d+).*$",
+            "regex": "http(s)?://(www\\.)?applestore\\.bridge-point\\.com.*(\\?|&)sc=(\\w+).*$",
+            "formats": [
+                {
+                    "appId": "deliveries",
+                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
+                    "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
+                }
+            ]
+        },
+        {
+            "title": "Add Tracking Info",
+            "regex": "http(s)?://(\\w+\\.)*(amazon(\\.\\w+)+).*(\\?|&)(trackingNumber|orderId|orderID|oid|orderIDs)=(\\d{3,3}-\\d+-\\d+).*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6992,7 +6992,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?snapchat\\.com/discover(.*)$",
+            "regex": "http(s)?://(www\\.)?snapchat\\.com/discover(.*)$",
             "notes": "Hard to test because Snap adds a bunch of session-specific params to the end. This works for now, a good testing URL is https://www.snapchat.com/discover/The-Verge/0517884694?sc_referrer=None&sc_ua=",
             "formats": [
                 {
@@ -7110,7 +7110,7 @@
         },
         {
             "title": "Open Gallery",
-            "regex": "http(?:s)?://([^\\.]+)\\.deviantart\\.com/(?:[^/]+/)*gallery/\\d+.*$",
+            "regex": "http(s)?://([^\\.]+)\\.deviantart\\.com/([^/]+/)*gallery/\\d+.*$",
             "testInputs": [
                 "http://daekazu.deviantart.com/gallery/778245/Pink-Sugar",
                 "https://www.deviantart.com/daekazu/gallery/778245/Pink-Sugar"
@@ -7129,7 +7129,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "http(?:s)?://([^\\.]+)\\.deviantart\\.com/favourites/\\d+.*$",
+            "regex": "http(s)?://([^\\.]+)\\.deviantart\\.com/favourites/\\d+.*$",
             "testInputs": [
                 "http://dark-tiramisu.deviantart.com/favourites/67530142/Gravity-Falls?offset=0"
             ],
@@ -7146,7 +7146,7 @@
         },
         {
             "title": "Open Deviation",
-            "regex": "http(?:s)?://(([^\\.]+)\\.deviantart\\.com/(art|journal)/|sta\\.sh/).*$",
+            "regex": "http(s)?://(([^\\.]+)\\.deviantart\\.com/(art|journal)/|sta\\.sh/).*$",
             "testInputs": [
                 "http://eving-1.deviantart.com/art/Firewatch-583795685",
                 "http://cryptid-creations.deviantart.com/journal/Daily-Delayed-564105524",
@@ -7275,7 +7275,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:[^\\.])+\\.hatenablog(?:\\.\\w+)+.*$",
+            "regex": "http(s)?://([^\\.])+\\.hatenablog(\\.\\w+)+.*$",
             "testInputs": [
                 "http://ko-chanblog.hatenablog.com/entry/2016/04/10/093117",
                 "http://iphone-news.hatenablog.jp/entry/perfume-instagram-cosmic-explorer",
@@ -7406,7 +7406,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?genius\\.com/(\\d+|.*-lyrics|artists/).*$",
+            "regex": "http(s)?://(www\\.)?genius\\.com/(\\d+|.*-lyrics|artists/).*$",
             "testInputs": [
                 "https://genius.com/artists/Pouya",
                 "http://genius.com/Drake-one-dance-lyrics",
@@ -7708,7 +7708,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)?pandora\\.com/(?!station/play/).*",
+            "regex": "http(s)?://(\\w+\\.)?pandora\\.com/(?!station/play/).*",
             "testInputs": [
                 "https://www.pandora.com/artist/lcd-soundsystem/sound-of-silver/someone-great/TRqZxpdPnrfvZgc?part=ug-desktop&corr=1539181200",
                 "https://www.pandora.com/artist/lcd-soundsystem/sound-of-silver/ALwrmd3drc5frqP",
@@ -7822,7 +7822,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "http(?:s)?://(?:\\w+\\.)?wsj\\.com/articles/.*$",
+            "regex": "http(s)?://(\\w+\\.)?wsj\\.com/articles/.*$",
             "testInputs": [
                 "http://www.wsj.com/articles/exxons-rex-tillerson-is-top-candidate-for-secretary-of-state-1481318464",
                 "http://www.wsj.com/articles/opec-russia-upbeat-about-securing-oil-output-deal-as-meeting-begins-1481362580"
@@ -7929,7 +7929,7 @@
         },
         {
             "title": "Open Doc",
-            "regex": "http(?:s)?://paper\\.dropbox\\.com/doc/.*$",
+            "regex": "http(s)?://paper\\.dropbox\\.com/doc/.*$",
             "testInputs": [
                 "https://paper.dropbox.com/doc/Tangent-Release-Notes-xYQoYzNM07FVmuQ3Jp286"
             ],
@@ -7988,7 +7988,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)?(?:zomato\\.com|zoma\\.to).*$",
+            "regex": "http(s)?://(\\w+\\.)?(zomato\\.com|zoma\\.to).*$",
             "testInputs": [
                 "https://www.zomato.com/chennai/murugan-idli-shop-nanganallur/menu",
                 "http://www.zoma.to/kpYxKa",
@@ -8010,7 +8010,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https(?:s)?://play\\.google(?:\\.\\w+)+(/music/.*)$",
+            "regex": "https(s)?://play\\.google(\\.\\w+)+(/music/.*)$",
             "testInputs": [
                 "https://play.google.com/music/m/Tshzbcoyxaujk47mk5v5cyuzucq?t=Balloon_Heads_Ft_Kye_-_Muph__Plutonic",
                 "https://play.google.com/music/listen#/album/Bdlk43qn3e5irmuyln7d4wyzkyu/Muph/%E2%80%A6and+Then+Tomorrow+Came",
@@ -8183,7 +8183,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?openrec\\.tv/.*$",
+            "regex": "http(s)?://(www\\.)?openrec\\.tv/.*$",
             "testInputs": [
                 "https://www.openrec.tv/live/akinose_163cm",
                 "https://www.openrec.tv/live/BDESsPDMFBG",
@@ -8205,7 +8205,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?tripadvisor(\\.\\w+)+/.+$",
+            "regex": "http(s)?://(www\\.)?tripadvisor(\\.\\w+)+/.+$",
             "testInputs": [
                 "https://www.tripadvisor.com/Hotel_Review-g499443-d10267413-Reviews-W_Punta_de_Mita-Punta_de_Mita_Pacific_Coast.html",
                 "https://www.tripadvisor.com/Restaurant_Review-g60713-d349459-Reviews-4505_Burgers_BBQ-San_Francisco_California.html",
@@ -8243,7 +8243,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?sports\\.ru/.*$",
+            "regex": "http(s)?://(www\\.)?sports\\.ru/.*$",
             "testInputs": [
                 "https://www.sports.ru/tribuna/blogs/russiateam/1628831.html",
                 "https://www.sports.ru/quincy-promes/",
@@ -8331,7 +8331,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:www\\.)?booking\\.com/.*",
+            "regex": "http(s)?://(www\\.)?booking\\.com/.*",
             "testInputs": [
                 "https://www.booking.com/searchresults.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;class_interval=1&dest_id=20024809&dest_type=city&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&no_rooms=1&offset=0&postcard=0&room1=A%2CA&sb_price_type=total&src=index&src_elem=sb&ss=atlanta&ss_all=0&ssb=empty&sshis=0&",
                 "https://www.booking.com/hotel/us/omni-cnn-center.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;dest_id=20024809;dest_type=city;dist=0;group_adults=2;hapos=1;hpos=1;room1=A%2CA;sb_price_type=total;srepoch=1531889849;srfid=068e41b420575d928702c1577140e5c31414c493X1;srpvid=a07122dcf7d701af;type=total;ucfs=1&"
@@ -8433,7 +8433,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?!v\\w)(?:\\w+\\.)?tiktok\\.com/.+$",
+            "regex": "http(s)?://(?!v\\w)(\\w+\\.)?tiktok\\.com/.+$",
             "testInputs": [
                 "https://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
                 "https://t.tiktok.com/i18n/share/video/6611871928930012418/?region=PH&mid=6360467876020751105&u_code=d2g7ai3j6cbjc4&&iid=6611859828577126145&utm_campaign=sever_share&utm_medium=android&app=tiktok&utm_source=twitter",
@@ -8475,7 +8475,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(?:\\w+\\.)*iheart(?:\\.\\w+)+/(podcast|live|artist|playlist)/(?:[^-/]*-)*(\\d+).*?$",
+            "regex": "http(s)?://(\\w+\\.)*iheart(\\.\\w+)+/(podcast|live|artist|playlist)/([^-/]*-)*(\\d+).*?$",
             "testInputs": [
                 "https://www.iheart.com/podcast/bleeding-green-nation-29778453/",
                 "https://www.iheart.com/podcast/29778453/",
@@ -8532,7 +8532,7 @@
         {
             "title": "Open Link",
             "headers": 1,
-            "regex": "http(?:s)?://\\w+(?:\\.\\w+)+/(@|users/|web/accounts/)([^/]+).*?$\\n.*(?i)(?:server\":\"[^\"]*mastodon).*",
+            "regex": "http(s)?://\\w+(\\.\\w+)+/(@|users/|web/accounts/)([^/]+).*?$\\n.*(?i)(server\":\"[^\"]*mastodon).*",
             "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
             "testsThatCantBeRunCuzHeaders": [
                 "https://mastodon.technology/web/statuses/101673699373863528",
@@ -8637,7 +8637,7 @@
         },
         {
             "title": "Open File",
-            "regex": "(http(?:s)?://([^?]+(?:\\.json)(?!\\w)(.*)))$",
+            "regex": "(http(s)?://([^?]+(\\.json)(?!\\w)(.*)))$",
             "testInputs": [
                 "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json",
                 "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json?foo=bar",
@@ -8703,7 +8703,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://photos\\.google(\\.\\w+)+/share/.*$",
+            "regex": "http(s)?://photos\\.google(\\.\\w+)+/share/.*$",
             "testInputs": [
                 "https://photos.app.goo.gl/tJauJwkXnLTsReGX7",
                 "https://photos.google.com/share/AF1QipP7JbEKCF8_oDGDaXMvV1glnBGEHyP0goeCZpx5VFY5pNonLUaPfgzsqWBwTIAVHA?key=ZWpaRUNZZXBkazBVaDc1TEFQTFQ3R0FCWk1jS1d3",
@@ -8723,7 +8723,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(?:s)?://(song|album)\\.link/(\\w+/)?(s|i)/.*$",
+            "regex": "http(s)?://(song|album)\\.link/(\\w+/)?(s|i)/.*$",
             "note": "from https://github.com/songlink/docs/blob/master/ios-shortcuts.md. Should also match https://song.link/i/1443109064 and https://song.link/us/i/1443109064 (outdated?)",
             "testInputs": [
                 "https://song.link/s/1GZH9Sv6zCIse2GKihRHKy",
