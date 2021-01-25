@@ -10604,7 +10604,7 @@
             "identifier": "safari",
             "scheme": "https",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/safari-120.jpg",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler(url); }",
             "script2": "function process(url, completionHandler) { var urlRes = RegExp('http(s)?://((www\\\\.)?apple\\\\.news|news\\\\.apple\\\\.com)').exec(url); if (urlRes != null && urlRes.length > 1) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = results != null && results.length > 1 ? results[1] : url; completionHandler(match); } else { completionHandler(url); } }",
             "testInputs": [
@@ -10644,7 +10644,7 @@
             "identifier": "firefox",
             "storeId": "989804926",
             "scheme": "firefox",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler('firefox://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('firefox://open-url?url=' + encodeURIComponent(url)); }",
             "docs": "https://github.com/mozilla/firefox-ios-open-in-client",
@@ -10678,7 +10678,7 @@
             "identifier": "firefoxfocus",
             "storeId": "1055677337",
             "scheme": "firefox-focus",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler('firefox-focus://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('firefox-focus://open-url?url=' + encodeURIComponent(url)); }",
             "docs": "https://github.com/mozilla-mobile/focus-ios/issues/32",
@@ -10696,7 +10696,7 @@
             "identifier": "brave",
             "storeId": "1052879175",
             "scheme": "brave",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
             "docs": "https://github.com/brave/ios-open-thirdparty-browser",
@@ -10714,7 +10714,7 @@
             "identifier": "documents",
             "storeId": "364901807",
             "scheme": "rhttp",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "r$1",
             "docs": "https://helpspot.readdle.com/documents/index.php?pg=kb.page&id=516",
             "testInputs": [
@@ -10731,7 +10731,7 @@
             "identifier": "aloha",
             "storeId": "1105317682",
             "scheme": "alohabrowser",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler('alohabrowser://open?link=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('alohabrowser://open?link=' + encodeURIComponent(url)); }",
             "docs": "https://db.tt/iZB4HjFsdw",
@@ -10782,7 +10782,7 @@
             "identifier": "icab",
             "storeId": "308111628",
             "scheme": "x-icabmobile",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
             "docs": "http://www.icab.de/blog/2012/07/01/icab-mobile-6-0-supports-x-callback-url/",
@@ -10815,7 +10815,7 @@
             "identifier": "smooz",
             "scheme": "smooz",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/smooz-120.jpg",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "smooz://url/$1",
             "docs": "https://bit.ly/2Jh15Pz",
             "testInputs": [
@@ -10832,7 +10832,7 @@
             "identifier": "operatouch",
             "storeId": "1411869974",
             "scheme": "touch-url",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "touch-url://open-url?url=$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -10864,7 +10864,7 @@
             "identifier": "goodreader",
             "storeId": "777310222",
             "scheme": "ghttp",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "g$1",
             "docs": "https://goodreader.com/gr-man-howto.html#openfromother",
             "testInputs": [
@@ -10898,7 +10898,7 @@
             "identifier": "sleipnir",
             "storeId": "404732112",
             "scheme": "shttp",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "s$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -10915,7 +10915,7 @@
             "storeId": "349275540",
             "scheme": "downloadslite",
             "platform": "phone",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "downloadslite://$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -10931,7 +10931,7 @@
             "identifier": "onionbrowser",
             "storeId": "519296448",
             "scheme": "onionhttp",
-            "regex": "http((?:s)?.*)",
+            "regex": "http((s)?.*)",
             "format": "onionhttp$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -10947,7 +10947,7 @@
             "identifier": "1password",
             "storeId": "568903335",
             "scheme": "ophttp",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "op$1",
             "docs": "https://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/",
             "testInputs": [
@@ -10964,7 +10964,7 @@
             "identifier": "cake",
             "storeId": "1163553130",
             "scheme": "cakebrowser",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "cakebrowser://open-url?url=$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -10981,7 +10981,7 @@
             "storeId": "1440710469",
             "scheme": "dolphin",
             "platform": "phone",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "dolphin://$1",
             "docs": "http://handleopenurl.com/scheme/dolphin-browser",
             "testInputs": [
@@ -10996,7 +10996,7 @@
             "identifier": "ohajiki",
             "storeId": "926105977",
             "scheme": "ohajiki",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "oo$1",
             "docs": "http://en.ohajiki.ios-web.com/url-scheme.html",
             "testInputs": [
@@ -11045,7 +11045,7 @@
             "identifier": "snowhaze",
             "storeId": "1121026941",
             "scheme": "shtps",
-            "regex": "http((?:s)?.*)",
+            "regex": "http((s)?.*)",
             "format": "shtp$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11077,7 +11077,7 @@
             "identifier": "inspect",
             "storeId": "1203594958",
             "scheme": "inspect",
-            "regex": "http(?:s)?(.*)",
+            "regex": "http(s)?(.*)",
             "script": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
             "testInputs": [
@@ -11095,7 +11095,7 @@
             "scheme": "opera-http",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/operamini-114.jpg",
             "country": "fr",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "opera-$1",
             "docs": "http://handleopenurl.com/scheme/opera-mini",
             "testInputs": [
@@ -11112,7 +11112,7 @@
             "identifier": "lastpass",
             "storeId": "324613447",
             "scheme": "lastpass",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "lastpass://$1",
             "docs": "https://helpdesk.lastpass.com/lastpass-mobile/ios/",
             "testInputs": [
@@ -11129,7 +11129,7 @@
             "identifier": "ohajikid",
             "storeId": "1039646068",
             "scheme": "ohajikid",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "ood$1",
             "docs": "http://en.ohajiki.ios-web.com/url-scheme.html",
             "testInputs": [
@@ -11178,7 +11178,7 @@
             "identifier": "berrybrowser",
             "storeId": "1385743638",
             "scheme": "berrybrowser",
-            "regex": "(.+)$",
+            "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
             "docs": "https://db.tt/XFBJzBxqxM",
@@ -11197,7 +11197,7 @@
             "storeId": "460812023",
             "scheme": "dolphin",
             "platform": "pad",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "dolphin://$1",
             "docs": "http://handleopenurl.com/scheme/dolphin-browser",
             "testInputs": [
@@ -11213,7 +11213,7 @@
             "storeId": "383846063",
             "scheme": "dlhdlite",
             "platform": "pad",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "dlhdlite://$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11246,7 +11246,7 @@
             "identifier": "qqbrowser",
             "storeId": "370139302",
             "scheme": "mqqbrowser",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "mqqbrowser://url=$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11278,7 +11278,7 @@
             "identifier": "redonion",
             "storeId": "829739720",
             "scheme": "redbrowser",
-            "regex": "http((?:s)?.*)",
+            "regex": "http((s)?.*)",
             "format": "redbrowser$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11294,7 +11294,7 @@
             "identifier": "sitesucker",
             "storeId": "346896838",
             "scheme": "sitesucker",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(http(s)?.*)",
             "format": "sitesucker:$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11353,7 +11353,7 @@
             "docs": "https://stackoverflow.com/a/39545334/3943258"
         },
         {
-            "regex": "http(?:s)?://(?:\\w+\\.)?imgur\\.com/(?:gallery/|a/|r/.*/)?(\\w+).*?$",
+            "regex": "http(s)?://(\\w+\\.)?imgur\\.com/(gallery/|a/|r/.*/)?(\\w+).*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?imgur\\\\.com/(?:gallery/|a/|r/.*/)?(\\\\w+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.imgur.com/3/image/' + identifier + '.json?client_id=5db623156c4be49'; var res = jsonRequest(requestURL); var imageURL = 'https://i.imgur.com/' + identifier + 'h.jpg'; if (res != null && res['data'] != null && res['data']['animated'] == 1 && res['data']['link'].endsWith('gif')) { imageURL = res['data']['link']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://thomas.vanhoutte.be/miniblog/imgur-thumbnail-trick/, https://api.imgur.com/models/image"
@@ -11363,7 +11363,7 @@
             "format": "https://embed.pixiv.net/decorate.php?illust_id=$2"
         },
         {
-            "regex": "http(?:s)?://(?:itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(?:id)?(\\d+).*?$",
+            "regex": "http(s)?://(itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(id)?(\\d+).*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://\\\\w+\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
         },
         {
@@ -11372,42 +11372,42 @@
             "canSave": 1
         },
         {
-            "regex": "http(?:s)?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(?:-.*)?$",
+            "regex": "http(s)?://(\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(-.*)?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)*gfycat\\\\.com(?:/amp)?/([^-]*)(?:-.*)?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.gfycat.com/v1/gfycats/' + identifier; var res = jsonRequest(requestURL); var imageURL; if (res != null && res['gfyItem'] != null) { imageURL = res['gfyItem']['gifUrl']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
         },
         {
-            "regex": "http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/(\\w+)/playlist|artist)/.*$",
+            "regex": "http(s?)://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/(\\w+)/playlist|artist)/.*$",
             "script2": "function process(url, completionHandler) { var res = jsonRequest('https://embed.spotify.com/oembed?url=' + encodeURIComponent(url.split('&')[0])); match = res != null ? res['thumbnail_url'] : null; completionHandler(match); }",
             "docs": "https://stackoverflow.com/a/16496995/3943258 / https://twitter.com/nicklas2k/status/330094611202723840"
         },
         {
-            "regex": "http(?:s)?://((?!www\\.)(?:([a-zA-Z0-9\\-]+)\\.)(?:\\w+\\.)*wikipedia\\.(?:com|org)/(?:[^/]+/)?(.*))$",
+            "regex": "http(s)?://((?!www\\.)(([a-zA-Z0-9\\-]+)\\.)(\\w+\\.)*wikipedia\\.(com|org)/([^/]+/)?(.*))$",
             "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
             "canSave": 1,
             "docs": "Copied from Curiosity's rules (two should match) and https://stackoverflow.com/a/43039946/3943258"
         },
         {
-            "regex": "http(?:s?)://(?:www\\.)?(dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*)$",
+            "regex": "http(s?)://(www\\.)?(dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*)$",
             "script2": "function process(url, completionHandler) { completionHandler('https://dl.' + RegExp('http(?:s?)://(?:www\\.)?(dropbox\\.com/s/\\\\w+.*)$').exec(url)[1]); }",
             "canSave": 1
         }
     ],
     "redirects": {
-        "http(?:s)?://(\\w+\\.)*google(\\.\\w+)/url.*url=[^&]+.*$": {
+        "http(s)?://(\\w+\\.)*google(\\.\\w+)/url.*url=[^&]+.*$": {
             "param": "url",
             "tests": {
                 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwjbyv_kobXVAhUJjlQKHbf6A_cQFggwMAI&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F44698788%2Fxcode-9-ios-11-nsurlconnection-sendasynchronousrequest-": "https://stackoverflow.com/questions/44698788/xcode-9-ios-11-nsurlconnection-sendasynchronousrequest-"
             }
         },
-        "http(?:s)?://(\\w+\\.)*google(\\.\\w+)/url.*q=[^&]+.*$": {
+        "http(s)?://(\\w+\\.)*google(\\.\\w+)/url.*q=[^&]+.*$": {
             "param": "q",
             "tests": {
                 "https://www.google.com/url?q=https://tools.usps.com/go/TrackConfirmAction?tLabels%3D9400109898642582249765&source=gmail-imap&ust=1605928088000000&usg=AOvVaw2boSYz56UApStkErTM9ceq": "https://tools.usps.com/go/TrackConfirmAction?tLabels=9400109898642582249765"
             }
         },
-        "http(?:s)?://(\\w+\\.)*youtube(\\.\\w+)/redirect.*$": {
+        "http(s)?://(\\w+\\.)*youtube(\\.\\w+)/redirect.*$": {
             "param": "q",
             "tests": {
                 "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description": "https://www.instagram.com/buzzfeedmexico"
@@ -11422,7 +11422,7 @@
                 "https://www.google.com.au/amp/s/www.devdiscourse.com/article/entertainment/1216447-mindhunter-season-3-possibilities-cast-revealed-what-we-know-so-far%3famp": "https://www.devdiscourse.com/article/entertainment/1216447-mindhunter-season-3-possibilities-cast-revealed-what-we-know-so-far%3famp"
             }
         },
-        "http(?:s)?://l\\.(messenger|facebook|workplace)\\.com/l\\.php.*$": {
+        "http(s)?://l\\.(messenger|facebook|workplace)\\.com/l\\.php.*$": {
             "param": "u",
             "tests": {
                 "https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fdominiquecrenn%2Fstatus%2F1009122219052716033&h=AT3NbNfy0YjZSm3aFoNrgsfB3tVS9wb2D-PEHADnPdbGVIlHTuScyJExmWa6q5hlL0s-Tg753uksiJG_dusXonuf-18Ghrh1KK_PhpKvz3Em1L8rc6Rt7zjEyISchPALg5kbJBtSChL2_MqbVEarRA": "https://twitter.com/dominiquecrenn/status/1009122219052716033",
@@ -11430,7 +11430,7 @@
                 "https://l.workplace.com/l.php?u=https%3A%2F%2Ftwitter.com%2Ffromedome%2Fstatus%2F1088895797712818176%3Fs%3D21": "https://twitter.com/fromedome/status/1088895797712818176?s=21"
             }
         },
-        "http(?:s)?://(\\w+\\.)*facebook\\.com/login(?:\\.php)?(/)?(.*)(\\?|&)next": {
+        "http(s)?://(\\w+\\.)*facebook\\.com/login(\\.php)?(/)?(.*)(\\?|&)next": {
             "param": "next",
             "tests": {
                 "https://www.facebook.com/login/?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
@@ -11443,7 +11443,7 @@
                 "https://www.facebook.com/login.php?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/"
             }
         },
-        "http(?:s)?://(l\\.instagram\\.com/|(\\w+\\.)*instagram\\.com/linkshim).*$": {
+        "http(s)?://(l\\.instagram\\.com/|(\\w+\\.)*instagram\\.com/linkshim).*$": {
             "param": "u",
             "tests": {
                 "https://l.instagram.com/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=ATOdA5qfPc7e1I0QtKdMsIX_B6r7wH4MgNVyRjkDSg_qnJXzsyyHOPRlAPbth7ZyPQT-PGR6yNehcg": "https://twitter.com/timonus",
@@ -11456,19 +11456,19 @@
                 "https://www.instagram.com/accounts/login/?next=/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg": "https://www.instagram.com/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg"
             }
         },
-        "http(?:s)?://out\\.reddit\\.com.*$": {
+        "http(s)?://out\\.reddit\\.com.*$": {
             "param": "url",
             "tests": {
                 "https://out.reddit.com/t3_7vjm8a?url=https%3A%2F%2Fstreamable.com%2Fkgw2g?token=AQAAKkp5Wh4r24n3FqO6zjWJvcnP2Rqg-ZnuqG43qls4CFLaS99n&app_name=reddit.com": "https://streamable.com/kgw2g?token=AQAAKkp5Wh4r24n3FqO6zjWJvcnP2Rqg-ZnuqG43qls4CFLaS99n"
             }
         },
-        "http(?:s)?://t\\.umblr\\.com/redirect.*$": {
+        "http(s)?://t\\.umblr\\.com/redirect.*$": {
             "param": "z",
             "tests": {
                 "http://t.umblr.com/redirect?z=http%3A%2F%2Fwww.twitter.com%2Fcatana_comics&t=ZDE1MGVkMWU1MmQzZWY2MzBlMGZiMmZlYmYwYWExYTI5Zjc4Y2M1NyxUbU4zdWpESg%3D%3D&p=&m=0": "http://www.twitter.com/catana_comics"
             }
         },
-        "http(?:s)?://ct\\.pinterest\\.com/_/_/redirect.*$": {
+        "http(s)?://ct\\.pinterest\\.com/_/_/redirect.*$": {
             "param": "url",
             "tests": {
                 "https://ct.pinterest.com/_/_/redirect/?src=open&user_id=128282426794312100&url=https://www.auteur-watches.com/product/classic-black/": "https://www.auteur-watches.com/product/classic-black/"
@@ -11483,7 +11483,7 @@
                 "http://www.medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ftimonus%2FTJActivityViewController": "https://github.com/timonus/TJActivityViewController"
             }
         },
-        "https(?:s)?://(\\w+\\.)*twitter\\.com/i/redirect.*$": {
+        "https(s)?://(\\w+\\.)*twitter\\.com/i/redirect.*$": {
             "param": "url",
             "tests": {
                 "https://twitter.com/i/redirect?url=https%3A%2F%2Ftwitter.com%2Fi%2Fevents%2F1180824138832723968%3Fcn%3DZmxleGlibGVfcmVjc18y%26refsrc%3Demail&t=1+1570380899543&cn=ZmxleGlibGVfcmVjc18y&sig=a393f55f1c1e1ca0bae933b0adc256b3f9e0dea7&iid=20d1000f765847d085d99c843677ddf2&uid=298542384&nid=244+277221392": "https://twitter.com/i/events/1180824138832723968?cn=ZmxleGlibGVfcmVjc18y&refsrc=email"
@@ -11546,7 +11546,7 @@
         "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?!.*\\?.*)(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
             "format": "$1?$web_only=true$2"
         },
-        "https(?:s)?://(?:www\\.)?opener\\.link/r\\?.*url=.+$": {
+        "https(s)?://(www\\.)?opener\\.link/r\\?.*url=.+$": {
             "param": "url",
             "tests": {
                 "https://opener.link/r?url=https%3A%2F%2Ftwitter.com%2Ftimonus": "https://twitter.com/timonus"
