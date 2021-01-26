@@ -364,7 +364,7 @@
         },
         {
             "title": "Open Mute Filter",
-            "regex": "http(s)?://(www\\.)?tapbots\\.com.*\\?url=(.*)$",
+            "regex": "http(s)?://(www\\.)?tapbots\\.com.*\\?url=.*$",
             "testInputs": [
                 "https://tapbots.com/tweetbot/mute?url=tweetbot%3A%2F%2F%2Fmute%2Fkeyword%3Fregex%3D1%26text%3D%2528%253Fi%2529%2528keep%2520calm%2520and%2520%255Cw%252B%2529",
                 "http://tapbots.com/?url=tweetbot%3A%2F%2F%2Fmute%2Fkeyword%3FmuteLists%3D1%26regex%3D1%26text%3D%2528%253Fi%2529%2528pok.%2528%255CS%2529%257B3%252C%257D%257Cgym%2528%2520%2529%253Fbattle%2529"
@@ -453,7 +453,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(s)?://(www\\.)?(instagram\\.com|instagr\\.am)/([a-zA-Z0-9_\\.]{1,30}/)?(p|tv|reel)/([a-zA-Z0-9_\\-\\.]+).*$",
+            "regex": "http(s)?://(www\\.)?(instagram\\.com|instagr\\.am)/([a-zA-Z0-9_\\.]{1,30}/)?(p|tv|reel)/[a-zA-Z0-9_\\-\\.]+.*$",
             "testInputs": [
                 "http://instagram.com/p/zAoa96gwQg",
                 "https://instagram.com/p/zAoa96gwQg/",
@@ -721,7 +721,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/(n/?\\?)?(groups(/|%2F))?(?!\\d+)([^/|%2F]+)(/|%2F)(posts|videos|permalink)(/|%2F)(.*?(/|%2F))?(\\d+).*$",
+            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/(n/?\\?)?(groups(/|%2F))?(?!\\d+)([^/|%2F]+)(/|%2F)(posts|videos|permalink)(/|%2F)(.*?(/|%2F))?\\d+.*$",
             "testInputs": [
                 "https://www.facebook.com/schrep/posts/10157765076449443",
                 "https://www.facebook.com/dbhuynh/posts/10107195283476043",
@@ -833,7 +833,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*)(.*)$",
+            "regex": "http(s)?://(\\w+\\.)*facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*).*$",
             "note": "This is meant as a catchall fallback that will run if all other dedicated Facebook actions fail. It tries to use markup on the page to open links, which works for things like Pages and some users.",
             "testInputs": [
                 "https://www.facebook.com/events/878295485593070/",
@@ -1257,7 +1257,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "http(s)?://(www\\.)?([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/tagged/(\\d+)((/|\\?|#).*)?$",
+            "regex": "http(s)?://(www\\.)?[a-zA-Z0-9_\\-]+\\.tumblr\\.com/tagged/\\d+((/|\\?|#).*)?$",
             "todo": "this is incorrect, this URL represents a search within a blog",
             "testInputs": [
                 "http://2kindsofpeople.tumblr.com/tagged/003"
@@ -1852,7 +1852,7 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "http(s)?://(www\\.)?swarmapp\\.com/c/([a-zA-Z0-9_-]+)(.*)$",
+            "regex": "http(s)?://(www\\.)?swarmapp\\.com/c/[a-zA-Z0-9_-]+.*$",
             "testInputs": [
                 "https://www.swarmapp.com/c/cnwYJbPfuAd"
             ],
@@ -3496,7 +3496,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "http(s)?://(www\\.)?producthunt\\.com/(posts|tech|games|podcasts|books|)/([a-zA-Z0-9_\\-%]+).*$",
+            "regex": "http(s)?://(www\\.)?producthunt\\.com/(posts|tech|games|podcasts|books|)/[a-zA-Z0-9_\\-%]+.*$",
             "testInputs": [
                 "http://www.producthunt.com/posts/opener",
                 "http://www.producthunt.com/tech/free",
@@ -3517,7 +3517,7 @@
         },
         {
             "title": "Open User",
-            "regex": "http(s)?://(www\\.)?producthunt\\.com/@(\\w+)(?!.*/collections/.*)(.*)$",
+            "regex": "http(s)?://(www\\.)?producthunt\\.com/@\\w+(?!.*/collections/.*).*$",
             "testInputs": [
                 "http://www.producthunt.com/@timonus"
             ],
@@ -3534,7 +3534,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "http(s)?://(www\\.)?producthunt\\.com/@(\\w+)/collections/.*$",
+            "regex": "http(s)?://(www\\.)?producthunt\\.com/@\\w+/collections/.*$",
             "testInputs": [
                 "http://www.producthunt.com/@timonus/collections/tijo"
             ],
@@ -3551,7 +3551,7 @@
         },
         {
             "title": "Open Talk",
-            "regex": "http(s?)://(www\\.)?ted\\.com/talks/(\\w+).*$",
+            "regex": "http(s?)://(www\\.)?ted\\.com/talks/\\w+.*$",
             "testInputs": [
                 "http://www.ted.com/talks/roman_mars_why_city_flags_may_be_the_worst_designed_thing_you_ve_never_noticed?share=194536fc14",
                 "http://www.ted.com/talks/kelly_mcgonigal_how_to_make_stress_your_friend?language=en"
@@ -5497,7 +5497,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(s)?://(geo\\.)?(itunes|music)\\.apple\\.com/(.*/)*(album)/(.*/)?(id)?(\\d+).*?((\\?|&)(i=(\\d+)))?.*?$",
+            "regex": "http(s)?://(geo\\.)?(itunes|music)\\.apple\\.com/(.*/)*(album)/(.*/)?(id)?\\d+.*?((\\?|&)(i=\\d+))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
                 "https://itunes.apple.com/us/album/guero/id485498129",
@@ -6083,7 +6083,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(s)?://(\\w+\\.)*tidal\\.com/(#!|browse/)?(track|album)/(\\d+).*$",
+            "regex": "http(s)?://(\\w+\\.)*tidal\\.com/(#!|browse/)?(track|album)/\\d+.*$",
             "testInputs": [
                 "http://tidal.com/track/35470518",
                 "http://tidal.com/#!/track/35470518",
@@ -6289,7 +6289,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.|m\\.)?(tools\\.|trkcnfrm\\.smi\\.|trkcnfrm1\\.smi\\.)?usps\\.com.*(\\?|&)(tLabels|strOrigTrackNum|origTrackNum|qtc_tLabels1|formattedLabel)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(tools\\.|trkcnfrm\\.smi\\.|trkcnfrm1\\.smi\\.)?usps\\.com.*(\\?|&)(tLabels|strOrigTrackNum|origTrackNum|qtc_tLabels1|formattedLabel)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6300,7 +6300,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.|m\\.)?(wwwapps\\.|campusship\\.)?ups\\.com.*(\\?|&)(InquiryNumber1|tracknum|trackNums|inquiry1|trackingNumber|InquiryNumber)=(\\w+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(wwwapps\\.|campusship\\.)?ups\\.com.*(\\?|&)(InquiryNumber1|tracknum|trackNums|inquiry1|trackingNumber|InquiryNumber)=\\w+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6311,7 +6311,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6322,7 +6322,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.|m\\.)?(track\\.)?(dhl|dhl-usa|airborne)\\.com.*(\\?|&)(AWB|ShipmentNumber|shipmentNumber)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(track\\.)?(dhl|dhl-usa|airborne)\\.com.*(\\?|&)(AWB|ShipmentNumber|shipmentNumber)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6333,7 +6333,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.|m\\.)?(webtrack\\.)?(dhlglobalmail\\.com|dhlgm\\.mytracking\\.net).*(\\?|&)(trackingnumber|TrackingID)=(\\d+).*$",
+            "regex": "http(s)?://(www\\.|m\\.)?(webtrack\\.)?(dhlglobalmail\\.com|dhlgm\\.mytracking\\.net).*(\\?|&)(trackingnumber|TrackingID)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6344,7 +6344,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://((\\w+\\.)*dhl\\.de|webportal-at\\.dhl\\.com).*(\\?|&)(idc|packet_id|sid|AWB|ic)=(\\d+).*$",
+            "regex": "http(s)?://((\\w+\\.)*dhl\\.de|webportal-at\\.dhl\\.com).*(\\?|&)(idc|packet_id|sid|AWB|ic)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6355,7 +6355,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(\\w+\\.)*dhl\\.co\\.uk.*(\\?|&)PCL_NO=(\\d+).*$",
+            "regex": "http(s)?://(\\w+\\.)*dhl\\.co\\.uk.*(\\?|&)PCL_NO=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6366,7 +6366,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://checkout\\.google\\.com.*(\\?|&)t=(\\d+).*$",
+            "regex": "http(s)?://checkout\\.google\\.com.*(\\?|&)t=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6377,7 +6377,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(\\w+\\.)?ontrac\\.com.*(\\?|&)tracking_number=(\\w+).*$",
+            "regex": "http(s)?://(\\w+\\.)?ontrac\\.com.*(\\?|&)tracking_number=\\w+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6388,7 +6388,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.)?(secure\\.|secure1\\.|secure2\\.)?(store\\.)?apple\\.com/(.*)?(?!hk-zh/|jp/)(order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
+            "regex": "http(s)?://(www\\.)?(secure\\.|secure1\\.|secure2\\.)?(store\\.)?apple\\.com/.*(?!hk-zh/|jp/)(order/guest/|vieworder/|orderNumberField=|olsson=)\\w+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6399,7 +6399,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.)?(secure\\.|secure1\\.|secure2\\.)?(store\\.)?apple\\.com/(.*)?hk-zh(/.*)?(order/guest/|vieworder/|orderNumberField=|olsson=)(\\w+).*$",
+            "regex": "http(s)?://(www\\.)?(secure\\.|secure1\\.|secure2\\.)?(store\\.)?apple\\.com/.*hk-zh(/.*)?(order/guest/|vieworder/|orderNumberField=|olsson=)\\w+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6410,7 +6410,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "http(s)?://(www\\.)?applestore\\.bridge-point\\.com.*(\\?|&)sc=(\\w+).*$",
+            "regex": "http(s)?://(www\\.)?applestore\\.bridge-point\\.com.*(\\?|&)sc=\\w+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
@@ -6454,7 +6454,7 @@
         },
         {
             "title": "View Other Options",
-            "regex": "http(s)?://((www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "http(s)?://((www\\.)?apple\\.news|news\\.apple\\.com)/[a-zA-Z0-9_\\-]+.*?$",
             "testInputs": [
                 "https://apple.news/A_qfzJD7KTsqhuT5Ci4XcIw",
                 "https://apple.news/AW5OfgikKQs-rRr_tfTb37w",
@@ -6981,7 +6981,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(s)?://(www\\.)?snapchat\\.com/discover(.*)$",
+            "regex": "http(s)?://(www\\.)?snapchat\\.com/discover.*$",
             "notes": "Hard to test because Snap adds a bunch of session-specific params to the end. This works for now, a good testing URL is https://www.snapchat.com/discover/The-Verge/0517884694?sc_referrer=None&sc_ua=",
             "formats": [
                 {
@@ -7547,7 +7547,7 @@
         },
         {
             "title": "Stream Media",
-            "regex": "http(s)?://(www\\.)?streamable\\.com/(\\w+)/?(\\?.*)?$",
+            "regex": "http(s)?://(www\\.)?streamable\\.com/\\w+/?(\\?.*)?$",
             "notes": "No tests because there's an expiring token on the end of these URLs, but you can test with this https://streamable.com/y11x2",
             "formats": [
                 {
@@ -7569,7 +7569,7 @@
         },
         {
             "title": "Download Media",
-            "regex": "http(s)?://(www\\.)?streamable\\.com/(\\w+)/?(\\?.*)?$",
+            "regex": "http(s)?://(www\\.)?streamable\\.com/\\w+/?(\\?.*)?$",
             "notes": "No tests because there's an expiring token on the end of these URLs, but you can test with this https://streamable.com/y11x2",
             "formats": [
                 {
@@ -8464,7 +8464,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "http(s)?://(\\w+\\.)*iheart(\\.\\w+)+/(podcast|live|artist|playlist)/([^-/]*-)*(\\d+).*?$",
+            "regex": "http(s)?://(\\w+\\.)*iheart(\\.\\w+)+/(podcast|live|artist|playlist)/([^-/]*-)*\\d+.*?$",
             "testInputs": [
                 "https://www.iheart.com/podcast/bleeding-green-nation-29778453/",
                 "https://www.iheart.com/podcast/29778453/",
@@ -8626,7 +8626,7 @@
         },
         {
             "title": "Open File",
-            "regex": "(http(s)?://([^?]+(\\.json)(?!\\w)(.*)))$",
+            "regex": "(http(s)?://([^?]+(\\.json)(?!\\w).*))$",
             "testInputs": [
                 "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json",
                 "https://raw.githubusercontent.com/timonus/OpenerManifest/master/openerManifest-v3.json?foo=bar",
@@ -11066,7 +11066,7 @@
             "identifier": "inspect",
             "storeId": "1203594958",
             "scheme": "inspect",
-            "regex": "http(s)?(.*)",
+            "regex": "http(s)?.*",
             "script": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
             "testInputs": [
@@ -11342,7 +11342,7 @@
             "docs": "https://stackoverflow.com/a/39545334/3943258"
         },
         {
-            "regex": "http(s)?://(\\w+\\.)?imgur\\.com/(gallery/|a/|r/.*/)?(\\w+).*?$",
+            "regex": "http(s)?://(\\w+\\.)?imgur\\.com/(gallery/|a/|r/.*/)?\\w+.*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?imgur\\\\.com/(?:gallery/|a/|r/.*/)?(\\\\w+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.imgur.com/3/image/' + identifier + '.json?client_id=5db623156c4be49'; var res = jsonRequest(requestURL); var imageURL = 'https://i.imgur.com/' + identifier + 'h.jpg'; if (res != null && res['data'] != null && res['data']['animated'] == 1 && res['data']['link'].endsWith('gif')) { imageURL = res['data']['link']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://thomas.vanhoutte.be/miniblog/imgur-thumbnail-trick/, https://api.imgur.com/models/image"
@@ -11352,7 +11352,7 @@
             "format": "https://embed.pixiv.net/decorate.php?illust_id=$2"
         },
         {
-            "regex": "http(s)?://(itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(id)?(\\d+).*?$",
+            "regex": "http(s)?://(itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(id)?\\d+.*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://\\\\w+\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
         },
         {
@@ -11361,42 +11361,42 @@
             "canSave": 1
         },
         {
-            "regex": "http(s)?://(\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(-.*)?$",
+            "regex": "http(s)?://(\\w+\\.)*gfycat\\.com(/amp)?/[^-]*-.*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)*gfycat\\\\.com(?:/amp)?/([^-]*)(?:-.*)?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.gfycat.com/v1/gfycats/' + identifier; var res = jsonRequest(requestURL); var imageURL; if (res != null && res['gfyItem'] != null) { imageURL = res['gfyItem']['gifUrl']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
         },
         {
-            "regex": "http(s?)://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/(\\w+)/playlist|artist)/.*$",
+            "regex": "http(s?)://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/\\w+/playlist|artist)/.*$",
             "script2": "function process(url, completionHandler) { var res = jsonRequest('https://embed.spotify.com/oembed?url=' + encodeURIComponent(url.split('&')[0])); match = res != null ? res['thumbnail_url'] : null; completionHandler(match); }",
             "docs": "https://stackoverflow.com/a/16496995/3943258 / https://twitter.com/nicklas2k/status/330094611202723840"
         },
         {
-            "regex": "http(s)?://((?!www\\.)(([a-zA-Z0-9\\-]+)\\.)(\\w+\\.)*wikipedia\\.(com|org)/([^/]+/)?(.*))$",
+            "regex": "http(s)?://((?!www\\.)[a-zA-Z0-9\\-]+\\.(\\w+\\.)*wikipedia\\.(com|org)/([^/]+/)?.*)$",
             "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
             "canSave": 1,
             "docs": "Copied from Curiosity's rules (two should match) and https://stackoverflow.com/a/43039946/3943258"
         },
         {
-            "regex": "http(s?)://(www\\.)?(dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*)$",
+            "regex": "http(s?)://(www\\.)?dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*$",
             "script2": "function process(url, completionHandler) { completionHandler('https://dl.' + RegExp('http(?:s?)://(?:www\\.)?(dropbox\\.com/s/\\\\w+.*)$').exec(url)[1]); }",
             "canSave": 1
         }
     ],
     "redirects": {
-        "http(s)?://(\\w+\\.)*google(\\.\\w+)/url.*url=[^&]+.*$": {
+        "http(s)?://(\\w+\\.)*google\\.\\w+/url.*url=[^&]+.*$": {
             "param": "url",
             "tests": {
                 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwjbyv_kobXVAhUJjlQKHbf6A_cQFggwMAI&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F44698788%2Fxcode-9-ios-11-nsurlconnection-sendasynchronousrequest-": "https://stackoverflow.com/questions/44698788/xcode-9-ios-11-nsurlconnection-sendasynchronousrequest-"
             }
         },
-        "http(s)?://(\\w+\\.)*google(\\.\\w+)/url.*q=[^&]+.*$": {
+        "http(s)?://(\\w+\\.)*google\\.\\w+/url.*q=[^&]+.*$": {
             "param": "q",
             "tests": {
                 "https://www.google.com/url?q=https://tools.usps.com/go/TrackConfirmAction?tLabels%3D9400109898642582249765&source=gmail-imap&ust=1605928088000000&usg=AOvVaw2boSYz56UApStkErTM9ceq": "https://tools.usps.com/go/TrackConfirmAction?tLabels=9400109898642582249765"
             }
         },
-        "http(s)?://(\\w+\\.)*youtube(\\.\\w+)/redirect.*$": {
+        "http(s)?://(\\w+\\.)*youtube\\.\\w+/redirect.*$": {
             "param": "q",
             "tests": {
                 "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description": "https://www.instagram.com/buzzfeedmexico"
@@ -11419,7 +11419,7 @@
                 "https://l.workplace.com/l.php?u=https%3A%2F%2Ftwitter.com%2Ffromedome%2Fstatus%2F1088895797712818176%3Fs%3D21": "https://twitter.com/fromedome/status/1088895797712818176?s=21"
             }
         },
-        "http(s)?://(\\w+\\.)*facebook\\.com/login(\\.php)?(/)?(.*)(\\?|&)next": {
+        "http(s)?://(\\w+\\.)*facebook\\.com/login(\\.php)?(/)?.*(\\?|&)next": {
             "param": "next",
             "tests": {
                 "https://www.facebook.com/login/?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
