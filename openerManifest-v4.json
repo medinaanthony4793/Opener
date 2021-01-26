@@ -11342,7 +11342,7 @@
             "docs": "https://stackoverflow.com/a/39545334/3943258"
         },
         {
-            "regex": "http(s)?://(\\w+\\.)?imgur\\.com/(gallery/|a/|r/.*/)?\\w+.*?$",
+            "regex": "https?://(\\w+\\.)?imgur\\.com/(gallery/|a/|r/.*/)?\\w+.*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)?imgur\\\\.com/(?:gallery/|a/|r/.*/)?(\\\\w+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.imgur.com/3/image/' + identifier + '.json?client_id=5db623156c4be49'; var res = jsonRequest(requestURL); var imageURL = 'https://i.imgur.com/' + identifier + 'h.jpg'; if (res != null && res['data'] != null && res['data']['animated'] == 1 && res['data']['link'].endsWith('gif')) { imageURL = res['data']['link']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://thomas.vanhoutte.be/miniblog/imgur-thumbnail-trick/, https://api.imgur.com/models/image"
@@ -11352,7 +11352,7 @@
             "format": "https://embed.pixiv.net/decorate.php?illust_id=$2"
         },
         {
-            "regex": "http(s)?://(itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(id)?\\d+.*?$",
+            "regex": "https?://(itunes|apps|music|books|podcasts|tv)\\.apple\\.com/(?!.*/story/.*).*?/(id)?\\d+.*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://\\\\w+\\.apple\\.com/.*?/(?:id)?(\\\\d+).*?$').exec(url); var identifier = match[1]; var requestURL = 'https://itunes.apple.com/lookup?id=' + identifier; var res = jsonRequest(requestURL); var imageURL = res['results'][0]['artworkUrl100'].replace('100x100', '500x500'); completionHandler(imageURL); }"
         },
         {
@@ -11361,7 +11361,7 @@
             "canSave": 1
         },
         {
-            "regex": "http(s)?://(\\w+\\.)*gfycat\\.com(/amp)?/[^-]*-.*?$",
+            "regex": "https?://(\\w+\\.)*gfycat\\.com(/amp)?/[^-]*-.*?$",
             "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:\\\\w+\\\\.)*gfycat\\\\.com(?:/amp)?/([^-]*)(?:-.*)?$').exec(url); var identifier = match[1]; var requestURL = 'https://api.gfycat.com/v1/gfycats/' + identifier; var res = jsonRequest(requestURL); var imageURL; if (res != null && res['gfyItem'] != null) { imageURL = res['gfyItem']['gifUrl']; } completionHandler(imageURL); }",
             "canSave": 1,
             "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
@@ -11372,7 +11372,7 @@
             "docs": "https://stackoverflow.com/a/16496995/3943258 / https://twitter.com/nicklas2k/status/330094611202723840"
         },
         {
-            "regex": "http(s)?://((?!www\\.)[a-zA-Z0-9\\-]+\\.(\\w+\\.)*wikipedia\\.(com|org)/([^/]+/)?.*)$",
+            "regex": "https?://((?!www\\.)[a-zA-Z0-9\\-]+\\.(\\w+\\.)*wikipedia\\.(com|org)/([^/]+/)?.*)$",
             "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
             "canSave": 1,
             "docs": "Copied from Curiosity's rules (two should match) and https://stackoverflow.com/a/43039946/3943258"
@@ -11384,19 +11384,19 @@
         }
     ],
     "redirects": {
-        "http(s)?://(\\w+\\.)*google\\.\\w+/url.*url=[^&]+.*$": {
+        "https?://(\\w+\\.)*google\\.\\w+/url.*url=[^&]+.*$": {
             "param": "url",
             "tests": {
                 "https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=3&ved=0ahUKEwjbyv_kobXVAhUJjlQKHbf6A_cQFggwMAI&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F44698788%2Fxcode-9-ios-11-nsurlconnection-sendasynchronousrequest-": "https://stackoverflow.com/questions/44698788/xcode-9-ios-11-nsurlconnection-sendasynchronousrequest-"
             }
         },
-        "http(s)?://(\\w+\\.)*google\\.\\w+/url.*q=[^&]+.*$": {
+        "https?://(\\w+\\.)*google\\.\\w+/url.*q=[^&]+.*$": {
             "param": "q",
             "tests": {
                 "https://www.google.com/url?q=https://tools.usps.com/go/TrackConfirmAction?tLabels%3D9400109898642582249765&source=gmail-imap&ust=1605928088000000&usg=AOvVaw2boSYz56UApStkErTM9ceq": "https://tools.usps.com/go/TrackConfirmAction?tLabels=9400109898642582249765"
             }
         },
-        "http(s)?://(\\w+\\.)*youtube\\.\\w+/redirect.*$": {
+        "https?://(\\w+\\.)*youtube\\.\\w+/redirect.*$": {
             "param": "q",
             "tests": {
                 "https://www.youtube.com/redirect?q=https%3A%2F%2Fwww.instagram.com%2Fbuzzfeedmexico&redir_token=we4J0KCg2kOCbalPCznDnG1dyUJ8MTU0ODA0MTkzOUAxNTQ3OTU1NTM5&v=Umj1ZWr-CAs&event=video_description": "https://www.instagram.com/buzzfeedmexico"
@@ -11411,7 +11411,7 @@
                 "https://www.google.com.au/amp/s/www.devdiscourse.com/article/entertainment/1216447-mindhunter-season-3-possibilities-cast-revealed-what-we-know-so-far%3famp": "https://www.devdiscourse.com/article/entertainment/1216447-mindhunter-season-3-possibilities-cast-revealed-what-we-know-so-far%3famp"
             }
         },
-        "http(s)?://l\\.(messenger|facebook|workplace)\\.com/l\\.php.*$": {
+        "https?://l\\.(messenger|facebook|workplace)\\.com/l\\.php.*$": {
             "param": "u",
             "tests": {
                 "https://l.facebook.com/l.php?u=https%3A%2F%2Ftwitter.com%2Fdominiquecrenn%2Fstatus%2F1009122219052716033&h=AT3NbNfy0YjZSm3aFoNrgsfB3tVS9wb2D-PEHADnPdbGVIlHTuScyJExmWa6q5hlL0s-Tg753uksiJG_dusXonuf-18Ghrh1KK_PhpKvz3Em1L8rc6Rt7zjEyISchPALg5kbJBtSChL2_MqbVEarRA": "https://twitter.com/dominiquecrenn/status/1009122219052716033",
@@ -11419,7 +11419,7 @@
                 "https://l.workplace.com/l.php?u=https%3A%2F%2Ftwitter.com%2Ffromedome%2Fstatus%2F1088895797712818176%3Fs%3D21": "https://twitter.com/fromedome/status/1088895797712818176?s=21"
             }
         },
-        "http(s)?://(\\w+\\.)*facebook\\.com/login(\\.php)?(/)?.*(\\?|&)next": {
+        "https?://(\\w+\\.)*facebook\\.com/login(\\.php)?(/)?.*(\\?|&)next": {
             "param": "next",
             "tests": {
                 "https://www.facebook.com/login/?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
@@ -11432,7 +11432,7 @@
                 "https://www.facebook.com/login.php?foo=bar&next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/"
             }
         },
-        "http(s)?://(l\\.instagram\\.com/|(\\w+\\.)*instagram\\.com/linkshim).*$": {
+        "https?://(l\\.instagram\\.com/|(\\w+\\.)*instagram\\.com/linkshim).*$": {
             "param": "u",
             "tests": {
                 "https://l.instagram.com/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=ATOdA5qfPc7e1I0QtKdMsIX_B6r7wH4MgNVyRjkDSg_qnJXzsyyHOPRlAPbth7ZyPQT-PGR6yNehcg": "https://twitter.com/timonus",
@@ -11445,25 +11445,25 @@
                 "https://www.instagram.com/accounts/login/?next=/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg": "https://www.instagram.com/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg"
             }
         },
-        "http(s)?://out\\.reddit\\.com.*$": {
+        "https?://out\\.reddit\\.com.*$": {
             "param": "url",
             "tests": {
                 "https://out.reddit.com/t3_7vjm8a?url=https%3A%2F%2Fstreamable.com%2Fkgw2g?token=AQAAKkp5Wh4r24n3FqO6zjWJvcnP2Rqg-ZnuqG43qls4CFLaS99n&app_name=reddit.com": "https://streamable.com/kgw2g?token=AQAAKkp5Wh4r24n3FqO6zjWJvcnP2Rqg-ZnuqG43qls4CFLaS99n"
             }
         },
-        "http(s)?://t\\.umblr\\.com/redirect.*$": {
+        "https?://t\\.umblr\\.com/redirect.*$": {
             "param": "z",
             "tests": {
                 "http://t.umblr.com/redirect?z=http%3A%2F%2Fwww.twitter.com%2Fcatana_comics&t=ZDE1MGVkMWU1MmQzZWY2MzBlMGZiMmZlYmYwYWExYTI5Zjc4Y2M1NyxUbU4zdWpESg%3D%3D&p=&m=0": "http://www.twitter.com/catana_comics"
             }
         },
-        "http(s)?://ct\\.pinterest\\.com/_/_/redirect.*$": {
+        "https?://ct\\.pinterest\\.com/_/_/redirect.*$": {
             "param": "url",
             "tests": {
                 "https://ct.pinterest.com/_/_/redirect/?src=open&user_id=128282426794312100&url=https://www.auteur-watches.com/product/classic-black/": "https://www.auteur-watches.com/product/classic-black/"
             }
         },
-        "http(s)?://(www\\.)?medium\\.com/r(/)?\\?url.*$": {
+        "https?://(www\\.)?medium\\.com/r(/)?\\?url.*$": {
             "param": "url",
             "tests": {
                 "https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ftimonus%2FTJActivityViewController": "https://github.com/timonus/TJActivityViewController",
