@@ -4981,32 +4981,36 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*(?:(?:stackoverflow|stackexchange|serverfault|superuser|stackapps)\\.com|mathoverflow\\.net)/.*)",
+            "regex": "https?://((?:\\w+\\.)*(?:(?:stackoverflow|stackexchange|serverfault|superuser|stackapps)\\.com|mathoverflow\\.net)/(?!a/.*).*)",
             "testInputs": [
-                "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
+                "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure",
+                "https://stackoverflow.com/a/57467270/3943258"
             ],
             "formats": [
                 {
                     "appId": "stackexchange",
                     "format": "se-zaphod://$1",
                     "testResults": [
-                        "se-zaphod://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
+                        "se-zaphod://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure",
+                        null
                     ]
                 }
             ]
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*stackoverflow\\.com/.*)",
+            "regex": "https?://((?:\\w+\\.)*stackoverflow\\.com/(?!a/.*).*)",
             "testInputs": [
-                "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
+                "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure",
+                "https://stackoverflow.com/a/57467270/3943258"
             ],
             "formats": [
                 {
                     "appId": "stackoverflow",
                     "format": "com.stackexchange.stackoverflow://$1",
                     "testResults": [
-                        "com.stackexchange.stackoverflow://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
+                        "com.stackexchange.stackoverflow://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure",
+                        null
                     ]
                 }
             ]
@@ -5017,7 +5021,8 @@
             "testInputs": [
                 "https://stackoverflow.com/users/3943258/tim-johnsen",
                 "https://stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
-                "https://stackoverflow.com/questions/tagged/swiftui"
+                "https://stackoverflow.com/questions/tagged/swiftui",
+                "https://stackoverflow.com/a/57467270/3943258"
             ],
             "formats": [
                 {
@@ -5026,6 +5031,7 @@
                     "testResults": [
                         "crewforstackoverflow:/stackoverflow.com/users/3943258/tim-johnsen",
                         "crewforstackoverflow:/stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
+                        null,
                         null
                     ]
                 }
