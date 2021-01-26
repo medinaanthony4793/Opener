@@ -5013,6 +5013,26 @@
         },
         {
             "title": "Open Link",
+            "regex": "https?://(?:\\w+\\.)*(stackoverflow\\.com/(?:users|questions)/(?!tagged/.*).*)",
+            "testInputs": [
+                "https://stackoverflow.com/users/3943258/tim-johnsen",
+                "https://stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
+                "https://stackoverflow.com/questions/tagged/swiftui"
+            ],
+            "formats": [
+                {
+                    "appId": "crew",
+                    "format": "crewforstackoverflow:/$1",
+                    "testResults": [
+                        "crewforstackoverflow:/stackoverflow.com/users/3943258/tim-johnsen",
+                        "crewforstackoverflow:/stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "https?://((?:\\w+\\.)+quora\\.com/.*)$",
             "testInputs": [
                 "http://www.quora.com/What-is-a-coders-worst-nightmare"
@@ -10585,6 +10605,12 @@
             "identifier": "cbsnews",
             "storeId": "334256223",
             "scheme": "cbsnewsapp"
+        },
+        {
+            "name": "Crew",
+            "identifier": "crew",
+            "storeId": "1547171709",
+            "scheme": "crewforstackoverflow"
         }
     ],
     "browsers": [
