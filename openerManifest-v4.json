@@ -81,7 +81,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@)?(?!search)(?!login)([a-zA-Z0-9_]{1,15})(?:/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
+            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)(?!login)([a-zA-Z0-9_]{1,15})(?:/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
             "testInputs": [
                 "https://mobile.twitter.com/chillmage/with_replies",
                 "https://twitter.com/hashtag/ThingsILearnedFromTheLeft?src=hash",
@@ -158,7 +158,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/intent/user\\?.*screen_name=?(?:@)?([a-zA-Z0-9_]{1,15}).*$",
+            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/intent/user\\?.*screen_name=?@?([a-zA-Z0-9_]{1,15}).*$",
             "testInputs": [
                 "https://twitter.com/intent/user?screen_name=addyosmani"
             ],
@@ -319,7 +319,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "http(?:s)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@)?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
+            "regex": "http(?:s)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
             "testInputs": [
                 "https://twitter.com/benward/timelines/648313913201692672",
                 "https://twitter.com/@benward/timelines/648313913201692672",
@@ -341,7 +341,7 @@
         },
         {
             "title": "Open List",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@)?(?!search)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
+            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
             "testInputs": [
                 "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list"
             ],
@@ -383,7 +383,7 @@
         },
         {
             "title": "Open Muffle",
-            "regex": "https?://(?:www\\.)?twitterrific\\.com/ios/muffle(?:/)?\\?add=([^&]*)$",
+            "regex": "https?://(?:www\\.)?twitterrific\\.com/ios/muffle/?\\?add=([^&]*)$",
             "testInputs": [
                 "http://twitterrific.com/ios/muffle?add=Imma%20let%20you%20finish%20%3A%3A%20Kanye"
             ],
@@ -399,7 +399,7 @@
         },
         {
             "title": "Compose Tweet",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/intent/tweet(/)?\\?.*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/intent/tweet/?\\?.*$",
             "testInputs": [
                 "https://twitter.com/intent/tweet/?url=https%3A%2F%2Fon.nrdc.org%2F2PyiQjG&text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20&original_referer=https%3A%2F%2Fact.nrdc.org%2Fletter%2Fkeystone-xl-181102%3Fsource%3Dact_nrdcnewsletter%26tkd%3D1023667%26utm_source%3Dnewsletterne%26utm_medium%3Dmainlinkne%26utm_campaign%3Demail%26t%3D7%26akid%3D2816%252E1023667%252EBUjNPI",
                 "https://twitter.com/intent/tweet?url=https%3A%2F%2Fon.nrdc.org%2F2PyiQjG&text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20",
@@ -1102,7 +1102,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "https?://(?:[a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(?:m)?/(?:[a-zA-Z0-9_\\-\\.]+/)?media/(\\w+).*?$",
+            "regex": "https?://(?:[a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.com?/(?:[a-zA-Z0-9_\\-\\.]+/)?media/(\\w+).*?$",
             "testInputs": [
                 "http://jmcashdollar.vsco.co/media/53baaa357567083d5a8b460a",
                 "http://vsco.co/smotraghi/media/566f16b4d2a71c17049825ae"
@@ -1120,7 +1120,7 @@
         },
         {
             "title": "Open Journal",
-            "regex": "https?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(m)?/([a-zA-Z0-9_\\-\\.]+/)?journal/\\w+.*$",
+            "regex": "https?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.com?/([a-zA-Z0-9_\\-\\.]+/)?journal/\\w+.*$",
             "testInputs": [
                 "http://artistinitiative.vsco.co/journal/a-century-of-artifice-launch-recap",
                 "http://vsco.co/brendanryan/journal/iceland"
@@ -1139,7 +1139,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.co(m)?((/[a-zA-Z0-9_\\-\\.]+)?(/(collection|images)|(/)?\\?).*|/)?$",
+            "regex": "https?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.com?((/[a-zA-Z0-9_\\-\\.]+)?(/(collection|images)|/?\\?).*|/)?$",
             "testInputs": [
                 "http://vsco.co/vsco/collection/1",
                 "http://vsco.vsco.co/",
@@ -1600,7 +1600,7 @@
         },
         {
             "title": "Open Status",
-            "regex": "(http(?:s)?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:\\d+|status)/((\\d+)|(\\w+)).*)$",
+            "regex": "(https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:\\d+|status)/((\\d+)|(\\w+)).*)$",
             "testInputs": [
                 "http://weibo.com/2616423197/Cmjs2vh5Q?from=page_1005052616423197_profile&wvr=6&mod=weibotime",
                 "http://m.weibo.cn/5524254784/D5ZxyE1tM",
@@ -2090,7 +2090,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https(?:s)?://(?:www\\.|maps\\.)?google(?:\\.\\w+)+/maps/search/(?:@)?([^/,]+,[^/,]+)(?:,[^/]+)?.*$",
+            "regex": "https?://(?:www\\.|maps\\.)?google(?:\\.\\w+)+/maps/search/@?([^/,]+,[^/,]+)(?:,[^/]+)?.*$",
             "testInputs": [
                 "https://www.google.com/maps/search/37.755225,-122.476069",
                 "https://www.google.com/maps/search/37.755225,-122.476069/data=!4m2!2m1!4b1?hl=en-US&gl=us&dg=dbrw&newdg=1",
@@ -2192,7 +2192,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://maps\\.apple\\.com(?:/)?(?:maps(?:/)?)?\\?(.*)",
+            "regex": "https?://maps\\.apple\\.com/?(?:maps/?)?\\?(.*)",
             "testInputs": [
                 "http://maps.apple.com/maps?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
                 "http://maps.apple.com/maps/?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
@@ -2320,7 +2320,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:www\\.)?waze\\.to(?:/)?\\?([^#]+).*$",
+            "regex": "https?://(?:www\\.)?waze\\.to/?\\?([^#]+).*$",
             "testInputs": [
                 "http://waze.to/?ll=34.042892,-118.245853&navigate=yes",
                 "https://www.waze.to/?q=burgers"
@@ -2346,7 +2346,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:www\\.)?waze\\.to(?:/)?\\?(?:.+&)?ll=([^&]+).*$",
+            "regex": "https?://(?:www\\.)?waze\\.to/?\\?(?:.+&)?ll=([^&]+).*$",
             "testInputs": [
                 "http://waze.to/?ll=34.042892,-118.245853&navigate=yes",
                 "https://www.waze.to/?q=burgers"
@@ -2900,7 +2900,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/([a-zA-Z](\\w+))(?:/)?(?:\\?.*)?$",
+            "regex": "https?://(?:www\\.)?vimeo\\.com/([a-zA-Z](\\w+))/?(?:\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/timonus",
                 "http://vimeo.com/timonus/",
@@ -2926,7 +2926,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:www\\.|player\\.)?vimeo\\.com/(?:video/)?(\\d+)(?:/)?.*$",
+            "regex": "https?://(?:www\\.|player\\.)?vimeo\\.com/(?:video/)?(\\d+)/?.*$",
             "testInputs": [
                 "https://www.vimeo.com/121634963",
                 "https://vimeo.com/125074876?ref=tw-share",
@@ -2948,7 +2948,7 @@
         },
         {
             "title": "Open Channel",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/channels/(\\w+)(?:/)?(?:\\?.*)?$",
+            "regex": "https?://(?:www\\.)?vimeo\\.com/channels/(\\w+)/?(?:\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/channels/nicetype",
                 "http://vimeo.com/channels/nicetype/",
@@ -2970,7 +2970,7 @@
         },
         {
             "title": "Open Category",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/categories/(\\w+)(?:/)?(?:\\?.*)?$",
+            "regex": "https?://(?:www\\.)?vimeo\\.com/categories/(\\w+)/?(?:\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/categories/animation",
                 "http://vimeo.com/categories/animation/",
@@ -3357,7 +3357,7 @@
         },
         {
             "title": "Open Station",
-            "regex": "https?://(?:\\w+\\.)*tunein\\.com/(?:station(?:/)?\\?StationId=|radio/(?:\\S*-)*s|embed/player/s)(\\d+).*$",
+            "regex": "https?://(?:\\w+\\.)*tunein\\.com/(?:station/?\\?StationId=|radio/(?:\\S*-)*s|embed/player/s)(\\d+).*$",
             "testInputs": [
                 "http://tunein.com/radio/Sparkx-Radio-s213837/",
                 "http://tunein.com/radio/Go-Go-Radio-Gibraltar-s201872/",
@@ -3821,7 +3821,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?!link\\.)(?:(\\w|-)+\\.)*medium\\.com(?!/r(?:/)?\\?url.*)(?:/)+([^&|\\?]*)(?:&|\\?)?(.*))$",
+            "regex": "https?://((?!link\\.)(?:(\\w|-)+\\.)*medium\\.com(?!/r/?\\?url.*)/+([^&|\\?]*)(?:&|\\?)?(.*))$",
             "testInputs": [
                 "https://medium.com/@timonus",
                 "https://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
@@ -4077,7 +4077,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:\\w+\\.)*aliexpress\\.com/(?:\\w+/)*(?:item(?:/[^/]+)?/|affi-item\\.htm.*item_id=)(\\d+)(?:\\.htm(?:l)?)?.*$",
+            "regex": "https?://(?:\\w+\\.)*aliexpress\\.com/(?:\\w+/)*(?:item(?:/[^/]+)?/|affi-item\\.htm.*item_id=)(\\d+)(?:\\.html?)?.*$",
             "testInputs": [
                 "http://m.aliexpress.com/item/32409017535.html",
                 "http://www.aliexpress.com/item/Foliage-plant-seeds-wheat-grass-cat-grass-seeds-wheat-seeds-about-200-particles/32439617530.html?spm=5261.7749171.1998596321.8.wpCnkX&sdom=561.108229.97206.0_32439617530",
@@ -4780,7 +4780,7 @@
         },
         {
             "title": "Show Repository",
-            "regex": "https?://(((?!gist)\\w+\\.)*((github)\\.com|(bitbucket)\\.org|(gitlab)\\.com)/([^/]+)/([^/]+?)(\\.git)?((/)?\\?.*$)?)$",
+            "regex": "https?://(((?!gist)\\w+\\.)*((github)\\.com|(bitbucket)\\.org|(gitlab)\\.com)/([^/]+)/([^/]+?)(\\.git)?(/?\\?.*$)?)$",
             "testInputs": [
                 "https://github.com/timonus/OpenerManifest/blob/master/.gitignore",
                 "https://github.com/timonus",
@@ -5759,7 +5759,7 @@
         },
         {
             "title": "View Item",
-            "regex": "(http(?:s)?://(?:geo\\.)?(?:itunes|apps|music|books)\\.apple\\.com/(?!.*/(?:story|podcast)/.*)(?:.*/)?id(\\d+).*)$",
+            "regex": "(https?://(?:geo\\.)?(?:itunes|apps|music|books)\\.apple\\.com/(?!.*/(?:story|podcast)/.*)(?:.*/)?id(\\d+).*)$",
             "note": "same as blink entry below",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
@@ -5962,7 +5962,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:(?!help)\\w+\\.)?dribbble\\.com/(?:player(?:s)?/)?(?!shots|session|signup|search|skills|teams|meetups|stories|jobs|about)(\\w+).*$",
+            "regex": "https?://(?:(?!help)\\w+\\.)?dribbble\\.com/(?:players?/)?(?!shots|session|signup|search|skills|teams|meetups|stories|jobs|about)(\\w+).*$",
             "testInputs": [
                 "http://m.dribbble.com/letsgorally",
                 "https://dribbble.com/letsgorally",
@@ -6236,7 +6236,7 @@
         },
         {
             "title": "Open Item",
-            "regex": "https?://(?:(?:\\w+\\.)*jd\\.(?:com|hk)/(?:.*/)?(\\d+)\\.(?:s)?html|(?:\\w+\\.)*jd\\.(?:com|hk)/(?:ware/view\\.action|my/).*(?:wareId|sku)=(\\d+)).*?$",
+            "regex": "https?://(?:(?:\\w+\\.)*jd\\.(?:com|hk)/(?:.*/)?(\\d+)\\.s?html|(?:\\w+\\.)*jd\\.(?:com|hk)/(?:ware/view\\.action|my/).*(?:wareId|sku)=(\\d+)).*?$",
             "testInputs": [
                 "http://item.jd.com/1057746.html?cpdad=1DLSUE",
                 "http://item.m.jd.com/product/1057746.html",
@@ -6844,7 +6844,7 @@
         },
         {
             "title": "Import PDF",
-            "regex": "(http(?:s)?://([^?]+(?:\\.pdf).*))$",
+            "regex": "(https?://([^?]+(?:\\.pdf).*))$",
             "testInputs": [
                 "http://www.gnustep.org/resources/OpenStepSpec.pdf"
             ],
@@ -7475,7 +7475,7 @@
         },
         {
             "title": "Stream Media",
-            "regex": "(http(?:s)?://([^/\\s]+)/[^?]+\\.(?i)(mp4|mkv|tp|mov|avi|wmv|asf|flv|ogv|rmvb|mp3|wav|wma|flac|ape|m4v))/?(\\?.*)?$",
+            "regex": "(https?://([^/\\s]+)/[^?]+\\.(?i)(mp4|mkv|tp|mov|avi|wmv|asf|flv|ogv|rmvb|mp3|wav|wma|flac|ape|m4v))/?(\\?.*)?$",
             "useful": "http://stackoverflow.com/a/27755/3943258",
             "testInputs": [
                 "https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
@@ -7707,7 +7707,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "(http(?:s)?://(\\w+\\.)?namu\\.wiki/.*)$",
+            "regex": "(https?://(\\w+\\.)?namu\\.wiki/.*)$",
             "testInputs": [
                 "https://namu.wiki/w/%EC%9D%B4%ED%99%94%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90%20%EC%A0%95%EC%9C%A0%EB%9D%BC%20%ED%8A%B9%ED%98%9C%20%EB%85%BC%EB%9E%80"
             ],
@@ -8025,7 +8025,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https(s)?://play\\.google(\\.\\w+)+(/music/.*)$",
+            "regex": "https?://play\\.google(\\.\\w+)+(/music/.*)$",
             "testInputs": [
                 "https://play.google.com/music/m/Tshzbcoyxaujk47mk5v5cyuzucq?t=Balloon_Heads_Ft_Kye_-_Muph__Plutonic",
                 "https://play.google.com/music/listen#/album/Bdlk43qn3e5irmuyln7d4wyzkyu/Muph/%E2%80%A6and+Then+Tomorrow+Came",
@@ -8034,8 +8034,8 @@
             "formats": [
                 {
                     "appId": "googleplaymusic",
-                    "script": "function process(url, completionHandler) { var results = RegExp('https(?:s)?://play\\\\.google(?:\\\\.\\\\w+)+(/music/.*)$').exec(url); var match = results != null && results.length > 1 ? 'googleplaymusic://' + results[1].replace('/preview/', '/m/') : null; completionHandler(match); }",
-                    "script2": "function process(url, completionHandler) { var results = RegExp('https(?:s)?://play\\\\.google(?:\\\\.\\\\w+)+(/music/.*)$').exec(url); var match = results != null && results.length > 1 ? 'googleplaymusic://' + results[1].replace('/preview/', '/m/') : null; completionHandler(match); }",
+                    "script": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://play\\\\.google(?:\\\\.\\\\w+)+(/music/.*)$').exec(url); var match = results != null && results.length > 1 ? 'googleplaymusic://' + results[1].replace('/preview/', '/m/') : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://play\\\\.google(?:\\\\.\\\\w+)+(/music/.*)$').exec(url); var match = results != null && results.length > 1 ? 'googleplaymusic://' + results[1].replace('/preview/', '/m/') : null; completionHandler(match); }",
                     "testResults": [
                         "googleplaymusic:///music/m/Tshzbcoyxaujk47mk5v5cyuzucq?t=Balloon_Heads_Ft_Kye_-_Muph__Plutonic",
                         "googleplaymusic:///music/listen#/album/Bdlk43qn3e5irmuyln7d4wyzkyu/Muph/%E2%80%A6and+Then+Tomorrow+Came",
@@ -8528,7 +8528,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https(?:s)?://(?:\\w+\\.)*newspicks\\.com/(.+)$",
+            "regex": "https?://(?:\\w+\\.)*newspicks\\.com/(.+)$",
             "testInputs": [
                 "https://newspicks.com/news/3530812?ref=user_904964&u=qpajax&from=twitter",
                 "https://newspicks.com/movie-series/6?movieId=238"
@@ -10683,7 +10683,7 @@
             "identifier": "microsoftedge",
             "storeId": "1288723196",
             "scheme": "microsoft-edge-https",
-            "regex": "(http(?:s)?.*)",
+            "regex": "(https?.*)",
             "format": "microsoft-edge-$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11504,7 +11504,7 @@
                 "http://www.medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ftimonus%2FTJActivityViewController": "https://github.com/timonus/TJActivityViewController"
             }
         },
-        "https(s)?://(\\w+\\.)*twitter\\.com/i/redirect.*$": {
+        "https?://(\\w+\\.)*twitter\\.com/i/redirect.*$": {
             "param": "url",
             "tests": {
                 "https://twitter.com/i/redirect?url=https%3A%2F%2Ftwitter.com%2Fi%2Fevents%2F1180824138832723968%3Fcn%3DZmxleGlibGVfcmVjc18y%26refsrc%3Demail&t=1+1570380899543&cn=ZmxleGlibGVfcmVjc18y&sig=a393f55f1c1e1ca0bae933b0adc256b3f9e0dea7&iid=20d1000f765847d085d99c843677ddf2&uid=298542384&nid=244+277221392": "https://twitter.com/i/events/1180824138832723968?cn=ZmxleGlibGVfcmVjc18y&refsrc=email"
@@ -11567,7 +11567,7 @@
         "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?!.*\\?.*)(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
             "format": "$1?$web_only=true$2"
         },
-        "https(s)?://(www\\.)?opener\\.link/r\\?.*url=.+$": {
+        "https?://(www\\.)?opener\\.link/r\\?.*url=.+$": {
             "param": "url",
             "tests": {
                 "https://opener.link/r?url=https%3A%2F%2Ftwitter.com%2Ftimonus": "https://twitter.com/timonus"
