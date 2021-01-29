@@ -1832,10 +1832,11 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "https?://(?:www\\.)?swarmapp\\.com(?:/\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+)(?:.*)$",
+            "regex": "https?://(?:www\\.)?swarmapp\\.com(?:/(?:user/)?\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+)(?:.*)$",
             "testInputs": [
                 "https://www.swarmapp.com/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
                 "https://www.swarmapp.com/timonus/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
+                "https://www.swarmapp.com/user/558158/checkin/52bc9b4c498e386effc388fd?s=-jomjqIt5Ds8SXkJ81ek3bjGe0g&ref=tw",
                 "https://www.swarmapp.com/c/cnwYJbPfuAd"
             ],
             "formats": [
@@ -1845,6 +1846,7 @@
                     "testResults": [
                         "swarm://checkins/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo",
                         "swarm://checkins/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo",
+                        "swarm://checkins/52bc9b4c498e386effc388fd?s=-jomjqIt5Ds8SXkJ81ek3bjGe0g",
                         null
                     ]
                 }
