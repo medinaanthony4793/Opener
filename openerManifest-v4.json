@@ -2454,7 +2454,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:www\\.|m\\.)?(?:youtu\\.be/|youtube\\.com/(?:embed/|.*(?:\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
+            "regex": "https?://(?:\\w+\\.)*(?:youtu\\.be/|youtube\\.com/(?:embed/|.*(?:\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -6039,7 +6039,7 @@
         },
         {
             "title": "Open Track",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?track/(\\d+).*$",
+            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?track/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/track/35470518",
                 "http://tidal.com/#!/track/35470518"
@@ -6057,7 +6057,7 @@
         },
         {
             "title": "Open Album",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?album/(\\d+).*$",
+            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?album/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/album/52690849",
                 "http://tidal.com/#!/album/52690849"
@@ -6075,7 +6075,7 @@
         },
         {
             "title": "Open Artist",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?artist/(\\d+).*$",
+            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?artist/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/artist/6277037",
                 "http://tidal.com/#!/artist/6277037"
@@ -6093,7 +6093,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:#!|browse/)?playlist/([a-fA-F0-9\\-]+).*$",
+            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?playlist/([a-fA-F0-9\\-]+).*$",
             "testInputs": [
                 "http://tidal.com/playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42",
                 "http://tidal.com/#!/playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42"
@@ -9037,12 +9037,6 @@
             "docs": "https://stackoverflow.com/a/35697717/3943258"
         },
         {
-            "name": "App Store",
-            "identifier": "appstore",
-            "scheme": "itms-apps",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/appstore-120.jpg"
-        },
-        {
             "name": "Tweetbot",
             "identifier": "tweetbot",
             "storeId": "1527500834",
@@ -9056,34 +9050,10 @@
             "scheme": "instagram"
         },
         {
-            "name": "Spotify",
-            "identifier": "spotify",
-            "storeId": "324684580",
-            "scheme": "spotify"
-        },
-        {
-            "name": "narwhal",
-            "identifier": "narwhal",
-            "storeId": "845422455",
-            "scheme": "narwhal"
-        },
-        {
-            "name": "Reddit",
-            "identifier": "reddit",
-            "storeId": "1064216828",
-            "scheme": "reddit"
-        },
-        {
-            "name": "Zoom",
-            "identifier": "zoom",
-            "storeId": "546505307",
-            "scheme": "zoomus"
-        },
-        {
-            "name": "Apple Maps",
-            "identifier": "applemaps",
-            "storeId": "915056765",
-            "scheme": "maps"
+            "name": "App Store",
+            "identifier": "appstore",
+            "scheme": "itms-apps",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/appstore-120.jpg"
         },
         {
             "name": "Google Maps",
@@ -9093,11 +9063,10 @@
             "docs": "https://developers.google.com/maps/documentation/ios/urlscheme"
         },
         {
-            "name": "VLC",
-            "identifier": "vlc",
-            "storeId": "650377962",
-            "scheme": "vlc-x-callback",
-            "docs": "https://wiki.videolan.org/Documentation:IOS/#x-callback-url and https://wiki.videolan.org/VLC_Features_Formats/"
+            "name": "Reddit",
+            "identifier": "reddit",
+            "storeId": "1064216828",
+            "scheme": "reddit"
         },
         {
             "name": "pixiv",
@@ -9106,16 +9075,71 @@
             "scheme": "pixiv"
         },
         {
+            "name": "Zoom",
+            "identifier": "zoom",
+            "storeId": "546505307",
+            "scheme": "zoomus"
+        },
+        {
+            "name": "narwhal",
+            "identifier": "narwhal",
+            "storeId": "845422455",
+            "scheme": "narwhal"
+        },
+        {
             "name": "Facebook",
             "identifier": "facebook",
             "storeId": "284882215",
             "scheme": "fb"
         },
         {
+            "name": "NYTimes",
+            "identifier": "nytimes",
+            "storeId": "284862083",
+            "scheme": "nytimes"
+        },
+        {
+            "name": "VLC",
+            "identifier": "vlc",
+            "storeId": "650377962",
+            "scheme": "vlc-x-callback",
+            "docs": "https://wiki.videolan.org/Documentation:IOS/#x-callback-url and https://wiki.videolan.org/VLC_Features_Formats/"
+        },
+        {
+            "name": "Spotify",
+            "identifier": "spotify",
+            "storeId": "324684580",
+            "scheme": "spotify"
+        },
+        {
+            "name": "Apple Maps",
+            "identifier": "applemaps",
+            "storeId": "915056765",
+            "scheme": "maps"
+        },
+        {
+            "name": "TikTok",
+            "identifier": "tiktok",
+            "scheme": "snssdk1233",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/tiktok-120-2.jpg"
+        },
+        {
             "name": "Google Sheets",
             "identifier": "googlesheets",
             "storeId": "842849113",
             "scheme": "googlesheets"
+        },
+        {
+            "name": "Apple News",
+            "identifier": "applenews",
+            "storeId": "1066498020",
+            "scheme": "applenews"
+        },
+        {
+            "name": "Lookmark",
+            "identifier": "lookmark",
+            "storeId": "1016517297",
+            "scheme": "lookmark"
         },
         {
             "name": "Twitterrific",
@@ -9125,29 +9149,11 @@
             "docs": "http://support.iconfactory.com/kb/twitterrific/url-schemes-in-twitterrific and http://twitterrific.com/ios/poweruser"
         },
         {
-            "name": "Lookmark",
-            "identifier": "lookmark",
-            "storeId": "1016517297",
-            "scheme": "lookmark"
-        },
-        {
-            "name": "Ivory",
-            "identifier": "ivory",
-            "storeId": "1294347486",
-            "scheme": "ivory"
-        },
-        {
-            "name": "Musi",
-            "identifier": "musi",
-            "scheme": "musi",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/musi-114.jpg",
-            "docs": "https://db.tt/u0SzsnCf7u"
-        },
-        {
-            "name": "iTunes Store",
-            "identifier": "itunesstore",
-            "storeId": "915061235",
-            "scheme": "itms"
+            "name": "VK",
+            "identifier": "vk",
+            "storeId": "564177498",
+            "scheme": "vk",
+            "docs": "http://handleopenurl.com/scheme/vk"
         },
         {
             "name": "Twitch",
@@ -9157,22 +9163,61 @@
             "docs": "https://github.com/justintv/Twitch-API/blob/master/mobile_deeplinks.md"
         },
         {
-            "name": "NYTimes",
-            "identifier": "nytimes",
-            "storeId": "284862083",
-            "scheme": "nytimes"
+            "name": "GitHub",
+            "identifier": "github",
+            "storeId": "1477376905",
+            "scheme": "github"
         },
         {
-            "name": "TikTok",
-            "identifier": "tiktok",
-            "scheme": "snssdk1233",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/tiktok-120-2.jpg"
+            "name": "Dropbox",
+            "identifier": "dropbox",
+            "storeId": "327630330",
+            "scheme": "dbapi-6"
+        },
+        {
+            "name": "Wikipedia",
+            "identifier": "wikipedia",
+            "storeId": "324715238",
+            "scheme": "wikipedia-official",
+            "docs": "https://goo.gl/HPyqeR and https://goo.gl/XvFQr4"
+        },
+        {
+            "name": "Apple Music",
+            "identifier": "applemusic",
+            "storeId": "1108187390",
+            "scheme": "music"
+        },
+        {
+            "name": "Musi",
+            "identifier": "musi",
+            "scheme": "musi",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/musi-114.jpg",
+            "docs": "https://db.tt/u0SzsnCf7u"
+        },
+        {
+            "name": "Documents",
+            "identifier": "documents",
+            "storeId": "364901807",
+            "scheme": "rhttp",
+            "docs": "https://helpspot.readdle.com/documents/index.php?pg=kb.page&id=516"
+        },
+        {
+            "name": "The Athletic",
+            "identifier": "theathletic",
+            "storeId": "1135216317",
+            "scheme": "theathletic"
         },
         {
             "name": "CornerTube",
             "identifier": "cornertube",
             "storeId": "1073199994",
             "scheme": "cornertube"
+        },
+        {
+            "name": "iTunes Store",
+            "identifier": "itunesstore",
+            "storeId": "915061235",
+            "scheme": "itms"
         },
         {
             "name": "V for Wikipedia",
@@ -9182,17 +9227,11 @@
             "docs": "http://bit.ly/1RIpw7c"
         },
         {
-            "name": "Apple Music",
-            "identifier": "applemusic",
-            "storeId": "1108187390",
-            "scheme": "music"
-        },
-        {
-            "name": "Documents",
-            "identifier": "documents",
-            "storeId": "364901807",
-            "scheme": "rhttp",
-            "docs": "https://helpspot.readdle.com/documents/index.php?pg=kb.page&id=516"
+            "name": "Waze",
+            "identifier": "waze",
+            "storeId": "323229106",
+            "scheme": "waze",
+            "docs": "https://www.waze.com/about/dev"
         },
         {
             "name": "Google Drive",
@@ -9208,23 +9247,11 @@
             "scheme": "aviary"
         },
         {
-            "name": "Apple News",
-            "identifier": "applenews",
-            "storeId": "1066498020",
-            "scheme": "applenews"
-        },
-        {
-            "name": "Wikipedia",
-            "identifier": "wikipedia",
-            "storeId": "324715238",
-            "scheme": "wikipedia-official",
-            "docs": "https://goo.gl/HPyqeR and https://goo.gl/XvFQr4"
-        },
-        {
-            "name": "Shortcuts",
-            "identifier": "workflow",
-            "storeId": "915249334",
-            "scheme": "workflow"
+            "name": "Infuse",
+            "identifier": "infuse",
+            "storeId": "1136220934",
+            "scheme": "infuse",
+            "docs": "https://support.firecore.com/hc/en-us/articles/215090997-Callback-URLs"
         },
         {
             "name": "Google Docs",
@@ -9233,169 +9260,22 @@
             "scheme": "googledocs"
         },
         {
-            "name": "Price Tag",
-            "identifier": "pricetag",
-            "scheme": "pricetag",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/pricetag-114.jpg"
+            "name": "Ivory",
+            "identifier": "ivory",
+            "storeId": "1294347486",
+            "scheme": "ivory"
         },
         {
-            "name": "YouTube Music",
-            "identifier": "youtubemusic",
-            "storeId": "1017492454",
-            "scheme": "youtubemusic"
+            "name": "Amazon Music",
+            "identifier": "amazonmusic",
+            "storeId": "510855668",
+            "scheme": "amznmp3"
         },
         {
-            "name": "Waze",
-            "identifier": "waze",
-            "storeId": "323229106",
-            "scheme": "waze",
-            "docs": "https://www.waze.com/about/dev"
-        },
-        {
-            "name": "GitHub",
-            "identifier": "github",
-            "storeId": "1477376905",
-            "scheme": "github"
-        },
-        {
-            "name": "Tumblr",
-            "identifier": "tumblr",
-            "storeId": "305343404",
-            "scheme": "tumblr"
-        },
-        {
-            "name": "The Wall Street Journal",
-            "identifier": "wsj",
-            "storeId": "364387007",
-            "scheme": "wsj"
-        },
-        {
-            "name": "Notion",
-            "identifier": "notion",
-            "storeId": "1232780281",
-            "scheme": "notion"
-        },
-        {
-            "name": "Dropbox",
-            "identifier": "dropbox",
-            "storeId": "327630330",
-            "scheme": "dbapi-6"
-        },
-        {
-            "name": "Taobao",
-            "identifier": "taobao",
-            "storeId": "387682726",
-            "scheme": "taobao",
-            "platform": "phone"
-        },
-        {
-            "name": "Pocket Casts",
-            "identifier": "pocketcasts",
-            "storeId": "414834813",
-            "scheme": "pktc",
-            "docs": "http://support.pocketcasts.com/article/how-can-i-use-pocket-casts-with-apps-like-launch-center/"
-        },
-        {
-            "name": "The Athletic",
-            "identifier": "theathletic",
-            "storeId": "1135216317",
-            "scheme": "theathletic"
-        },
-        {
-            "name": "SmilePlayer2",
-            "identifier": "smileplayer2",
-            "storeId": "876415486",
-            "scheme": "smileplayer2"
-        },
-        {
-            "name": "Readder",
-            "identifier": "readder",
-            "storeId": "1043575806",
-            "scheme": "readder",
-            "docs": "https://www.reddit.com/r/readder/comments/5sbf3b/url_schemexcallback_support/"
-        },
-        {
-            "name": "Slide",
-            "identifier": "slide",
-            "storeId": "1260626828",
-            "scheme": "slide",
-            "docs": "https://bit.ly/2IieyGV"
-        },
-        {
-            "name": "Target",
-            "identifier": "target",
-            "storeId": "297430070",
-            "scheme": "target"
-        },
-        {
-            "name": "Overcast",
-            "identifier": "overcast",
-            "storeId": "888422857",
-            "scheme": "overcast"
-        },
-        {
-            "name": "Telegram",
-            "identifier": "telegram",
-            "storeId": "686449807",
-            "scheme": "tg"
-        },
-        {
-            "name": "nPlayer",
-            "identifier": "nplayer",
-            "storeId": "539397400",
-            "scheme": "nplayer",
-            "docs": "http://forum.nplayer.tv/topic/328/custom-url-scheme/7 and https://db.tt/fyXxQtMW"
-        },
-        {
-            "name": "TestFlight",
-            "identifier": "testflight",
-            "storeId": "899247664",
-            "scheme": "itms-beta"
-        },
-        {
-            "name": "VK",
-            "identifier": "vk",
-            "storeId": "564177498",
-            "scheme": "vk",
-            "docs": "http://handleopenurl.com/scheme/vk"
-        },
-        {
-            "name": "niconico",
-            "identifier": "niconico",
-            "storeId": "307764057",
-            "scheme": "niconico"
-        },
-        {
-            "name": "Infuse",
-            "identifier": "infuse",
-            "storeId": "1136220934",
-            "scheme": "infuse",
-            "docs": "https://support.firecore.com/hc/en-us/articles/215090997-Callback-URLs"
-        },
-        {
-            "name": "Medium",
-            "identifier": "medium",
-            "storeId": "828256236",
-            "scheme": "medium"
-        },
-        {
-            "name": "Snapchat",
-            "identifier": "snapchat",
-            "storeId": "447188370",
-            "scheme": "snapchat"
-        },
-        {
-            "name": "Weibo Intl.",
-            "identifier": "weibointernational",
-            "storeId": "1215210046",
-            "scheme": "weibointernational",
-            "docs": "https://db.tt/7vAu94IQ8i"
-        },
-        {
-            "name": "Imgur",
-            "identifier": "imgur",
-            "storeId": "639881495",
-            "scheme": "imgur"
+            "name": "eBay",
+            "identifier": "ebay",
+            "storeId": "282614216",
+            "scheme": "ebay"
         },
         {
             "name": "AliExpress",
@@ -9405,10 +9285,74 @@
             "platform": "phone"
         },
         {
-            "name": "SoundCloud",
-            "identifier": "soundcloud",
-            "storeId": "336353151",
-            "scheme": "soundcloud"
+            "name": "Slide",
+            "identifier": "slide",
+            "storeId": "1260626828",
+            "scheme": "slide",
+            "docs": "https://bit.ly/2IieyGV"
+        },
+        {
+            "name": "Etsy",
+            "identifier": "etsy",
+            "storeId": "477128284",
+            "scheme": "etsy"
+        },
+        {
+            "name": "PDF Expert",
+            "identifier": "pdfexpert",
+            "storeId": "743974925",
+            "scheme": "pdfehttp",
+            "docs": "https://helpspot.readdle.com/pdfexpert/index.php?pg=kb.page&id=496"
+        },
+        {
+            "name": "Telegram",
+            "identifier": "telegram",
+            "storeId": "686449807",
+            "scheme": "tg"
+        },
+        {
+            "name": "Shortcuts",
+            "identifier": "workflow",
+            "storeId": "915249334",
+            "scheme": "workflow"
+        },
+        {
+            "name": "Pinterest",
+            "identifier": "pinterest",
+            "storeId": "429047995",
+            "scheme": "pinterest"
+        },
+        {
+            "name": "Taobao",
+            "identifier": "taobao",
+            "storeId": "387682726",
+            "scheme": "taobao",
+            "platform": "phone"
+        },
+        {
+            "name": "YouTube Music",
+            "identifier": "youtubemusic",
+            "storeId": "1017492454",
+            "scheme": "youtubemusic"
+        },
+        {
+            "name": "BaconReader",
+            "identifier": "baconreader",
+            "storeId": "725730936",
+            "scheme": "baconreader",
+            "docs": "https://db.tt/YiwQSygnrO"
+        },
+        {
+            "name": "Cachly",
+            "identifier": "cachly",
+            "storeId": "645384141",
+            "scheme": "cachly"
+        },
+        {
+            "name": "Tumblr",
+            "identifier": "tumblr",
+            "storeId": "305343404",
+            "scheme": "tumblr"
         },
         {
             "name": "Weibo",
@@ -9417,36 +9361,60 @@
             "scheme": "sinaweibo"
         },
         {
-            "name": "WSH LST",
-            "identifier": "wshlst",
-            "storeId": "1323785754",
-            "scheme": "wshlst",
-            "docs": "https://db.tt/hc4v5XExOr"
+            "name": "TIDAL",
+            "identifier": "tidal",
+            "storeId": "913943275",
+            "scheme": "tidal"
         },
         {
-            "name": "Apple Podcasts",
-            "identifier": "applepodcasts",
-            "storeId": "525463029",
-            "scheme": "podcasts"
+            "name": "Antenna",
+            "identifier": "amrc",
+            "storeId": "572391252",
+            "scheme": "amrc",
+            "docs": "https://www.reddit.com/r/amrc/comments/329z6d/beta_just_wanted_to_say_thanks/"
         },
         {
-            "name": "Trello",
-            "identifier": "trello",
-            "storeId": "461504587",
-            "scheme": "trello",
-            "docs": "https://trello.com/c/cJfzOdDm/188-automate-with-url-scheme"
+            "name": "GoodReader",
+            "identifier": "goodreader",
+            "storeId": "777310222",
+            "scheme": "ghttp"
         },
         {
-            "name": "Airbnb",
-            "identifier": "airbnb",
-            "storeId": "401626263",
-            "scheme": "airbnb"
+            "name": "Imgur",
+            "identifier": "imgur",
+            "storeId": "639881495",
+            "scheme": "imgur"
         },
         {
-            "name": "Kickstarter",
-            "identifier": "kickstarter",
-            "storeId": "596961532",
-            "scheme": "ksr"
+            "name": "Notion",
+            "identifier": "notion",
+            "storeId": "1232780281",
+            "scheme": "notion"
+        },
+        {
+            "name": "Price Tag",
+            "identifier": "pricetag",
+            "scheme": "pricetag",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/pricetag-114.jpg"
+        },
+        {
+            "name": "Google Photos",
+            "identifier": "googlephotos",
+            "storeId": "962194608",
+            "scheme": "googlephotos"
+        },
+        {
+            "name": "nPlayer",
+            "identifier": "nplayer",
+            "storeId": "539397400",
+            "scheme": "nplayer",
+            "docs": "http://forum.nplayer.tv/topic/328/custom-url-scheme/7 and https://db.tt/fyXxQtMW"
+        },
+        {
+            "name": "music.163.com",
+            "identifier": "orpheus",
+            "scheme": "orpheus",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/orpheus-114.jpg"
         },
         {
             "name": "PPHub",
@@ -9456,11 +9424,214 @@
             "docs": "https://db.tt/d6RQ8Fe4Ie, https://bit.ly/2SPj1VJ"
         },
         {
-            "name": "Antenna",
-            "identifier": "amrc",
-            "storeId": "572391252",
-            "scheme": "amrc",
-            "docs": "https://www.reddit.com/r/amrc/comments/329z6d/beta_just_wanted_to_say_thanks/"
+            "name": "Apple Books",
+            "identifier": "ibooks",
+            "storeId": "364709193",
+            "scheme": "itms-books"
+        },
+        {
+            "name": "Medium",
+            "identifier": "medium",
+            "storeId": "828256236",
+            "scheme": "medium"
+        },
+        {
+            "name": "Overcast",
+            "identifier": "overcast",
+            "storeId": "888422857",
+            "scheme": "overcast"
+        },
+        {
+            "name": "Pixez",
+            "identifier": "pixez",
+            "storeId": "1494435126",
+            "scheme": "pixez"
+        },
+        {
+            "name": "Jingdong",
+            "identifier": "jingdong",
+            "storeId": "414245413",
+            "scheme": "openapp.jdmobile"
+        },
+        {
+            "name": "SoundCloud",
+            "identifier": "soundcloud",
+            "storeId": "336353151",
+            "scheme": "soundcloud"
+        },
+        {
+            "name": "WSH LST",
+            "identifier": "wshlst",
+            "storeId": "1323785754",
+            "scheme": "wshlst",
+            "docs": "https://db.tt/hc4v5XExOr"
+        },
+        {
+            "name": "The Wall Street Journal",
+            "identifier": "wsj",
+            "storeId": "364387007",
+            "scheme": "wsj"
+        },
+        {
+            "name": "Octal",
+            "identifier": "octal",
+            "storeId": "1308885491",
+            "scheme": "octal",
+            "docs": "https://db.tt/arGn8KwhFi, https://github.com/dangwu/Octal/issues/72"
+        },
+        {
+            "name": "SmilePlayer2",
+            "identifier": "smileplayer2",
+            "storeId": "876415486",
+            "scheme": "smileplayer2"
+        },
+        {
+            "name": "LinkedIn",
+            "identifier": "linkedin",
+            "storeId": "288429040",
+            "scheme": "linkedin"
+        },
+        {
+            "name": "Apple TV",
+            "identifier": "appletv",
+            "storeId": "1174078549",
+            "scheme": "com.apple.tv"
+        },
+        {
+            "name": "CodeHub",
+            "identifier": "codehub",
+            "storeId": "707173885",
+            "scheme": "codehub",
+            "docs": "https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280 and https://github.com/thedillonb/CodeHub/issues/19"
+        },
+        {
+            "name": "Crew",
+            "identifier": "crew",
+            "storeId": "1547171709",
+            "scheme": "crewforstackoverflow",
+            "new": 1
+        },
+        {
+            "name": "Yahoo! Auctions",
+            "identifier": "yahooauctions",
+            "storeId": "356968629",
+            "scheme": "yjauctions",
+            "country": "jp"
+        },
+        {
+            "name": "Readder",
+            "identifier": "readder",
+            "storeId": "1043575806",
+            "scheme": "readder",
+            "docs": "https://www.reddit.com/r/readder/comments/5sbf3b/url_schemexcallback_support/"
+        },
+        {
+            "name": "Target",
+            "identifier": "target",
+            "storeId": "297430070",
+            "scheme": "target"
+        },
+        {
+            "name": "The Guardian",
+            "identifier": "theguardian",
+            "storeId": "409128287",
+            "scheme": "gnmguardian"
+        },
+        {
+            "name": "WEAR",
+            "identifier": "wear",
+            "storeId": "725208930",
+            "scheme": "wear2020"
+        },
+        {
+            "name": "Airtable",
+            "identifier": "airtable",
+            "storeId": "914172636",
+            "scheme": "airtable"
+        },
+        {
+            "name": "Evernote",
+            "identifier": "evernote",
+            "storeId": "281796108",
+            "scheme": "evernote",
+            "docs": "https://dev.evernote.com/doc/articles/note_links.php"
+        },
+        {
+            "name": "Kickstarter",
+            "identifier": "kickstarter",
+            "storeId": "596961532",
+            "scheme": "ksr"
+        },
+        {
+            "name": "Pocket Casts",
+            "identifier": "pocketcasts",
+            "storeId": "414834813",
+            "scheme": "pktc",
+            "docs": "http://support.pocketcasts.com/article/how-can-i-use-pocket-casts-with-apps-like-launch-center/"
+        },
+        {
+            "name": "Comet",
+            "identifier": "comet",
+            "storeId": "1146204813",
+            "scheme": "comet"
+        },
+        {
+            "name": "Product Hunt",
+            "identifier": "producthunt",
+            "storeId": "904658671",
+            "scheme": "producthunt"
+        },
+        {
+            "name": "Snapchat",
+            "identifier": "snapchat",
+            "storeId": "447188370",
+            "scheme": "snapchat"
+        },
+        {
+            "name": "Airbnb",
+            "identifier": "airbnb",
+            "storeId": "401626263",
+            "scheme": "airbnb"
+        },
+        {
+            "name": "Vimeo",
+            "identifier": "vimeo",
+            "storeId": "425194759",
+            "scheme": "vimeo",
+            "docs": "https://developer.vimeo.com/apis/simple and https://github.com/vimeo/VIMDeeplink"
+        },
+        {
+            "name": "Castro",
+            "identifier": "castro",
+            "storeId": "1080840241",
+            "scheme": "castro",
+            "docs": "https://db.tt/W3jwOEI2"
+        },
+        {
+            "name": "Netflix",
+            "identifier": "netflix",
+            "storeId": "363590051",
+            "scheme": "nflx"
+        },
+        {
+            "name": "PDF Viewer",
+            "identifier": "pdfviewer",
+            "storeId": "1120099014",
+            "scheme": "pdfviewer",
+            "docs": "https://pdfviewer.io/guides/ios/url-scheme/"
+        },
+        {
+            "name": "Walmart",
+            "identifier": "walmart",
+            "storeId": "338137227",
+            "scheme": "walmart",
+            "new": 1
+        },
+        {
+            "name": "Zillow",
+            "identifier": "zillow",
+            "storeId": "310738695",
+            "scheme": "zillowapp"
         },
         {
             "name": "CatchApp",
@@ -9471,73 +9642,35 @@
             "platform": "phone"
         },
         {
-            "name": "Periscope",
-            "identifier": "periscope",
-            "storeId": "972909677",
-            "scheme": "pscp"
+            "name": "HACK",
+            "identifier": "hack",
+            "storeId": "1464477788",
+            "scheme": "hack",
+            "docs": "https://db.tt/qT9KXSfk95"
         },
         {
-            "name": "GoodReader",
-            "identifier": "goodreader",
-            "storeId": "777310222",
-            "scheme": "ghttp"
+            "name": "Mixcloud",
+            "identifier": "mixcloud",
+            "storeId": "401206431",
+            "scheme": "mc"
         },
         {
-            "name": "eBay",
-            "identifier": "ebay",
-            "storeId": "282614216",
-            "scheme": "ebay"
+            "name": "niconico",
+            "identifier": "niconico",
+            "storeId": "307764057",
+            "scheme": "niconico"
         },
         {
-            "name": "Le Monde",
-            "identifier": "lemonde",
-            "storeId": "294047850",
-            "scheme": "lmfr"
+            "name": "Apple Podcasts",
+            "identifier": "applepodcasts",
+            "storeId": "525463029",
+            "scheme": "podcasts"
         },
         {
-            "name": "PDF Expert",
-            "identifier": "pdfexpert",
-            "storeId": "743974925",
-            "scheme": "pdfehttp",
-            "docs": "https://helpspot.readdle.com/pdfexpert/index.php?pg=kb.page&id=496"
-        },
-        {
-            "name": "Pinterest",
-            "identifier": "pinterest",
-            "storeId": "429047995",
-            "scheme": "pinterest"
-        },
-        {
-            "name": "Cachly",
-            "identifier": "cachly",
-            "storeId": "645384141",
-            "scheme": "cachly"
-        },
-        {
-            "name": "CodeHub",
-            "identifier": "codehub",
-            "storeId": "707173885",
-            "scheme": "codehub",
-            "docs": "https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280 and https://github.com/thedillonb/CodeHub/issues/19"
-        },
-        {
-            "name": "Apple TV",
-            "identifier": "appletv",
-            "storeId": "1174078549",
-            "scheme": "com.apple.tv"
-        },
-        {
-            "name": "Castro",
-            "identifier": "castro",
-            "storeId": "1080840241",
-            "scheme": "castro",
-            "docs": "https://db.tt/W3jwOEI2"
-        },
-        {
-            "name": "Google Photos",
-            "identifier": "googlephotos",
-            "storeId": "962194608",
-            "scheme": "googlephotos"
+            "name": "Deliveries",
+            "identifier": "deliveries",
+            "storeId": "290986013",
+            "scheme": "deliveries"
         },
         {
             "name": "IMDb",
@@ -9547,274 +9680,17 @@
             "docs": "http://wiki.akosma.com/IPhone_URL_Schemes#IMDb_Movies_.26_TV and http://handleopenurl.com/scheme/imdb-movies-and-tv"
         },
         {
-            "name": "iNico 2",
-            "identifier": "inico2",
-            "scheme": "inico2http",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/inico2-114.jpg"
-        },
-        {
-            "name": "Yahoo! Auctions",
-            "identifier": "yahooauctions",
-            "storeId": "356968629",
-            "scheme": "yjauctions",
-            "country": "jp"
-        },
-        {
-            "name": "Charm",
-            "identifier": "charm",
-            "storeId": "1102153379",
-            "scheme": "x-charm",
-            "docs": "http://bit.ly/29sCrgV"
-        },
-        {
-            "name": "Comet",
-            "identifier": "comet",
-            "storeId": "1146204813",
-            "scheme": "comet"
-        },
-        {
-            "name": "Etsy",
-            "identifier": "etsy",
-            "storeId": "477128284",
-            "scheme": "etsy"
-        },
-        {
-            "name": "LIHKG",
-            "identifier": "lihkg",
-            "storeId": "1178373396",
-            "scheme": "lihkg"
-        },
-        {
-            "name": "The Guardian",
-            "identifier": "theguardian",
-            "storeId": "409128287",
-            "scheme": "gnmguardian"
+            "name": "Taobao HD",
+            "identifier": "taobaopad",
+            "storeId": "438865278",
+            "scheme": "taobao",
+            "platform": "pad"
         },
         {
             "name": "WikiLinks",
             "identifier": "wikilinks",
             "storeId": "990956008",
             "scheme": "wikilinks"
-        },
-        {
-            "name": "Amazon Music",
-            "identifier": "amazonmusic",
-            "storeId": "510855668",
-            "scheme": "amznmp3"
-        },
-        {
-            "name": "Apple Books",
-            "identifier": "ibooks",
-            "storeId": "364709193",
-            "scheme": "itms-books"
-        },
-        {
-            "name": "Jingdong",
-            "identifier": "jingdong",
-            "storeId": "414245413",
-            "scheme": "openapp.jdmobile"
-        },
-        {
-            "name": "BaconReader",
-            "identifier": "baconreader",
-            "storeId": "725730936",
-            "scheme": "baconreader",
-            "docs": "https://db.tt/YiwQSygnrO"
-        },
-        {
-            "name": "Dribbble",
-            "identifier": "dribbble",
-            "storeId": "1228326440",
-            "scheme": "dribbble"
-        },
-        {
-            "name": "Goodreads",
-            "identifier": "goodreads",
-            "storeId": "355833469",
-            "scheme": "goodreads"
-        },
-        {
-            "name": "sspai",
-            "identifier": "sspai",
-            "storeId": "1191720421",
-            "scheme": "sspai"
-        },
-        {
-            "name": "Zhihu",
-            "identifier": "zhihu",
-            "storeId": "432274380",
-            "scheme": "zhihu"
-        },
-        {
-            "name": "Beam",
-            "identifier": "beam",
-            "storeId": "937987469",
-            "scheme": "beamapp",
-            "docs": "https://twitter.com/beamreddit/status/762625995568472064"
-        },
-        {
-            "name": "LinkedIn",
-            "identifier": "linkedin",
-            "storeId": "288429040",
-            "scheme": "linkedin"
-        },
-        {
-            "name": "Moke",
-            "identifier": "moke",
-            "storeId": "1481905050",
-            "scheme": "moke",
-            "docs": "http://moke.com/moke/url_schemes.html"
-        },
-        {
-            "name": "Netflix",
-            "identifier": "netflix",
-            "storeId": "363590051",
-            "scheme": "nflx"
-        },
-        {
-            "name": "Quora",
-            "identifier": "quora",
-            "storeId": "456034437",
-            "scheme": "quora"
-        },
-        {
-            "name": "Vimeo",
-            "identifier": "vimeo",
-            "storeId": "425194759",
-            "scheme": "vimeo",
-            "docs": "https://developer.vimeo.com/apis/simple and https://github.com/vimeo/VIMDeeplink"
-        },
-        {
-            "name": "Deliveries",
-            "identifier": "deliveries",
-            "storeId": "290986013",
-            "scheme": "deliveries"
-        },
-        {
-            "name": "Google Slides",
-            "identifier": "googleslides",
-            "storeId": "879478102",
-            "scheme": "googleslides"
-        },
-        {
-            "name": "Tapatalk",
-            "identifier": "tapatalk",
-            "storeId": "307880732",
-            "scheme": "tapatalk"
-        },
-        {
-            "name": "Deezer",
-            "identifier": "deezer",
-            "storeId": "292738169",
-            "scheme": "deezer"
-        },
-        {
-            "name": "Flickr",
-            "identifier": "flickr",
-            "storeId": "328407587",
-            "scheme": "flickr",
-            "docs": "https://www.flickr.com/services/api/misc.urls.html"
-        },
-        {
-            "name": "Genius",
-            "identifier": "genius",
-            "storeId": "709482991",
-            "scheme": "genius"
-        },
-        {
-            "name": "Redfin",
-            "identifier": "redfin",
-            "storeId": "327962480",
-            "scheme": "redfin"
-        },
-        {
-            "name": "Rightmove",
-            "identifier": "rightmove",
-            "storeId": "323822803",
-            "scheme": "rightmove"
-        },
-        {
-            "name": "Slickdeals",
-            "identifier": "slickdeals",
-            "storeId": "584632814",
-            "scheme": "slickdeals"
-        },
-        {
-            "name": "Airtable",
-            "identifier": "airtable",
-            "storeId": "914172636",
-            "scheme": "airtable"
-        },
-        {
-            "name": "Eventbrite",
-            "identifier": "eventbrite",
-            "storeId": "487922291",
-            "scheme": "com-eventbrite-attendee"
-        },
-        {
-            "name": "HACK",
-            "identifier": "hack",
-            "storeId": "1464477788",
-            "scheme": "hack",
-            "docs": "https://db.tt/qT9KXSfk95"
-        },
-        {
-            "name": "Meetup",
-            "identifier": "meetup",
-            "storeId": "375990038",
-            "scheme": "meetup"
-        },
-        {
-            "name": "Octal",
-            "identifier": "octal",
-            "storeId": "1308885491",
-            "scheme": "octal",
-            "docs": "https://db.tt/arGn8KwhFi, https://github.com/dangwu/Octal/issues/72"
-        },
-        {
-            "name": "music.163.com",
-            "identifier": "orpheus",
-            "scheme": "orpheus",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/orpheus-114.jpg"
-        },
-        {
-            "name": "Product Hunt",
-            "identifier": "producthunt",
-            "storeId": "904658671",
-            "scheme": "producthunt"
-        },
-        {
-            "name": "Zillow",
-            "identifier": "zillow",
-            "storeId": "310738695",
-            "scheme": "zillowapp"
-        },
-        {
-            "name": "DeviantArt",
-            "identifier": "deviantart",
-            "storeId": "925219396",
-            "scheme": "deviantart",
-            "docs": "https://www.deviantart.com/developers/app_links"
-        },
-        {
-            "name": "Dropbox Paper",
-            "identifier": "dropboxpaper",
-            "storeId": "1126623662",
-            "scheme": "dbx-paper"
-        },
-        {
-            "name": "Evernote",
-            "identifier": "evernote",
-            "storeId": "281796108",
-            "scheme": "evernote",
-            "docs": "https://dev.evernote.com/doc/articles/note_links.php"
-        },
-        {
-            "name": "Working Copy",
-            "identifier": "workingcopy",
-            "storeId": "896694807",
-            "scheme": "working-copy",
-            "docs": "http://workingcopyapp.com/url-schemes.html"
         },
         {
             "name": "bilibili",
@@ -9824,74 +9700,112 @@
             "country": "cn"
         },
         {
-            "name": "Doodle",
-            "identifier": "doodle",
-            "storeId": "938182547",
-            "scheme": "doodle"
+            "name": "LIHKG",
+            "identifier": "lihkg",
+            "storeId": "1178373396",
+            "scheme": "lihkg"
         },
         {
-            "name": "GitHawk",
-            "identifier": "githawk",
-            "storeId": "1252320249",
-            "scheme": "freetime",
-            "docs": "https://github.com/GitHawkApp/GitHawkRoutes"
+            "name": "Quora",
+            "identifier": "quora",
+            "storeId": "456034437",
+            "scheme": "quora"
         },
         {
-            "name": "Mixcloud",
-            "identifier": "mixcloud",
-            "storeId": "401206431",
-            "scheme": "mc"
+            "name": "Sports.ru",
+            "identifier": "sportsru",
+            "storeId": "542339626",
+            "scheme": "sports"
         },
         {
-            "name": "Mobile01",
-            "identifier": "mobile01",
-            "storeId": "444909583",
-            "scheme": "m01"
+            "name": "TestFlight",
+            "identifier": "testflight",
+            "storeId": "899247664",
+            "scheme": "itms-beta"
         },
         {
-            "name": "Namuwiki",
-            "identifier": "namuviewer",
-            "storeId": "993035669",
-            "scheme": "namuviewer"
+            "name": "BuzzFeed",
+            "identifier": "buzzfeed",
+            "storeId": "352969997",
+            "scheme": "buzzfeed"
         },
         {
-            "name": "NYT Cooking",
-            "identifier": "nytcooking",
-            "storeId": "911422904",
-            "scheme": "nytcooking"
+            "name": "Charm",
+            "identifier": "charm",
+            "storeId": "1102153379",
+            "scheme": "x-charm",
+            "docs": "http://bit.ly/29sCrgV"
         },
         {
-            "name": "OPENREC.tv",
-            "identifier": "openrectv",
-            "storeId": "912776162",
-            "scheme": "jp.co.cyber-z.openrec"
+            "name": "Eventbrite",
+            "identifier": "eventbrite",
+            "storeId": "487922291",
+            "scheme": "com-eventbrite-attendee"
         },
         {
-            "name": "PDF Viewer",
-            "identifier": "pdfviewer",
-            "storeId": "1120099014",
-            "scheme": "pdfviewer",
-            "docs": "https://pdfviewer.io/guides/ios/url-scheme/"
+            "name": "Flickr",
+            "identifier": "flickr",
+            "storeId": "328407587",
+            "scheme": "flickr",
+            "docs": "https://www.flickr.com/services/api/misc.urls.html"
         },
         {
-            "name": "Tabelog",
-            "identifier": "tabelog",
-            "storeId": "763377066",
-            "scheme": "tabelog-v2",
-            "country": "jp"
+            "name": "Coderx",
+            "identifier": "grape",
+            "storeId": "1371929193",
+            "scheme": "grape",
+            "docs": "https://db.tt/xAauKtgWxJ"
         },
         {
-            "name": "Taobao HD",
-            "identifier": "taobaopad",
-            "storeId": "438865278",
-            "scheme": "taobao",
-            "platform": "pad"
+            "name": "iNico 2",
+            "identifier": "inico2",
+            "scheme": "inico2http",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/inico2-114.jpg"
         },
         {
-            "name": "9GAG",
-            "identifier": "9gag",
-            "storeId": "545551605",
-            "scheme": "ninegag"
+            "name": "Jayson",
+            "identifier": "jayson",
+            "storeId": "1447750768",
+            "scheme": "jayson"
+        },
+        {
+            "name": "Periscope",
+            "identifier": "periscope",
+            "storeId": "972909677",
+            "scheme": "pscp"
+        },
+        {
+            "name": "sspai",
+            "identifier": "sspai",
+            "storeId": "1191720421",
+            "scheme": "sspai"
+        },
+        {
+            "name": "Swarm",
+            "identifier": "swarm",
+            "storeId": "870161082",
+            "scheme": "swarm"
+        },
+        {
+            "name": "Trello",
+            "identifier": "trello",
+            "storeId": "461504587",
+            "scheme": "trello",
+            "docs": "https://trello.com/c/cJfzOdDm/188-automate-with-url-scheme"
+        },
+        {
+            "name": "Wikipanion",
+            "identifier": "wikipanion",
+            "storeId": "288349436",
+            "scheme": "wplink",
+            "platform": "phone"
+        },
+        {
+            "name": "Working Copy",
+            "identifier": "workingcopy",
+            "storeId": "896694807",
+            "scheme": "working-copy",
+            "docs": "http://workingcopyapp.com/url-schemes.html"
         },
         {
             "name": "Booking.com",
@@ -9900,10 +9814,65 @@
             "scheme": "booking"
         },
         {
-            "name": "BuzzFeed",
-            "identifier": "buzzfeed",
-            "storeId": "352969997",
-            "scheme": "buzzfeed"
+            "name": "Google Slides",
+            "identifier": "googleslides",
+            "storeId": "879478102",
+            "scheme": "googleslides"
+        },
+        {
+            "name": "IFTTT",
+            "identifier": "ifttt",
+            "storeId": "660944635",
+            "scheme": "ifttt"
+        },
+        {
+            "name": "NYT Cooking",
+            "identifier": "nytcooking",
+            "storeId": "911422904",
+            "scheme": "nytcooking"
+        },
+        {
+            "name": "Redfin",
+            "identifier": "redfin",
+            "storeId": "327962480",
+            "scheme": "redfin"
+        },
+        {
+            "name": "Tapatalk",
+            "identifier": "tapatalk",
+            "storeId": "307880732",
+            "scheme": "tapatalk"
+        },
+        {
+            "name": "Weibo Intl.",
+            "identifier": "weibointernational",
+            "storeId": "1215210046",
+            "scheme": "weibointernational",
+            "docs": "https://db.tt/7vAu94IQ8i"
+        },
+        {
+            "name": "Zhihu",
+            "identifier": "zhihu",
+            "storeId": "432274380",
+            "scheme": "zhihu"
+        },
+        {
+            "name": "9GAG",
+            "identifier": "9gag",
+            "storeId": "545551605",
+            "scheme": "ninegag"
+        },
+        {
+            "name": "Amaroq",
+            "identifier": "amaroq",
+            "storeId": "1214116200",
+            "scheme": "amaroq"
+        },
+        {
+            "name": "Asana",
+            "identifier": "asana",
+            "storeId": "489969512",
+            "scheme": "asana"
         },
         {
             "name": "CatchApp",
@@ -9914,23 +9883,23 @@
             "platform": "pad"
         },
         {
-            "name": "craigslist",
-            "identifier": "craigslist",
-            "storeId": "1336642410",
-            "scheme": "craigslist"
+            "name": "DeviantArt",
+            "identifier": "deviantart",
+            "storeId": "925219396",
+            "scheme": "deviantart",
+            "docs": "https://www.deviantart.com/developers/app_links"
         },
         {
-            "name": "Inquire",
-            "identifier": "curiosity",
-            "storeId": "1045268097",
-            "scheme": "curiosity",
-            "docs": "https://tamper.zendesk.com/hc/en-us/articles/206610436-Does-Curiosity-have-a-URL-scheme- and http://stackoverflow.com/a/31685114"
+            "name": "Dribbble",
+            "identifier": "dribbble",
+            "storeId": "1228326440",
+            "scheme": "dribbble"
         },
         {
-            "name": "Douyu",
-            "identifier": "douyu",
-            "storeId": "863882795",
-            "scheme": "douyutv"
+            "name": "ESPN",
+            "identifier": "espn",
+            "storeId": "317469184",
+            "scheme": "sportscenter"
         },
         {
             "name": "Flipboard",
@@ -9939,23 +9908,10 @@
             "scheme": "flipboard"
         },
         {
-            "name": "Gfycat",
-            "identifier": "gfycat",
-            "storeId": "1034129733",
-            "scheme": "gfycat"
-        },
-        {
-            "name": "Glassdoor",
-            "identifier": "glassdoor",
-            "storeId": "589698942",
-            "scheme": "glassdoor"
-        },
-        {
-            "name": "Coderx",
-            "identifier": "grape",
-            "storeId": "1371929193",
-            "scheme": "grape",
-            "docs": "https://db.tt/xAauKtgWxJ"
+            "name": "iOctocat",
+            "identifier": "ioctocat",
+            "scheme": "ioc",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/ioctocat-114.jpg"
         },
         {
             "name": "Mercado Libre",
@@ -9964,10 +9920,122 @@
             "scheme": "meli"
         },
         {
-            "name": "Pandora",
-            "identifier": "pandora",
-            "storeId": "284035177",
-            "scheme": "pandorav4"
+            "name": "Moke",
+            "identifier": "moke",
+            "storeId": "1481905050",
+            "scheme": "moke",
+            "docs": "http://moke.com/moke/url_schemes.html"
+        },
+        {
+            "name": "Namuwiki",
+            "identifier": "namuviewer",
+            "storeId": "993035669",
+            "scheme": "namuviewer"
+        },
+        {
+            "name": "Slickdeals",
+            "identifier": "slickdeals",
+            "storeId": "584632814",
+            "scheme": "slickdeals"
+        },
+        {
+            "name": "Yelp",
+            "identifier": "yelp",
+            "storeId": "284910350",
+            "scheme": "yelp"
+        },
+        {
+            "name": "Prime Video",
+            "identifier": "amazonprimevideo",
+            "storeId": "545519333",
+            "scheme": "aiv"
+        },
+        {
+            "name": "Anchor",
+            "identifier": "anchor",
+            "storeId": "1056182234",
+            "scheme": "anchorfm"
+        },
+        {
+            "name": "Beam",
+            "identifier": "beam",
+            "storeId": "937987469",
+            "scheme": "beamapp",
+            "docs": "https://twitter.com/beamreddit/status/762625995568472064"
+        },
+        {
+            "name": "Box",
+            "identifier": "box",
+            "storeId": "290853822",
+            "scheme": "boxopenshared"
+        },
+        {
+            "name": "Deezer",
+            "identifier": "deezer",
+            "storeId": "292738169",
+            "scheme": "deezer"
+        },
+        {
+            "name": "Foursquare",
+            "identifier": "foursquare",
+            "storeId": "306934924",
+            "scheme": "foursquare"
+        },
+        {
+            "name": "Genius",
+            "identifier": "genius",
+            "storeId": "709482991",
+            "scheme": "genius"
+        },
+        {
+            "name": "GIPHY",
+            "identifier": "giphy",
+            "storeId": "974748812",
+            "scheme": "giphy"
+        },
+        {
+            "name": "GitHawk",
+            "identifier": "githawk",
+            "storeId": "1252320249",
+            "scheme": "freetime",
+            "docs": "https://github.com/GitHawkApp/GitHawkRoutes"
+        },
+        {
+            "name": "Glassdoor",
+            "identifier": "glassdoor",
+            "storeId": "589698942",
+            "scheme": "glassdoor"
+        },
+        {
+            "name": "Goodreads",
+            "identifier": "goodreads",
+            "storeId": "355833469",
+            "scheme": "goodreads"
+        },
+        {
+            "name": "Groupon",
+            "identifier": "groupon",
+            "storeId": "352683833",
+            "scheme": "groupon"
+        },
+        {
+            "name": "Le Monde",
+            "identifier": "lemonde",
+            "storeId": "294047850",
+            "scheme": "lmfr"
+        },
+        {
+            "name": "Porter",
+            "identifier": "porter",
+            "storeId": "1305805708",
+            "scheme": "sbporter"
+        },
+        {
+            "name": "Stack Exchange",
+            "identifier": "stackexchange",
+            "storeId": "871299723",
+            "scheme": "se-zaphod",
+            "docs": "http://stackexchange.com/feeds/sites"
         },
         {
             "name": "Strava",
@@ -9976,49 +10044,16 @@
             "scheme": "strava"
         },
         {
-            "name": "Swarm",
-            "identifier": "swarm",
-            "storeId": "870161082",
-            "scheme": "swarm"
-        },
-        {
-            "name": "TED",
-            "identifier": "ted",
-            "storeId": "376183339",
-            "scheme": "ted"
+            "name": "TripAdvisor",
+            "identifier": "tripadvisor",
+            "storeId": "284876795",
+            "scheme": "tripadvisor"
         },
         {
             "name": "VSCO",
             "identifier": "vscocam",
             "storeId": "588013838",
             "scheme": "vsco"
-        },
-        {
-            "name": "Wikipanion",
-            "identifier": "wikipanion",
-            "storeId": "288349436",
-            "scheme": "wplink",
-            "platform": "phone"
-        },
-        {
-            "name": "Wikipanion",
-            "identifier": "wikipanionpad",
-            "storeId": "364195592",
-            "scheme": "wplink",
-            "platform": "pad"
-        },
-        {
-            "name": "Wikiwand",
-            "identifier": "wikiwand",
-            "scheme": "wikiwand-article",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/wikiwand-114.jpg",
-            "docs": "https://wikiwand-ios.uservoice.com/knowledgebase/articles/513725-does-the-wikiwand-ios-app-support-url-schemes"
-        },
-        {
-            "name": "Yelp",
-            "identifier": "yelp",
-            "storeId": "284910350",
-            "scheme": "yelp"
         },
         {
             "name": "500px",
@@ -10047,28 +10082,10 @@
             "scheme": "enalibaba"
         },
         {
-            "name": "Amaroq",
-            "identifier": "amaroq",
-            "storeId": "1214116200",
-            "scheme": "amaroq"
-        },
-        {
-            "name": "Anchor",
-            "identifier": "anchor",
-            "storeId": "1056182234",
-            "scheme": "anchorfm"
-        },
-        {
             "name": "AppAdvice",
             "identifier": "appadvice",
             "storeId": "364906378",
             "scheme": "aaexternal"
-        },
-        {
-            "name": "Asana",
-            "identifier": "asana",
-            "storeId": "489969512",
-            "scheme": "asana"
         },
         {
             "name": "Behance",
@@ -10095,10 +10112,10 @@
             "scheme": "borealhn"
         },
         {
-            "name": "Box",
-            "identifier": "box",
-            "storeId": "290853822",
-            "scheme": "boxopenshared"
+            "name": "CBS News",
+            "identifier": "cbsnews",
+            "storeId": "334256223",
+            "scheme": "cbsnewsapp"
         },
         {
             "name": "Citymapper",
@@ -10120,16 +10137,28 @@
             "scheme": "daumapps"
         },
         {
+            "name": "Doodle",
+            "identifier": "doodle",
+            "storeId": "938182547",
+            "scheme": "doodle"
+        },
+        {
+            "name": "Douyu",
+            "identifier": "douyu",
+            "storeId": "863882795",
+            "scheme": "douyutv"
+        },
+        {
+            "name": "Dropbox Paper",
+            "identifier": "dropboxpaper",
+            "storeId": "1126623662",
+            "scheme": "dbx-paper"
+        },
+        {
             "name": "Dubsmash",
             "identifier": "dubsmash",
             "storeId": "918820076",
             "scheme": "dubsmash"
-        },
-        {
-            "name": "ESPN",
-            "identifier": "espn",
-            "storeId": "317469184",
-            "scheme": "sportscenter"
         },
         {
             "name": "Fancy",
@@ -10138,16 +10167,10 @@
             "scheme": "fancy"
         },
         {
-            "name": "Foursquare",
-            "identifier": "foursquare",
-            "storeId": "306934924",
-            "scheme": "foursquare"
-        },
-        {
-            "name": "GIPHY",
-            "identifier": "giphy",
-            "storeId": "974748812",
-            "scheme": "giphy"
+            "name": "Gfycat",
+            "identifier": "gfycat",
+            "storeId": "1034129733",
+            "scheme": "gfycat"
         },
         {
             "name": "Goldstar",
@@ -10161,12 +10184,6 @@
             "storeId": "447119634",
             "scheme": "gplus",
             "docs": "http://stackoverflow.com/a/21231485"
-        },
-        {
-            "name": "Groupon",
-            "identifier": "groupon",
-            "storeId": "352683833",
-            "scheme": "groupon"
         },
         {
             "name": "Hatena Blog",
@@ -10193,10 +10210,11 @@
             "scheme": "hypem"
         },
         {
-            "name": "IFTTT",
-            "identifier": "ifttt",
-            "storeId": "660944635",
-            "scheme": "ifttt"
+            "name": "Inquire",
+            "identifier": "curiosity",
+            "storeId": "1045268097",
+            "scheme": "curiosity",
+            "docs": "https://tamper.zendesk.com/hc/en-us/articles/206610436-Does-Curiosity-have-a-URL-scheme- and http://stackoverflow.com/a/31685114"
         },
         {
             "name": "JIRA Connect",
@@ -10211,12 +10229,6 @@
             "storeId": "628608825",
             "scheme": "jira",
             "platform": "pad"
-        },
-        {
-            "name": "Jayson",
-            "identifier": "jayson",
-            "storeId": "1447750768",
-            "scheme": "jayson"
         },
         {
             "name": "Jianshu",
@@ -10271,6 +10283,18 @@
             "docs": "https://bit.ly/2H94C4f"
         },
         {
+            "name": "Meetup",
+            "identifier": "meetup",
+            "storeId": "375990038",
+            "scheme": "meetup"
+        },
+        {
+            "name": "Mobile01",
+            "identifier": "mobile01",
+            "storeId": "444909583",
+            "scheme": "m01"
+        },
+        {
             "name": "Monochrome",
             "identifier": "monochrome",
             "scheme": "com.falconassets.monochrome",
@@ -10296,10 +10320,22 @@
             "scheme": "newspicks"
         },
         {
+            "name": "OPENREC.tv",
+            "identifier": "openrectv",
+            "storeId": "912776162",
+            "scheme": "jp.co.cyber-z.openrec"
+        },
+        {
             "name": "OpenTable",
             "identifier": "opentable",
             "storeId": "296581815",
             "scheme": "reservetable-com.contextoptional.OpenTable-1"
+        },
+        {
+            "name": "Pandora",
+            "identifier": "pandora",
+            "storeId": "284035177",
+            "scheme": "pandorav4"
         },
         {
             "name": "Peach",
@@ -10315,28 +10351,10 @@
             "platform": "pad"
         },
         {
-            "name": "Pixez",
-            "identifier": "pixez",
-            "storeId": "1494435126",
-            "scheme": "pixez"
-        },
-        {
             "name": "Play Music",
             "identifier": "googleplaymusic",
             "storeId": "691797987",
             "scheme": "googleplaymusic"
-        },
-        {
-            "name": "Porter",
-            "identifier": "porter",
-            "storeId": "1305805708",
-            "scheme": "sbporter"
-        },
-        {
-            "name": "Prime Video",
-            "identifier": "amazonprimevideo",
-            "storeId": "545519333",
-            "scheme": "aiv"
         },
         {
             "name": "ProTube",
@@ -10350,6 +10368,12 @@
             "identifier": "quip",
             "storeId": "647922896",
             "scheme": "quip"
+        },
+        {
+            "name": "Rightmove",
+            "identifier": "rightmove",
+            "storeId": "323822803",
+            "scheme": "rightmove"
         },
         {
             "name": "Runkeeper",
@@ -10382,19 +10406,6 @@
             "scheme": "soundhound"
         },
         {
-            "name": "Sports.ru",
-            "identifier": "sportsru",
-            "storeId": "542339626",
-            "scheme": "sports"
-        },
-        {
-            "name": "Stack Exchange",
-            "identifier": "stackexchange",
-            "storeId": "871299723",
-            "scheme": "se-zaphod",
-            "docs": "http://stackexchange.com/feeds/sites"
-        },
-        {
             "name": "Stack Overflow",
             "identifier": "stackoverflow",
             "scheme": "com.stackexchange.stackoverflow",
@@ -10407,10 +10418,17 @@
             "scheme": "stubhub"
         },
         {
-            "name": "TIDAL",
-            "identifier": "tidal",
-            "storeId": "913943275",
-            "scheme": "tidal"
+            "name": "TED",
+            "identifier": "ted",
+            "storeId": "376183339",
+            "scheme": "ted"
+        },
+        {
+            "name": "Tabelog",
+            "identifier": "tabelog",
+            "storeId": "763377066",
+            "scheme": "tabelog-v2",
+            "country": "jp"
         },
         {
             "name": "Tappd That",
@@ -10445,12 +10463,6 @@
             "docs": "http://transitapp.com/developers"
         },
         {
-            "name": "TripAdvisor",
-            "identifier": "tripadvisor",
-            "storeId": "284876795",
-            "scheme": "tripadvisor"
-        },
-        {
             "name": "Trulia",
             "identifier": "trulia",
             "storeId": "288487321",
@@ -10476,12 +10488,6 @@
             "docs": "http://help.untappd.com/discussions/feature-requests/854-support-for-url-schemes"
         },
         {
-            "name": "WEAR",
-            "identifier": "wear",
-            "storeId": "725208930",
-            "scheme": "wear2020"
-        },
-        {
             "name": "Waffle",
             "identifier": "waffle",
             "scheme": "com.arturremizov.waffle",
@@ -10501,6 +10507,27 @@
             "scheme": "whi"
         },
         {
+            "name": "Webex Meet",
+            "identifier": "webex",
+            "storeId": "298844386",
+            "scheme": "wbx",
+            "docs": "https://www.ketianyun.com/files/docfile/pdf/IOS_wbx_scheme.pdf"
+        },
+        {
+            "name": "Wikipanion",
+            "identifier": "wikipanionpad",
+            "storeId": "364195592",
+            "scheme": "wplink",
+            "platform": "pad"
+        },
+        {
+            "name": "Wikiwand",
+            "identifier": "wikiwand",
+            "scheme": "wikiwand-article",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/wikiwand-114.jpg",
+            "docs": "https://wikiwand-ios.uservoice.com/knowledgebase/articles/513725-does-the-wikiwand-ios-app-support-url-schemes"
+        },
+        {
             "name": "Wolfram Alpha",
             "identifier": "wolframalpha",
             "storeId": "334989259",
@@ -10518,6 +10545,12 @@
             "identifier": "xkcdy",
             "storeId": "1520259318",
             "scheme": "xkcdy"
+        },
+        {
+            "name": "Yahoo Sports",
+            "identifier": "yahoosports",
+            "storeId": "286058814",
+            "scheme": "ysportacular"
         },
         {
             "name": "Yahoo! Q&A JP",
@@ -10559,16 +10592,16 @@
             "scheme": "byte"
         },
         {
+            "name": "craigslist",
+            "identifier": "craigslist",
+            "storeId": "1336642410",
+            "scheme": "craigslist"
+        },
+        {
             "name": "iHeartRadio",
             "identifier": "iheartradio",
             "storeId": "290638154",
             "scheme": "ihr"
-        },
-        {
-            "name": "iOctocat",
-            "identifier": "ioctocat",
-            "scheme": "ioc",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/ioctocat-114.jpg"
         },
         {
             "name": "iStandard",
@@ -10588,37 +10621,6 @@
             "identifier": "nicoseiga",
             "storeId": "1045938821",
             "scheme": "nicoseiga"
-        },
-        {
-            "name": "Webex Meet",
-            "identifier": "webex",
-            "storeId": "298844386",
-            "scheme": "wbx",
-            "docs": "https://www.ketianyun.com/files/docfile/pdf/IOS_wbx_scheme.pdf"
-        },
-        {
-            "name": "Yahoo Sports",
-            "identifier": "yahoosports",
-            "storeId": "286058814",
-            "scheme": "ysportacular"
-        },
-        {
-            "name": "Walmart",
-            "identifier": "walmart",
-            "storeId": "338137227",
-            "scheme": "walmart"
-        },
-        {
-            "name": "CBS News",
-            "identifier": "cbsnews",
-            "storeId": "334256223",
-            "scheme": "cbsnewsapp"
-        },
-        {
-            "name": "Crew",
-            "identifier": "crew",
-            "storeId": "1547171709",
-            "scheme": "crewforstackoverflow"
         }
     ],
     "browsers": [
@@ -10681,6 +10683,90 @@
             ]
         },
         {
+            "name": "DuckDuckGo",
+            "identifier": "duckduckgo",
+            "storeId": "663592361",
+            "scheme": "ddgQuickLink",
+            "regex": "https?://(.*)$",
+            "format": "ddgQuickLink://$1",
+            "docs": "https://github.com/duckduckgo/iOS/pull/274",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "ddgQuickLink://www.opener.link/",
+                "ddgQuickLink://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Alook",
+            "identifier": "alook",
+            "storeId": "1261944766",
+            "scheme": "alook",
+            "regex": "https?://(.*)$",
+            "format": "alook://$1",
+            "docs": "https://db.tt/eOvfiHRdgU",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "alook://www.opener.link/",
+                "alook://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Apple News",
+            "identifier": "applenews",
+            "storeId": "1066498020",
+            "scheme": "applenews",
+            "regex": "https?://(.*)$",
+            "format": "applenews://$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "applenews://www.opener.link/",
+                "applenews://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Brave",
+            "identifier": "brave",
+            "storeId": "1052879175",
+            "scheme": "brave",
+            "regex": ".+",
+            "script": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
+            "docs": "https://github.com/brave/ios-open-thirdparty-browser",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "brave://open-url?url=http%3A%2F%2Fwww.opener.link%2F",
+                "brave://open-url?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
+            ]
+        },
+        {
+            "name": "iCab",
+            "identifier": "icab",
+            "storeId": "308111628",
+            "scheme": "x-icabmobile",
+            "regex": ".+",
+            "script": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
+            "docs": "http://www.icab.de/blog/2012/07/01/icab-mobile-6-0-supports-x-callback-url/",
+            "testInputs": [
+                "http://www.opener.link/"
+            ],
+            "testResults": [
+                "x-icabmobile://x-callback-url/open?url=http%3A%2F%2Fwww.opener.link%2F"
+            ]
+        },
+        {
             "name": "Microsoft Edge",
             "identifier": "microsoftedge",
             "storeId": "1288723196",
@@ -10712,24 +10798,6 @@
             "testResults": [
                 "firefox-focus://open-url?url=http%3A%2F%2Fwww.opener.link%2F",
                 "firefox-focus://open-url?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
-            ]
-        },
-        {
-            "name": "Brave",
-            "identifier": "brave",
-            "storeId": "1052879175",
-            "scheme": "brave",
-            "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
-            "script2": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
-            "docs": "https://github.com/brave/ios-open-thirdparty-browser",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "brave://open-url?url=http%3A%2F%2Fwww.opener.link%2F",
-                "brave://open-url?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
             ]
         },
         {
@@ -10768,121 +10836,6 @@
             ]
         },
         {
-            "name": "Apple News",
-            "identifier": "applenews",
-            "storeId": "1066498020",
-            "scheme": "applenews",
-            "regex": "https?://(.*)$",
-            "format": "applenews://$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "applenews://www.opener.link/",
-                "applenews://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "DuckDuckGo",
-            "identifier": "duckduckgo",
-            "storeId": "663592361",
-            "scheme": "ddgQuickLink",
-            "regex": "https?://(.*)$",
-            "format": "ddgQuickLink://$1",
-            "docs": "https://github.com/duckduckgo/iOS/pull/274",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "ddgQuickLink://www.opener.link/",
-                "ddgQuickLink://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "iCab",
-            "identifier": "icab",
-            "storeId": "308111628",
-            "scheme": "x-icabmobile",
-            "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
-            "script2": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
-            "docs": "http://www.icab.de/blog/2012/07/01/icab-mobile-6-0-supports-x-callback-url/",
-            "testInputs": [
-                "http://www.opener.link/"
-            ],
-            "testResults": [
-                "x-icabmobile://x-callback-url/open?url=http%3A%2F%2Fwww.opener.link%2F"
-            ]
-        },
-        {
-            "name": "Alook",
-            "identifier": "alook",
-            "storeId": "1261944766",
-            "scheme": "alook",
-            "regex": "https?://(.*)$",
-            "format": "alook://$1",
-            "docs": "https://db.tt/eOvfiHRdgU",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "alook://www.opener.link/",
-                "alook://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Smooz",
-            "identifier": "smooz",
-            "scheme": "smooz",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/smooz-120.jpg",
-            "regex": "(https?.*)",
-            "format": "smooz://url/$1",
-            "docs": "https://bit.ly/2Jh15Pz",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "smooz://url/http://www.opener.link/",
-                "smooz://url/https://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Opera Touch",
-            "identifier": "operatouch",
-            "storeId": "1411869974",
-            "scheme": "touch-url",
-            "regex": "(https?.*)",
-            "format": "touch-url://open-url?url=$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "touch-url://open-url?url=http://www.opener.link/",
-                "touch-url://open-url?url=https://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Private Browser",
-            "identifier": "privatebrowser",
-            "storeId": "368483462",
-            "scheme": "private",
-            "regex": "https?://(.*)$",
-            "format": "private://$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "private://www.opener.link/",
-                "private://twitter.com/openerapp"
-            ]
-        },
-        {
             "name": "GoodReader",
             "identifier": "goodreader",
             "storeId": "777310222",
@@ -10897,39 +10850,6 @@
             "testResults": [
                 "ghttp://www.opener.link/",
                 "ghttps://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Puffin Pro",
-            "identifier": "puffin",
-            "storeId": "406239138",
-            "scheme": "puffin-x-callback",
-            "regex": "http(s)?(.*)$",
-            "format": "puffin$1$2",
-            "docs": "https://www.puffinbrowser.com/development/",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "puffin://www.opener.link/",
-                "puffins://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Sleipnir",
-            "identifier": "sleipnir",
-            "storeId": "404732112",
-            "scheme": "shttp",
-            "regex": "(https?.*)",
-            "format": "s$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "shttp://www.opener.link/",
-                "shttps://twitter.com/openerapp"
             ]
         },
         {
@@ -10950,68 +10870,52 @@
             ]
         },
         {
-            "name": "Onion Browser",
-            "identifier": "onionbrowser",
-            "storeId": "519296448",
-            "scheme": "onionhttp",
-            "regex": "http((s)?.*)",
-            "format": "onionhttp$1",
+            "name": "Opera Touch",
+            "identifier": "operatouch",
+            "storeId": "1411869974",
+            "scheme": "touch-url",
+            "regex": "(https?.*)",
+            "format": "touch-url://open-url?url=$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "onionhttp://www.opener.link/",
-                "onionhttps://twitter.com/openerapp"
+                "touch-url://open-url?url=http://www.opener.link/",
+                "touch-url://open-url?url=https://twitter.com/openerapp"
             ]
         },
         {
-            "name": "1Password",
-            "identifier": "1password",
-            "storeId": "568903335",
-            "scheme": "ophttp",
-            "regex": "(https?.*)",
-            "format": "op$1",
-            "docs": "https://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/",
+            "name": "Puffin Pro",
+            "identifier": "puffin",
+            "storeId": "406239138",
+            "scheme": "puffin-x-callback",
+            "regex": "http(s)?(.*)$",
+            "format": "puffin$1$2",
+            "docs": "https://www.puffinbrowser.com/development/",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "ophttp://www.opener.link/",
-                "ophttps://twitter.com/openerapp"
+                "puffin://www.opener.link/",
+                "puffins://twitter.com/openerapp"
             ]
         },
         {
-            "name": "Cake",
-            "identifier": "cake",
-            "storeId": "1163553130",
-            "scheme": "cakebrowser",
-            "regex": "(https?.*)",
-            "format": "cakebrowser://open-url?url=$1",
+            "name": "Command",
+            "identifier": "command",
+            "storeId": "1485289520",
+            "scheme": "command",
+            "regex": "https?://(.*)$",
+            "format": "command://$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "cakebrowser://open-url?url=http://www.opener.link/",
-                "cakebrowser://open-url?url=https://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Dolphin",
-            "identifier": "dolphinphone",
-            "storeId": "1440710469",
-            "scheme": "dolphin",
-            "platform": "phone",
-            "regex": "(https?.*)",
-            "format": "dolphin://$1",
-            "docs": "http://handleopenurl.com/scheme/dolphin-browser",
-            "testInputs": [
-                "http://www.opener.link/"
-            ],
-            "testResults": [
-                "dolphin://http://www.opener.link/"
+                "command://www.opener.link/",
+                "command://twitter.com/openerapp"
             ]
         },
         {
@@ -11032,67 +10936,82 @@
             ]
         },
         {
-            "name": "Perfect Browser",
-            "identifier": "perfectbrowser",
-            "storeId": "1360915927",
-            "scheme": "perfect",
+            "name": "Sleipnir",
+            "identifier": "sleipnir",
+            "storeId": "404732112",
+            "scheme": "shttp",
+            "regex": "(https?.*)",
+            "format": "s$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "shttp://www.opener.link/",
+                "shttps://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Yandex",
+            "identifier": "yandex",
+            "storeId": "483693909",
+            "scheme": "yandexbrowser-open-url",
             "regex": "https?(.*)",
-            "format": "perfect$1",
+            "format": "yandexbrowser-open-url$1",
             "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
+                "http://www.opener.link/"
             ],
             "testResults": [
-                "perfect://www.opener.link/",
-                "perfect://twitter.com/openerapp"
+                "yandexbrowser-open-url://www.opener.link/"
             ]
         },
         {
-            "name": "Pure",
-            "identifier": "pure",
-            "storeId": "1301166115",
-            "scheme": "purewebbrowser",
-            "regex": "https?://(.*)$",
-            "format": "purewebbrowser://$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "purewebbrowser://www.opener.link/",
-                "purewebbrowser://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "SnowHaze",
-            "identifier": "snowhaze",
-            "storeId": "1121026941",
-            "scheme": "shtps",
+            "name": "Onion Browser",
+            "identifier": "onionbrowser",
+            "storeId": "519296448",
+            "scheme": "onionhttp",
             "regex": "http((s)?.*)",
-            "format": "shtp$1",
+            "format": "onionhttp$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "shtp://www.opener.link/",
-                "shtps://twitter.com/openerapp"
+                "onionhttp://www.opener.link/",
+                "onionhttps://twitter.com/openerapp"
             ]
         },
         {
-            "name": "Srcfari",
-            "identifier": "srcfari",
-            "storeId": "805903147",
-            "scheme": "srcfari",
-            "regex": "https?(.*)",
-            "format": "srcfari$1",
+            "name": "Private Browser",
+            "identifier": "privatebrowser",
+            "storeId": "368483462",
+            "scheme": "private",
+            "regex": "https?://(.*)$",
+            "format": "private://$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "srcfari://www.opener.link/",
-                "srcfari://twitter.com/openerapp"
+                "private://www.opener.link/",
+                "private://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "1Password",
+            "identifier": "1password",
+            "storeId": "568903335",
+            "scheme": "ophttp",
+            "regex": "(https?.*)",
+            "format": "op$1",
+            "docs": "https://blog.agilebits.com/2013/01/24/developers-heres-how-to-add-a-little-1password-to-your-ios-apps/",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "ophttp://www.opener.link/",
+                "ophttps://twitter.com/openerapp"
             ]
         },
         {
@@ -11113,21 +11032,119 @@
             ]
         },
         {
-            "name": "Opera Mini",
-            "identifier": "operamini",
-            "scheme": "opera-http",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/operamini-114.jpg",
-            "country": "fr",
+            "name": "Ohajiki D",
+            "identifier": "ohajikid",
+            "storeId": "1039646068",
+            "scheme": "ohajikid",
             "regex": "(https?.*)",
-            "format": "opera-$1",
-            "docs": "http://handleopenurl.com/scheme/opera-mini",
+            "format": "ood$1",
+            "docs": "http://en.ohajiki.ios-web.com/url-scheme.html",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "opera-http://www.opener.link/",
-                "opera-https://twitter.com/openerapp"
+                "oodhttp://www.opener.link/",
+                "oodhttps://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "SnowHaze",
+            "identifier": "snowhaze",
+            "storeId": "1121026941",
+            "scheme": "shtps",
+            "regex": "http((s)?.*)",
+            "format": "shtp$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "shtp://www.opener.link/",
+                "shtps://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Dolphin",
+            "identifier": "dolphinphone",
+            "storeId": "1440710469",
+            "scheme": "dolphin",
+            "platform": "phone",
+            "regex": "(https?.*)",
+            "format": "dolphin://$1",
+            "docs": "http://handleopenurl.com/scheme/dolphin-browser",
+            "testInputs": [
+                "http://www.opener.link/"
+            ],
+            "testResults": [
+                "dolphin://http://www.opener.link/"
+            ]
+        },
+        {
+            "name": "Pure",
+            "identifier": "pure",
+            "storeId": "1301166115",
+            "scheme": "purewebbrowser",
+            "regex": "https?://(.*)$",
+            "format": "purewebbrowser://$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "purewebbrowser://www.opener.link/",
+                "purewebbrowser://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "SiteSucker",
+            "identifier": "sitesucker",
+            "storeId": "346896838",
+            "scheme": "sitesucker",
+            "regex": "(https?.*)",
+            "format": "sitesucker:$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "sitesucker:http://www.opener.link/",
+                "sitesucker:https://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Smooz",
+            "identifier": "smooz",
+            "scheme": "smooz",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/smooz-120.jpg",
+            "regex": "(https?.*)",
+            "format": "smooz://url/$1",
+            "docs": "https://bit.ly/2Jh15Pz",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "smooz://url/http://www.opener.link/",
+                "smooz://url/https://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Berry",
+            "identifier": "berrybrowser",
+            "storeId": "1385743638",
+            "scheme": "berrybrowser",
+            "regex": ".+",
+            "script": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
+            "docs": "https://db.tt/XFBJzBxqxM",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "berrybrowser://?url=http%3A%2F%2Fwww.opener.link%2F",
+                "berrybrowser://?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
             ]
         },
         {
@@ -11148,36 +11165,35 @@
             ]
         },
         {
-            "name": "Ohajiki D",
-            "identifier": "ohajikid",
-            "storeId": "1039646068",
-            "scheme": "ohajikid",
-            "regex": "(https?.*)",
-            "format": "ood$1",
-            "docs": "http://en.ohajiki.ios-web.com/url-scheme.html",
+            "name": "Red Onion",
+            "identifier": "redonion",
+            "storeId": "829739720",
+            "scheme": "redbrowser",
+            "regex": "http((s)?.*)",
+            "format": "redbrowser$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "oodhttp://www.opener.link/",
-                "oodhttps://twitter.com/openerapp"
+                "redbrowser://www.opener.link/",
+                "redbrowsers://twitter.com/openerapp"
             ]
         },
         {
-            "name": "UC Browser",
-            "identifier": "ucbrowser",
-            "storeId": "1048518592",
-            "scheme": "ucbrowser",
-            "regex": "https?://(.*)$",
-            "format": "ucbrowser://$1",
+            "name": "Srcfari",
+            "identifier": "srcfari",
+            "storeId": "805903147",
+            "scheme": "srcfari",
+            "regex": "https?(.*)",
+            "format": "srcfari$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "ucbrowser://www.opener.link/",
-                "ucbrowser://twitter.com/openerapp"
+                "srcfari://www.opener.link/",
+                "srcfari://twitter.com/openerapp"
             ]
         },
         {
@@ -11197,21 +11213,19 @@
             ]
         },
         {
-            "name": "Berry",
-            "identifier": "berrybrowser",
-            "storeId": "1385743638",
-            "scheme": "berrybrowser",
-            "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
-            "script2": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
-            "docs": "https://db.tt/XFBJzBxqxM",
+            "name": "Cake",
+            "identifier": "cake",
+            "storeId": "1163553130",
+            "scheme": "cakebrowser",
+            "regex": "(https?.*)",
+            "format": "cakebrowser://open-url?url=$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "berrybrowser://?url=http%3A%2F%2Fwww.opener.link%2F",
-                "berrybrowser://?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
+                "cakebrowser://open-url?url=http://www.opener.link/",
+                "cakebrowser://open-url?url=https://twitter.com/openerapp"
             ]
         },
         {
@@ -11265,6 +11279,40 @@
             ]
         },
         {
+            "name": "Opera Mini",
+            "identifier": "operamini",
+            "scheme": "opera-http",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/operamini-114.jpg",
+            "country": "fr",
+            "regex": "(https?.*)",
+            "format": "opera-$1",
+            "docs": "http://handleopenurl.com/scheme/opera-mini",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "opera-http://www.opener.link/",
+                "opera-https://twitter.com/openerapp"
+            ]
+        },
+        {
+            "name": "Perfect Browser",
+            "identifier": "perfectbrowser",
+            "storeId": "1360915927",
+            "scheme": "perfect",
+            "regex": "https?(.*)",
+            "format": "perfect$1",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "perfect://www.opener.link/",
+                "perfect://twitter.com/openerapp"
+            ]
+        },
+        {
             "name": "QQ Browser",
             "identifier": "qqbrowser",
             "storeId": "370139302",
@@ -11297,65 +11345,19 @@
             ]
         },
         {
-            "name": "Red Onion",
-            "identifier": "redonion",
-            "storeId": "829739720",
-            "scheme": "redbrowser",
-            "regex": "http((s)?.*)",
-            "format": "redbrowser$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "redbrowser://www.opener.link/",
-                "redbrowsers://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "SiteSucker",
-            "identifier": "sitesucker",
-            "storeId": "346896838",
-            "scheme": "sitesucker",
-            "regex": "(https?.*)",
-            "format": "sitesucker:$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "sitesucker:http://www.opener.link/",
-                "sitesucker:https://twitter.com/openerapp"
-            ]
-        },
-        {
-            "name": "Yandex",
-            "identifier": "yandex",
-            "storeId": "483693909",
-            "scheme": "yandexbrowser-open-url",
-            "regex": "https?(.*)",
-            "format": "yandexbrowser-open-url$1",
-            "testInputs": [
-                "http://www.opener.link/"
-            ],
-            "testResults": [
-                "yandexbrowser-open-url://www.opener.link/"
-            ]
-        },
-        {
-            "name": "Command",
-            "identifier": "command",
-            "storeId": "1485289520",
-            "scheme": "command",
+            "name": "UC Browser",
+            "identifier": "ucbrowser",
+            "storeId": "1048518592",
+            "scheme": "ucbrowser",
             "regex": "https?://(.*)$",
-            "format": "command://$1",
+            "format": "ucbrowser://$1",
             "testInputs": [
                 "http://www.opener.link/",
                 "https://twitter.com/openerapp"
             ],
             "testResults": [
-                "command://www.opener.link/",
-                "command://twitter.com/openerapp"
+                "ucbrowser://www.opener.link/",
+                "ucbrowser://twitter.com/openerapp"
             ]
         }
     ],
