@@ -10634,14 +10634,14 @@
             "script2": "function process(url, completionHandler) { var urlRes = RegExp('http(s)?://((www\\\\.)?apple\\\\.news|news\\\\.apple\\\\.com)').exec(url); if (urlRes != null && urlRes.length > 1) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = results != null && results.length > 1 ? results[1] : url; completionHandler(match); } else { completionHandler(url); } }",
             "testInputs": [
                 "http://www.opener.link/",
-                "https://apple.news/A_qfzJD7KTsqhuT5Ci4XcIw",
+                "http://apple.news/AI7uxm31EQCWECHjfLjdZAA/",
                 "https://apple.news/AW5OfgikKQs-rRr_tfTb37w",
                 "https://apple.news/AKY74NN47QC6Ae4io2CrxmQ",
                 "https://news.apple.com/AKY74NN47QC6Ae4io2CrxmQ"
             ],
             "testResults": [
                 "http://www.opener.link/",
-                "http://www.theguardian.com/commentisfree/2015/dec/10/calais-jungle-refugee-camp-volunteer-conditions?CMP=oth_b-aplnews_d-1",
+                "https://www.theverge.com/2021/1/26/22250795/xbox-game-pass-subscribers-growth-microsoft",
                 "http://www.chron.com/entertainment/preview/article/Free-Press-Summer-Fest-favorite-to-return-to-6690333.php",
                 "https://apple.news/AKY74NN47QC6Ae4io2CrxmQ",
                 "https://news.apple.com/AKY74NN47QC6Ae4io2CrxmQ"
