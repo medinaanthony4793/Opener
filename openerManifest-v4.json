@@ -9890,8 +9890,8 @@
         {
             "name": "Dribbble",
             "identifier": "dribbble",
-            "storeId": "1228326440",
-            "scheme": "dribbble"
+            "scheme": "dribbble",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/dribble-120.jpg"
         },
         {
             "name": "ESPN",
