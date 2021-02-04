@@ -491,7 +491,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?!explore)(?:stories/)?([a-zA-Z0-9_\\.]{1,30})(?:/|/?\\?.*)?$",
+            "regex": "https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?!explore)(?:stories/)?([a-zA-Z0-9_\\.]{1,30})(/|/?\\?.*)?$",
             "testInputs": [
                 "http://instagr.am/timonus",
                 "https://www.instagram.com/noelwells/?hl=en",
@@ -1304,7 +1304,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(?:/|/?\\?.*)?$",
+            "regex": "https?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(/|/?\\?.*)?$",
             "testInputs": [
                 "https://pinterest.com/cnnr/",
                 "https://www.pinterest.com/cnnr/",
@@ -1780,7 +1780,7 @@
         },
         {
             "title": "Open Tip",
-            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/item/([:hex:]{24})(?:/?)$",
+            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/item/([:hex:]{24})/?.*$",
             "testInputs": [
                 "https://foursquare.com/item/552b6f5f498e0073829b16b1"
             ],
@@ -1796,7 +1796,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/(?:u|user)/(\\d+)(?:/?)$",
+            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/(?:u|user)/(\\d+)/?.*$",
             "testInputs": [
                 "http://foursquare.com/u/558158",
                 "https://foursquare.com/user/558158"
@@ -1832,7 +1832,7 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "https?://(?:www\\.)?swarmapp\\.com(?:/(?:user/)?\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+)(?:.*)$",
+            "regex": "https?://(?:www\\.)?swarmapp\\.com(?:/(?:user/)?\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+).*$",
             "testInputs": [
                 "https://www.swarmapp.com/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
                 "https://www.swarmapp.com/timonus/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
@@ -2706,7 +2706,7 @@
         },
         {
             "title": "Open Broadcast",
-            "regex": "https?://(?:www\\.)?(?:periscope|pscp)\\.tv/[^/]+/([^/|\\?]+)(?:/|/?\\?.*)?$",
+            "regex": "https?://(?:www\\.)?(?:periscope|pscp)\\.tv/[^/]+/([^/|\\?]+)(/|/?\\?.*)?$",
             "testInputs": [
                 "https://www.pscp.tv/w/1mnxeEVprZqxX",
                 "https://www.pscp.tv/w/1BdGYvPdWLvJX",
@@ -4135,7 +4135,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(?:/|\\?)?(?:.*)$",
+            "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
             "testInputs": [
                 "http://www.ebay.com/itm/Mondaine-Classic-Swiss-Railways-White-Dial-Black-Leather-Mens-Watch-/181453530366?pt=LH_DefaultDomain_0&hash=item2a3f7924fe",
                 "http://www.ebay.com/itm/181453530366",
@@ -11371,7 +11371,7 @@
             "docs": "https://www.safaribooksonline.com/library/view/amazon-hacks/0596005423/ch01s07.html (backup https://db.tt/VqIjZyXRgw) and http://aaugh.com/imageabuse.html"
         },
         {
-            "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(?:/|\\?)?(?:.*)$",
+            "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
             "format": "https://i.ebayimg.com/images/i/$1-0-1/s-l375/p.jpg",
             "docs": "https://stackoverflow.com/a/39545334/3943258"
         },
