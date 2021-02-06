@@ -7842,17 +7842,19 @@
             "regex": "https?://(\\w+\\.)?wsj\\.com/articles/.*$",
             "testInputs": [
                 "http://www.wsj.com/articles/exxons-rex-tillerson-is-top-candidate-for-secretary-of-state-1481318464",
-                "http://www.wsj.com/articles/opec-russia-upbeat-about-securing-oil-output-deal-as-meeting-begins-1481362580"
+                "http://www.wsj.com/articles/opec-russia-upbeat-about-securing-oil-output-deal-as-meeting-begins-1481362580",
+                "http://www.wsj.com/articles/amazons-new-ceo-can-either-help-workers-and-sellersor-automate-them-away-11612587602"
             ],
             "formats": [
                 {
                     "appId": "wsj",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(wsj://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1].replace(RegExp('&headline=[^&]*'), '') + '&headline=' : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('article\\.id\".*content.*=.*\"(\\\\w+)\"').exec(res); var match = results != null && results.length > 1 ? 'wsj://launch?articleid=' + results[1] + '&weburl=http://www.wsj.com/articles/' + results[1] + '&headline=' : null; completionHandler(match); }",
                     "note": "We strip out the headline query item because WSJ seems to encode it in a non-standard way (details here https://goo.gl/t1rKyg). The headline in the first URL below is Exxon%u2019s%20Rex%20Tillerson%20is%20expected%20to%20be%20Trump%u2019s%20pick%20for%20secretary%20of%20state, for example, the %u causes NSURL to be incapable of parsing the result.",
                     "note2": "We provide a blank headline because if you don't the WSJ app ignores your URL",
                     "testResults": [
                         "wsj://launch?articleid=SB11202777042148913632204582487202009421794&weburl=http://www.wsj.com/articles/SB11202777042148913632204582487202009421794&headline=",
-                        "wsj://launch?articleid=SB11202777042148913632204582488220182121442&weburl=http://www.wsj.com/articles/SB11202777042148913632204582488220182121442&headline="
+                        "wsj://launch?articleid=SB11202777042148913632204582488220182121442&weburl=http://www.wsj.com/articles/SB11202777042148913632204582488220182121442&headline=",
+                        "wsj://launch?articleid=SB11864557436810924481104587265821646923042&weburl=http://www.wsj.com/articles/SB11864557436810924481104587265821646923042&headline="
                     ]
                 }
             ]
