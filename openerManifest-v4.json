@@ -9010,6 +9010,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Group",
+            "regex": "https?://signal\\.group/(#.*)$",
+            "testInputs": [
+                "https://signal.group/#CjQKIKrT9fPKRmW7zdlXndPA0kZ2p3JT12cA5t3U78LKwktNEhA6R4LtxlNpIvmbNsziRNXN"
+            ],
+            "formats": [
+                {
+                    "appId": "signal",
+                    "format": "sgnl://signal.group/$1",
+                    "testResults": [
+                        "sgnl://signal.group/#CjQKIKrT9fPKRmW7zdlXndPA0kZ2p3JT12cA5t3U78LKwktNEhA6R4LtxlNpIvmbNsziRNXN"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10621,6 +10637,12 @@
             "identifier": "nicoseiga",
             "storeId": "1045938821",
             "scheme": "nicoseiga"
+        },
+        {
+            "name": "Signal",
+            "identifier": "signal",
+            "storeId": "874139669",
+            "scheme": "sgnl"
         }
     ],
     "browsers": [
