@@ -9026,6 +9026,42 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Note",
+            "regex": "https?://note\\.com/\\w+/n/(\\w+).*?$",
+            "testInputs": [
+                "https://note.com/hamu81848551/n/n744f9359522b",
+                "https://note.com/hamu81848551"
+            ],
+            "formats": [
+                {
+                    "appId": "note",
+                    "format": "note://note/$1",
+                    "testResults": [
+                        "note://note/n744f9359522b",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Profile",
+            "regex": "https?://note\\.com/(\\w+)(/(?!n/.*).*?)?$",
+            "testInputs": [
+                "https://note.com/hamu81848551/n/n744f9359522b",
+                "https://note.com/hamu81848551"
+            ],
+            "formats": [
+                {
+                    "appId": "note",
+                    "format": "note://user/$1",
+                    "testResults": [
+                        null,
+                        "note://user/hamu81848551"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10643,6 +10679,12 @@
             "identifier": "signal",
             "storeId": "874139669",
             "scheme": "sgnl"
+        },
+        {
+            "name": "Note",
+            "identifier": "note",
+            "storeId": "906581110",
+            "scheme": "note"
         }
     ],
     "browsers": [
