@@ -4204,6 +4204,22 @@
             ]
         },
         {
+            "title": "Open Shop",
+            "regex": "https?://(www\\.|m\\.)?etsy\\.com/(.+/)*shop/(\\w+).*$",
+            "testInputs": [
+                "https://www.etsy.com/shop/MadeFromFire"
+            ],
+            "formats": [
+                {
+                    "appId": "etsy",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(etsy://shop/\\\\d+).*?').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "etsy://shop/21011726"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Product",
             "regex": "https?://(?:www\\.)?fancy\\.com/things/(\\d+).*$",
             "testInputs": [
