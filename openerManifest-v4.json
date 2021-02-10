@@ -9078,6 +9078,22 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://((\\w+\\.)*bestbuy\\.com/site/.*)",
+            "testInputs": [
+                "https://www.bestbuy.com/site/microsoft-controller-for-xbox-series-x-xbox-series-s-and-xbox-one-latest-model-carbon-black/6430655.p?skuId=6430655"
+            ],
+            "formats": [
+                {
+                    "appId": "bestbuy",
+                    "format": "bestbuy://$1",
+                    "testResults": [
+                        "bestbuy://www.bestbuy.com/site/microsoft-controller-for-xbox-series-x-xbox-series-s-and-xbox-one-latest-model-carbon-black/6430655.p?skuId=6430655"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10701,6 +10717,12 @@
             "identifier": "note",
             "storeId": "906581110",
             "scheme": "note"
+        },
+        {
+            "name": "Best Buy",
+            "identifier": "bestbuy",
+            "storeId": "314855255",
+            "scheme": "bestbuy"
         }
     ],
     "browsers": [
