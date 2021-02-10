@@ -9094,6 +9094,46 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Product",
+            "regex": "https?://(?:\\w+\\.)*bhphotovideo\\.com/c/product/([^/]+).*?$",
+            "testInputs": [
+                "https://www.bhphotovideo.com/c/product/1619483-REG/sony_ilce_1_b_alpha_a1_mirrorless_digital.html",
+                "https://www.bhphotovideo.com/c/buy/Mirrorless-Cameras/ci/16158/N/4288586281",
+                "https://www.bhphotovideo.com/c/buy/Digital-Cameras/ci/9811/N/4288586282"
+            ],
+            "formats": [
+                {
+                    "appId": "bhphoto",
+                    "format": "bhphoto://product?product_id=$1",
+                    "testResults": [
+                        "bhphoto://product?product_id=1619483-REG",
+                        null,
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://(?:\\w+\\.)*bhphotovideo\\.com/c/buy/.*/ci/(\\d+)/N/(\\d+).*?$",
+            "testInputs": [
+                "https://www.bhphotovideo.com/c/product/1619483-REG/sony_ilce_1_b_alpha_a1_mirrorless_digital.html",
+                "https://www.bhphotovideo.com/c/buy/Mirrorless-Cameras/ci/16158/N/4288586281",
+                "https://www.bhphotovideo.com/c/buy/Digital-Cameras/ci/9811/N/4288586282"
+            ],
+            "formats": [
+                {
+                    "appId": "bhphoto",
+                    "format": "bhphoto://category?endeca_id=$2&ci=$1",
+                    "testResults": [
+                        null,
+                        "bhphoto://category?endeca_id=4288586281&ci=16158",
+                        "bhphoto://category?endeca_id=4288586282&ci=9811"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10723,6 +10763,12 @@
             "identifier": "bestbuy",
             "storeId": "314855255",
             "scheme": "bestbuy"
+        },
+        {
+            "name": "B&H Photo",
+            "identifier": "bhphoto",
+            "storeId": "390928219",
+            "scheme": "bhphoto"
         }
     ],
     "browsers": [
