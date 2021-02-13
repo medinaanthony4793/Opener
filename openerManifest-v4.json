@@ -3450,6 +3450,58 @@
             ]
         },
         {
+            "title": "Open Link",
+            "regex": "https?://castro\\.fm/((podcast|episode)/.*)$",
+            "testInputs": [
+                "https://castro.fm/podcast/e9293a66-e513-41e1-a93d-b2f0d79b7b81",
+                "https://castro.fm/episode/kFikoe"
+            ],
+            "formats": [
+                {
+                    "appId": "castro",
+                    "format": "castro://$1",
+                    "testResults": [
+                        "castro://podcast/e9293a66-e513-41e1-a93d-b2f0d79b7b81",
+                        "castro://episode/kFikoe"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "View Podcast",
+            "regex": "https?://castro\\.fm/podcast/.*$",
+            "testInputs": [
+                "https://castro.fm/podcast/e9293a66-e513-41e1-a93d-b2f0d79b7b81",
+                "https://castro.fm/episode/kFikoe"
+            ],
+            "formats": [
+                {
+                    "appId": "applepodcasts",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*((itunes|podcasts)\\.apple\\.com/.*?)\\\".*?').exec(res); var match = results != null && results.length > 1 ? 'podcasts://' + results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "podcasts://itunes.apple.com/ca/podcast/feed/id957171516?at=11lLuB",
+                        null
+                    ]
+                },
+                {
+                    "appId": "overcast",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(?:itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id(\\\\d+).*?').exec(res); var match = results != null && results.length > 1 ? 'overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fpodcast%2Fid' + results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fpodcast%2Fid957171516",
+                        null
+                    ]
+                },
+                {
+                    "appId": "pocketcasts",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(?:itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id(\\\\d+).*?').exec(res); var match = results != null && results.length > 1 ? 'pktc://subscribe/itunes.apple.com/podcast/id' + results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "pktc://subscribe/itunes.apple.com/podcast/id957171516",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Add Podcast",
             "regex": "https?://(?:geo\\.)?((?:itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
             "testInputs": [
