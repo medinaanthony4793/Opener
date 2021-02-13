@@ -11724,6 +11724,12 @@
             "tests": {
                 "https://opener.link/r?url=https%3A%2F%2Ftwitter.com%2Ftimonus": "https://twitter.com/timonus"
             }
+        },
+        "https?://href\\.li/\\?(.*)$": {
+            "format": "$1",
+            "tests": {
+                "https://href.li/?https://castro.fm/itunes/1143273587": "https://castro.fm/itunes/1143273587"
+            }
         }
     }
 }
