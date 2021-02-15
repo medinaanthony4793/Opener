@@ -11687,6 +11687,12 @@
                 "https://out.reddit.com/t3_7vjm8a?url=https%3A%2F%2Fstreamable.com%2Fkgw2g?token=AQAAKkp5Wh4r24n3FqO6zjWJvcnP2Rqg-ZnuqG43qls4CFLaS99n&app_name=reddit.com": "https://streamable.com/kgw2g?token=AQAAKkp5Wh4r24n3FqO6zjWJvcnP2Rqg-ZnuqG43qls4CFLaS99n"
             }
         },
+        "https?://(\\w+\\.)+(app\\.link|bnc\\.lt)/.*\\$original_url.*$": {
+            "param": "$original_url",
+            "tests": {
+                "https://reddit.app.link/3p?$3p=e_as&$original_url=https://www.reddit.com/r/apolloapp/comments/ks0yi8/anyone_else_want_to_open_twitter_links_in_fenix/gnivkdj/?$deep_link%3Dtrue%26correlation_id%3D7df4b548-bf01-430b-8814-b12e522faaac%26ref%3Demail_comment_reply%26ref_campaign%3Demail_comment_reply%26ref_source%3Demail&$web_only=true": "https://www.reddit.com/r/apolloapp/comments/ks0yi8/anyone_else_want_to_open_twitter_links_in_fenix/gnivkdj/?$deep_link=true&correlation_id=7df4b548-bf01-430b-8814-b12e522faaac&ref=email_comment_reply&ref_campaign=email_comment_reply&ref_source=email"
+            }
+        },
         "https?://t\\.umblr\\.com/redirect.*$": {
             "param": "z",
             "tests": {
