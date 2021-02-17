@@ -7610,6 +7610,42 @@
                         "infuse://x-callback-url/play?url=http%3A%2F%2Fcache1.cloudflares.xyz%3A81%2Fdownload%2F0771cff9b3e1c18e9f3d92f03b55590e%2F5b2f0ce4%2Fuser209445%2F129967a9a34e0_mobile.mp4",
                         "infuse://x-callback-url/play?url=http%3A%2F%2Fmac.homeplex.org%2Fmovies%2FPrep%2520%26%2520Landing.m4v"
                     ]
+                },
+                {
+                    "appId": "oplayer",
+                    "format": "oplayer://$0",
+                    "testResults": [
+                        "oplayer://https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
+                        null,
+                        null,
+                        null,
+                        "oplayer://http://cache1.cloudflares.xyz:81/download/0771cff9b3e1c18e9f3d92f03b55590e/5b2f0ce4/user209445/129967a9a34e0_mobile.mp4",
+                        "oplayer://http://mac.homeplex.org/movies/Prep%20&%20Landing.m4v"
+                    ]
+                },
+                {
+                    "appId": "oplayerhd",
+                    "format": "oplayer://$0",
+                    "testResults": [
+                        "oplayer://https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
+                        null,
+                        null,
+                        null,
+                        "oplayer://http://cache1.cloudflares.xyz:81/download/0771cff9b3e1c18e9f3d92f03b55590e/5b2f0ce4/user209445/129967a9a34e0_mobile.mp4",
+                        "oplayer://http://mac.homeplex.org/movies/Prep%20&%20Landing.m4v"
+                    ]
+                },
+                {
+                    "appId": "oplayerlite",
+                    "format": "oplayerlite://$0",
+                    "testResults": [
+                        "oplayerlite://https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
+                        null,
+                        null,
+                        null,
+                        "oplayerlite://http://cache1.cloudflares.xyz:81/download/0771cff9b3e1c18e9f3d92f03b55590e/5b2f0ce4/user209445/129967a9a34e0_mobile.mp4",
+                        "oplayerlite://http://mac.homeplex.org/movies/Prep%20&%20Landing.m4v"
+                    ]
                 }
             ]
         },
@@ -7660,6 +7696,18 @@
                     "appId": "infuse",
                     "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match; if (results != null && results.length > 1) { match = 'infuse://x-callback-url/play?url=' + encodeURIComponent(results[1]); }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'infuse://x-callback-url/play?url=' + encodeURIComponent(results[1]): null; completionHandler(match); }"
+                },
+                {
+                    "appId": "oplayer",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'oplayer://' + results[1] : null; completionHandler(match); }"
+                },
+                {
+                    "appId": "oplayerhd",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'oplayer://' + results[1] : null; completionHandler(match); }"
+                },
+                {
+                    "appId": "oplayerlite",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'oplayerlite://' + results[1] : null; completionHandler(match); }"
                 }
             ]
         },
@@ -10821,6 +10869,26 @@
             "identifier": "bhphoto",
             "storeId": "390928219",
             "scheme": "bhphoto"
+        },
+        {
+            "name": "OPlayer",
+            "identifier": "oplayer",
+            "storeId": "344784375",
+            "scheme": "oplayer",
+            "platform": "phone"
+        },
+        {
+            "name": "OPlayer HD",
+            "identifier": "oplayerhd",
+            "storeId": "373236724",
+            "scheme": "oplayer",
+            "platform": "pad"
+        },
+        {
+            "name": "OPlayer Lite",
+            "identifier": "oplayerlite",
+            "storeId": "385907472",
+            "scheme": "oplayerlite"
         }
     ],
     "browsers": [
