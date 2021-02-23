@@ -11618,6 +11618,24 @@
                 "ucbrowser://www.opener.link/",
                 "ucbrowser://twitter.com/openerapp"
             ]
+        },
+        {
+            "name": "Web Video Caster",
+            "identifier": "wvc",
+            "storeId": "1400866497",
+            "scheme": "wvc-x-callback",
+            "regex": "https?://(.*)$",
+            "script": "function process(url, completionHandler) { completionHandler('wvc-x-callback://open?url=' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completionHandler) { completionHandler('wvc-x-callback://open?url=' + encodeURIComponent(url)); }",
+            "docs": "http://www.webvideocaster.com/integrations",
+            "testInputs": [
+                "http://www.opener.link/",
+                "https://twitter.com/openerapp"
+            ],
+            "testResults": [
+                "wvc-x-callback://open?url=http%3A%2F%2Fwww.opener.link%2F",
+                "wvc-x-callback://open?url=https%3A%2F%2Ftwitter.com%2Fopenerapp"
+            ]
         }
     ],
     "previews": [
