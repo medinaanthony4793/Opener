@@ -2272,50 +2272,56 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:\\w+\\.)*waze\\.com/livemap/directions.*latlng=((?:\\d|.)*(?:%2C|,)(?:\\d|.)*).*?$",
+            "regex": "https?://(?:\\w+\\.)*waze\\.com/(livemap|live-map)/directions.*(latlng=|to=ll\\.)((?:\\d|.)*(?:%2C|,)(?:\\d|.)*).*?$",
             "testInputs": [
                 "https://www.waze.com/livemap/directions?latlng=37.789814%2C-122.395356",
-                "https://www.waze.com/livemap/directions?latlng=37.789814,-122.395356"
+                "https://www.waze.com/livemap/directions?latlng=37.789814,-122.395356",
+                "https://www.waze.com/live-map/directions?to=ll.37.922122,-122.025082"
             ],
             "formats": [
                 {
                     "appId": "waze",
-                    "format": "waze://?ll=$1",
+                    "format": "waze://?ll=$3",
                     "testResults": [
                         "waze://?ll=37.789814%2C-122.395356",
-                        "waze://?ll=37.789814,-122.395356"
+                        "waze://?ll=37.789814,-122.395356",
+                        "waze://?ll=37.922122,-122.025082"
                     ]
                 },
                 {
                     "appId": "applemaps",
-                    "format": "maps://maps.apple.com/maps?q=$1&ll=$1",
+                    "format": "maps://maps.apple.com/maps?q=$3&ll=$3",
                     "testResults": [
                         "maps://maps.apple.com/maps?q=37.789814%2C-122.395356&ll=37.789814%2C-122.395356",
-                        "maps://maps.apple.com/maps?q=37.789814,-122.395356&ll=37.789814,-122.395356"
+                        "maps://maps.apple.com/maps?q=37.789814,-122.395356&ll=37.789814,-122.395356",
+                        "maps://maps.apple.com/maps?q=37.922122,-122.025082&ll=37.922122,-122.025082"
                     ]
                 },
                 {
                     "appId": "googlemaps",
-                    "format": "comgooglemaps://?q=$1&center=$1",
+                    "format": "comgooglemaps://?q=$3&center=$3",
                     "testResults": [
                         "comgooglemaps://?q=37.789814%2C-122.395356&center=37.789814%2C-122.395356",
-                        "comgooglemaps://?q=37.789814,-122.395356&center=37.789814,-122.395356"
+                        "comgooglemaps://?q=37.789814,-122.395356&center=37.789814,-122.395356",
+                        "comgooglemaps://?q=37.922122,-122.025082&center=37.922122,-122.025082"
                     ]
                 },
                 {
                     "appId": "citymapper",
-                    "format": "citymapper://x-callback-url/directions?endcoord=$1",
+                    "format": "citymapper://x-callback-url/directions?endcoord=$3",
                     "testResults": [
                         "citymapper://x-callback-url/directions?endcoord=37.789814%2C-122.395356",
-                        "citymapper://x-callback-url/directions?endcoord=37.789814,-122.395356"
+                        "citymapper://x-callback-url/directions?endcoord=37.789814,-122.395356",
+                        "citymapper://x-callback-url/directions?endcoord=37.922122,-122.025082"
                     ]
                 },
                 {
                     "appId": "transit",
-                    "format": "transit://directions?to=$1",
+                    "format": "transit://directions?to=$3",
                     "testResults": [
                         "transit://directions?to=37.789814%2C-122.395356",
-                        "transit://directions?to=37.789814,-122.395356"
+                        "transit://directions?to=37.789814,-122.395356",
+                        "transit://directions?to=37.922122,-122.025082"
                     ]
                 }
             ]
