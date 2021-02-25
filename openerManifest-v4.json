@@ -5109,6 +5109,22 @@
         },
         {
             "title": "Open Link",
+            "regex": "https?://(?:\\w+\\.)*stackoverflow\\.com/a/\\d+/\\d+",
+            "testInputs": [
+                "https://stackoverflow.com/a/57467270/3943258"
+            ],
+            "formats": [
+                {
+                    "appId": "crew",
+                    "script2": "function process(url, completionHandler) { var results = RegExp('stackoverflow\\\\.com/a/(\\\\d+)').exec(url); if (results != null && results.length > 1) { var res = jsonRequest('https://api.stackexchange.com/answers/' + results[1] + '?site=stackoverflow'); if (res != null) { res = 'crewforstackoverflow:/stackoverflow.com/questions/' + res['items'][0]['question_id']; } completionHandler(res); } else { completionHandler(null); } }",
+                    "testResults": [
+                        "crewforstackoverflow:/stackoverflow.com/questions/57467003"
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
             "regex": "https?://((?:\\w+\\.)+quora\\.com/.*)$",
             "testInputs": [
                 "http://www.quora.com/What-is-a-coders-worst-nightmare"
