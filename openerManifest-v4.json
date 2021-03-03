@@ -6027,72 +6027,6 @@
             ]
         },
         {
-            "title": "Open Shot",
-            "regex": "https?://(?:(?!help)\\w+\\.)?dribbble\\.com/shots/(\\d+).*?$",
-            "testInputs": [
-                "https://dribbble.com/shots/2368108-Luxe-App-Request-Valet-Shopping-Cards",
-                "https://dribbble.com/shots/2303483",
-                "http://m.dribbble.com/shots/2303483"
-            ],
-            "formats": [
-                {
-                    "appId": "dribbble",
-                    "format": "dribbble://shots/$1",
-                    "testResults": [
-                        "dribbble://shots/2368108",
-                        "dribbble://shots/2303483",
-                        "dribbble://shots/2303483"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Open Profile",
-            "regex": "https?://(?:(?!help)\\w+\\.)?dribbble\\.com/(?:players?/)?(?!shots|session|signup|search|skills|teams|meetups|stories|jobs|about)(\\w+).*$",
-            "testInputs": [
-                "http://m.dribbble.com/letsgorally",
-                "https://dribbble.com/letsgorally",
-                "https://dribbble.com/letsgorally/projects",
-                "http://dribbble.com/players/robotspacer",
-                "https://dribbble.com/session/new?return_to=%2Fsignup%3Freturn_to%3D%252Fletsgorally%252Flists%252Fmemberships",
-                "https://dribbble.com/signup?return_to=%2Fletsgorally",
-                "https://dribbble.com/search?q=hello",
-                "https://dribbble.com/skills",
-                "https://dribbble.com/teams",
-                "https://dribbble.com/meetups",
-                "https://dribbble.com/stories/2015/11/23/weekly-replay",
-                "https://dribbble.com/jobs",
-                "https://dribbble.com/about",
-                "http://help.dribbble.com/#what-is-proper-behavioretiquette-for-members",
-                "http://help.dribbble.com/account",
-                "http://m.dribbble.com/shots/2303483"
-            ],
-            "formats": [
-                {
-                    "appId": "dribbble",
-                    "format": "dribbble://$1",
-                    "testResults": [
-                        "dribbble://letsgorally",
-                        "dribbble://letsgorally",
-                        "dribbble://letsgorally",
-                        "dribbble://robotspacer",
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null,
-                        null
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Issue",
             "regex": "https?://((\\w+\\.)*jira(\\.\\w+)+.*$)",
             "testInputs": [
@@ -10128,12 +10062,6 @@
             "storeId": "925219396",
             "scheme": "deviantart",
             "docs": "https://www.deviantart.com/developers/app_links"
-        },
-        {
-            "name": "Dribbble",
-            "identifier": "dribbble",
-            "scheme": "dribbble",
-            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/dribble-120.jpg"
         },
         {
             "name": "ESPN",
