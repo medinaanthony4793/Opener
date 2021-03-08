@@ -229,7 +229,7 @@
         },
         {
             "title": "Open Search",
-            "regex": "http(?:s)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/search.*q=([^&]+).*$",
+            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/search.*q=([^&]+).*$",
             "testInputs": [
                 "https://twitter.com/search?f=tweets&vertical=default&q=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future&src=typd",
                 "https://twitter.com/search?q=opener%20app&src=typd",
@@ -319,7 +319,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "http(?:s)://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
+            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
             "testInputs": [
                 "https://twitter.com/benward/timelines/648313913201692672",
                 "https://twitter.com/@benward/timelines/648313913201692672",
@@ -7371,7 +7371,7 @@
         },
         {
             "title": "Open Chat",
-            "regex": "http(?:s)://(?:www\\.)?(?:telegram|t)\\.me/(?!(?i)addstickers)([^/\\?#]+).*$",
+            "regex": "https?://(?:www\\.)?(?:telegram|t)\\.me/(?!(?i)addstickers)([^/\\?#]+).*$",
             "testInputs": [
                 "https://telegram.me/MacStories",
                 "http://telegram.me/",
@@ -7401,7 +7401,7 @@
         },
         {
             "title": "Add Stickers",
-            "regex": "http(?:s)://(?:www\\.)?(?:telegram|t)\\.me/(?i)addstickers/([^/\\?#]+).*$",
+            "regex": "https?://(?:www\\.)?(?:telegram|t)\\.me/(?i)addstickers/([^/\\?#]+).*$",
             "testInputs": [
                 "https://t.me/addstickers/NickSantini",
                 "https://telegram.me/addStickers/NickSantini"
