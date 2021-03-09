@@ -2,7 +2,7 @@
     "actions": [
         {
             "title": "Open Tweet",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@?[a-zA-Z0-9_]{1,15}/)?(?:status|i/web/status|statuses|i/topics/tweet)/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/(@?[a-zA-Z0-9_]{1,15}/)?(status|i/web/status|statuses|i/topics/tweet)/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/zpower/status/588561590997352448",
                 "https://mobile.twitter.com/kiebk/status/599159327056863232?cn=cmVwbHk%3D&refsrc=email",
@@ -13,7 +13,7 @@
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://status?id=$1",
+                    "format": "twitter://status?id=$4",
                     "testResults": [
                         "twitter://status?id=588561590997352448",
                         "twitter://status?id=599159327056863232",
@@ -24,7 +24,7 @@
                 },
                 {
                     "appId": "tweetbot",
-                    "format": "tweetbot:///status/$1",
+                    "format": "tweetbot:///status/$4",
                     "testResults": [
                         "tweetbot:///status/588561590997352448",
                         "tweetbot:///status/599159327056863232",
@@ -35,7 +35,7 @@
                 },
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific:///tweet?id=$1",
+                    "format": "twitterrific:///tweet?id=$4",
                     "testResults": [
                         "twitterrific:///tweet?id=588561590997352448",
                         "twitterrific:///tweet?id=599159327056863232",
@@ -46,7 +46,7 @@
                 },
                 {
                     "appId": "aviary",
-                    "format": "aviary://twitter.com/statuses/$1",
+                    "format": "aviary://twitter.com/statuses/$4",
                     "testResults": [
                         "aviary://twitter.com/statuses/588561590997352448",
                         "aviary://twitter.com/statuses/599159327056863232",
@@ -59,7 +59,7 @@
         },
         {
             "title": "Add Tweet to Collection",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?:@?[a-zA-Z0-9_]{1,15}/)?(?:status|i/web/status|statuses)/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/(@?[a-zA-Z0-9_]{1,15}/)?(status|i/web/status|statuses)/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/zpower/status/588561590997352448",
                 "https://mobile.twitter.com/kiebk/status/599159327056863232?cn=cmVwbHk%3D&refsrc=email",
@@ -69,7 +69,7 @@
             "formats": [
                 {
                     "appId": "charm",
-                    "format": "x-charm://collect/$1",
+                    "format": "x-charm://collect/$4",
                     "testResults": [
                         "x-charm://collect/588561590997352448",
                         "x-charm://collect/599159327056863232",
@@ -81,7 +81,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)(?!login)([a-zA-Z0-9_]{1,15})(?:/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)(?!login)([a-zA-Z0-9_]{1,15})(/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
             "testInputs": [
                 "https://mobile.twitter.com/chillmage/with_replies",
                 "https://twitter.com/hashtag/ThingsILearnedFromTheLeft?src=hash",
@@ -96,7 +96,7 @@
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://user?screen_name=$1",
+                    "format": "twitter://user?screen_name=$2",
                     "testResults": [
                         "twitter://user?screen_name=chillmage",
                         null,
@@ -111,7 +111,7 @@
                 },
                 {
                     "appId": "tweetbot",
-                    "format": "tweetbot:///user_profile/$1",
+                    "format": "tweetbot:///user_profile/$2",
                     "testResults": [
                         "tweetbot:///user_profile/chillmage",
                         null,
@@ -126,7 +126,7 @@
                 },
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific:///profile?screen_name=$1",
+                    "format": "twitterrific:///profile?screen_name=$2",
                     "testResults": [
                         "twitterrific:///profile?screen_name=chillmage",
                         null,
@@ -141,7 +141,7 @@
                 },
                 {
                     "appId": "aviary",
-                    "format": "aviary://twitter.com/$1",
+                    "format": "aviary://twitter.com/$2",
                     "testResults": [
                         "aviary://twitter.com/chillmage",
                         null,
@@ -158,35 +158,35 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/intent/user\\?.*screen_name=?@?([a-zA-Z0-9_]{1,15}).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/intent/user\\?.*screen_name=?@?([a-zA-Z0-9_]{1,15}).*$",
             "testInputs": [
                 "https://twitter.com/intent/user?screen_name=addyosmani"
             ],
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://user?screen_name=$1",
+                    "format": "twitter://user?screen_name=$2",
                     "testResults": [
                         "twitter://user?screen_name=addyosmani"
                     ]
                 },
                 {
                     "appId": "tweetbot",
-                    "format": "tweetbot:///user_profile/$1",
+                    "format": "tweetbot:///user_profile/$2",
                     "testResults": [
                         "tweetbot:///user_profile/addyosmani"
                     ]
                 },
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific:///profile?screen_name=$1",
+                    "format": "twitterrific:///profile?screen_name=$2",
                     "testResults": [
                         "twitterrific:///profile?screen_name=addyosmani"
                     ]
                 },
                 {
                     "appId": "aviary",
-                    "format": "aviary://twitter.com/$1",
+                    "format": "aviary://twitter.com/$2",
                     "testResults": [
                         "aviary://twitter.com/addyosmani"
                     ]
@@ -195,7 +195,7 @@
         },
         {
             "title": "Open Hashtag",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/hashtag/([a-zA-Z0-9_]+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/hashtag/([a-zA-Z0-9_]+).*$",
             "testInputs": [
                 "https://mobile.twitter.com/chillmage/with_replies",
                 "https://twitter.com/hashtag/ThingsILearnedFromTheLeft?src=hash"
@@ -203,7 +203,7 @@
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://search?query=%23$1",
+                    "format": "twitter://search?query=%23$2",
                     "testResults": [
                         null,
                         "twitter://search?query=%23ThingsILearnedFromTheLeft"
@@ -211,7 +211,7 @@
                 },
                 {
                     "appId": "tweetbot",
-                    "format": "tweetbot:///search?query=%23$1",
+                    "format": "tweetbot:///search?query=%23$2",
                     "testResults": [
                         null,
                         "tweetbot:///search?query=%23ThingsILearnedFromTheLeft"
@@ -219,7 +219,7 @@
                 },
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific:///search?q=%23$1",
+                    "format": "twitterrific:///search?q=%23$2",
                     "testResults": [
                         null,
                         "twitterrific:///search?q=%23ThingsILearnedFromTheLeft"
@@ -229,7 +229,7 @@
         },
         {
             "title": "Open Search",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/search.*q=([^&]+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/search.*q=([^&]+).*$",
             "testInputs": [
                 "https://twitter.com/search?f=tweets&vertical=default&q=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future&src=typd",
                 "https://twitter.com/search?q=opener%20app&src=typd",
@@ -238,7 +238,7 @@
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://search?query=$1",
+                    "format": "twitter://search?query=$2",
                     "testResults": [
                         "twitter://search?query=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future",
                         "twitter://search?query=opener%20app",
@@ -247,7 +247,7 @@
                 },
                 {
                     "appId": "tweetbot",
-                    "format": "tweetbot:///search?query=$1",
+                    "format": "tweetbot:///search?query=$2",
                     "testResults": [
                         "tweetbot:///search?query=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future",
                         "tweetbot:///search?query=opener%20app",
@@ -256,7 +256,7 @@
                 },
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific:///search?q=$1",
+                    "format": "twitterrific:///search?q=$2",
                     "testResults": [
                         "twitterrific:///search?q=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future",
                         "twitterrific:///search?q=opener%20app",
@@ -267,7 +267,7 @@
         },
         {
             "title": "Open Moment",
-            "regex": "https?://(?:mobile\\.|www\\.)?twitter\\.com/i/moments/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.)?twitter\\.com/i/moments/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/i/moments/651796284307849217",
                 "https://mobile.twitter.com/i/moments/651796284307849217"
@@ -275,7 +275,7 @@
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://moment?moment_id=$1",
+                    "format": "twitter://moment?moment_id=$2",
                     "testResults": [
                         "twitter://moment?moment_id=651796284307849217",
                         "twitter://moment?moment_id=651796284307849217"
@@ -285,7 +285,7 @@
         },
         {
             "title": "Open Live Moment",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/i/live/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/i/live/(\\d+).*$",
             "testInputs": [
                 "https://mobile.twitter.com/i/live/768633364911788032",
                 "https://twitter.com/i/live/768633364911788032"
@@ -293,7 +293,7 @@
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://live/timeline/$1",
+                    "format": "twitter://live/timeline/$2",
                     "testResults": [
                         "twitter://live/timeline/768633364911788032",
                         "twitter://live/timeline/768633364911788032"
@@ -303,14 +303,14 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/i/events/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/i/events/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/i/events/1180824138832723968"
             ],
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://events/timeline/$1",
+                    "format": "twitter://events/timeline/$2",
                     "testResults": [
                         "twitter://events/timeline/1180824138832723968"
                     ]
@@ -319,17 +319,17 @@
         },
         {
             "title": "Open Collection",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
             "testInputs": [
                 "https://twitter.com/benward/timelines/648313913201692672",
                 "https://twitter.com/@benward/timelines/648313913201692672",
                 "https://mobile.twitter.com/benward/timelines/648313913201692672",
-                "https://mobile.twitter.com/benward/timelines/648313913201692672?foo=bar"
+                "http://mobile.twitter.com/benward/timelines/648313913201692672?foo=bar"
             ],
             "formats": [
                 {
                     "appId": "twitter",
-                    "format": "twitter://custom_timeline?screen_name=$1&timeline_id=$2",
+                    "format": "twitter://custom_timeline?screen_name=$2&timeline_id=$3",
                     "testResults": [
                         "twitter://custom_timeline?screen_name=benward&timeline_id=648313913201692672",
                         "twitter://custom_timeline?screen_name=benward&timeline_id=648313913201692672",
@@ -341,21 +341,21 @@
         },
         {
             "title": "Open List",
-            "regex": "https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
             "testInputs": [
                 "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list"
             ],
             "formats": [
                 {
                     "appId": "tweetbot",
-                    "format": "tweetbot://$1/list/$2",
+                    "format": "tweetbot://$2/list/$3",
                     "testResults": [
                         "tweetbot://ImJeffBell/list/jeff-s-central-asia-list"
                     ]
                 },
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific5://$1/list?name=$2",
+                    "format": "twitterrific5://$2/list?name=$3",
                     "testResults": [
                         "twitterrific5://ImJeffBell/list?name=jeff-s-central-asia-list"
                     ]
@@ -976,7 +976,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "https?://(?:www\\.)?500px\\.com/photo/(\\d+)(?:(?:/|\\?).*)?$",
+            "regex": "https?://(?:www\\.)?500px\\.com/photo/(\\d+)((/|\\?).*)?$",
             "testInputs": [
                 "https://500px.com/timonus",
                 "https://500px.com/photo/106606873/wood-anemone-by-fredrik-m%C3%B6rk",
@@ -996,7 +996,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?500px\\.com/(?!photo)([0-9a-zA-Z_-]+)(?:/|\\?)?.*$",
+            "regex": "https?://(?:www\\.)?500px\\.com/(?!photo)([0-9a-zA-Z_-]+)(/|\\?)?.*$",
             "testInputs": [
                 "https://500px.com/timonus",
                 "https://500px.com/photo/40145312/7-7-13-by-tim-johnsen?from=user_library"
@@ -1014,7 +1014,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/photos/([0-9a-zA-Z_@%-]+)/(\\d+)(?:(?:/|\\?).*)?$",
+            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/photos/([0-9a-zA-Z_@%-]+)/(\\d+)((/|\\?).*)?$",
             "testInputs": [
                 "https://m.flickr.com/#/photos/27933390@N03/16929283568/",
                 "https://www.flickr.com/photos/27933390@N03/16929283568/",
@@ -1040,7 +1040,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/(?:photos|people)/([0-9a-zA-Z_@%-]+)(?:/|\\?|/\\?.*)?$",
+            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/(?:photos|people)/([0-9a-zA-Z_@%-]+)(/|\\?|/\\?.*)?$",
             "testInputs": [
                 "https://m.flickr.com/#/photos/27933390@N03/",
                 "https://www.flickr.com/people/27933390@N03/",
@@ -1064,7 +1064,7 @@
         },
         {
             "title": "Open Photoset",
-            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/photos/([0-9a-zA-Z_@%-]+)/sets/(\\d+)(?:(?:/|\\?).*)?$",
+            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/photos/([0-9a-zA-Z_@%-]+)/sets/(\\d+)((/|\\?).*)?$",
             "testInputs": [
                 "https://m.flickr.com/#/photos/27933390@N03/sets/72157651034989505/",
                 "https://m.flickr.com/#/photos/27933390@N03/16929283568/",
@@ -1217,7 +1217,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.)?([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/(?!tagged|page)\\w+/(\\d+)(?:(?:/|\\?|#).*)?$",
+            "regex": "https?://(?:www\\.)?([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/(?!tagged|page)\\w+/(\\d+)((/|\\?|#).*)?$",
             "testInputs": [
                 "http://visualizingmath.tumblr.com/post/98266724851/hyrodium-the-curvature-of-curves-x-x",
                 "http://unskoolery.tumblr.com/post/90849039693/beesandbombs-stars-squares",
@@ -1286,7 +1286,7 @@
         },
         {
             "title": "Open Tag",
-            "regex": "https?://(?:www\\.)?tumblr\\.com/(?:tagged|search)/([^/]+)(?:(?:/|\\?|#).*)?$",
+            "regex": "https?://(?:www\\.)?tumblr\\.com/(?:tagged|search)/([^/]+)((/|\\?|#).*)?$",
             "testInputs": [
                 "https://www.tumblr.com/search/Hartmut+Esslinger",
                 "https://www.tumblr.com/tagged/Hartmut+Esslinger"
@@ -1506,7 +1506,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:(?:u|d)/)?(\\w+)(?:/\\?.*|/)?$",
+            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:(?:u|d)/)?(\\w+)(/\\?.*|/)?$",
             "testInputs": [
                 "http://weibo.com/2616423197",
                 "http://weibo.com/u/2616423197",
@@ -1530,7 +1530,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:u/)?(\\d+)(?:/\\?.*|/)?$",
+            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:u/)?(\\d+)(/\\?.*|/)?$",
             "testInputs": [
                 "http://weibo.com/2616423197",
                 "http://weibo.com/u/2616423197",
@@ -1565,7 +1565,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:d/)?(?!\\d+)(\\w+)(?:/\\?.*|/)?$",
+            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:d/)?(?!\\d+)(\\w+)(/\\?.*|/)?$",
             "testInputs": [
                 "http://weibo.com/2616423197",
                 "http://weibo.com/u/2616423197",
@@ -2022,7 +2022,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(((?:www\\.)?google(?:\\.\\w+)+/maps)|(maps\\.google(?:\\.\\w+)+).*)",
+            "regex": "https?://(((?:www\\.)?google(?:\\.\\w+)+/maps)|(maps\\.google(\\.\\w+)+).*)",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
                 "https://www.google.com/maps/place/Indiegogo,+965+Mission+St,+San+Francisco,+CA+94103/data=!4m2!3m1!1s0x808f7e29d40a8017:0x80a0cb606fe684b2?hl=en-US&dg=dbrw&newdg=1",
@@ -2092,7 +2092,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:www\\.|maps\\.)?google(?:\\.\\w+)+/maps/search/@?([^/,]+,[^/,]+)(?:,[^/]+)?.*$",
+            "regex": "https?://(?:www\\.|maps\\.)?google(?:\\.\\w+)+/maps/search/@?([^/,]+,[^/,]+)(,[^/]+)?.*$",
             "testInputs": [
                 "https://www.google.com/maps/search/37.755225,-122.476069",
                 "https://www.google.com/maps/search/37.755225,-122.476069/data=!4m2!2m1!4b1?hl=en-US&gl=us&dg=dbrw&newdg=1",
@@ -2254,7 +2254,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "https?://((?:collections|guides)\\.apple\\.com/.*)$",
+            "regex": "https?://((collections|guides)\\.apple\\.com/.*)$",
             "testInputs": [
                 "https://collections.apple.com/collection?_col=CgcxLzMxLzIwEg0Irk0Qr9%2BCmIiSz%2FkEEg4Irk0QorvTr%2FXIjdyiARIOCK5NEJefgoXilL6esgESDgiuTRDM8uqdsMXMuu0BEg4Irk0Qj%2BCD%2Bo2Kj9WoAQ%3D%3D",
                 "https://guides.apple.com/?ug=Cgbnj77loLQSngEaYuOAkjAwNC0wODYxLCDljJfmtbfpgZPmnK3luYzluILmuIXnlLDljLosIOWMl%2BmHjjHmnaEx5LiB55uuMi0yNiwg44Ko44Oh44Op44Or44OJ44Kw44Oq44O844Oz5YyX6YeOIhIJ2QLnMW%2BBRUARE8t3OqGtYUAqJOaJi%2BOCqOODoeODqeODq%2BODieOCsOODquODvOODs%2BWMl%2BmHjhKDARpT44CSMDAzLTAwMjEsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4gueZveefs%2BWMuiwg5qCE6YCaMTfkuIHnm644LTIwLCDjgrDjg6njg7Pjg5Ljg6vljZfpg7ciEgnprjYQ3INFQBFq6FVTyK1hQCoY5omL44Kw44Op44Oz44OS44Or5Y2X6YO3EpIBGlvjgJIwMDMtMDAyNywg5YyX5rW36YGT5pyt5bmM5biC55m955%2Bz5Yy6LCDmnKzpgJo05LiB55uu5YyXMi04LCDjgq%2Fjg6rjg7zjg7Pjg6rjg5Djg7znmb3nn7MyIhIJQnkfR3OGRUARkdGmjyWtYUAqH%2BaJi%2BOCr%2BODquODvOODs%2BODquODkOODvOeZveefszISeRpB44CSMDAzLTAwMjgsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4gueZveefs%2BWMuiwg5bmz5ZKM6YCaM%2BS4geebruWNlzItMTIiEgkiQ4PWloZFQBHpjxd1Ka1hQCog5omL55m955%2BzMS3jgq%2Fjg6rjg7zjg7Pjg6rjg5Djg7wSexpC44CSMDYyLTA5MjIsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4guixiuW5s%2BWMuiwg5Lit44Gu5bO2MuadoTEw5LiB55uuNi0yIhIJ5wkSfr%2BCRUARAced%2F3arYUAqIeaJi%2BS4reOBruWztuOCr%2BODquODvOODs%2BODquODkOODvBJvGkLjgJIwNjItMDA1NCwg5YyX5rW36YGT5pyt5bmM5biC6LGK5bmz5Yy6LCDmnIjlr5LmnbE05p2hOeS4geebrjYtMTEiEgmc57WHJ4RFQBHSN4WnGK1hQCoV5omL44Kr44O844K15pyI5a%2BS5p2xEmgaQeOAkjAwMy0wMDI1LCDljJfmtbfpgZPmnK3luYzluILnmb3nn7PljLosIOacrOmDt%2BmAmjbkuIHnm67ljJc3LTIwIhIJ9DaC36yFRUARqdgyKDWtYUAqD%2BOCteODs%2BODj%2BOCpOODhBJiGkHjgJIwNjItMDA1Miwg5YyX5rW36YGT5pyt5bmM5biC6LGK5bmz5Yy6LCDmnIjlr5LmnbEy5p2hM%2BS4geebrjMtOSISCTFFU%2FvyhEVAEYIH2djIrGFAKgnkuK3plpPngrkSaxo744CSMDA1LTAwMDMsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4guWNl%2BWMuiwg5r6E5bedM%2BadoTHkuIHnm64zLTEiEglaLBdWdIJFQBEU2ejdsathQCoY5r6E5bed44OR44O844Kv44OP44Kk44OgEmoaQOOAkjAwNC0wMDY5LCDljJfmtbfpgZPmnK3luYzluILljprliKXljLosIOWOmuWIpeeUuuWxseacrDc1MC0xMTciEgl%2B3a%2FoQYdFQBGEJxOQt65hQCoS6Zmk6Zuq5qmf5b6F5qmf5aC0ElwaL%2BWMl%2Ba1t%2BmBk%2BacreW5jOW4giwg6Je75bKp5bGx6Kaz5YWJ6Ieq5YuV6LuK6YGTIhIJlURPv2SBRUAR0e0XjTSqYUAqFeW3puS6rOWcn%2BWgtOOAgOmHjeapnxJZGj7jgJIwNjMtMDgzNiwg5YyX5rW36YGT5pyt5bmM5biC6KW%2F5Yy6LCDnmbrlr5IxNuadoTEz5LiB55uuMy01NSISCbPCgupAjkVAEaon%2BAE%2BqWFAKgNUQ00SKyISCXgtyJxCkUVAEdYUD6H5rWFAKhXjgrnjg4jjg6zjg7zjg4jlnJ%2FloLQ%3D"
@@ -2272,7 +2272,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:\\w+\\.)*waze\\.com/(livemap|live-map)/directions.*(latlng=|to=ll\\.)((?:\\d|.)*(?:%2C|,)(?:\\d|.)*).*?$",
+            "regex": "https?://(?:\\w+\\.)*waze\\.com/(livemap|live-map)/directions.*(latlng=|to=ll\\.)((\\d|.)*(%2C|,)(\\d|.)*).*?$",
             "testInputs": [
                 "https://www.waze.com/livemap/directions?latlng=37.789814%2C-122.395356",
                 "https://www.waze.com/livemap/directions?latlng=37.789814,-122.395356",
@@ -2416,7 +2416,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:(?:\\w+\\.)?(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
+            "regex": "https?://(((\\w+\\.)?(youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2664,7 +2664,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:\\w+\\.)*((?:(?:youtube\\.com|youtu\\.be))/(?!redirect).*)$",
+            "regex": "https?://(?:\\w+\\.)*(((youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2852,7 +2852,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "(http(?:s?)://drive\\.google\\.com/(?:open|file|folder|drive/folders).*)$",
+            "regex": "(http(s?)://drive\\.google\\.com/(open|file|folder|drive/folders).*)$",
             "testInputs": [
                 "https://drive.google.com/open?id=1W64thRDqmKiDwsuK_j1IkxnCVeBfs7wwSXBbLxnsitL_D9-qAt4",
                 "https://drive.google.com/file/d/1W64thRDqmKiDwsuK_j1IkxnCVeBfs7wwSXBbLxnsitL_D9-qAt4/view",
@@ -2908,7 +2908,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/([a-zA-Z](\\w+))/?(?:\\?.*)?$",
+            "regex": "https?://(?:www\\.)?vimeo\\.com/([a-zA-Z](\\w+))/?(\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/timonus",
                 "http://vimeo.com/timonus/",
@@ -2956,7 +2956,7 @@
         },
         {
             "title": "Open Channel",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/channels/(\\w+)/?(?:\\?.*)?$",
+            "regex": "https?://(?:www\\.)?vimeo\\.com/channels/(\\w+)/?(\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/channels/nicetype",
                 "http://vimeo.com/channels/nicetype/",
@@ -2978,7 +2978,7 @@
         },
         {
             "title": "Open Category",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/categories/(\\w+)/?(?:\\?.*)?$",
+            "regex": "https?://(?:www\\.)?vimeo\\.com/categories/(\\w+)/?(\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/categories/animation",
                 "http://vimeo.com/categories/animation/",
@@ -3509,7 +3509,7 @@
         },
         {
             "title": "Add Podcast",
-            "regex": "https?://(?:geo\\.)?((?:itunes|podcasts)\\.apple\\.com/(?:.*/)*podcast/(?:.*/)?id\\d+.*)$",
+            "regex": "https?://(?:geo\\.)?((itunes|podcasts)\\.apple\\.com/(.*/)*podcast/(.*/)?id\\d+.*)$",
             "testInputs": [
                 "https://itunes.apple.com/us/podcast/serial/id917918570?mt=2",
                 "https://itunes.apple.com/us/podcast/episode-01-the-alibi/id917918570?i=319686008&mt=2",
@@ -4054,7 +4054,7 @@
         {
             "title": "Open Link",
             "notes": "Either artist, playlist, or station",
-            "regex": "https?://music\\.amazon(?:\\.\\w+)+/((?:artists|user-playlists|stations)/\\w.*)$",
+            "regex": "https?://music\\.amazon(?:\\.\\w+)+/((artists|user-playlists|stations)/\\w.*)$",
             "testInputs": [
                 "https://music.amazon.com/artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
                 "https://music.amazon.com/user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
@@ -4090,7 +4090,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*amazon((?:\\.\\w+)+)/.*)$",
+            "regex": "https?://((?:\\w+\\.)*amazon((\\.\\w+)+)/.*)$",
             "testInputs": [
                 "http://www.amazon.com/Mondaine-A990-CLOCK-11SBC-Clock-White-Frame/dp/B0016QNNP6/ref=sr_1_1?ie=UTF8&qid=1429471063&sr=8-1&keywords=mondaine+clock",
                 "http://www.amazon.com/dp/B0016QNNP6",
@@ -4137,7 +4137,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:\\w+\\.)*aliexpress\\.com/(?:\\w+/)*(?:item(?:/[^/]+)?/|affi-item\\.htm.*item_id=)(\\d+)(?:\\.html?)?.*$",
+            "regex": "https?://(?:\\w+\\.)*aliexpress\\.com/(?:\\w+/)*(?:item(?:/[^/]+)?/|affi-item\\.htm.*item_id=)(\\d+)(\\.html?)?.*$",
             "testInputs": [
                 "http://m.aliexpress.com/item/32409017535.html",
                 "http://www.aliexpress.com/item/Foliage-plant-seeds-wheat-grass-cat-grass-seeds-wheat-seeds-about-200-particles/32439617530.html?spm=5261.7749171.1998596321.8.wpCnkX&sdom=561.108229.97206.0_32439617530",
@@ -4219,7 +4219,7 @@
         },
         {
             "title": "Open Project",
-            "regex": "https?://((?:www\\.)?kickstarter\\.com/projects/[a-zA-Z0-9_%-]+/[a-zA-Z0-9_%-]+).*?$",
+            "regex": "https?://((www\\.)?kickstarter\\.com/projects/[a-zA-Z0-9_%-]+/[a-zA-Z0-9_%-]+).*?$",
             "testInputs": [
                 "https://www.kickstarter.com/projects/1425492550/sesame-your-key-reinvented?ref=dash",
                 "https://www.kickstarter.com/projects/paulgtoys/pterodactyl-5-rc-flying-lizard",
@@ -4349,7 +4349,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "https?://(?:www\\.)?weheartit\\.com/(?!entry)((?:[a-zA-Z0-9_\\-]+)/collections/(?:[a-zA-Z0-9_\\-]+)).*$",
+            "regex": "https?://(?:www\\.)?weheartit\\.com/(?!entry)(([a-zA-Z0-9_\\-]+)/collections/([a-zA-Z0-9_\\-]+)).*$",
             "testInputs": [
                 "http://weheartit.com/martina_morales_7965/collections/97402106-movies-series-d"
             ],
@@ -4387,7 +4387,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?meetup\\.com/((?:.*/)?events/\\d+).*$",
+            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?meetup\\.com/((.*/)?events/\\d+).*$",
             "testInputs": [
                 "http://www.meetup.com/Mobilize-MN/events/221392586/",
                 "http://www.meetup.com/svmobiledev/events/226384871/?joinFrom=event&success=profileUpdatedEventWelcome",
@@ -4602,7 +4602,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:www\\.|m\\.)?strava\\.com/((?:activities|athletes)/\\d+).*$",
+            "regex": "https?://(?:www\\.|m\\.)?strava\\.com/((activities|athletes)/\\d+).*$",
             "testInputs": [
                 "https://www.strava.com/activities/304977054",
                 "https://www.strava.com/athletes/24752860"
@@ -4832,7 +4832,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?!gist\\.)(?:\\w+\\.)*github\\.com/.*)",
+            "regex": "https?://((?!gist\\.)(\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
                     "appId": "github",
@@ -4842,7 +4842,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*github\\.com/.*)",
+            "regex": "https?://((\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
                     "appId": "ioctocat",
@@ -5057,7 +5057,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*(?:(?:stackoverflow|stackexchange|serverfault|superuser|stackapps)\\.com|mathoverflow\\.net)/.*)",
+            "regex": "https?://((\\w+\\.)*((stackoverflow|stackexchange|serverfault|superuser|stackapps)\\.com|mathoverflow\\.net)/.*)",
             "testInputs": [
                 "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
             ],
@@ -5073,7 +5073,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*stackoverflow\\.com/.*)",
+            "regex": "https?://((\\w+\\.)*stackoverflow\\.com/.*)",
             "testInputs": [
                 "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
             ],
@@ -5089,7 +5089,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:\\w+\\.)*(stackoverflow\\.com/(?:users|questions)/(?!tagged/.*).*)",
+            "regex": "https?://(?:\\w+\\.)*(stackoverflow\\.com/(users|questions)/(?!tagged/.*).*)",
             "testInputs": [
                 "https://stackoverflow.com/users/3943258/tim-johnsen",
                 "https://stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
@@ -5109,7 +5109,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:\\w+\\.)*stackoverflow\\.com/a/\\d+/\\d+",
+            "regex": "https?://(\\w+\\.)*stackoverflow\\.com/a/\\d+/\\d+",
             "testInputs": [
                 "https://stackoverflow.com/a/57467270/3943258"
             ],
@@ -5125,7 +5125,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)+quora\\.com/.*)$",
+            "regex": "https?://((\\w+\\.)+quora\\.com/.*)$",
             "testInputs": [
                 "http://www.quora.com/What-is-a-coders-worst-nightmare"
             ],
@@ -5559,7 +5559,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)*(artist|album|music-video)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "https?://(?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)*(artist|album|music-video)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
                 "https://itunes.apple.com/us/album/guero/id485498129",
@@ -5739,7 +5739,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://(?:geo\\.)?(?:itunes|tv)\\.apple\\.com/(?:.*/)*(movie|tv-season|show)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "https?://(?:geo\\.)?(?:itunes|tv)\\.apple\\.com/(?:.*/)*(movie|tv-season|show)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
                 "https://itunes.apple.com/us/album/guero/id485498129",
@@ -5771,7 +5771,7 @@
         },
         {
             "title": "View Book",
-            "regex": "https?://(?:geo\\.)?(?:itunes|books)\\.apple\\.com/(?:.*/)*(book)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "https?://(?:geo\\.)?(?:itunes|books)\\.apple\\.com/(?:.*/)*(book)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/book/id1296848713",
                 "https://books.apple.com/book/id1296848713"
@@ -5789,7 +5789,7 @@
         },
         {
             "title": "View Audibook",
-            "regex": "https?://(?:geo\\.)?(?:itunes|books)\\.apple\\.com/(?:.*/)*(audiobook)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?$",
+            "regex": "https?://(?:geo\\.)?(?:itunes|books)\\.apple\\.com/(?:.*/)*(audiobook)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://books.apple.com/us/audiobook/artemis-unabridged/id1299364718",
                 "http://itunes.apple.com/audiobook/id1299364718"
@@ -5807,7 +5807,7 @@
         },
         {
             "title": "View Podcast",
-            "regex": "https?://(?:geo\\.)?(?:itunes|podcasts)\\.apple\\.com/((?:.*/)*(podcast)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(?:\\d+)))?.*?)$",
+            "regex": "https?://(?:geo\\.)?(?:itunes|podcasts)\\.apple\\.com/((?:.*/)*(podcast)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?)$",
             "testInputs": [
                 "https://podcasts.apple.com/us/podcast/rumble-with-michael-moore/id1490354763#episodeGuid=8c3df791-b5f5-4afd-afbd-3b7c161f97fd",
                 "https://podcasts.apple.com/us/podcast/rumble-with-michael-moore/id1490354763",
@@ -5827,7 +5827,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://((?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)?playlist/.*)$",
+            "regex": "https?://((geo\\.)?(itunes|music)\\.apple\\.com/(.*/)?playlist/.*)$",
             "testInputs": [
                 "https://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday",
                 "https://music.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
@@ -5897,7 +5897,7 @@
         },
         {
             "title": "View App",
-            "regex": "https?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+)(?!.*(?:&|\\?)mt=12.*).*$",
+            "regex": "https?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+)(?!.*(&|\\?)mt=12.*).*$",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
                 "https://geo.itunes.apple.com/us/app/opener-open-links-in-apps/id989565871",
@@ -6010,7 +6010,7 @@
         },
         {
             "title": "View GIF",
-            "regex": "https?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(?:-.*)?$",
+            "regex": "https?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(-.*)?$",
             "testInputs": [
                 "https://gfycat.com/keyaridcalf",
                 "https://gfycat.com/amp/keyaridcalf-workaholics-gif"
@@ -6221,7 +6221,7 @@
         },
         {
             "title": "Open Link",
-            "regex": "https?://((?:\\w+\\.)*(?:taobao|tmall)\\.com/.*)$",
+            "regex": "https?://((\\w+\\.)*(taobao|tmall)\\.com/.*)$",
             "testInputs": [
                 "http://m.intl.taobao.com/detail/detail.html?spm=a214x.7681957.1998488803.3&id=522074348531",
                 "http://shop111126855.m.taobao.com/?spm=a21dc.35706.88393.2&cpp=0",
@@ -6659,7 +6659,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)?(?:nicovideo\\.jp/watch/|nico\\.ms/)((?:sm)?\\d+).*$",
+            "regex": "https?://(?:\\w+\\.)?(?:nicovideo\\.jp/watch/|nico\\.ms/)((sm)?\\d+).*$",
             "testInputs": [
                 "http://www.nicovideo.jp/watch/sm26814241",
                 "http://nico.ms/sm15757696",
@@ -6864,7 +6864,7 @@
         },
         {
             "title": "Import PDF",
-            "regex": "(https?://([^?]+(?:\\.pdf).*))$",
+            "regex": "(https?://([^?]+(\\.pdf).*))$",
             "testInputs": [
                 "http://www.gnustep.org/resources/OpenStepSpec.pdf"
             ],
@@ -6917,7 +6917,7 @@
         },
         {
             "title": "Open Doc",
-            "regex": "https?://(docs\\.google\\.com/.*document/(?:u/\\d+/)?d/.*)$",
+            "regex": "https?://(docs\\.google\\.com/.*document/(u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/document/u/0/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -6943,7 +6943,7 @@
         },
         {
             "title": "Open Sheet",
-            "regex": "https?://(docs\\.google\\.com/.*spreadsheets/(?:u/\\d+/)?d/.*)$",
+            "regex": "https?://(docs\\.google\\.com/.*spreadsheets/(u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/document/u/0d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -6969,7 +6969,7 @@
         },
         {
             "title": "Open Slides",
-            "regex": "https?://(docs\\.google\\.com/.*presentation/(?:u/\\d+/)?d/.*)$",
+            "regex": "https?://(docs\\.google\\.com/.*presentation/(u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/document/u/0d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -8480,7 +8480,7 @@
         },
         {
             "title": "Add App",
-            "regex": "https?://((?:testflight|beta\\.itunes)\\.apple\\.com(?:/join|/v1/(?:app|invite))/.*)$",
+            "regex": "https?://((testflight|beta\\.itunes)\\.apple\\.com(/join|/v1/(app|invite))/.*)$",
             "testInputs": [
                 "https://testflight.apple.com/join/yP1ZHFr0",
                 "https://beta.itunes.apple.com/v1/invite/842f010727584f1da5e008c7234aad2b2fb03e35b07d426e99baf5beb58fb72734caab58?ct=BenjaminSandofsky93099055&advp=10000&platform=ios",
