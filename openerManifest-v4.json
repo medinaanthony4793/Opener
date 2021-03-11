@@ -8310,18 +8310,20 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:www\\.)?(?:newegg\\.com/Product/Product\\.aspx\\?.*Item=|flash\\.newegg\\.com/Product/)(\\w+).*?$",
+            "regex": "https?://((?:www\\.)?(?:newegg\\.com/(?:Product/Product\\.aspx\\?.*Item=|.*/p/)|flash\\.newegg\\.com/Product/)\\w+.*)?$",
             "testInputs": [
                 "https://www.newegg.com/Product/Product.aspx?Item=N82E16889651010&ignorebbr=1",
-                "https://flash.newegg.com/Product/9SIA9UW6TX4004?icid=WP_0_03192018"
+                "https://flash.newegg.com/Product/9SIA9UW6TX4004?icid=WP_0_03192018",
+                "https://www.newegg.com/asus-geforce-rtx-3070-dual-rtx3070-o8g/p/N82E16814126459R?Item=N82E16814126459R&Description=geforce+rtx+3070&cm_re=geforce_rtx+3070-_-14-126-459R-_-Product&nm_mc=AFC-RAN-COM&cm_mmc=AFC-RAN-COM&utm_medium=affiliates&utm_source=afc-Twitter+Account&AFFID=3811272&AFFNAME=Twitter+Account&ACRID=1&ASUBID=&ASID=https%3A%2F%2Ft.co%2FnqlD4aaCCZ%3Famp%3D1&ranMID=44583&ranEAID=3811272&ranSiteID=QL631ke.Df8-AzUTyT9ukSewJF0cELFzTw"
             ],
             "formats": [
                 {
                     "appId": "newegg",
-                    "format": "newegg://products/$1",
+                    "format": "ngm://$1",
                     "testResults": [
-                        "newegg://products/N82E16889651010",
-                        "newegg://products/9SIA9UW6TX4004"
+                        "ngm://www.newegg.com/Product/Product.aspx?Item=N82E16889651010&ignorebbr=1",
+                        "ngm://flash.newegg.com/Product/9SIA9UW6TX4004?icid=WP_0_03192018",
+                        "ngm://www.newegg.com/asus-geforce-rtx-3070-dual-rtx3070-o8g/p/N82E16814126459R?Item=N82E16814126459R&Description=geforce+rtx+3070&cm_re=geforce_rtx+3070-_-14-126-459R-_-Product&nm_mc=AFC-RAN-COM&cm_mmc=AFC-RAN-COM&utm_medium=affiliates&utm_source=afc-Twitter+Account&AFFID=3811272&AFFNAME=Twitter+Account&ACRID=1&ASUBID=&ASID=https%3A%2F%2Ft.co%2FnqlD4aaCCZ%3Famp%3D1&ranMID=44583&ranEAID=3811272&ranSiteID=QL631ke.Df8-AzUTyT9ukSewJF0cELFzTw"
                     ]
                 }
             ]
@@ -10479,7 +10481,7 @@
             "name": "Newegg",
             "identifier": "newegg",
             "storeId": "345188269",
-            "scheme": "newegg"
+            "scheme": "ngm"
         },
         {
             "name": "NewsPicks",
