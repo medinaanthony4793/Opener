@@ -7629,6 +7629,51 @@
         },
         {
             "title": "Stream Media",
+            "regex": "(https?://.*)\\n.*(?i)content-type\":\\s*\"video.*",
+            "headers": 1,
+            "formats": [
+                {
+                    "appId": "nplayer",
+                    "format": "nplayer-$1"
+                },
+                {
+                    "appId": "vlc",
+                    "script": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(url)); }",
+                    "script2": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(url)); }"
+                },
+                {
+                    "appId": "infuse",
+                    "script": "function process(url, completionHandler) { completionHandler('infuse://x-callback-url/play?url=' + encodeURIComponent(url)); }",
+                    "script2": "function process(url, completionHandler) { completionHandler('infuse://x-callback-url/play?url=' + encodeURIComponent(url)); }"
+                },
+                {
+                    "appId": "oplayer",
+                    "format": "oplayer://$1"
+                },
+                {
+                    "appId": "oplayerhd",
+                    "format": "oplayer://$1"
+                },
+                {
+                    "appId": "oplayerlite",
+                    "format": "oplayerlite://$1"
+                }
+            ]
+        },
+        {
+            "title": "Download Media",
+            "regex": "(https?://.*)\\n.*(?i)content-type\":\\s*\"video.*",
+            "headers": 1,
+            "formats": [
+                {
+                    "appId": "vlc",
+                    "script": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(url)); }",
+                    "script2": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(url)); }"
+                }
+            ]
+        },
+        {
+            "title": "Stream Media",
             "regex": "https?://(www\\.)?streamable\\.com/\\w+/?(\\?.*)?$",
             "notes": "No tests because there's an expiring token on the end of these URLs, but you can test with this https://streamable.com/y11x2",
             "formats": [
