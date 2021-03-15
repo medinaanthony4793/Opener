@@ -18,7 +18,7 @@ The `apps` top level key in the manifest contains an ordered list of dictionarie
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
 <tr><td><code>identifier</code></td><td>string</td><td>A human-readable identifier for this app, used elsewhere in the manifest.</td></tr>
 <tr><td><code>name</code></td><td>string</td><td>The user-facing name for this app within Opener.</td></tr>
-<tr><td><code>storeId</code></td><td>number as string</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
+<tr><td><code>storeId</code></td><td>number</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
 <tr><td><code>iconURL</code></td><td>URL string</td><td>A URL to an icon for this app, mutually exclusive with <code>storeId</code>. This is intended for first party app support.</td></tr>
 <tr><td><code>scheme</code></td><td>URL string</td><td>A URL containing only the scheme that will open this app.</td></tr>
 <tr><td><code>new</code></td><td>bool</td><td>Indicates whether or not this app will be include in the "New Apps" group in Opener.</td></tr>
@@ -31,7 +31,7 @@ For example, if Opener were to include itself as an app
 ```json5
 {
     "identifier": "opener",
-    "storeId": "989565871",
+    "storeId": 989565871,
     "name": "Opener",
     "scheme": "opener://",
     "new": true
@@ -157,7 +157,7 @@ Support for opening any http or https URL in browsers was added in Opener 1.1. B
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
 <tr><td><code>identifier</code></td><td>string</td><td>A human-readable identifier for this app, used elsewhere in the manifest.</td></tr>
 <tr><td><code>name</code></td><td>string</td><td>The user-facing name for this app within Opener.</td></tr>
-<tr><td><code>storeId</code></td><td>number as string</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
+<tr><td><code>storeId</code></td><td>number</td><td>The identifier of the app on the App Store. (Optional in v2, required in v1)</td></tr>
 <tr><td><code>iconURL</code></td><td>URL string</td><td>A URL to an icon for this app, mutually exclusive with <code>storeId</code>. This is intended for first party app support.</td></tr>
 <tr><td><code>scheme</code></td><td>URL string</td><td>A URL containing only the scheme that will open this app.</td></tr>
 <tr><td><code>new</code></td><td>bool</td><td>Indicates whether or not this app will be include in the "New Apps" group in Opener.</td></tr>
@@ -177,7 +177,7 @@ For example, here's Google Chrome's dictionary:
     "name": "Chrome",
     "identifier": "chrome",
     "scheme": "googlechrome://",
-    "storeId": "535886823",
+    "storeId": 535886823,
     "regex": "http(s)?(.*)$",
     "format": "googlechrome$1$2",
     "testInputs": [
@@ -252,6 +252,7 @@ The manifest file has a `-v3` on the end, this indicates the major version of th
 <tr><td>v2</td><td>1.0.10</td><td>Made app dictionary <code>storeId</code> field optional. This was required in v1. Change was made in order to support first party apps, which lack an iTunes identifier.</td></tr>
 <tr><td>v3</td><td>1.1.8</td><td>Add support for <code>script2</code> field, which is processed using JavaScriptCore instead of a <code>UIWebView</code>.</td></tr>
 <tr><td>v4</td><td>1.8.10</td><td>Shrink numerous fields (`displayName`=`name`, `storeIdentifier`=`storeId`, `appIdentifier`=`appId`, `includeHeaders`=`headers`, `redirectRules`=`redirects`) and removed trailing `:`s from `scheme` field such that all keys and many more values fit in [tagged pointers to occupy less memory](https://www.mikeash.com/pyblog/friday-qa-2015-07-31-tagged-pointer-strings.html).</td></tr>
+<tr><td>v5</td><td>1.10.5</td><td>Modify <code>storeId</code> to be numbers instead of strings so they'll consistently fit into tagged pointers when in memory.</td></tr>
 </table>
 
 ## Contributing
