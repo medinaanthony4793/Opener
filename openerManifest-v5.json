@@ -11622,7 +11622,7 @@
         {
             "name": "Web Video Caster",
             "identifier": "wvc",
-            "storeId": "1400866497",
+            "storeId": 1400866497,
             "scheme": "wvc-x-callback",
             "regex": "https?://(.*)$",
             "script": "function process(url, completionHandler) { completionHandler('wvc-x-callback://open?url=' + encodeURIComponent(url)); }",
