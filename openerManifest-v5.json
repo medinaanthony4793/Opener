@@ -832,7 +832,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*facebook\\.com/(?!.*(events|groups|photo|photos|videos|story|post|posts).*).*$",
             "note": "This is meant as a catchall fallback that will run if all other dedicated Facebook actions fail. It tries to use markup on the page to open links, which works for things like Pages and some users.",
             "testInputs": [
@@ -2021,7 +2020,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(((?:www\\.)?google(?:\\.\\w+)+/maps)|(maps\\.google(\\.\\w+)+).*)",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
@@ -2049,7 +2047,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?:www\\.)?google(?:\\.\\w+)+/maps/place/([^/]+)/(?:(?:@(([^/]+,[^/]+)(?:,[^/]+))|(?!data)([^/]+)))?.*)$",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
@@ -2091,7 +2088,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.|maps\\.)?google(?:\\.\\w+)+/maps/search/@?([^/,]+,[^/,]+)(,[^/]+)?.*$",
             "testInputs": [
                 "https://www.google.com/maps/search/37.755225,-122.476069",
@@ -2129,7 +2125,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.google(?:\\.\\w+)+/maps(?!/place/.*).*(\\?.*))",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
@@ -2161,7 +2156,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(maps\\.google(?:\\.\\w+)+/(?!maps/place/.*).*(\\?.*))",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
@@ -2193,7 +2187,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://maps\\.apple\\.com/?(?:maps/?)?\\?(.*)",
             "testInputs": [
                 "http://maps.apple.com/maps?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
@@ -2271,7 +2264,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*waze\\.com/(livemap|live-map)/directions.*(latlng=|to=ll\\.)((\\d|.)*(%2C|,)(\\d|.)*).*?$",
             "testInputs": [
                 "https://www.waze.com/livemap/directions?latlng=37.789814%2C-122.395356",
@@ -2327,7 +2319,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?waze\\.to/?\\?([^#]+).*$",
             "testInputs": [
                 "http://waze.to/?ll=34.042892,-118.245853&navigate=yes",
@@ -2353,7 +2344,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?waze\\.to/?\\?(?:.+&)?ll=([^&]+).*$",
             "testInputs": [
                 "http://waze.to/?ll=34.042892,-118.245853&navigate=yes",
@@ -2371,7 +2361,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*(?:maps\\.(?:apple|google)(?:\\.\\w+)+|google(?:\\.\\w+)+/maps|waze\\.to).*(?:ll=|@)([\\-0-9\\.]+,[\\-0-9\\.]+).*?$",
             "testInputs": [
                 "http://maps.google.co.jp/maps?f=q&hl=ja&geocode=&q=-39.23774,175.3048&ie=UTF8&ll=-39.23774,175.3048&z=6",
@@ -2415,7 +2404,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(((\\w+\\.)?(youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
@@ -2663,7 +2651,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*(((youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
@@ -2851,7 +2838,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "(http(s?)://drive\\.google\\.com/(open|file|folder|drive/folders).*)$",
             "testInputs": [
                 "https://drive.google.com/open?id=1W64thRDqmKiDwsuK_j1IkxnCVeBfs7wwSXBbLxnsitL_D9-qAt4",
@@ -2873,7 +2859,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://m\\.box\\.com/shared_item/(.*)$",
             "testInputs": [
                 "https://m.box.com/shared_item/https%3A%2F%2Fapp.box.com%2Fs%2Fawrlik8v6w83ugx7q2swmekfw3irm28l"
@@ -2889,7 +2874,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:app\\.)?box\\.com/s/(\\w+).*$",
             "testInputs": [
                 "https://app.box.com/s/awrlik8v6w83ugx7q2swmekfw3irm28l",
@@ -3172,7 +3156,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album)/([:alnum:]+).*$",
             "testInputs": [
                 "http://open.spotify.com/track/5QZJAcP4nu3xL2NQV4AVHO",
@@ -3264,7 +3247,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.|m\\.)?soundcloud\\.com/[^/]+(/[^/]+)?",
             "testInputs": [
                 "http://m.soundcloud.com/ukgoldfilm/tap24-hiha24-1",
@@ -3421,7 +3403,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://pca.st/\\w+$",
             "testInputs": [
                 "http://pca.st/AmWl",
@@ -3456,7 +3437,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://castro\\.fm/((podcast|episode)/.*)$",
             "testInputs": [
                 "https://castro.fm/podcast/e9293a66-e513-41e1-a93d-b2f0d79b7b81",
@@ -3665,7 +3645,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?:\\w+\\.)?(reddit\\.com/.+))",
             "testInputs": [
                 "https://m.reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
@@ -3779,7 +3758,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://reddit\\.app\\.link/.+$",
             "testInputs": [
                 "https://reddit.app.link/l67tKPXrtS"
@@ -3880,7 +3858,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?!link\\.)(?:(\\w|-)+\\.)*medium\\.com(?!/r/?\\?url.*)/+([^&|\\?]*)(?:&|\\?)?(.*))$",
             "testInputs": [
                 "https://medium.com/@timonus",
@@ -3926,7 +3903,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://link\\.medium\\.com/.+",
             "testInputs": [
                 "https://link.medium.com/IrW5wDIMzS",
@@ -3944,7 +3920,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?!.*medium\\.com)[a-zA-Z0-9\\-.]+/(?!@.*)(?!\\?.*)(.+)\\n.*(\"medium-fulfilled-by\"|\"(?:(?i)x-powered-by)\":\"(?:(?i)kale|medium)\").*$",
             "headers": 1,
             "note": "URLs like https://500ish.com/?foo=bar and https://aimango.me/@aimango should not be handled by this action.",
@@ -3969,7 +3944,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "notes": "Either album or track, same prefix",
             "regex": "https?://music\\.amazon(?:\\.\\w+)+/(albums/\\w.*)$",
             "testInputs": [
@@ -4052,7 +4026,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "notes": "Either artist, playlist, or station",
             "regex": "https?://music\\.amazon(?:\\.\\w+)+/((artists|user-playlists|stations)/\\w.*)$",
             "testInputs": [
@@ -4073,7 +4046,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*watch\\.amazon(?:\\.\\w+)+/(.*)$",
             "testInputs": [
                 "https://watch.amazon.com/detail?asin=B0868TBBQV&territory=US&ref_=share_ios_movie&r=web"
@@ -4089,7 +4061,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?:\\w+\\.)*amazon((\\.\\w+)+)/.*)$",
             "testInputs": [
                 "http://www.amazon.com/Mondaine-A990-CLOCK-11SBC-Clock-White-Frame/dp/B0016QNNP6/ref=sr_1_1?ie=UTF8&qid=1429471063&sr=8-1&keywords=mondaine+clock",
@@ -4601,7 +4572,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.|m\\.)?strava\\.com/((activities|athletes)/\\d+).*$",
             "testInputs": [
                 "https://www.strava.com/activities/304977054",
@@ -4638,7 +4608,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?!www\\.)(?:([a-zA-Z0-9\\-]+)\\.)(?:\\w+\\.)*wikipedia\\.(?:com|org)/(?:[^/]+/)?(.*))$",
             "testInputs": [
                 "http://www.wikipedia.org/wiki/Bottle_opener",
@@ -4750,7 +4719,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?tamper\\.io/(?:curiosity|inquire)/share.*(?:(?:\\?|&)p=(\\d+).*&l=([a-zA-Z0-9\\-_]+)|(?:\\?|&)l=([a-zA-Z0-9\\-_]+).*&p=(\\d+)).*$",
             "testInputs": [
                 "https://tamper.io/curiosity/share/?p=351344&l=en",
@@ -4831,7 +4799,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?!gist\\.)(\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
@@ -4841,7 +4808,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
@@ -5056,7 +5022,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*((stackoverflow|stackexchange|serverfault|superuser|stackapps)\\.com|mathoverflow\\.net)/.*)",
             "testInputs": [
                 "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
@@ -5072,7 +5037,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*stackoverflow\\.com/.*)",
             "testInputs": [
                 "http://stackoverflow.com/questions/30262509/union-object-acts-like-a-structure"
@@ -5088,7 +5052,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*(stackoverflow\\.com/(users|questions)/(?!tagged/.*).*)",
             "testInputs": [
                 "https://stackoverflow.com/users/3943258/tim-johnsen",
@@ -5108,7 +5071,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*stackoverflow\\.com/a/\\d+/\\d+",
             "testInputs": [
                 "https://stackoverflow.com/a/57467270/3943258"
@@ -5124,7 +5086,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)+quora\\.com/.*)$",
             "testInputs": [
                 "http://www.quora.com/What-is-a-coders-worst-nightmare"
@@ -5359,7 +5320,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?houzz(?:\\.\\w+)+/((?:photos|ideabooks)/(\\d+)).*$",
             "testInputs": [
                 "http://www.houzz.com/photos/31036816/Bay-Collection-King-Bed-by-Talenti-Casa-modern-platform-beds",
@@ -5558,7 +5518,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:geo\\.)?(?:itunes|music)\\.apple\\.com/(?:.*/)*(artist|album|music-video)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
@@ -5608,7 +5567,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(geo\\.)?(itunes|music)\\.apple\\.com/(.*/)*(album)/(.*/)?(id)?\\d+.*?((\\?|&)(i=\\d+))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
@@ -5738,7 +5696,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:geo\\.)?(?:itunes|tv)\\.apple\\.com/(?:.*/)*(movie|tv-season|show)/(?:.*/)?(?:id)?(\\d+).*?(?:(?:\\?|&)(i=(\\d+)))?.*?$",
             "testInputs": [
                 "https://itunes.apple.com/us/artist/beck/id312095",
@@ -5877,7 +5834,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(tv\\.apple\\.com/.+)$",
             "docs": "https://twitter.com/devarty/status/1213892785763487745 / https://www.macstories.net/ios/how-to-open-the-apple-tv-front-page-and-individual-shows-directly-in-the-tv-app/",
             "testInputs": [
@@ -5964,7 +5920,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)?imgur\\.com/(?:gallery/|a/|r/.*/)?(\\w+).*?$",
             "testInputs": [
                 "http://m.imgur.com/gallery/UW0KFYQ",
@@ -6128,7 +6083,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*tidal\\.com/(#!|browse/)?(track|album)/\\d+.*$",
             "testInputs": [
                 "http://tidal.com/track/35470518",
@@ -6220,7 +6174,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*(taobao|tmall)\\.com/.*)$",
             "testInputs": [
                 "http://m.intl.taobao.com/detail/detail.html?spm=a214x.7681957.1998488803.3&id=522074348531",
@@ -6312,7 +6265,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.|m\\.)?vk\\.(?:com|ru)/(.*)$",
             "testInputs": [
                 "https://vk.com/album-63183658_224587768",
@@ -6626,7 +6578,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://news\\.ycombinator\\.com/from.*(?:\\?|&)site=([^&]+).*?$",
             "testInputs": [
                 "https://news.ycombinator.com/from?site=matrix.org"
@@ -6642,7 +6593,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://news\\.ycombinator\\.com/front.*(?:\\?|&)day=([^&]+).*?$",
             "testInputs": [
                 "https://news.ycombinator.com/front?day=2018-05-10"
@@ -6787,7 +6737,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(plus\\.google\\.com/.*)$",
             "testInputs": [
                 "https://plus.google.com/u/0/100711776131865357077",
@@ -6807,7 +6756,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.|m\\.)?(wolframalpha\\.com/input.*)$",
             "testInputs": [
                 "http://www.wolframalpha.com/input/?i=number+of+days+since+january+15+1989",
@@ -6900,7 +6848,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)?goodreads\\.com/(.*)$",
             "testInputs": [
                 "https://www.goodreads.com/review/show/1514098547"
@@ -7010,7 +6957,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?snapchat\\.com/unlock(.*)$",
             "testInputs": [
                 "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=7d61fcc34ad3496f8b58d52211253de3&metadata=1"
@@ -7026,7 +6972,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.)?snapchat\\.com/discover.*$",
             "notes": "Hard to test because Snap adds a bunch of session-specific params to the end. This works for now, a good testing URL is https://www.snapchat.com/discover/The-Verge/0517884694?sc_referrer=None&sc_ua=",
             "formats": [
@@ -7054,7 +6999,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(byte\\.co/.*)$",
             "testInputs": [
                 "http://byte.co/timonus",
@@ -7221,7 +7165,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?(anchor\\.fm/.*)$",
             "testInputs": [
                 "https://anchor.fm/quietonset/episodes/36---Mank--Citizen-Kane--HBOxWarner--The-Mandalorian-enh9o8"
@@ -7255,7 +7198,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)?tabelog\\.com/(?:\\w+/){3,4}(\\d+).*?$",
             "testInputs": [
                 "http://s.tabelog.com/tokyo/A1301/A130101/13002260/",
@@ -7309,7 +7251,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://([^\\.])+\\.hatenablog(\\.\\w+)+.*$",
             "testInputs": [
                 "http://ko-chanblog.hatenablog.com/entry/2016/04/10/093117",
@@ -7352,7 +7293,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*glassdoor\\.com/(.*)$",
             "testInputs": [
                 "https://www.glassdoor.com/Overview/Working-at-Pinterest-EI_IE503467.11,20.htm",
@@ -7418,7 +7358,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*mobile01\\.com/(\\w+detail)\\.php\\?(.*)$",
             "testInputs": [
                 "http://www.mobile01.com/topicdetail.php?f=116&t=4824149",
@@ -7440,7 +7379,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.)?genius\\.com/(\\d+|.*-lyrics|artists/).*$",
             "testInputs": [
                 "https://genius.com/artists/Pouya",
@@ -7464,7 +7402,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*espn\\.com(?:\\.\\w+)?/(?!video).*id/(\\d+).*$",
             "testInputs": [
                 "http://www.espn.com/olympics/swimming/story/_/id/17299461/usoc-confirms-ryan-lochte-three-other-us-swimmers-robbed-rio?ex_cid=espntw",
@@ -7763,7 +7700,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?:www\\.)?netflix\\.com/(watch|title)/.*)$",
             "testInputs": [
                 "https://www.netflix.com/watch/70129452",
@@ -7799,7 +7735,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.|m\\.)?douyu\\.(?:com|tv)/(\\d+).*?$",
             "testInputs": [
                 "https://www.douyu.com/2570",
@@ -7819,7 +7754,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "(https?://(\\w+\\.)?namu\\.wiki/.*)$",
             "testInputs": [
                 "https://namu.wiki/w/%EC%9D%B4%ED%99%94%EC%97%AC%EC%9E%90%EB%8C%80%ED%95%99%EA%B5%90%20%EC%A0%95%EC%9C%A0%EB%9D%BC%20%ED%8A%B9%ED%98%9C%20%EB%85%BC%EB%9E%80"
@@ -7835,7 +7769,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)?pandora\\.com/(?!station/play/).*",
             "testInputs": [
                 "https://www.pandora.com/artist/lcd-soundsystem/sound-of-silver/someone-great/TRqZxpdPnrfvZgc?part=ug-desktop&corr=1539181200",
@@ -7927,7 +7860,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)?pandora\\.com/station/play/(\\d+).*?",
             "testInputs": [
                 "http://www.pandora.com/fall-out-boy/from-under-cork-tree/dance-dance?station=939625762651725460&shareImp=true&referrer=gonzalez_252",
@@ -7971,7 +7903,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)?mixcloud\\.com/(.+)$",
             "testInputs": [
                 "https://m.mixcloud.com/dashradio/skee-1-on-1-with-adrian-peterson/",
@@ -8034,7 +7965,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?(appadvice\\.com/.*)$",
             "testInputs": [
                 "https://appadvice.com/game/collection/best-party-games-for-party-time",
@@ -8075,7 +8005,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://music\\.163\\.com/(?:(?:m|#)/)?(song|album|playlist|program)(?:(?:.*(?:&|\\?)id=|/))(\\d+).*$",
             "testInputs": [
                 "http://music.163.com/m/song?id=475072294&userid=16656993",
@@ -8117,7 +8046,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)?(zomato\\.com|zoma\\.to).*$",
             "testInputs": [
                 "https://www.zomato.com/chennai/murugan-idli-shop-nanganallur/menu",
@@ -8139,7 +8067,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://play\\.google(\\.\\w+)+(/music/.*)$",
             "testInputs": [
                 "https://play.google.com/music/m/Tshzbcoyxaujk47mk5v5cyuzucq?t=Balloon_Heads_Ft_Kye_-_Muph__Plutonic",
@@ -8244,7 +8171,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?(scrapbox\\.io/.*)$",
             "testInputs": [
                 "https://scrapbox.io/walpurgisn/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E7%B7%B4%E7%BF%92%E5%B8%B3"
@@ -8312,7 +8238,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.)?openrec\\.tv/.*$",
             "testInputs": [
                 "https://www.openrec.tv/live/akinose_163cm",
@@ -8334,7 +8259,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.)?tripadvisor(\\.\\w+)+/.+$",
             "testInputs": [
                 "https://www.tripadvisor.com/Hotel_Review-g499443-d10267413-Reviews-W_Punta_de_Mita-Punta_de_Mita_Pacific_Coast.html",
@@ -8374,7 +8298,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.)?sports\\.ru/.*$",
             "testInputs": [
                 "https://www.sports.ru/tribuna/blogs/russiateam/1628831.html",
@@ -8394,7 +8317,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)?mercadolibre(?:\\.\\w+)+/(\\w\\w\\w)-(\\d+).*?$",
             "testInputs": [
                 "https://articulo.mercadolibre.com.ve/MLV-506096816-kit-rodaje-rodamiento-moto-tx-200-rin-paleta-42-15-132-_JM",
@@ -8430,7 +8352,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?airtable\\.com/(\\w+/\\w+).*?$",
             "testInputs": [
                 "https://airtable.com/tbl41aPSQnB2JJ1uE/viw6mQSohadJqqdg1"
@@ -8462,7 +8383,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(www\\.)?booking\\.com/.*",
             "testInputs": [
                 "https://www.booking.com/searchresults.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;class_interval=1&dest_id=20024809&dest_type=city&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&no_rooms=1&offset=0&postcard=0&room1=A%2CA&sb_price_type=total&src=index&src_elem=sb&ss=atlanta&ss_all=0&ssb=empty&sshis=0&",
@@ -8480,7 +8400,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://derstandard\\.at/(.+)$",
             "testInputs": [
                 "https://derstandard.at/2000086779585/Sobotka-Sollten-Gesetze-gegen-Wiederbetaetigung-noch-erweitern",
@@ -8500,7 +8419,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)(deezer\\.com/.*)$",
             "testInputs": [
                 "https://www.deezer.com/us/track/124991588",
@@ -8548,7 +8466,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?(theathletic\\.com/.+)$",
             "testInputs": [
                 "https://theathletic.com/584168/2018/10/13/sporer-diagnosing-the-islanders-defensive-improvements-since-their-season-opener/"
@@ -8564,7 +8481,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?!v\\w)(\\w+\\.)?tiktok\\.com/.+$",
             "testInputs": [
                 "https://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
@@ -8590,7 +8506,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((www\\.)?tapatalk\\.com/.*)$",
             "testInputs": [
                 "https://www.tapatalk.com/groups/evgeniamedvedeva/gp-skate-canada-international-2018-t10-s380.html"
@@ -8606,7 +8521,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*iheart(\\.\\w+)+/(podcast|live|artist|playlist)/([^-/]*-)*\\d+.*?$",
             "testInputs": [
                 "https://www.iheart.com/podcast/bleeding-green-nation-29778453/",
@@ -8644,7 +8558,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*newspicks\\.com/(.+)$",
             "testInputs": [
                 "https://newspicks.com/news/3530812?ref=user_904964&u=qpajax&from=twitter",
@@ -8662,7 +8575,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "headers": 1,
             "regex": "https?://\\w+(\\.\\w+)+/(@|users/|web/accounts/)([^/]+).*?$\\n.*(?i)(server\":\"[^\"]*mastodon).*",
             "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
@@ -8732,7 +8644,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:www\\.)?liketoknow\\.it/(.+)$",
             "testInputs": [
                 "https://www.liketoknow.it/ltk/7dAiHuJA1yx37wfETjZqUy",
@@ -8750,7 +8661,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*rightmove\\.co\\.uk/property[^/]+/property-(\\d+).*$",
             "testInputs": [
                 "https://www.rightmove.co.uk/property-for-sale/property-74972759.html",
@@ -8788,7 +8698,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*(?:lih\\.kg/|lihkg\\.com/thread/)(\\d+)(?:/page/(\\d+))?.*?$",
             "testInputs": [
                 "https://lihkg.com/thread/1470105/page/1?fbclid=IwAR0KBRh5nWNwD8BllSvWYt26vnRfqMq3K73lO_5iuVCZnLSh0jP74q5ZhTI",
@@ -8814,7 +8723,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*teamblind\\.com/(?:s|article)/(?:\\w+-)*(\\w+).*?$",
             "testInputs": [
                 "https://us.teamblind.com/s/MxtjybRD",
@@ -8834,7 +8742,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://photos\\.google(\\.\\w+)+/share/.*$",
             "testInputs": [
                 "https://photos.app.goo.gl/tJauJwkXnLTsReGX7",
@@ -8854,7 +8761,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(song|album)\\.link/(\\w+/)?(s|i)/.*$",
             "note": "from https://github.com/songlink/docs/blob/master/ios-shortcuts.md. Should also match https://song.link/i/1443109064 and https://song.link/us/i/1443109064 (outdated?)",
             "testInputs": [
@@ -8937,7 +8843,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((?:\\w+\\.)*zoom\\.(?:us|com)(?:\\.\\w+)*)/j/(\\d*)(?:.*?(pwd=\\w+).*?|.*)$",
             "testInputs": [
                 "https://zoom.us/j/7083784912?pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
@@ -8959,7 +8864,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*craigslist\\.org/(.*)$",
             "testInputs": [
                 "https://sfbay.craigslist.org/pen/sop/d/palo-alto-apple-32-pro-display-xdr/7128524663.html"
@@ -8991,7 +8895,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*target(\\.\\w+)+/(?!gift-registry.*)(.*)$)",
             "testInputs": [
                 "https://www.target.com/p/doom-eternal-xbox-one-digital/-/A-77435284",
@@ -9027,7 +8930,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*notion\\.(so|com)/.+)$",
             "formats": [
                 {
@@ -9073,7 +8975,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://sports\\.yahoo\\.com/.+$",
             "testInputs": [
                 "https://sports.yahoo.com/from-ruins-to-renaissance-how-the-sports-card-market-became-appealing-to-investors-183139381.html"
@@ -9089,7 +8990,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*(cbsnews\\.com/.*)$",
             "testInputs": [
                 "https://www.cbsnews.com/live-updates/trump-pardons-capitol-security-inauguration/"
@@ -9177,7 +9077,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*bestbuy\\.com/site/.*)",
             "testInputs": [
                 "https://www.bestbuy.com/site/microsoft-controller-for-xbox-series-x-xbox-series-s-and-xbox-one-latest-model-carbon-black/6430655.p?skuId=6430655"
@@ -9213,7 +9112,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(?:\\w+\\.)*bhphotovideo\\.com/c/buy/.*/ci/(\\d+)/N/(\\d+).*?$",
             "testInputs": [
                 "https://www.bhphotovideo.com/c/product/1619483-REG/sony_ilce_1_b_alpha_a1_mirrorless_digital.html",
