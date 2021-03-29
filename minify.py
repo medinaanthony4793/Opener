@@ -32,7 +32,7 @@ for i in range(2,len(sys.argv)):
         mangle = False
 
 # Strip unneeded keys from apps
-appKeysToKeep = ["identifier", "name", "displayName", "storeId", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
+appKeysToKeep = ["identifier", "name", "displayName", "storeId", "macStoreId", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
 if not stripNewField:
     appKeysToKeep.append("new")
 for appIndex,app in enumerate(data['apps']):
@@ -93,7 +93,7 @@ while actionIndex < len(data['actions']):
         actionIndex = actionIndex - 1
 
 # Strip unneeded keys from browsers
-browserKeysToKeep = ["identifier", "name", "displayName", "storeId", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
+browserKeysToKeep = ["identifier", "name", "displayName", "storeId", "macStoreId", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
 if not stripNewField:
     browserKeysToKeep.append("new")
 if 'browsers' in data:
