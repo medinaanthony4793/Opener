@@ -56,6 +56,17 @@
                     ]
                 },
                 {
+                    "appId": "fenix",
+                    "format": "fenix://tweet?id=$4",
+                    "testResults": [
+                        "fenix://tweet?id=588561590997352448",
+                        "fenix://tweet?id=599159327056863232",
+                        "fenix://tweet?id=814237378382622720",
+                        "fenix://tweet?id=221225038941126657",
+                        "fenix://tweet?id=1180616320599183360"
+                    ]
+                },
+                {
                     "appId": "aviary",
                     "format": "aviary://twitter.com/statuses/$4",
                     "testResults": [
@@ -166,6 +177,21 @@
                     ]
                 },
                 {
+                    "appId": "fenix",
+                    "format": "fenix://profile?screen_name=$2",
+                    "testResults": [
+                        "fenix://profile?screen_name=chillmage",
+                        null,
+                        null,
+                        "fenix://profile?screen_name=chriswelch",
+                        null,
+                        "fenix://profile?screen_name=branches_app",
+                        "fenix://profile?screen_name=branches_app",
+                        "fenix://profile?screen_name=FrancescoD_Ales",
+                        null
+                    ]
+                },
+                {
                     "appId": "aviary",
                     "format": "aviary://twitter.com/$2",
                     "testResults": [
@@ -215,6 +241,13 @@
                     "format": "spring://twitter.com/$2",
                     "testResults": [
                         "spring://twitter.com/addyosmani"
+                    ]
+                },
+                {
+                    "appId": "fenix",
+                    "format": "fenix://profile?screen_name=$2",
+                    "testResults": [
+                        "fenix://profile?screen_name=addyosmani"
                     ]
                 },
                 {
@@ -10896,6 +10929,12 @@
             "storeId": 1508706541,
             "scheme": "spring",
             "docs": "https://github.com/JunyuKuang/Project-Spring-for-Twitter/blob/master/URL%20Schemes.md"
+        },
+        {
+            "name": "Fenix",
+            "identifier": "fenix",
+            "storeId": 1437821840,
+            "scheme": "fenix"
         }
     ],
     "browsers": [
