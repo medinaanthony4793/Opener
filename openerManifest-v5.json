@@ -5475,6 +5475,26 @@
             ]
         },
         {
+            "title": "View Developer",
+            "regex": "https?://(?:geo\\.)?(?:apps|itunes)\\.apple\\.com/(?:.*/)*developer/(?:.*/)?id(\\d+).*$",
+            "testInputs": [
+                "https://apps.apple.com/us/developer/matteo-villa/id1376054311",
+                "https://apps.apple.com/developer/tijo-inc/id332516208",
+                "https://apps.apple.com/developer/id332516208"
+            ],
+            "formats": [
+                {
+                    "appId": "appstore",
+                    "format": "itms-apps://apps.apple.com/developer/id$1",
+                    "testResults": [
+                        "itms-apps://apps.apple.com/developer/id1376054311",
+                        "itms-apps://apps.apple.com/developer/id332516208",
+                        "itms-apps://apps.apple.com/developer/id332516208"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "View App",
             "regex": "https?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+).*$",
             "testInputs": [
