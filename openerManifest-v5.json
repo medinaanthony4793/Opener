@@ -257,6 +257,14 @@
                         null,
                         "twitterrific:///search?q=%23ThingsILearnedFromTheLeft"
                     ]
+                },
+                {
+                    "appId": "spring",
+                    "format": "spring://search?text=%23$2",
+                    "testResults": [
+                        null,
+                        "spring://search?text=%23ThingsILearnedFromTheLeft"
+                    ]
                 }
             ]
         },
@@ -294,6 +302,15 @@
                         "twitterrific:///search?q=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future",
                         "twitterrific:///search?q=opener%20app",
                         "twitterrific:///search?q=Panda%20amazon"
+                    ]
+                },
+                {
+                    "appId": "spring",
+                    "format": "spring://search?text=%23$2",
+                    "testResults": [
+                        "spring://search?text=To%20the%20dinosaurs%2C%20we%20live%20in%20a%20post-apocalyptic%20future",
+                        "spring://search?text=opener%20app",
+                        "spring://search?text=Panda%20amazon"
                     ]
                 }
             ]
