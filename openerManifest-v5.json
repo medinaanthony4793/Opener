@@ -45,6 +45,17 @@
                     ]
                 },
                 {
+                    "appId": "spring",
+                    "format": "spring://twitter.com/x/status/$4",
+                    "testResults": [
+                        "spring://twitter.com/x/status/588561590997352448",
+                        "spring://twitter.com/x/status/599159327056863232",
+                        "spring://twitter.com/x/status/814237378382622720",
+                        "spring://twitter.com/x/status/221225038941126657",
+                        "spring://twitter.com/x/status/1180616320599183360"
+                    ]
+                },
+                {
                     "appId": "aviary",
                     "format": "aviary://twitter.com/statuses/$4",
                     "testResults": [
@@ -140,6 +151,21 @@
                     ]
                 },
                 {
+                    "appId": "spring",
+                    "format": "spring://twitter.com/$2",
+                    "testResults": [
+                        "spring://twitter.com/chillmage",
+                        null,
+                        null,
+                        "spring://twitter.com/chriswelch",
+                        null,
+                        "spring://twitter.com/branches_app",
+                        "spring://twitter.com/branches_app",
+                        "spring://twitter.com/FrancescoD_Ales",
+                        null
+                    ]
+                },
+                {
                     "appId": "aviary",
                     "format": "aviary://twitter.com/$2",
                     "testResults": [
@@ -182,6 +208,13 @@
                     "format": "twitterrific:///profile?screen_name=$2",
                     "testResults": [
                         "twitterrific:///profile?screen_name=addyosmani"
+                    ]
+                },
+                {
+                    "appId": "spring",
+                    "format": "spring://twitter.com/$2",
+                    "testResults": [
+                        "spring://twitter.com/addyosmani"
                     ]
                 },
                 {
@@ -341,23 +374,44 @@
         },
         {
             "title": "Open List",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search|i)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
             "testInputs": [
-                "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list"
+                "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list",
+                "https://twitter.com/i/lists/1344918930687729664"
             ],
             "formats": [
                 {
                     "appId": "tweetbot",
                     "format": "tweetbot://$2/list/$3",
                     "testResults": [
-                        "tweetbot://ImJeffBell/list/jeff-s-central-asia-list"
+                        "tweetbot://ImJeffBell/list/jeff-s-central-asia-list",
+                        null
                     ]
                 },
                 {
                     "appId": "twitterrific",
                     "format": "twitterrific5://$2/list?name=$3",
                     "testResults": [
-                        "twitterrific5://ImJeffBell/list?name=jeff-s-central-asia-list"
+                        "twitterrific5://ImJeffBell/list?name=jeff-s-central-asia-list",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open List",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?(twitter\\.com/@?(?!search)([a-zA-Z0-9_]{0,15})/lists/([^/]+)/?(\\?.*)?)$",
+            "testInputs": [
+                "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list",
+                "https://twitter.com/i/lists/1344918930687729664"
+            ],
+            "formats": [
+                {
+                    "appId": "spring",
+                    "format": "spring://$2",
+                    "testResults": [
+                        "spring://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list",
+                        "spring://twitter.com/i/lists/1344918930687729664"
                     ]
                 }
             ]
@@ -10805,6 +10859,13 @@
             "identifier": "oplayerlite",
             "storeId": 385907472,
             "scheme": "oplayerlite"
+        },
+        {
+            "name": "Spring",
+            "identifier": "spring",
+            "storeId": 1508706541,
+            "scheme": "spring",
+            "docs": "https://github.com/JunyuKuang/Project-Spring-for-Twitter/blob/master/URL%20Schemes.md"
         }
     ],
     "browsers": [
