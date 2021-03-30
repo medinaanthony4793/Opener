@@ -519,6 +519,19 @@
                         "twitterrific:///post?message=Facebook%20Portal%20review%3A%20trust%20fail%20https%3A%2F%2Fwww.theverge.com%2F2018%2F11%2F8%2F18072998%2Ffacebook-portal-plus-smart-display-messenger-review-price-specs%20via%20%40Verge",
                         "twitterrific:///post?message=foo%20%23bar%20%23baz%20%23whatup"
                     ]
+                },
+                {
+                    "appId": "spring",
+                    "script2": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var link = getParameterByName(url, 'url'); var via = getParameterByName(url, 'via'); var result = getParameterByName(url, 'text'); if (link && link.length > 0) { if (result && result.length > 0) { result = result + ' ' + link; } else { result = link; } } if (via && via.length > 0) { if (result && result.length > 0) { result = result + ' via @' + via; } else { result = 'via @' + via; } } var hashtags = getParameterByName(url, 'hashtags'); var hashtagString; if (hashtags && hashtags.length > 0) { hashtagString = hashtags.split(',').map(function(x) { return '#' + x }).join(' '); } if (hashtagString && hashtagString.length > 0) { if (result && result.length > 0) { result = result + ' ' + hashtagString; } else { result = hashtagString; } } if (result && result.length > 0) { result = 'spring://post?text=' + encodeURIComponent(result); } completionHandler(result); }",
+                    "testResults": [
+                        "spring://post?text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20%20https%3A%2F%2Fon.nrdc.org%2F2PyiQjG",
+                        "spring://post?text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20%20https%3A%2F%2Fon.nrdc.org%2F2PyiQjG",
+                        "spring://post?text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20%20https%3A%2F%2Fon.nrdc.org%2F2PyiQjG",
+                        "spring://post?text=Tell%20the%20%40StateDept%20to%20stop%20%23KeystoneXL.%20Submit%20a%20public%20comment%20today.%20via%20%40NRDC%20",
+                        "spring://post?text=https%3A%2F%2Fon.nrdc.org%2F2PyiQjG",
+                        "spring://post?text=Facebook%20Portal%20review%3A%20trust%20fail%20https%3A%2F%2Fwww.theverge.com%2F2018%2F11%2F8%2F18072998%2Ffacebook-portal-plus-smart-display-messenger-review-price-specs%20via%20%40Verge",
+                        "spring://post?text=foo%20%23bar%20%23baz%20%23whatup"
+                    ]
                 }
             ]
         },
