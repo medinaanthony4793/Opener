@@ -5822,7 +5822,7 @@
         },
         {
             "title": "View Item",
-            "regex": "(https?://(?:geo\\.)?(?:itunes|apps|music|books)\\.apple\\.com/(?!.*/(?:story|podcast)/.*)(?:.*/)?id(\\d+).*)$",
+            "regex": "(https?://(?:geo\\.)?(?:itunes|apps|music|books)\\.apple\\.com/(?!(.*/)*(?:story|podcast|developer)/.*)(?:.*/)?id(\\d+).*)$",
             "note": "same as blink entry below",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
@@ -5833,7 +5833,8 @@
                 "https://itunes.apple.com/us/artist/widowspeak/id420935735",
                 "https://itunes.apple.com/us/podcast/death-sex-money/id870688022?i=356350404&mt=2",
                 "https://geo.itunes.apple.com/us/app/logmyrun/id513718134?mt=8&uo=4&at=11lbfL&ct=twitter",
-                "https://itunes.apple.com/us/story/id1268017618"
+                "https://itunes.apple.com/us/story/id1268017618",
+                "https://apps.apple.com/developer/id332516208"
             ],
             "formats": [
                 {
@@ -5848,6 +5849,7 @@
                         "lookmark://add?url=https://itunes.apple.com/us/artist/widowspeak/id420935735",
                         null,
                         "lookmark://add?url=https://geo.itunes.apple.com/us/app/logmyrun/id513718134?mt=8&uo=4&at=11lbfL&ct=twitter",
+                        null,
                         null
                     ]
                 }
