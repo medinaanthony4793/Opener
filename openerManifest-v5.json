@@ -11938,7 +11938,7 @@
         "https?://app\\.adjust\\.net\\.in.*redirect=.*": {
             "param": "redirect",
             "tests": {
-                "https://app.adjust.net.in/abuwqb?tracker_limit=250000&deep_link=spotify%3A%2F%2Falbum%2F2ffRAIZdlGEwnYE5ytIw88-G0MfUN_cmrzg&redirect=https%3A%2F%2Fopen.spotify.com%2Falbum%2F2ffRAIZdlGEwnYE5ytIw88-G0MfUN_cmrzg%3Fnd%3D1&label=sp_cid%3A6aca1c52d4dab2c84246e2cb7c0dfa99": "https://open.spotify.com/album/2ffRAIZdlGEwnYE5ytIw88-G0MfUN_cmrzg?nd=1&label=sp_cid:6aca1c52d4dab2c84246e2cb7c0dfa99"
+                "https://app.adjust.net.in/abuwqb?tracker_limit=250000&deep_link=spotify%3A%2F%2Falbum%2F2ffRAIZdlGEwnYE5ytIw88-G0MfUN_cmrzg&redirect=https%3A%2F%2Fopen.spotify.com%2Falbum%2F2ffRAIZdlGEwnYE5ytIw88-G0MfUN_cmrzg%3Fnd%3D1&label=sp_cid%3A6aca1c52d4dab2c84246e2cb7c0dfa99": "https://open.spotify.com/album/2ffRAIZdlGEwnYE5ytIw88-G0MfUN_cmrzg?nd=1"
             }
         }
     }
