@@ -2955,7 +2955,7 @@
             ]
         },
         {
-            "regex": "(http(s?)://drive\\.google\\.com/(open|file|folder|drive/folders).*)$",
+            "regex": "(https?://drive\\.google\\.com/(open|file|folder|drive/folders).*)$",
             "testInputs": [
                 "https://drive.google.com/open?id=1W64thRDqmKiDwsuK_j1IkxnCVeBfs7wwSXBbLxnsitL_D9-qAt4",
                 "https://drive.google.com/file/d/1W64thRDqmKiDwsuK_j1IkxnCVeBfs7wwSXBbLxnsitL_D9-qAt4/view",
@@ -7600,7 +7600,7 @@
         },
         {
             "title": "Stream Media",
-            "regex": "(http(s)?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v|m3u8))/?(\\?.*)?$",
+            "regex": "(https?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v|m3u8))/?(\\?.*)?$",
             "useful": "http://stackoverflow.com/a/27755/3943258",
             "testInputs": [
                 "https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
@@ -7677,7 +7677,7 @@
         },
         {
             "title": "Download Media",
-            "regex": "(http(s)?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v|m3u8))/?(\\?.*)?$",
+            "regex": "(https?://([^/\\s]+)/[^?]+\\.(?i)(mpeg|mp1v|mpg1|PIM1|mp2v|mpg2|vcr2|hdv1|hdv2|hdv3|mx.n|mx.p|DIV1|DIV2|DIV3|mp4|mp41|mp42|MPG4|MPG3|DIV4|DIV5|DIV6|col1|col0|3ivd|DIVX|Xvid|mp4s|m4s2|xvid|mp4v|fmp4|3iv2|smp4|h261|h262|h263|h264|s264|AVC1|DAVC|H264|X264|VSSH|SVQ.|cvid|thra|wmv1|wmv2|wmv3|wvc1|wmva|VP31|VP30|VP3|VP50|VP5|VP51|VP60|VP61|VP62|VP6F|VP6A|VP7|FSV1|IV31|IV32|IV41|IV51|RV10|RV13|RV20|RV30|RV40|BBCD|wmv|mpga|mp3|LAME|mp4a|a52|a52b|atrc|ILBC|Qclp|lpcJ|28_8|dnet|sipr|cook|atrc|raac|racp|ralf|shrn|spex|vorb|ogg|dts|wma|wma1|wma2|flac|alac|samr|SONC|3gp|asf|au|avi|flv|mov|ogm|mkv|mka|ts|mpg|mp2|nsc|nsv|nut|ra|ram|rm|tv|rmbv|a52|dts|aac|dv|vid|tta|tac|ty|wav|dts|xa|webm|m4v|m3u8))/?(\\?.*)?$",
             "useful": "http://stackoverflow.com/a/27755/3943258",
             "testInputs": [
                 "https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
@@ -10966,8 +10966,8 @@
             "identifier": "chrome",
             "storeId": 535886823,
             "scheme": "googlechrome",
-            "regex": "http(s)?(.*)$",
-            "format": "googlechrome$1$2",
+            "regex": "http(s?.*)$",
+            "format": "googlechrome$1",
             "docs": "https://developer.chrome.com/multidevice/ios/links",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11221,8 +11221,8 @@
             "identifier": "puffin",
             "storeId": 406239138,
             "scheme": "puffin-x-callback",
-            "regex": "http(s)?(.*)$",
-            "format": "puffin$1$2",
+            "regex": "http(s?.*)$",
+            "format": "puffin$1",
             "docs": "https://www.puffinbrowser.com/development/",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11370,7 +11370,7 @@
             "identifier": "onionbrowser",
             "storeId": 519296448,
             "scheme": "onionhttp",
-            "regex": "http((s)?.*)",
+            "regex": "http(s?.*)$",
             "format": "onionhttp$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11386,7 +11386,7 @@
             "identifier": "snowhaze",
             "storeId": 1121026941,
             "scheme": "shtps",
-            "regex": "http((s)?.*)",
+            "regex": "http(s?.*)$",
             "format": "shtp$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11667,7 +11667,7 @@
             "identifier": "qqbrowser",
             "storeId": 370139302,
             "scheme": "mqqbrowser",
-            "regex": "(https?.*)",
+            "regex": "(https?.*)$",
             "format": "mqqbrowser://url=$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11683,7 +11683,7 @@
             "identifier": "redonion",
             "storeId": 829739720,
             "scheme": "redbrowser",
-            "regex": "http((s)?.*)",
+            "regex": "http(s?.*)$",
             "format": "redbrowser$1",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11737,19 +11737,19 @@
             "docs": "https://developers.gfycat.com/api/#getting-info-for-a-single-gfycat"
         },
         {
-            "regex": "http(s?)://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/\\w+/playlist|artist)/.*$",
+            "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/(track|album|playlist|episode|show|user/\\w+/playlist|artist)/.*$",
             "script2": "function process(url, completionHandler) { var res = jsonRequest('https://embed.spotify.com/oembed?url=' + encodeURIComponent(url.split('&')[0])); match = res != null ? res['thumbnail_url'] : null; completionHandler(match); }",
             "docs": "https://stackoverflow.com/a/16496995/3943258 / https://twitter.com/nicklas2k/status/330094611202723840"
         },
         {
             "regex": "https?://((?!www\\.)[a-zA-Z0-9\\-]+\\.(\\w+\\.)*wikipedia\\.(com|org)/([^/]+/)?.*)$",
-            "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
+            "script2": "function process(url, completionHandler) { var match = RegExp('(https?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&formatversion=2&prop=pageimages%7Cpageterms&piprop=thumbnail&pithumbsize=800&titles=' + title; var res = jsonRequest(url); var page = res['query']['pages'][0]; var thumb; if (page != null && page['thumbnail'] != null) { thumb = page['thumbnail']['source']; } completionHandler(thumb); }",
             "canSave": 1,
             "docs": "Copied from Curiosity's rules (two should match) and https://stackoverflow.com/a/43039946/3943258"
         },
         {
-            "regex": "http(s?)://(www\\.)?dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*$",
-            "script2": "function process(url, completionHandler) { completionHandler('https://dl.' + RegExp('http(?:s?)://(?:www\\.)?(dropbox\\.com/s/\\\\w+.*)$').exec(url)[1]); }",
+            "regex": "https?://(www\\.)?dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*$",
+            "script2": "function process(url, completionHandler) { completionHandler('https://dl.' + RegExp('https?://(?:www\\.)?(dropbox\\.com/s/\\\\w+.*)$').exec(url)[1]); }",
             "canSave": 1
         }
     ],
@@ -11809,7 +11809,7 @@
                 "https://www.instagram.com/linkshim/?u=https%3A%2F%2Ftwitter.com%2Ftimonus&e=AT0LfDKXDfqTMV41nrNv8FFYVu3Son_TuNHJHMv6_5-Gomz2gQ3Y9RotGED5QJ1ZOuM0CiMcXD5pRARbAX3m8dXZt0ZhuNNCc3oTHgGyFLU8BzS614wZkKR8Sg": "https://twitter.com/timonus"
             }
         },
-        "(http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am))/accounts/login(?:/?).*?(?:\\?|&)next=(.*)$": {
+        "(https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am))/accounts/login.*?(?:\\?|&)next=(.*)$": {
             "format": "$1$2",
             "tests": {
                 "https://www.instagram.com/accounts/login/?next=/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg": "https://www.instagram.com/p/CF2EA6GJ7Ba/?igshid%3Drvm8zrfyymsg"
@@ -11874,35 +11874,35 @@
                 "https://castro.fm/itunes/1143273587": "https://podcasts.apple.com/podcast/id1143273587"
             }
         },
-        "(http(?:s)?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/.*?)(?:\\?|&)?igshid(?:=|%3D)\\w+(.*?)$": {
+        "(https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/.*?)(?:\\?|&)?igshid(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
             "test": {
                 "https://www.instagram.com/p/CFdlX1LpVU8/?igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/",
                 "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar&igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar"
             }
         },
-        "(http(?:s)?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/.*?)(?:\\?|&)?s(?:=|%3D)\\d+(.*?)$": {
+        "(https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/.*?)(?:\\?|&)?s(?:=|%3D)\\d+(.*?)$": {
             "format": "$1$2",
             "test": {
                 "https://twitter.com/dabit3/status/1308066681512775682?s=21": "https://twitter.com/dabit3/status/1308066681512775682",
                 "https://twitter.com/dabit3/status/1308066681512775682?foo=bar&s=21": "https://twitter.com/dabit3/status/1308066681512775682"
             }
         },
-        "(http(?:s?)://(?:play\\.|open\\.|www\\.)?spotify\\.com/.*?)(?:\\?|&)?si(?:=|%3D)\\w+(.*?)$": {
+        "(https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/.*?)(?:\\?|&)?si(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
             "test": {
                 "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf",
                 "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?foo=bar&si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf"
             }
         },
-        "(http(?:s)?://(?:(?:\\w+\\.)*amazon(?:(?:\\.\\w+)+)/.*?))(?:\\?|&)?ref(?:=|%3D)\\w+(.*?)$": {
+        "(https?://(?:(?:\\w+\\.)*amazon(?:(?:\\.\\w+)+)/.*?))(?:\\?|&)?ref(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
             "test": {
                 "https://www.amazon.com/dp/B081SHMJ77/ref=cm_sw_r_sms_api_i_7s1AFbE3WS0G8": "https://www.amazon.com/dp/B081SHMJ77/",
                 "https://www.amazon.com/dp/B081RJ8DW1/ref=cm_sw_r_cp_api_fabc_V2NVFbX5E8KHT?_encoding=UTF8&psc=1": "https://www.amazon.com/dp/B081RJ8DW1/?_encoding=UTF8&psc=1"
             }
         },
-        "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?:.*)\\?(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
+        "(https?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?:.*)\\?(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
             "format": "$1&$web_only=true$2",
             "docs": "Pesky Branch.io links (*.app.link) use HTML redirects by default, which breaks Opener. In order to force a Branch link to HTTP redirect to its underlying web link you can add query param $web_onyl=true (yes, including the '$'). Found from docs here https://bit.ly/2EjUPHd and here https://bit.ly/2EswGit. NOTE: Tests for this rule also apply to the following rule.",
             "tests": {
@@ -11914,7 +11914,7 @@
                 "https://bnc.lt/focc/IieWSuUHJR?foo=bar&$web_only=true": "https://bnc.lt/focc/IieWSuUHJR?foo=bar&$web_only=true"
             }
         },
-        "(http(?:s)?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?!.*\\?.*)(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
+        "(https?://(?:(?:\\w+\\.)+app\\.link|bnc\\.lt)/(?!.*\\?.*)(?:(?!.*web_only=true.*).*))(\\#.*)?$": {
             "format": "$1?$web_only=true$2"
         },
         "https?://(www\\.)?opener\\.link/r\\?.*url=.+$": {
