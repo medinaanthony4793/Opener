@@ -4144,11 +4144,12 @@
         },
         {
             "notes": "Either artist, playlist, or station",
-            "regex": "https?://music\\.amazon(?:\\.\\w+)+/((artists|user-playlists|stations)/\\w.*)$",
+            "regex": "https?://music\\.amazon(?:\\.\\w+)+/((artists|(user-)?playlists|stations)/\\w.*)$",
             "testInputs": [
                 "https://music.amazon.com/artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
                 "https://music.amazon.com/user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
-                "https://music.amazon.com/stations/A2D0X18EHNKEOJ?ref=dm_sh_e19e-7a36-dmcp-812b-23c1e&musicTerritory=US&marketplaceId=ATVPDKIKX0DER"
+                "https://music.amazon.com/stations/A2D0X18EHNKEOJ?ref=dm_sh_e19e-7a36-dmcp-812b-23c1e&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
+                "https://music.amazon.co.jp/playlists/B06XBXQ6TP?do=play"
             ],
             "formats": [
                 {
@@ -4157,7 +4158,8 @@
                     "testResults": [
                         "amznmp3://artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
                         "amznmp3://user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
-                        "amznmp3://stations/A2D0X18EHNKEOJ?ref=dm_sh_e19e-7a36-dmcp-812b-23c1e&musicTerritory=US&marketplaceId=ATVPDKIKX0DER"
+                        "amznmp3://stations/A2D0X18EHNKEOJ?ref=dm_sh_e19e-7a36-dmcp-812b-23c1e&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
+                        "amznmp3://playlists/B06XBXQ6TP?do=play"
                     ]
                 }
             ]
