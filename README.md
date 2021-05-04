@@ -60,7 +60,7 @@ Because an action could taken in multiple apps, there's an array within each act
 <table>
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
 <tr><td><code>appId</code></td><td>string</td><td>The identifier of the app that this action applies to. Should match the <code>identifier</code> of an app.</td></tr>
-<tr><td><code>format</code></td><td>string</td><td>The regex template applied to the input. Mutually exclusive with <code>script</code>.</td></tr>
+<tr><td><code>format</code></td><td>string</td><td>The regex template applied to the input. Mutually exclusive with <code>script2</code>.</td></tr>
 </table>
 
 ### Advanced URL generation in formats
@@ -69,8 +69,8 @@ Some app native URLs can't be generated using simple regex templating, they requ
 
 <table>
 <tr><th>Key</th><th>Type</th><th>Description</th></tr>
-<tr><td><code>script</code></td><td>JavaScript string</td><td>Mutually exclusive with <code>format</code>, can coexist with <code>script2</code>.</td></tr>
 <tr><td><code>script2</code></td><td>JavaScript string</td><td>Mutually exclusive with <code>format</code>, can coexist with <code>script</code>.</td></tr>
+<tr><td><code><strike>script</strike></code></td><td><strike>JavaScript string</strike></td><td><strike>Mutually exclusive with <code>format</code>, can coexist with <code>script2</code>.</strike> Deprecated in late 2018</td></tr>
 </table>
 
 This script must contain a JavaScript function named `process` that takes two inputs, a URL and an anonymous function to be called upon completion. Once complete, the completion handler should be called passing the result or `null` on failure.
@@ -86,15 +86,14 @@ function process(url, completionHandler) {
 }
 ```
 
-The contents of the `script` field are executed in a `UIWebView`, which gives it a full set of functionality but is a bit slow and costly. The `script2` field is instead run inside of an engine that uses JavaScriptCore, which is much more performant but doesn't have some small functionality that the `UIWebView` has. For convenience, the environment that the `script2` field is executed in has the following functions.
+The `script2` field is run inside of JavaScriptCore. For convenience, the environment that the `script2` field is executed in has the following functions.
 
 - `httpRequest` makes a blocking call to download the contents of a URL.
 - `jsonRequest` makes a blocking call to download the contents of a URL and parses the results into JSON.
 - `btoa` base 64 encodes its input.
-- `htmlDecode` decodes HTML entities in the input string.
 - `base64DigitsToBase10String` takes an array of base 64 digits as integers and converts them into a base 10 string. (Used for decoding [some types of identifiers](http://carrot.is/coding/instagram-ids)).
 
-If `script2` is provided it's used, otherwise we fall back to `script` if specified. Clients prior to version 1.1.8 are only capable of using the `script` field.
+Clients prior to version 1.1.8 are only capable of using the deprecated `script` field.
 
 Some common scenarios and best practices for using the script fields are outlined [here](./best-practices.md). Opener enforces a timeout of 15 seconds if `completionHandler` isn't called.
 
@@ -164,8 +163,8 @@ Support for opening any http or https URL in browsers was added in Opener 1.1. B
 <tr><td><code>platform</code></td><td>string</td><td>Specifies if this app should only show up on iPhone/iPod Touch (value=<code>phone</code>) or on iPad (value=<code>pad</code>), shows on both if unspecified. (Opener 1.0.1 and above)</td></tr>
 <tr><td><code>country</code></td><td>string</td><td>If the app isn't globally available, including a country code in which it is available in this field will allow the app's icon to show regardless of the user's store. (Opener 1.1.1 and above)</td></tr>
 <tr><td><code>regex</code></td><td>string</td><td>A regular expression string that the input URL is matched against, used for pattern replacements.</td></tr>
-<tr><td><code>format</code></td><td>string</td><td>The regex template applied to the input. Mutually exclusive with <code>script</code>.</td></tr>
-<tr><td><code>script</code></td><td>JavaScript string</td><td>Mutually exclusive with <code>format</code>.</td></tr>
+<tr><td><code>format</code></td><td>string</td><td>The regex template applied to the input. Mutually exclusive with <code>script2</code>.</td></tr>
+<tr><td><code>script2</code></td><td>JavaScript string</td><td>Mutually exclusive with <code>format</code>.</td></tr>
 <tr><td><code>testInputs</code></td><td>array of strings</td><td>An array of test inputs that will be run against <code>regex</code> then each action.</td></tr>
 <tr><td><code>testResults</code></td><td>array of strings or nulls</td><td>An array of expected results for this format for each of the test inputs. <code>null</code> should be used to specify that a test input <i>should not</i> match</td></tr>
 </table>
@@ -251,7 +250,7 @@ The manifest file has a `-v3` on the end, this indicates the major version of th
 <tr><th>Manifest Version</th><th>App Version</th><th>Changes</th></tr>
 <tr><td>v2</td><td>1.0.10</td><td>Made app dictionary <code>storeId</code> field optional. This was required in v1. Change was made in order to support first party apps, which lack an iTunes identifier.</td></tr>
 <tr><td>v3</td><td>1.1.8</td><td>Add support for <code>script2</code> field, which is processed using JavaScriptCore instead of a <code>UIWebView</code>.</td></tr>
-<tr><td>v4</td><td>1.8.10</td><td>Shrink numerous fields (`displayName`=`name`, `storeIdentifier`=`storeId`, `appIdentifier`=`appId`, `includeHeaders`=`headers`, `redirectRules`=`redirects`) and removed trailing `:`s from `scheme` field such that all keys and many more values fit in [tagged pointers to occupy less memory](https://www.mikeash.com/pyblog/friday-qa-2015-07-31-tagged-pointer-strings.html).</td></tr>
+<tr><td>v4</td><td>1.8.10</td><td>Shrink numerous fields (<code>displayName</code>=<code>name</code>, <code>storeIdentifier</code>=<code>storeId</code>, <code>appIdentifier</code>=<code>appId</code>, <code>includeHeaders</code>=<code>headers</code>, <code>redirectRules</code>=<code>redirects</code>) and removed trailing <code>:</code>s from <code>scheme</code> field such that all keys and many more values fit in <a href="https://www.mikeash.com/pyblog/friday-qa-2015-07-31-tagged-pointer-strings.html">tagged pointers to occupy less memory</a>.</td></tr>
 <tr><td>v5</td><td>1.10.5</td><td>Modify <code>storeId</code> to be numbers instead of strings so they'll consistently fit into tagged pointers when in memory.</td></tr>
 </table>
 
