@@ -2682,6 +2682,21 @@
                         "piptube://openvideo?url=https://www.youtube.com/watch?v=ngElkyQ6Rhs",
                         "piptube://openvideo?url=https://www.youtube.com/watch?v=KVQxACAEpso"
                     ]
+                },
+                {
+                    "appId": "syndromi",
+                    "format": "syndromi://video?id=$1",
+                    "testResults": [
+                        "syndromi://video?id=MTY1Kje0yLg",
+                        "syndromi://video?id=0uY7gLZDmn4",
+                        "syndromi://video?id=MFzDaBzBlL0",
+                        "syndromi://video?id=mzun7_Ynmks",
+                        "syndromi://video?id=JEiSTzK-A2A",
+                        "syndromi://video?id=yWDJoJm-Rk0",
+                        "syndromi://video?id=S4WNO4tchUk",
+                        "syndromi://video?id=ngElkyQ6Rhs",
+                        "syndromi://video?id=KVQxACAEpso"
+                    ]
                 }
             ]
         },
@@ -10937,6 +10952,12 @@
             "identifier": "nicoseiga",
             "storeId": 1045938821,
             "scheme": "nicoseiga"
+        },
+        {
+            "name": "Syndromi",
+            "identifier": "syndromi",
+            "storeId": 1547850133,
+            "scheme": "syndromi"
         }
     ],
     "browsers": [
