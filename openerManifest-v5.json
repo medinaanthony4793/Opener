@@ -6465,7 +6465,7 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "https?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID)=\\d+.*$",
+            "regex": "https?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID|trackingnumber)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
