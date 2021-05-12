@@ -9769,8 +9769,8 @@
         {
             "name": "Antenna",
             "identifier": "amrc",
-            "storeId": 572391252,
             "scheme": "amrc",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/antenna-120-g.jpg",
             "docs": "https://www.reddit.com/r/amrc/comments/329z6d/beta_just_wanted_to_say_thanks/"
         },
         {
@@ -9932,8 +9932,8 @@
         {
             "name": "SmilePlayer2",
             "identifier": "smileplayer2",
-            "storeId": 876415486,
-            "scheme": "smileplayer2"
+            "scheme": "smileplayer2",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/smileplayer-120-g.jpg"
         },
         {
             "name": "Snapchat",
@@ -10218,8 +10218,8 @@
         {
             "name": "Stack Exchange",
             "identifier": "stackexchange",
-            "storeId": 871299723,
             "scheme": "se-zaphod",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/se-120-g.jpg",
             "docs": "http://stackexchange.com/feeds/sites"
         },
         {
@@ -10246,12 +10246,6 @@
             "storeId": 1481905050,
             "scheme": "moke",
             "docs": "http://moke.com/moke/url_schemes.html"
-        },
-        {
-            "name": "Periscope",
-            "identifier": "periscope",
-            "storeId": 972909677,
-            "scheme": "pscp"
         },
         {
             "name": "TED",
@@ -10419,12 +10413,6 @@
             "identifier": "blendle",
             "storeId": 947936149,
             "scheme": "blendle"
-        },
-        {
-            "name": "Boreal",
-            "identifier": "boreal",
-            "storeId": 925851179,
-            "scheme": "borealhn"
         },
         {
             "name": "CBS News",
@@ -10671,12 +10659,6 @@
             "identifier": "peach",
             "storeId": 1067891186,
             "scheme": "peach"
-        },
-        {
-            "name": "Play Music",
-            "identifier": "googleplaymusic",
-            "storeId": 691797987,
-            "scheme": "googleplaymusic"
         },
         {
             "name": "Porter",
