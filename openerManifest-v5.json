@@ -8560,7 +8560,7 @@
             ]
         },
         {
-            "regex": "https?://(?!v\\w)(\\w+\\.)?tiktok\\.com/.+$",
+            "regex": "https?(://(?!v\\w)(\\w+\\.)?tiktok\\.com/.+)$",
             "testInputs": [
                 "https://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
                 "https://t.tiktok.com/i18n/share/video/6611871928930012418/?region=PH&mid=6360467876020751105&u_code=d2g7ai3j6cbjc4&&iid=6611859828577126145&utm_campaign=sever_share&utm_medium=android&app=tiktok&utm_source=twitter",
@@ -8572,7 +8572,7 @@
             "formats": [
                 {
                     "appId": "tiktok",
-                    "script2": "function process(url, completionHandler) { completionHandler(url.replace(RegExp('http(s)?://'), 'snssdk1233://')); }",
+                    "format": "snssdk1233$1",
                     "testResults": [
                         "snssdk1233://m.tiktok.com/v/6611870748761918725.html?u_code=d2efh6j7chk78e&utm_source=twitter&utm_campaign=client_share&utm_medium=android&share_app_name=musically&iid=6611569857811203845&timestamp=1539446157&user_id=6610293843588448261",
                         "snssdk1233://t.tiktok.com/i18n/share/video/6611871928930012418/?region=PH&mid=6360467876020751105&u_code=d2g7ai3j6cbjc4&&iid=6611859828577126145&utm_campaign=sever_share&utm_medium=android&app=tiktok&utm_source=twitter",
