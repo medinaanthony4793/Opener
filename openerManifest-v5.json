@@ -2830,32 +2830,6 @@
             ]
         },
         {
-            "title": "Open Broadcast",
-            "regex": "https?://(?:www\\.)?(?:periscope|pscp)\\.tv/[^/]+/([^/|\\?]+)(/|/?\\?.*)?$",
-            "testInputs": [
-                "https://www.pscp.tv/w/1mnxeEVprZqxX",
-                "https://www.pscp.tv/w/1BdGYvPdWLvJX",
-                "https://www.periscope.tv/AndrewScheer/1BdGYvPdWLvJX",
-                "https://www.pscp.tv/timonus",
-                "https://www.pscp.tv/timonus?foo=bar",
-                "https://www.pscp.tv/timonus/?foo=bar"
-            ],
-            "formats": [
-                {
-                    "appId": "periscope",
-                    "format": "pscp://broadcast/$1",
-                    "testResults": [
-                        "pscp://broadcast/1mnxeEVprZqxX",
-                        "pscp://broadcast/1BdGYvPdWLvJX",
-                        "pscp://broadcast/1BdGYvPdWLvJX",
-                        null,
-                        null,
-                        null
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Stream",
             "regex": "https?://(?!clips\\.)(?:[a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?!directory|videos|v)(\\w+)(?!.*/v/\\d+).*$",
             "testInputs": [
@@ -6673,29 +6647,6 @@
                     "testResults": [
                         "hack://item?id=10781731"
                     ]
-                },
-                {
-                    "appId": "boreal",
-                    "format": "borealhn://post?$1",
-                    "testResults": [
-                        "borealhn://post?10781731"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Open Commentary",
-            "regex": "https?://news\\.ycombinator\\.com/item.*(?:\\?|&)id=(\\d+).*?$",
-            "testInputs": [
-                "https://news.ycombinator.com/item?id=10781731"
-            ],
-            "formats": [
-                {
-                    "appId": "boreal",
-                    "format": "borealhn://comments?$1",
-                    "testResults": [
-                        "borealhn://comments?10781731"
-                    ]
                 }
             ]
         },
@@ -6721,14 +6672,6 @@
                     "testResults": [
                         "hack://user?id=_jomo",
                         "hack://user?id=_jomo"
-                    ]
-                },
-                {
-                    "appId": "boreal",
-                    "format": "borealhn://profile?$1",
-                    "testResults": [
-                        "borealhn://profile?_jomo",
-                        "borealhn://profile?_jomo"
                     ]
                 }
             ]
@@ -8218,26 +8161,6 @@
                         "zomato://review/30981346",
                         "zomato://review/30981346",
                         "zomato://pv/u_NTk2NzA0MjIzMT"
-                    ]
-                }
-            ]
-        },
-        {
-            "regex": "https?://play\\.google(\\.\\w+)+(/music/.*)$",
-            "testInputs": [
-                "https://play.google.com/music/m/Tshzbcoyxaujk47mk5v5cyuzucq?t=Balloon_Heads_Ft_Kye_-_Muph__Plutonic",
-                "https://play.google.com/music/listen#/album/Bdlk43qn3e5irmuyln7d4wyzkyu/Muph/%E2%80%A6and+Then+Tomorrow+Came",
-                "https://play.google.com/music/preview/T4g2cgxbq7hwcqxfxdpcz66a4gu?t=Cerebellum_Serenade_-_Mr_Bill"
-            ],
-            "formats": [
-                {
-                    "appId": "googleplaymusic",
-                    "script": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://play\\\\.google(?:\\\\.\\\\w+)+(/music/.*)$').exec(url); var match = results != null && results.length > 1 ? 'googleplaymusic://' + results[1].replace('/preview/', '/m/') : null; completionHandler(match); }",
-                    "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://play\\\\.google(?:\\\\.\\\\w+)+(/music/.*)$').exec(url); var match = results != null && results.length > 1 ? 'googleplaymusic://' + results[1].replace('/preview/', '/m/') : null; completionHandler(match); }",
-                    "testResults": [
-                        "googleplaymusic:///music/m/Tshzbcoyxaujk47mk5v5cyuzucq?t=Balloon_Heads_Ft_Kye_-_Muph__Plutonic",
-                        "googleplaymusic:///music/listen#/album/Bdlk43qn3e5irmuyln7d4wyzkyu/Muph/%E2%80%A6and+Then+Tomorrow+Came",
-                        "googleplaymusic:///music/m/T4g2cgxbq7hwcqxfxdpcz66a4gu?t=Cerebellum_Serenade_-_Mr_Bill"
                     ]
                 }
             ]
