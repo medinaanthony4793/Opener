@@ -2364,7 +2364,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "https?://((collections|guides)\\.apple\\.com/.*)$",
+            "regex": "https?(://(collections|guides)\\.apple\\.com/.*)$",
             "testInputs": [
                 "https://collections.apple.com/collection?_col=CgcxLzMxLzIwEg0Irk0Qr9%2BCmIiSz%2FkEEg4Irk0QorvTr%2FXIjdyiARIOCK5NEJefgoXilL6esgESDgiuTRDM8uqdsMXMuu0BEg4Irk0Qj%2BCD%2Bo2Kj9WoAQ%3D%3D",
                 "https://guides.apple.com/?ug=Cgbnj77loLQSngEaYuOAkjAwNC0wODYxLCDljJfmtbfpgZPmnK3luYzluILmuIXnlLDljLosIOWMl%2BmHjjHmnaEx5LiB55uuMi0yNiwg44Ko44Oh44Op44Or44OJ44Kw44Oq44O844Oz5YyX6YeOIhIJ2QLnMW%2BBRUARE8t3OqGtYUAqJOaJi%2BOCqOODoeODqeODq%2BODieOCsOODquODvOODs%2BWMl%2BmHjhKDARpT44CSMDAzLTAwMjEsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4gueZveefs%2BWMuiwg5qCE6YCaMTfkuIHnm644LTIwLCDjgrDjg6njg7Pjg5Ljg6vljZfpg7ciEgnprjYQ3INFQBFq6FVTyK1hQCoY5omL44Kw44Op44Oz44OS44Or5Y2X6YO3EpIBGlvjgJIwMDMtMDAyNywg5YyX5rW36YGT5pyt5bmM5biC55m955%2Bz5Yy6LCDmnKzpgJo05LiB55uu5YyXMi04LCDjgq%2Fjg6rjg7zjg7Pjg6rjg5Djg7znmb3nn7MyIhIJQnkfR3OGRUARkdGmjyWtYUAqH%2BaJi%2BOCr%2BODquODvOODs%2BODquODkOODvOeZveefszISeRpB44CSMDAzLTAwMjgsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4gueZveefs%2BWMuiwg5bmz5ZKM6YCaM%2BS4geebruWNlzItMTIiEgkiQ4PWloZFQBHpjxd1Ka1hQCog5omL55m955%2BzMS3jgq%2Fjg6rjg7zjg7Pjg6rjg5Djg7wSexpC44CSMDYyLTA5MjIsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4guixiuW5s%2BWMuiwg5Lit44Gu5bO2MuadoTEw5LiB55uuNi0yIhIJ5wkSfr%2BCRUARAced%2F3arYUAqIeaJi%2BS4reOBruWztuOCr%2BODquODvOODs%2BODquODkOODvBJvGkLjgJIwNjItMDA1NCwg5YyX5rW36YGT5pyt5bmM5biC6LGK5bmz5Yy6LCDmnIjlr5LmnbE05p2hOeS4geebrjYtMTEiEgmc57WHJ4RFQBHSN4WnGK1hQCoV5omL44Kr44O844K15pyI5a%2BS5p2xEmgaQeOAkjAwMy0wMDI1LCDljJfmtbfpgZPmnK3luYzluILnmb3nn7PljLosIOacrOmDt%2BmAmjbkuIHnm67ljJc3LTIwIhIJ9DaC36yFRUARqdgyKDWtYUAqD%2BOCteODs%2BODj%2BOCpOODhBJiGkHjgJIwNjItMDA1Miwg5YyX5rW36YGT5pyt5bmM5biC6LGK5bmz5Yy6LCDmnIjlr5LmnbEy5p2hM%2BS4geebrjMtOSISCTFFU%2FvyhEVAEYIH2djIrGFAKgnkuK3plpPngrkSaxo744CSMDA1LTAwMDMsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4guWNl%2BWMuiwg5r6E5bedM%2BadoTHkuIHnm64zLTEiEglaLBdWdIJFQBEU2ejdsathQCoY5r6E5bed44OR44O844Kv44OP44Kk44OgEmoaQOOAkjAwNC0wMDY5LCDljJfmtbfpgZPmnK3luYzluILljprliKXljLosIOWOmuWIpeeUuuWxseacrDc1MC0xMTciEgl%2B3a%2FoQYdFQBGEJxOQt65hQCoS6Zmk6Zuq5qmf5b6F5qmf5aC0ElwaL%2BWMl%2Ba1t%2BmBk%2BacreW5jOW4giwg6Je75bKp5bGx6Kaz5YWJ6Ieq5YuV6LuK6YGTIhIJlURPv2SBRUAR0e0XjTSqYUAqFeW3puS6rOWcn%2BWgtOOAgOmHjeapnxJZGj7jgJIwNjMtMDgzNiwg5YyX5rW36YGT5pyt5bmM5biC6KW%2F5Yy6LCDnmbrlr5IxNuadoTEz5LiB55uuMy01NSISCbPCgupAjkVAEaon%2BAE%2BqWFAKgNUQ00SKyISCXgtyJxCkUVAEdYUD6H5rWFAKhXjgrnjg4jjg6zjg7zjg4jlnJ%2FloLQ%3D"
@@ -2372,7 +2372,7 @@
             "formats": [
                 {
                     "appId": "applemaps",
-                    "format": "maps://$1",
+                    "format": "maps$1",
                     "testResults": [
                         "maps://collections.apple.com/collection?_col=CgcxLzMxLzIwEg0Irk0Qr9%2BCmIiSz%2FkEEg4Irk0QorvTr%2FXIjdyiARIOCK5NEJefgoXilL6esgESDgiuTRDM8uqdsMXMuu0BEg4Irk0Qj%2BCD%2Bo2Kj9WoAQ%3D%3D",
                         "maps://guides.apple.com/?ug=Cgbnj77loLQSngEaYuOAkjAwNC0wODYxLCDljJfmtbfpgZPmnK3luYzluILmuIXnlLDljLosIOWMl%2BmHjjHmnaEx5LiB55uuMi0yNiwg44Ko44Oh44Op44Or44OJ44Kw44Oq44O844Oz5YyX6YeOIhIJ2QLnMW%2BBRUARE8t3OqGtYUAqJOaJi%2BOCqOODoeODqeODq%2BODieOCsOODquODvOODs%2BWMl%2BmHjhKDARpT44CSMDAzLTAwMjEsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4gueZveefs%2BWMuiwg5qCE6YCaMTfkuIHnm644LTIwLCDjgrDjg6njg7Pjg5Ljg6vljZfpg7ciEgnprjYQ3INFQBFq6FVTyK1hQCoY5omL44Kw44Op44Oz44OS44Or5Y2X6YO3EpIBGlvjgJIwMDMtMDAyNywg5YyX5rW36YGT5pyt5bmM5biC55m955%2Bz5Yy6LCDmnKzpgJo05LiB55uu5YyXMi04LCDjgq%2Fjg6rjg7zjg7Pjg6rjg5Djg7znmb3nn7MyIhIJQnkfR3OGRUARkdGmjyWtYUAqH%2BaJi%2BOCr%2BODquODvOODs%2BODquODkOODvOeZveefszISeRpB44CSMDAzLTAwMjgsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4gueZveefs%2BWMuiwg5bmz5ZKM6YCaM%2BS4geebruWNlzItMTIiEgkiQ4PWloZFQBHpjxd1Ka1hQCog5omL55m955%2BzMS3jgq%2Fjg6rjg7zjg7Pjg6rjg5Djg7wSexpC44CSMDYyLTA5MjIsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4guixiuW5s%2BWMuiwg5Lit44Gu5bO2MuadoTEw5LiB55uuNi0yIhIJ5wkSfr%2BCRUARAced%2F3arYUAqIeaJi%2BS4reOBruWztuOCr%2BODquODvOODs%2BODquODkOODvBJvGkLjgJIwNjItMDA1NCwg5YyX5rW36YGT5pyt5bmM5biC6LGK5bmz5Yy6LCDmnIjlr5LmnbE05p2hOeS4geebrjYtMTEiEgmc57WHJ4RFQBHSN4WnGK1hQCoV5omL44Kr44O844K15pyI5a%2BS5p2xEmgaQeOAkjAwMy0wMDI1LCDljJfmtbfpgZPmnK3luYzluILnmb3nn7PljLosIOacrOmDt%2BmAmjbkuIHnm67ljJc3LTIwIhIJ9DaC36yFRUARqdgyKDWtYUAqD%2BOCteODs%2BODj%2BOCpOODhBJiGkHjgJIwNjItMDA1Miwg5YyX5rW36YGT5pyt5bmM5biC6LGK5bmz5Yy6LCDmnIjlr5LmnbEy5p2hM%2BS4geebrjMtOSISCTFFU%2FvyhEVAEYIH2djIrGFAKgnkuK3plpPngrkSaxo744CSMDA1LTAwMDMsIOWMl%2Ba1t%2BmBk%2BacreW5jOW4guWNl%2BWMuiwg5r6E5bedM%2BadoTHkuIHnm64zLTEiEglaLBdWdIJFQBEU2ejdsathQCoY5r6E5bed44OR44O844Kv44OP44Kk44OgEmoaQOOAkjAwNC0wMDY5LCDljJfmtbfpgZPmnK3luYzluILljprliKXljLosIOWOmuWIpeeUuuWxseacrDc1MC0xMTciEgl%2B3a%2FoQYdFQBGEJxOQt65hQCoS6Zmk6Zuq5qmf5b6F5qmf5aC0ElwaL%2BWMl%2Ba1t%2BmBk%2BacreW5jOW4giwg6Je75bKp5bGx6Kaz5YWJ6Ieq5YuV6LuK6YGTIhIJlURPv2SBRUAR0e0XjTSqYUAqFeW3puS6rOWcn%2BWgtOOAgOmHjeapnxJZGj7jgJIwNjMtMDgzNiwg5YyX5rW36YGT5pyt5bmM5biC6KW%2F5Yy6LCDnmbrlr5IxNuadoTEz5LiB55uuMy01NSISCbPCgupAjkVAEaon%2BAE%2BqWFAKgNUQ00SKyISCXgtyJxCkUVAEdYUD6H5rWFAKhXjgrnjg4jjg6zjg7zjg4jlnJ%2FloLQ%3D"
@@ -3751,7 +3751,7 @@
             ]
         },
         {
-            "regex": "https?://((?:\\w+\\.)?(reddit\\.com/.+))",
+            "regex": "https?(://(?:\\w+\\.)?(reddit\\.com/.+))",
             "testInputs": [
                 "https://m.reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
                 "https://np.reddit.com/r/gaming/",
@@ -3761,7 +3761,7 @@
             "formats": [
                 {
                     "appId": "reddit",
-                    "format": "reddit://$1",
+                    "format": "reddit$1",
                     "testResults": [
                         "reddit://m.reddit.com/r/sports/comments/38uhq3/american_pharoah_wins_belmont_stakes_and_triple/",
                         "reddit://np.reddit.com/r/gaming/",
@@ -3964,7 +3964,7 @@
             ]
         },
         {
-            "regex": "https?://((?!link\\.)(?:(\\w|-)+\\.)*medium\\.com(?!/r/?\\?url.*)/+([^&|\\?]*)(?:&|\\?)?(.*))$",
+            "regex": "https?(://(?!link\\.)(?:(\\w|-)+\\.)*medium\\.com(?!/r/?\\?url.*)/+([^&|\\?]*)(?:&|\\?)?(.*))$",
             "testInputs": [
                 "https://medium.com/@timonus",
                 "https://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
@@ -3986,7 +3986,7 @@
             "formats": [
                 {
                     "appId": "medium",
-                    "format": "medium://$1",
+                    "format": "medium$1",
                     "testResults": [
                         "medium://medium.com/@timonus",
                         "medium://medium.com/@HelloAngels/hello-color-genomics-c679cddd7ed8",
@@ -4298,7 +4298,7 @@
         },
         {
             "title": "Open Project",
-            "regex": "https?://((www\\.)?kickstarter\\.com/projects/[a-zA-Z0-9_%-]+/[a-zA-Z0-9_%-]+).*?$",
+            "regex": "https?(://(www\\.)?kickstarter\\.com/projects/[a-zA-Z0-9_%-]+/[a-zA-Z0-9_%-]+).*?$",
             "testInputs": [
                 "https://www.kickstarter.com/projects/1425492550/sesame-your-key-reinvented?ref=dash",
                 "https://www.kickstarter.com/projects/paulgtoys/pterodactyl-5-rc-flying-lizard",
@@ -4308,7 +4308,7 @@
             "formats": [
                 {
                     "appId": "kickstarter",
-                    "format": "ksr://$1",
+                    "format": "ksr$1",
                     "testResults": [
                         "ksr://www.kickstarter.com/projects/1425492550/sesame-your-key-reinvented",
                         "ksr://www.kickstarter.com/projects/paulgtoys/pterodactyl-5-rc-flying-lizard",
@@ -4716,7 +4716,7 @@
             ]
         },
         {
-            "regex": "https?://((?!www\\.)(?:([a-zA-Z0-9\\-]+)\\.)(?:\\w+\\.)*wikipedia\\.(?:com|org)/(?:[^/]+/)?(.*))$",
+            "regex": "https?(://(?!www\\.)(?:([a-zA-Z0-9\\-]+)\\.)(?:\\w+\\.)*wikipedia\\.(?:com|org)/(?:[^/]+/)?(.*))$",
             "testInputs": [
                 "http://www.wikipedia.org/wiki/Bottle_opener",
                 "http://en.wikipedia.org/wiki/Bottle_opener",
@@ -4728,7 +4728,7 @@
             "formats": [
                 {
                     "appId": "wikipedia",
-                    "format": "wikipedia-official://$1",
+                    "format": "wikipedia-official$1",
                     "testResults": [
                         null,
                         "wikipedia-official://en.wikipedia.org/wiki/Bottle_opener",
@@ -4789,7 +4789,7 @@
                 },
                 {
                     "appId": "wonder",
-                    "format": "wonder://$1",
+                    "format": "wonder$1",
                     "testResults": [
                         null,
                         "wonder://en.wikipedia.org/wiki/Bottle_opener",
@@ -4907,24 +4907,24 @@
             ]
         },
         {
-            "regex": "https?://((?!gist\\.)(\\w+\\.)*github\\.com/.*)",
+            "regex": "https?(://(?!gist\\.)(\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
                     "appId": "github",
-                    "format": "github://$1"
+                    "format": "github$1"
                 }
             ]
         },
         {
-            "regex": "https?://((\\w+\\.)*github\\.com/.*)",
+            "regex": "https?(://(\\w+\\.)*github\\.com/.*)",
             "formats": [
                 {
                     "appId": "ioctocat",
-                    "format": "ioc://$1"
+                    "format": "ioc$1"
                 },
                 {
                     "appId": "codehub",
-                    "format": "codehub://$1"
+                    "format": "codehub$1"
                 }
             ]
         },
@@ -5194,14 +5194,14 @@
             ]
         },
         {
-            "regex": "https?://((\\w+\\.)+quora\\.com/.*)$",
+            "regex": "https?(://(\\w+\\.)+quora\\.com/.*)$",
             "testInputs": [
                 "http://www.quora.com/What-is-a-coders-worst-nightmare"
             ],
             "formats": [
                 {
                     "appId": "quora",
-                    "format": "qhttp://$1",
+                    "format": "qhttp$1",
                     "testResults": [
                         "qhttp://www.quora.com/What-is-a-coders-worst-nightmare"
                     ]
@@ -5508,7 +5508,7 @@
         },
         {
             "title": "Open Illustration",
-            "regex": "https?://((?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?artworks/|member_illust\\.php?.*illust_id=)(\\d+).*)$",
+            "regex": "https?(://(?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?artworks/|member_illust\\.php?.*illust_id=)(\\d+).*)$",
             "testInputs": [
                 "http://www.pixiv.net/member_illust.php?illust_id=18514081&mode=medium",
                 "https://www.pixiv.net/en/artworks/72321279",
@@ -5526,7 +5526,7 @@
                 },
                 {
                     "appId": "pixez",
-                    "format": "pixez://$1",
+                    "format": "pixez$1",
                     "testResults": [
                         "pixez://www.pixiv.net/member_illust.php?illust_id=18514081&mode=medium",
                         "pixez://www.pixiv.net/en/artworks/72321279",
@@ -5537,7 +5537,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://((?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?users/|member\\.php?.*id=)(\\d+).*)$",
+            "regex": "https?(://(?:\\w+\\.)?pixiv\\.net/(?:(?:.+/)?users/|member\\.php?.*id=)(\\d+).*)$",
             "testInputs": [
                 "http://touch.pixiv.net/member.php?id=395595",
                 "http://www.pixiv.net/member.php?id=395595",
@@ -5555,7 +5555,7 @@
                 },
                 {
                     "appId": "pixez",
-                    "format": "pixez://$1",
+                    "format": "pixez$1",
                     "testResults": [
                         "pixez://touch.pixiv.net/member.php?id=395595",
                         "pixez://www.pixiv.net/member.php?id=395595",
@@ -5912,7 +5912,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://((geo\\.)?(itunes|music)\\.apple\\.com/(.*/)?playlist/.*)$",
+            "regex": "https?(://(geo\\.)?(itunes|music)\\.apple\\.com/(.*/)?playlist/.*)$",
             "testInputs": [
                 "https://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday",
                 "https://music.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
@@ -5920,7 +5920,7 @@
             "formats": [
                 {
                     "appId": "applemusic",
-                    "format": "music://$1",
+                    "format": "music$1",
                     "testResults": [
                         "music://itunes.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday",
                         "music://music.apple.com/us/playlist/friday/idpl.34d586acfcae4f92ab934a72afbab5bf?at=11lbfLct=friday"
@@ -6113,7 +6113,7 @@
         },
         {
             "title": "Open Issue",
-            "regex": "https?://((\\w+\\.)*jira(\\.\\w+)+.*$)",
+            "regex": "https?(://(\\w+\\.)*jira(\\.\\w+)+.*$)",
             "testInputs": [
                 "https://liquibase.jira.com/browse/CORE-2549",
                 "https://tempoplugin.jira.com/browse/TT-1208",
@@ -6122,7 +6122,7 @@
             "formats": [
                 {
                     "appId": "jira",
-                    "format": "jira://$1",
+                    "format": "jira$1",
                     "testResults": [
                         "jira://liquibase.jira.com/browse/CORE-2549",
                         "jira://tempoplugin.jira.com/browse/TT-1208",
@@ -6131,7 +6131,7 @@
                 },
                 {
                     "appId": "jirapad",
-                    "format": "jira://$1",
+                    "format": "jira$1",
                     "testResults": [
                         "jira://liquibase.jira.com/browse/CORE-2549",
                         "jira://tempoplugin.jira.com/browse/TT-1208",
@@ -6304,7 +6304,7 @@
             ]
         },
         {
-            "regex": "https?://((\\w+\\.)*(taobao|tmall)\\.com/.*)$",
+            "regex": "https?(://(\\w+\\.)*(taobao|tmall)\\.com/.*)$",
             "testInputs": [
                 "http://m.intl.taobao.com/detail/detail.html?spm=a214x.7681957.1998488803.3&id=522074348531",
                 "http://shop111126855.m.taobao.com/?spm=a21dc.35706.88393.2&cpp=0",
@@ -6315,7 +6315,7 @@
             "formats": [
                 {
                     "appId": "taobao",
-                    "format": "taobao://$1",
+                    "format": "taobao$1",
                     "testResults": [
                         "taobao://m.intl.taobao.com/detail/detail.html?spm=a214x.7681957.1998488803.3&id=522074348531",
                         "taobao://shop111126855.m.taobao.com/?spm=a21dc.35706.88393.2&cpp=0",
@@ -6326,7 +6326,7 @@
                 },
                 {
                     "appId": "taobaopad",
-                    "format": "taobao://$1",
+                    "format": "taobao$1",
                     "testResults": [
                         "taobao://m.intl.taobao.com/detail/detail.html?spm=a214x.7681957.1998488803.3&id=522074348531",
                         "taobao://shop111126855.m.taobao.com/?spm=a21dc.35706.88393.2&cpp=0",
@@ -6836,7 +6836,7 @@
             ]
         },
         {
-            "regex": "https?://(plus\\.google\\.com/.*)$",
+            "regex": "https?(://plus\\.google\\.com/.*)$",
             "testInputs": [
                 "https://plus.google.com/u/0/100711776131865357077",
                 "https://plus.google.com/u/0/+Flipboard",
@@ -6845,7 +6845,7 @@
             "formats": [
                 {
                     "appId": "googleplus",
-                    "format": "gplus://$1",
+                    "format": "gplus$1",
                     "testResults": [
                         "gplus://plus.google.com/u/0/100711776131865357077",
                         "gplus://plus.google.com/u/0/+Flipboard",
@@ -6963,7 +6963,7 @@
         },
         {
             "title": "Open Doc",
-            "regex": "https?://(docs\\.google\\.com/.*document/(u/\\d+/)?d/.*)$",
+            "regex": "https?(://docs\\.google\\.com/.*document/(u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/document/u/0/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -6975,7 +6975,7 @@
             "formats": [
                 {
                     "appId": "googledocs",
-                    "format": "googledocs://$1",
+                    "format": "googledocs$1",
                     "testResults": [
                         "googledocs://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                         "googledocs://docs.google.com/document/u/0/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -6989,7 +6989,7 @@
         },
         {
             "title": "Open Sheet",
-            "regex": "https?://(docs\\.google\\.com/.*spreadsheets/(u/\\d+/)?d/.*)$",
+            "regex": "https?(://docs\\.google\\.com/.*spreadsheets/(u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/document/u/0d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -7001,7 +7001,7 @@
             "formats": [
                 {
                     "appId": "googlesheets",
-                    "format": "googlesheets://$1",
+                    "format": "googlesheets$1",
                     "testResults": [
                         null,
                         null,
@@ -7015,7 +7015,7 @@
         },
         {
             "title": "Open Slides",
-            "regex": "https?://(docs\\.google\\.com/.*presentation/(u/\\d+/)?d/.*)$",
+            "regex": "https?(://docs\\.google\\.com/.*presentation/(u/\\d+/)?d/.*)$",
             "testInputs": [
                 "https://docs.google.com/document/d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
                 "https://docs.google.com/document/u/0d/1qj9Dws3mDUP830CYWhe2Pf9Qtvy5_WNYXsCR2OQGC6Y/edit?usp=sharing",
@@ -7027,7 +7027,7 @@
             "formats": [
                 {
                     "appId": "googleslides",
-                    "format": "googleslides://$1",
+                    "format": "googleslides$1",
                     "testResults": [
                         null,
                         null,
@@ -7098,7 +7098,7 @@
             ]
         },
         {
-            "regex": "https?://(byte\\.co/.*)$",
+            "regex": "https?(://byte\\.co/.*)$",
             "testInputs": [
                 "http://byte.co/timonus",
                 "https://byte.co/timonus/BOhVuUQzRBU",
@@ -7107,7 +7107,7 @@
             "formats": [
                 {
                     "appId": "byte",
-                    "format": "byte://$1",
+                    "format": "byte$1",
                     "testResults": [
                         "byte://byte.co/timonus",
                         "byte://byte.co/timonus/BOhVuUQzRBU",
@@ -7799,7 +7799,7 @@
             ]
         },
         {
-            "regex": "https?://((?:www\\.)?netflix\\.com/(watch|title)/.*)$",
+            "regex": "https?(://(?:www\\.)?netflix\\.com/(watch|title)/.*)$",
             "testInputs": [
                 "https://www.netflix.com/watch/70129452",
                 "https://www.netflix.com/title/70077544"
@@ -7807,7 +7807,7 @@
             "formats": [
                 {
                     "appId": "netflix",
-                    "format": "nflx://$1",
+                    "format": "nflx$1",
                     "testResults": [
                         "nflx://www.netflix.com/watch/70129452",
                         "nflx://www.netflix.com/title/70077544"
@@ -8358,7 +8358,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://((?:www\\.)?(?:newegg\\.com/(?:Product/Product\\.aspx\\?.*Item=|.*/p/)|flash\\.newegg\\.com/Product/)\\w+.*)?$",
+            "regex": "https?(://(?:www\\.)?(?:newegg\\.com/(?:Product/Product\\.aspx\\?.*Item=|.*/p/)|flash\\.newegg\\.com/Product/)\\w+.*)?$",
             "testInputs": [
                 "https://www.newegg.com/Product/Product.aspx?Item=N82E16889651010&ignorebbr=1",
                 "https://flash.newegg.com/Product/9SIA9UW6TX4004?icid=WP_0_03192018",
@@ -8367,7 +8367,7 @@
             "formats": [
                 {
                     "appId": "newegg",
-                    "format": "ngm://$1",
+                    "format": "ngm$1",
                     "testResults": [
                         "ngm://www.newegg.com/Product/Product.aspx?Item=N82E16889651010&ignorebbr=1",
                         "ngm://flash.newegg.com/Product/9SIA9UW6TX4004?icid=WP_0_03192018",
@@ -8585,14 +8585,14 @@
             ]
         },
         {
-            "regex": "https?://((www\\.)?tapatalk\\.com/.*)$",
+            "regex": "https?(://(www\\.)?tapatalk\\.com/.*)$",
             "testInputs": [
                 "https://www.tapatalk.com/groups/evgeniamedvedeva/gp-skate-canada-international-2018-t10-s380.html"
             ],
             "formats": [
                 {
                     "appId": "tapatalk",
-                    "format": "tapatalk://$1",
+                    "format": "tapatalk$1",
                     "testResults": [
                         "tapatalk://www.tapatalk.com/groups/evgeniamedvedeva/gp-skate-canada-international-2018-t10-s380.html"
                     ]
@@ -8922,7 +8922,7 @@
             ]
         },
         {
-            "regex": "https?://((?:\\w+\\.)*zoom\\.(?:us|com)(?:\\.\\w+)*)/j/(\\d*)(?:.*?(pwd=\\w+).*?|.*)$",
+            "regex": "https?(://(?:\\w+\\.)*zoom\\.(?:us|com)(?:\\.\\w+)*)/j/(\\d*)(?:.*?(pwd=\\w+).*?|.*)$",
             "testInputs": [
                 "https://zoom.us/j/7083784912?pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
                 "https://us04web.zoom.us/j/9702782093?pwd=TUdSajFTaXpuSmpKSHhXRUZNWUJYQT09",
@@ -8932,7 +8932,7 @@
             "formats": [
                 {
                     "appId": "zoom",
-                    "format": "zoomus://$1/join?action=join&confno=$2&$3",
+                    "format": "zoomus$1/join?action=join&confno=$2&$3",
                     "testResults": [
                         "zoomus://zoom.us/join?action=join&confno=7083784912&pwd=eXlYS05Xd3F3SUJkY1VuVlMvT0p2UT09",
                         "zoomus://us04web.zoom.us/join?action=join&confno=9702782093&pwd=TUdSajFTaXpuSmpKSHhXRUZNWUJYQT09",
@@ -8974,7 +8974,7 @@
             ]
         },
         {
-            "regex": "https?://((\\w+\\.)*target(\\.\\w+)+/(?!gift-registry.*)(.*)$)",
+            "regex": "https?(://(\\w+\\.)*target(\\.\\w+)+/(?!gift-registry.*)(.*)$)",
             "testInputs": [
                 "https://www.target.com/p/doom-eternal-xbox-one-digital/-/A-77435284",
                 "https://www.target.com/gift-registry/giftgiver?registryId=7321c1abb48948e297661a1bd6edfe40&type=BABY&ref=reg_home_friends_fam"
@@ -8982,7 +8982,7 @@
             "formats": [
                 {
                     "appId": "target",
-                    "format": "target://$1",
+                    "format": "target$1",
                     "testResults": [
                         "target://www.target.com/p/doom-eternal-xbox-one-digital/-/A-77435284",
                         null
@@ -9009,17 +9009,17 @@
             ]
         },
         {
-            "regex": "https?://((\\w+\\.)*notion\\.(so|com)/.+)$",
+            "regex": "https?(://(\\w+\\.)*notion\\.(so|com)/.+)$",
             "formats": [
                 {
                     "appId": "notion",
-                    "format": "notion://$1"
+                    "format": "notion$1"
                 }
             ]
         },
         {
             "title": "Open Meeting",
-            "regex": "https?://((?:.+\\.)+webex\\.com/.*)(?:(?i)(?:mtid=))(.+)$",
+            "regex": "https?(://(?:.+\\.)+webex\\.com/.*)(?:(?i)(?:mtid=))(.+)$",
             "testInputs": [
                 "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MTID=t4387317225f2575a17bb75824f10022c",
                 "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c"
@@ -9027,7 +9027,7 @@
             "formats": [
                 {
                     "appId": "webex",
-                    "format": "wbx://$1MK=$2",
+                    "format": "wbx$1MK=$2",
                     "testResults": [
                         "wbx://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c",
                         null
@@ -9037,7 +9037,7 @@
         },
         {
             "title": "Open Meeting",
-            "regex": "https?://((?:.+\\.)+webex\\.com/.*((?i)(?:mk=))(.+))$",
+            "regex": "https?(://(?:.+\\.)+webex\\.com/.*((?i)(?:mk=))(.+))$",
             "testInputs": [
                 "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MTID=t4387317225f2575a17bb75824f10022c",
                 "https://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c"
@@ -9045,7 +9045,7 @@
             "formats": [
                 {
                     "appId": "webex",
-                    "format": "wbx://$1",
+                    "format": "wbx$1",
                     "testResults": [
                         null,
                         "wbx://pwc-doit.webex.com/pwc-doit/k2/j.php?MK=t4387317225f2575a17bb75824f10022c"
@@ -9156,14 +9156,14 @@
             ]
         },
         {
-            "regex": "https?://((\\w+\\.)*bestbuy\\.com/site/.*)",
+            "regex": "https?(://(\\w+\\.)*bestbuy\\.com/site/.*)",
             "testInputs": [
                 "https://www.bestbuy.com/site/microsoft-controller-for-xbox-series-x-xbox-series-s-and-xbox-one-latest-model-carbon-black/6430655.p?skuId=6430655"
             ],
             "formats": [
                 {
                     "appId": "bestbuy",
-                    "format": "bestbuy://$1",
+                    "format": "bestbuy$1",
                     "testResults": [
                         "bestbuy://www.bestbuy.com/site/microsoft-controller-for-xbox-series-x-xbox-series-s-and-xbox-one-latest-model-carbon-black/6430655.p?skuId=6430655"
                     ]
