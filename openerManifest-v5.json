@@ -7632,6 +7632,18 @@
                         "oplayerlite://http://cache1.cloudflares.xyz:81/download/0771cff9b3e1c18e9f3d92f03b55590e/5b2f0ce4/user209445/129967a9a34e0_mobile.mp4",
                         "oplayerlite://http://mac.homeplex.org/movies/Prep%20&%20Landing.m4v"
                     ]
+                },
+                {
+                    "appId": "outplayer",
+                    "format": "outplayer://$0",
+                    "testResults": [
+                        "outplayer://https://dl.dropboxusercontent.com/s/s6n8yt4bm7z9mur/Opener.mp4",
+                        null,
+                        null,
+                        null,
+                        "outplayer://http://cache1.cloudflares.xyz:81/download/0771cff9b3e1c18e9f3d92f03b55590e/5b2f0ce4/user209445/129967a9a34e0_mobile.mp4",
+                        "outplayer://http://mac.homeplex.org/movies/Prep%20&%20Landing.m4v"
+                    ]
                 }
             ]
         },
@@ -7693,6 +7705,10 @@
                 {
                     "appId": "oplayerlite",
                     "format": "oplayerlite://$1"
+                },
+                {
+                    "appId": "outplayer",
+                    "format": "outplayer://$1"
                 }
             ]
         },
@@ -7739,6 +7755,10 @@
                 {
                     "appId": "oplayerlite",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'oplayerlite://' + results[1] : null; completionHandler(match); }"
+                },
+                {
+                    "appId": "outplayer",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'outplayer://' + results[1] : null; completionHandler(match); }"
                 }
             ]
         },
@@ -10570,6 +10590,12 @@
             "identifier": "opentable",
             "storeId": 296581815,
             "scheme": "reservetable-com.contextoptional.OpenTable-1"
+        },
+        {
+            "name": "Outplayer",
+            "identifier": "outplayer",
+            "storeId": 1449923287,
+            "scheme": "outplayer",
         },
         {
             "name": "Pandora",
