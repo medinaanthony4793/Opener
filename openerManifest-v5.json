@@ -6439,12 +6439,12 @@
         },
         {
             "title": "Add Tracking Info",
-            "regex": "https?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID|trackingnumber)=\\d+.*$",
+            "regex": "https?://(www\\.|m\\.)?(spportal\\.)?(fedex|federalexpress)\\.com.*(\\?|&)(tracknumbers|tracknums|trackNum|track_number_0|tracknumber_list|TRACKING|PID|trackingnumber|trknbr)=\\d+.*$",
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
-                    "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
+                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url.replace('trknbr', 'trackingnumber'))); }",
+                    "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url.replace('trknbr', 'trackingnumber'))); }"
                 }
             ]
         },
