@@ -6494,6 +6494,17 @@
         },
         {
             "title": "Add Tracking Info",
+            "regex": "https?://(\\w+\\.)*gls-\\w+(\\.\\w+)+.*(\\?|&)(trackingno|match)=\\d+.*$",
+            "formats": [
+                {
+                    "appId": "deliveries",
+                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
+                    "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
+                }
+            ]
+        },
+        {
+            "title": "Add Tracking Info",
             "regex": "https?://checkout\\.google\\.com.*(\\?|&)t=\\d+.*$",
             "formats": [
                 {
