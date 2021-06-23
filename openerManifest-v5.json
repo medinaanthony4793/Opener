@@ -11363,22 +11363,6 @@
             ]
         },
         {
-            "name": "UC Browser",
-            "identifier": "ucbrowser",
-            "storeId": 1048518592,
-            "scheme": "ucbrowser",
-            "regex": "https?://(.*)$",
-            "format": "ucbrowser://$1",
-            "testInputs": [
-                "http://www.opener.link/",
-                "https://twitter.com/openerapp"
-            ],
-            "testResults": [
-                "ucbrowser://www.opener.link/",
-                "ucbrowser://twitter.com/openerapp"
-            ]
-        },
-        {
             "name": "LastPass",
             "identifier": "lastpass",
             "storeId": 324613447,
@@ -11516,6 +11500,7 @@
             "identifier": "adblockbrowser",
             "storeId": 1015653330,
             "scheme": "adblockbrowser",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/abb-120.jpg",
             "regex": "https?://(.*)$",
             "format": "adblockbrowser://$1",
             "testInputs": [
