@@ -9241,6 +9241,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Listing",
+            "regex": "https?://(?:\\w+\\.)?streeteasy\\.com/(?:sale|building)/.+$",
+            "testInputs": [
+                "https://streeteasy.com/sale/1544178",
+                "https://streeteasy.com/building/atelier-condominium/9b"
+            ],
+            "formats": [
+                {
+                    "appId": "streeteasy",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('ios-app://660363289/streeteasy/([^\\']+)\\'').exec(res); var match = results != null && results.length > 1 ? 'streeteasy://' + results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "streeteasy://sale/1544178",
+                        "streeteasy://rental/2770017"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10902,6 +10920,12 @@
             "identifier": "syndromi",
             "storeId": 1547850133,
             "scheme": "syndromi"
+        },
+        {
+            "name": "StreetEasy",
+            "identifier": "streeteasy",
+            "storeId": 1199581182,
+            "scheme": "streeteasy"
         }
     ],
     "browsers": [
