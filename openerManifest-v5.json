@@ -4680,10 +4680,11 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.|m\\.)?strava\\.com/((activities|athletes)/\\d+).*$",
+            "regex": "https?://(?:www\\.|m\\.)?strava\\.com/((activities|athletes|segments)/\\d+).*$",
             "testInputs": [
                 "https://www.strava.com/activities/304977054",
-                "https://www.strava.com/athletes/24752860"
+                "https://www.strava.com/athletes/24752860",
+                "https://www.strava.com/segments/951992"
             ],
             "formats": [
                 {
@@ -4691,7 +4692,8 @@
                     "format": "strava://$1",
                     "testResults": [
                         "strava://activities/304977054",
-                        "strava://athletes/24752860"
+                        "strava://athletes/24752860",
+                        "strava://segments/951992"
                     ]
                 }
             ]
