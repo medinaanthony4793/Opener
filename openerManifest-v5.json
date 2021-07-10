@@ -4971,7 +4971,7 @@
         },
         {
             "title": "Show Repository",
-            "regex": "https?://(?:(?:(?!gist)\\w+\\.)*github\\.com/([^/]+)/([^/]+?)(?:\\.git)?(/(?:pulls|issues))?(?:/tree/([^/]+))?((/)?\\?.*$)?)$",
+            "regex": "https?://(?:(?:(?!gist)\\w+\\.)*github\\.com/([^/]+)/([^/]+?)(?:\\.git)?(/(?:pulls|issues))?(?:/tree/([^/]+))?(/?\\?.*$)?)$",
             "testInputs": [
                 "https://github.com/timonus/OpenerManifest/blob/master/.gitignore",
                 "https://github.com/timonus",
@@ -7171,7 +7171,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://([^\\.]+)\\.deviantart\\.com(?:(/)?\\?.*|/(gallery(/)?(\\?.*)?)?)?$",
+            "regex": "https?://([^\\.]+)\\.deviantart\\.com(?:/?\\?.*|/(gallery/?(\\?.*)?)?)?$",
             "testInputs": [
                 "http://eving-1.deviantart.com/",
                 "http://eving-1.deviantart.com/gallery",
@@ -10936,7 +10936,7 @@
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/safari-120.jpg",
             "regex": ".+",
             "script": "function process(url, completionHandler) { completionHandler(url); }",
-            "script2": "function process(url, completionHandler) { var urlRes = RegExp('http(s)?://((www\\\\.)?apple\\\\.news|news\\\\.apple\\\\.com)').exec(url); if (urlRes != null && urlRes.length > 1) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = results != null && results.length > 1 ? results[1] : url; completionHandler(match); } else { completionHandler(url); } }",
+            "script2": "function process(url, completionHandler) { var urlRes = RegExp('https?://((www\\\\.)?apple\\\\.news|news\\\\.apple\\\\.com)').exec(url); if (urlRes != null && urlRes.length > 1) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = results != null && results.length > 1 ? results[1] : url; completionHandler(match); } else { completionHandler(url); } }",
             "testInputs": [
                 "http://www.opener.link/",
                 "http://apple.news/AI7uxm31EQCWECHjfLjdZAA/",
@@ -11765,7 +11765,7 @@
                 "https://l.workplace.com/l.php?u=https%3A%2F%2Ftwitter.com%2Ffromedome%2Fstatus%2F1088895797712818176%3Fs%3D21": "https://twitter.com/fromedome/status/1088895797712818176?s=21"
             }
         },
-        "https?://(\\w+\\.)*facebook\\.com/login(\\.php)?(/)?.*(\\?|&)next": {
+        "https?://(\\w+\\.)*facebook\\.com/login(\\.php)?/?.*(\\?|&)next": {
             "param": "next",
             "tests": {
                 "https://www.facebook.com/login/?next=https://www.facebook.com/groups/designersloungesf/": "https://www.facebook.com/groups/designersloungesf/",
@@ -11815,7 +11815,7 @@
                 "https://ct.pinterest.com/_/_/redirect/?src=open&user_id=128282426794312100&url=https://www.auteur-watches.com/product/classic-black/": "https://www.auteur-watches.com/product/classic-black/"
             }
         },
-        "https?://(www\\.)?medium\\.com/r(/)?\\?url.*$": {
+        "https?://(www\\.)?medium\\.com/r/?\\?url.*$": {
             "param": "url",
             "tests": {
                 "https://medium.com/r/?url=https%3A%2F%2Fgithub.com%2Ftimonus%2FTJActivityViewController": "https://github.com/timonus/TJActivityViewController",
