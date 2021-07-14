@@ -9259,6 +9259,24 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://((\\w+\\.)*apple\\.com/(\\w+/)?shop/.+)$",
+            "testInputs": [
+                "https://www.apple.com/shop/buy-iphone/carrier-offers",
+                "https://www.apple.com/ca/shop/buy-iphone/carrier-offers"
+            ],
+            "formats": [
+                {
+                    "appId": "applestore",
+                    "format": "applestore://$1",
+                    "testResults": [
+                        "applestore://www.apple.com/shop/buy-iphone/carrier-offers",
+                        "applestore://www.apple.com/ca/shop/buy-iphone/carrier-offers"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10926,6 +10944,12 @@
             "identifier": "streeteasy",
             "storeId": 1199581182,
             "scheme": "streeteasy"
+        },
+        {
+            "name": "Apple Store",
+            "identifier": "applestore",
+            "storeId": 375380948,
+            "scheme": "applestore"
         }
     ],
     "browsers": [
