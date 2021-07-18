@@ -11758,6 +11758,10 @@
         {
             "regex": "https?://(\\w+\\.)*soundcloud\\.com/.*",
             "script2": "function process(url, completionHandler) { var requestURL = 'https://soundcloud.com/oembed?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
+        },
+        {
+            "regex": "https?://(\\w+\\.)*kickstarter\\.com/projects/.*",
+            "script2": "function process(url, completionHandler) { var requestURL = 'http://www.kickstarter.com/services/oembed?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
         }
     ],
     "redirects": {
