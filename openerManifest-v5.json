@@ -11746,6 +11746,10 @@
             "regex": "https?://(www\\.)?dropbox\\.com/s/\\w+.*\\.(?i)(jpeg|jpg|png|bmp|heic|gif|tiff).*$",
             "script2": "function process(url, completionHandler) { completionHandler('https://dl.' + RegExp('https?://(?:www\\.)?(dropbox\\.com/s/\\\\w+.*)$').exec(url)[1]); }",
             "canSave": 1
+        },
+        {
+            "regex": "https?://(\\w+\\.)*nytimes\\.com/.*",
+            "script2": "function process(url, completionHandler) { var requestURL = 'https://www.nytimes.com/svc/oembed/json/?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
         }
     ],
     "redirects": {
