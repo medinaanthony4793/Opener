@@ -11754,6 +11754,10 @@
         {
             "regex": "https?://(\\w+\\.)*tiktok\\.com/(.*/)?v(ideo)?/.*",
             "script2": "function process(url, completionHandler) { var requestURL = 'https://www.tiktok.com/oembed?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
+        },
+        {
+            "regex": "https?://(\\w+\\.)*soundcloud\\.com/.*",
+            "script2": "function process(url, completionHandler) { var requestURL = 'https://soundcloud.com/oembed?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
         }
     ],
     "redirects": {
