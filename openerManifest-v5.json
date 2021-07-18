@@ -11771,6 +11771,10 @@
         {
             "regex": "https?://(\\w+\\.)*vimeo\\.com/.*",
             "script2": "function process(url, completionHandler) { var requestURL = 'https://vimeo.com/api/oembed.json/?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
+        },
+        {
+            "regex": "https?://(\\w+\\.)*deviantart\\.com/.*(art/|d).*",
+            "script2": "function process(url, completionHandler) { var requestURL = 'http://backend.deviantart.com/oembed?url=' + encodeURIComponent(url); var res = jsonRequest(requestURL); if (res != null && res['thumbnail_url'] != null) { var imageURL = res['thumbnail_url']; } completionHandler(imageURL); }"
         }
     ],
     "redirects": {
