@@ -11702,11 +11702,6 @@
             "docs": "https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api"
         },
         {
-            "regex": "https?://(?:\\w+\\.)*amazon((?:\\.\\w+)+)/(?:.*?/)?(?:(?:(?:dp|gp)(?:/aw/d)?)|product|.*/ASIN)/([a-zA-Z0-9]+).*$",
-            "format": "http://images.amazon.com/images/P/$2.01.LZZZZZZZZZ.jpg",
-            "docs": "https://www.safaribooksonline.com/library/view/amazon-hacks/0596005423/ch01s07.html (backup https://db.tt/VqIjZyXRgw) and http://aaugh.com/imageabuse.html"
-        },
-        {
             "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
             "format": "https://i.ebayimg.com/images/i/$1-0-1/s-l375/p.jpg",
             "docs": "https://stackoverflow.com/a/39545334/3943258"
