@@ -9317,6 +9317,50 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://(\\w+\\.)*olx\\.com\\.br/.*(/|-)(\\d+)(\\.html?)?$",
+            "testInputs": [
+                "https://www.olx.com.br/vi/908354794.htm",
+                "https://mg.olx.com.br/belo-horizonte-e-regiao/servicos/gesseiro-908190242",
+                "https://sp.olx.com.br/sao-paulo-e-regiao/celulares/smartphone-moto-e7-plus-desbloqueado-907800417",
+                "https://sc.olx.com.br/norte-de-santa-catarina"
+            ],
+            "formats": [
+                {
+                    "appId": "olx",
+                    "format": "olxapp://adpage/&amp;id=$3",
+                    "testResults": [
+                        "olxapp://adpage/&amp;id=908354794",
+                        "olxapp://adpage/&amp;id=908190242",
+                        "olxapp://adpage/&amp;id=907800417",
+                        null
+                    ]
+                }
+            ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://(\\w+\\.)*olx\\.com\\.br/(?!.*(/|-)(\\d+)(\\.html?)?).+$",
+            "testInputs": [
+                "https://www.olx.com.br/vi/908354794.htm",
+                "https://mg.olx.com.br/belo-horizonte-e-regiao/servicos/gesseiro-908190242",
+                "https://sp.olx.com.br/sao-paulo-e-regiao/celulares/smartphone-moto-e7-plus-desbloqueado-907800417",
+                "https://sc.olx.com.br/norte-de-santa-catarina"
+            ],
+            "formats": [
+                {
+                    "appId": "olx",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(olxapp://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        null,
+                        null,
+                        null,
+                        "olxapp://list/&amp;state=11&amp;region=47"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -11003,6 +11047,12 @@
             "identifier": "theepochtimes",
             "storeId": 670443321,
             "scheme": "eetapp"
+        },
+        {
+            "name": "OLX",
+            "identifier": "olx",
+            "storeId": 692808319,
+            "scheme": "olxapp"
         }
     ],
     "browsers": [
