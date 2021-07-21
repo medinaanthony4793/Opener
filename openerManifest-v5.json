@@ -9297,6 +9297,26 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Story",
+            "regex": "https?://(\\w+\\.)*theepochtimes\\.com/((?!c-.*).+)$",
+            "testInputs": [
+                "https://www.theepochtimes.com/immediately-cease-repression-of-falun-gong-us-tells-beijing-on-eve-of-persecution-anniversary_3908539.html",
+                "https://link.theepochtimes.com/mkt_app/remembering-the-fallen-22-years-of-persecution-and-punishment_3909264.html",
+                "https://www.theepochtimes.com/c-science"
+            ],
+            "formats": [
+                {
+                    "appId": "theepochtimes",
+                    "format": "eetapp://applinks/$2",
+                    "testResults": [
+                        "eetapp://applinks/immediately-cease-repression-of-falun-gong-us-tells-beijing-on-eve-of-persecution-anniversary_3908539.html",
+                        "eetapp://applinks/mkt_app/remembering-the-fallen-22-years-of-persecution-and-punishment_3909264.html",
+                        null
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10977,6 +10997,12 @@
             "storeId": 407906756,
             "scheme": "yjtrend",
             "country": "jp"
+        },
+        {
+            "name": "Epoch Times",
+            "identifier": "theepochtimes",
+            "storeId": 670443321,
+            "scheme": "eetapp"
         }
     ],
     "browsers": [
