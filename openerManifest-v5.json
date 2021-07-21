@@ -9277,6 +9277,26 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://news.yahoo.co.jp/.+$",
+            "testInputs": [
+                "https://news.yahoo.co.jp/articles/6f725158836acbd8b7b9bf80e060ba9e447a43f3",
+                "https://news.yahoo.co.jp/pickup/6399291",
+                "https://news.yahoo.co.jp/categories/sports"
+            ],
+            "formats": [
+                {
+                    "appId": "yahoonewsjp",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(yj\\\\w+://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "yjtrend://d/hdl/20210721-07211049-sph-soci",
+                        "yjtrend://d/tpc/6399291",
+                        "yjnews://l/top/"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10950,6 +10970,13 @@
             "identifier": "applestore",
             "storeId": 375380948,
             "scheme": "applestore"
+        },
+        {
+            "name": "Yahoo News JP",
+            "identifier": "yahoonewsjp",
+            "storeId": 407906756,
+            "scheme": "yjtrend",
+            "country": "jp"
         }
     ],
     "browsers": [
