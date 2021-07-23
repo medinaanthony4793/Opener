@@ -2697,6 +2697,21 @@
                         "syndromi://video?id=ngElkyQ6Rhs",
                         "syndromi://video?id=KVQxACAEpso"
                     ]
+                },
+                {
+                    "appId": "xapp",
+                    "format": "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D$1",
+                    "testResults": [
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMTY1Kje0yLg",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D0uY7gLZDmn4",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMFzDaBzBlL0",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dmzun7_Ynmks",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DJEiSTzK-A2A",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DyWDJoJm-Rk0",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DS4WNO4tchUk",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DngElkyQ6Rhs",
+                        "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DKVQxACAEpso"
+                    ]
                 }
             ]
         },
@@ -3040,6 +3055,16 @@
                         "vimeo://app.vimeo.com/videos/125074876",
                         "vimeo://app.vimeo.com/videos/125074876",
                         "vimeo://app.vimeo.com/videos/220770851"
+                    ]
+                },
+                {
+                    "appId": "xapp",
+                    "format": "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F$1",
+                    "testResults": [
+                        "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F121634963",
+                        "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F125074876",
+                        "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F125074876",
+                        "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F220770851"
                     ]
                 }
             ]
@@ -11053,6 +11078,12 @@
             "identifier": "olx",
             "storeId": 692808319,
             "scheme": "olxapp"
+        },
+        {
+            "name": "X.app",
+            "identifier": "xapp",
+            "storeId": 1533525753,
+            "scheme": "xapp"
         }
     ],
     "browsers": [
