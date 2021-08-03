@@ -11039,8 +11039,8 @@
         {
             "name": "\u30cb\u30b3\u30cb\u30b3\u6f2b\u753b",
             "identifier": "nicoseiga",
-            "storeId": 1045938821,
-            "scheme": "nicoseiga"
+            "scheme": "nicoseiga",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/nicoseiga-120.jpg"
         },
         {
             "name": "Syndromi",
