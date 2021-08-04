@@ -487,14 +487,14 @@
         },
         {
             "title": "Open Muffle",
-            "regex": "https?://(?:www\\.)?twitterrific\\.com/ios/muffle/?\\?add=([^&]*)$",
+            "regex": "https?://(www\\.)?twitterrific\\.com/ios/muffle/?\\?add=([^&]*)$",
             "testInputs": [
                 "http://twitterrific.com/ios/muffle?add=Imma%20let%20you%20finish%20%3A%3A%20Kanye"
             ],
             "formats": [
                 {
                     "appId": "twitterrific",
-                    "format": "twitterrific://muffle?add=$1",
+                    "format": "twitterrific://muffle?add=$2",
                     "testResults": [
                         "twitterrific://muffle?add=Imma%20let%20you%20finish%20%3A%3A%20Kanye"
                     ]
@@ -608,7 +608,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?!explore)(?:stories/)?([a-zA-Z0-9_\\.]{1,30})(/|/?\\?.*)?$",
+            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/(?!explore)(stories/)?([a-zA-Z0-9_\\.]{1,30})(/|/?\\?.*)?$",
             "testInputs": [
                 "http://instagr.am/timonus",
                 "https://www.instagram.com/noelwells/?hl=en",
@@ -620,7 +620,7 @@
             "formats": [
                 {
                     "appId": "instagram",
-                    "format": "instagram://user?username=$1",
+                    "format": "instagram://user?username=$4",
                     "testResults": [
                         "instagram://user?username=timonus",
                         "instagram://user?username=noelwells",
@@ -634,7 +634,7 @@
         },
         {
             "title": "Open Tag",
-            "regex": "https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?:explore/)?tags/([a-zA-Z0-9_%]+).*$",
+            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/(explore/)?tags/([a-zA-Z0-9_%]+).*$",
             "testInputs": [
                 "https://instagram.com/explore/tags/darkroomapp/",
                 "https://instagram.com/explore/tags/%F0%9F%98%80/",
@@ -643,7 +643,7 @@
             "formats": [
                 {
                     "appId": "instagram",
-                    "format": "instagram://tag?name=$1",
+                    "format": "instagram://tag?name=$4",
                     "testResults": [
                         "instagram://tag?name=darkroomapp",
                         "instagram://tag?name=%F0%9F%98%80",
@@ -654,14 +654,14 @@
         },
         {
             "title": "Open Location",
-            "regex": "https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/explore/locations/(\\d+).*$",
+            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/explore/locations/(\\d+).*$",
             "testInputs": [
                 "https://instagram.com/explore/locations/215262672/"
             ],
             "formats": [
                 {
                     "appId": "instagram",
-                    "format": "instagram://location?id=$1",
+                    "format": "instagram://location?id=$3",
                     "testResults": [
                         "instagram://location?id=215262672"
                     ]
@@ -670,7 +670,7 @@
         },
         {
             "title": "Open Effect",
-            "regex": "https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?:a/r.*effect_id=|ar/)(\\d+).*?$",
+            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/(a/r.*effect_id=|ar/)(\\d+).*?$",
             "testInputs": [
                 "https://www.instagram.com/a/r/?effect_id=389420945098555",
                 "https://www.instagram.com/ar/757239068446091"
@@ -678,7 +678,7 @@
             "formats": [
                 {
                     "appId": "instagram",
-                    "format": "instagram://story-camera/?effect_id=$1",
+                    "format": "instagram://story-camera/?effect_id=$4",
                     "testResults": [
                         "instagram://story-camera/?effect_id=389420945098555",
                         "instagram://story-camera/?effect_id=757239068446091"
@@ -688,7 +688,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?events/(?:[^/]+/)*?(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*facebook\\.com/(n/?\\?)?events/([^/]+/)*?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/events/878295485593070/",
                 "https://www.facebook.com/n?events/878295485593070/",
@@ -699,7 +699,7 @@
             "formats": [
                 {
                     "appId": "facebook",
-                    "format": "fb://event?id=$1",
+                    "format": "fb://event?id=$4",
                     "testResults": [
                         "fb://event?id=878295485593070",
                         "fb://event?id=878295485593070",
@@ -712,7 +712,7 @@
         },
         {
             "title": "Open Group",
-            "regex": "https?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?groups/(?:[^/]+/)?(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*facebook\\.com/(n/?\\?)?groups/([^/]+/)?(\\d+).*$",
             "testInputs": [
                 "https://www.facebook.com/groups/158306764190707/",
                 "https://www.facebook.com/groups/158306764190707",
@@ -736,7 +736,7 @@
             "formats": [
                 {
                     "appId": "facebook",
-                    "format": "fb://group?id=$1",
+                    "format": "fb://group?id=$4",
                     "testResults": [
                         "fb://group?id=158306764190707",
                         "fb://group?id=158306764190707",
@@ -810,7 +810,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "https?://(?:\\w+\\.)*facebook\\.com/(?:n/?\\?)?(?:photo(?:\\.php)?.*(?:\\?|&)fbid=|[^/]+/photos/[^/]+/)(\\d+).*?$",
+            "regex": "https?://(\\w+\\.)*facebook\\.com/(n/?\\?)?(photo(\\.php)?.*(\\?|&)fbid=|[^/]+/photos/[^/]+/)(\\d+).*?$",
             "testInputs": [
                 "https://m.facebook.com/photo.php?fbid=10153892256554365",
                 "https://facebook.com/photo.php?fbid=10153892256554365",
@@ -823,7 +823,7 @@
             "formats": [
                 {
                     "appId": "facebook",
-                    "format": "fb://photo/?id=$1",
+                    "format": "fb://photo/?id=$6",
                     "testResults": [
                         "fb://photo/?id=10153892256554365",
                         "fb://photo/?id=10153892256554365",
@@ -1092,7 +1092,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "https?://(?:www\\.)?500px\\.com/photo/(\\d+)((/|\\?).*)?$",
+            "regex": "https?://(www\\.)?500px\\.com/photo/(\\d+)((/|\\?).*)?$",
             "testInputs": [
                 "https://500px.com/timonus",
                 "https://500px.com/photo/106606873/wood-anemone-by-fredrik-m%C3%B6rk",
@@ -1101,7 +1101,7 @@
             "formats": [
                 {
                     "appId": "500px",
-                    "format": "px://500px.com/photo/$1",
+                    "format": "px://500px.com/photo/$2",
                     "testResults": [
                         null,
                         "px://500px.com/photo/106606873",
@@ -1112,7 +1112,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?500px\\.com/(?!photo)([0-9a-zA-Z_-]+)(/|\\?)?.*$",
+            "regex": "https?://(www\\.)?500px\\.com/(?!photo)([0-9a-zA-Z_-]+)(/|\\?)?.*$",
             "testInputs": [
                 "https://500px.com/timonus",
                 "https://500px.com/photo/40145312/7-7-13-by-tim-johnsen?from=user_library"
@@ -1120,7 +1120,7 @@
             "formats": [
                 {
                     "appId": "500px",
-                    "format": "px://500px.com/$1",
+                    "format": "px://500px.com/$2",
                     "testResults": [
                         "px://500px.com/timonus",
                         null
@@ -1156,7 +1156,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/(?:photos|people)/([0-9a-zA-Z_@%-]+)(/|\\?|/\\?.*)?$",
+            "regex": "https?://(m\\.|mobile\\.|www\\.)?flickr\\.com(/#|/browser/upgrade/\\?continue=)?/(photos|people)/([0-9a-zA-Z_@%-]+)(/|\\?|/\\?.*)?$",
             "testInputs": [
                 "https://m.flickr.com/#/photos/27933390@N03/",
                 "https://www.flickr.com/people/27933390@N03/",
@@ -1167,7 +1167,7 @@
             "formats": [
                 {
                     "appId": "flickr",
-                    "format": "flickr://flickr.com/photos/$1",
+                    "format": "flickr://flickr.com/photos/$4",
                     "testResults": [
                         "flickr://flickr.com/photos/27933390@N03",
                         "flickr://flickr.com/photos/27933390@N03",
@@ -1202,14 +1202,14 @@
         },
         {
             "title": "Open Group",
-            "regex": "https?://(?:m\\.|mobile\\.|www\\.)?flickr\\.com(?:/#|/browser/upgrade/\\?continue=)?/groups/([0-9a-zA-Z_@%-]+).*$",
+            "regex": "https?://(m\\.|mobile\\.|www\\.)?flickr\\.com(/#|/browser/upgrade/\\?continue=)?/groups/([0-9a-zA-Z_@%-]+).*$",
             "testInputs": [
                 "https://www.flickr.com/groups/lifehacker-workspace-showandtell/pool/"
             ],
             "formats": [
                 {
                     "appId": "flickr",
-                    "format": "flickr://groups/$1",
+                    "format": "flickr://groups/$3",
                     "testResults": [
                         "flickr://groups/lifehacker-workspace-showandtell"
                     ]
@@ -1218,7 +1218,7 @@
         },
         {
             "title": "Open Photo",
-            "regex": "https?://(?:[a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.com?/(?:[a-zA-Z0-9_\\-\\.]+/)?media/(\\w+).*?$",
+            "regex": "https?://([a-zA-Z0-9_\\-\\.]+\\.)?vsco\\.com?/([a-zA-Z0-9_\\-\\.]+/)?media/(\\w+).*?$",
             "testInputs": [
                 "http://jmcashdollar.vsco.co/media/53baaa357567083d5a8b460a",
                 "http://vsco.co/smotraghi/media/566f16b4d2a71c17049825ae"
@@ -1226,7 +1226,7 @@
             "formats": [
                 {
                     "appId": "vscocam",
-                    "format": "vsco://grid/$1",
+                    "format": "vsco://grid/$3",
                     "testResults": [
                         "vsco://grid/53baaa357567083d5a8b460a",
                         "vsco://grid/566f16b4d2a71c17049825ae"
@@ -1402,7 +1402,7 @@
         },
         {
             "title": "Open Tag",
-            "regex": "https?://(?:www\\.)?tumblr\\.com/(?:tagged|search)/([^/]+)((/|\\?|#).*)?$",
+            "regex": "https?://(www\\.)?tumblr\\.com/(tagged|search)/([^/]+)((/|\\?|#).*)?$",
             "testInputs": [
                 "https://www.tumblr.com/search/Hartmut+Esslinger",
                 "https://www.tumblr.com/tagged/Hartmut+Esslinger"
@@ -1410,7 +1410,7 @@
             "formats": [
                 {
                     "appId": "tumblr",
-                    "format": "tumblr://x-callback-url/tag?tag=$1",
+                    "format": "tumblr://x-callback-url/tag?tag=$3",
                     "testResults": [
                         "tumblr://x-callback-url/tag?tag=Hartmut+Esslinger",
                         "tumblr://x-callback-url/tag?tag=Hartmut+Esslinger"
@@ -1420,7 +1420,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(/|/?\\?.*)?$",
+            "regex": "https?://(?!(help|blog|engineering)\\.)(\\w+\\.)?pinterest(\\.\\w+)+/(?!pin|search|explore|categories|join)([a-zA-Z0-9-_]+)(/pins)?(/|/?\\?.*)?$",
             "testInputs": [
                 "https://pinterest.com/cnnr/",
                 "https://www.pinterest.com/cnnr/",
@@ -1438,7 +1438,7 @@
             "formats": [
                 {
                     "appId": "pinterest",
-                    "format": "pinterest://user/$1",
+                    "format": "pinterest://user/$4",
                     "testResults": [
                         "pinterest://user/cnnr",
                         "pinterest://user/cnnr",
@@ -1502,7 +1502,7 @@
         },
         {
             "title": "Open Pin",
-            "regex": "https?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/pin/(?!create)([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "https?://(?!(help|blog|engineering)\\.)(\\w+\\.)?pinterest(\\.\\w+)+/pin/(?!create)([a-zA-Z0-9_\\-]+).*?$",
             "testInputs": [
                 "https://pinterest.com/pin/515380751084154703/",
                 "https://www.pinterest.com/pin/515380751084154703/",
@@ -1516,7 +1516,7 @@
             "formats": [
                 {
                     "appId": "pinterest",
-                    "format": "pinterest://pin/$1",
+                    "format": "pinterest://pin/$4",
                     "testResults": [
                         "pinterest://pin/515380751084154703",
                         "pinterest://pin/515380751084154703",
@@ -1556,7 +1556,7 @@
         },
         {
             "title": "Open Category",
-            "regex": "https?://(?!(?:help|blog|engineering)\\.)(?:\\w+\\.)?pinterest(?:\\.\\w+)+/(?:categories|explore)(/[^\\/\\?#]+)?.*?",
+            "regex": "https?://(?!(help|blog|engineering)\\.)(\\w+\\.)?pinterest(\\.\\w+)+/(categories|explore)(/[^\\/\\?#]+)?.*?",
             "testInputs": [
                 "https://www.pinterest.com/categories",
                 "https://www.pinterest.com/categories/",
@@ -1569,7 +1569,7 @@
             "formats": [
                 {
                     "appId": "pinterest",
-                    "format": "pinterest://categories$1",
+                    "format": "pinterest://categories$5",
                     "testResults": [
                         "pinterest://categories",
                         "pinterest://categories/",
@@ -1622,7 +1622,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:(?:u|d)/)?(\\w+)(/\\?.*|/)?$",
+            "regex": "https?://(\\w+\\.)?weibo\\.(com|cn)/((u|d)/)?(\\w+)(/\\?.*|/)?$",
             "testInputs": [
                 "http://weibo.com/2616423197",
                 "http://weibo.com/u/2616423197",
@@ -1633,7 +1633,7 @@
             "formats": [
                 {
                     "appId": "weibo",
-                    "format": "sinaweibo://userinfo?uid=$1",
+                    "format": "sinaweibo://userinfo?uid=$5",
                     "testResults": [
                         "sinaweibo://userinfo?uid=2616423197",
                         "sinaweibo://userinfo?uid=2616423197",
@@ -1646,7 +1646,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:u/)?(\\d+)(/\\?.*|/)?$",
+            "regex": "https?://(\\w+\\.)?weibo\\.(com|cn)/(u/)?(\\d+)(/\\?.*|/)?$",
             "testInputs": [
                 "http://weibo.com/2616423197",
                 "http://weibo.com/u/2616423197",
@@ -1657,7 +1657,7 @@
             "formats": [
                 {
                     "appId": "weibointernational",
-                    "format": "weibointernational://userprofile?userid=$1",
+                    "format": "weibointernational://userprofile?userid=$4",
                     "testResults": [
                         "weibointernational://userprofile?userid=2616423197",
                         "weibointernational://userprofile?userid=2616423197",
@@ -1668,7 +1668,7 @@
                 },
                 {
                     "appId": "moke",
-                    "format": "moke:///user?id=$1",
+                    "format": "moke:///user?id=$4",
                     "testResults": [
                         "moke:///user?id=2616423197",
                         "moke:///user?id=2616423197",
@@ -1681,7 +1681,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:\\w+\\.)?weibo\\.(?:com|cn)/(?:d/)?(?!\\d+)(\\w+)(/\\?.*|/)?$",
+            "regex": "https?://(\\w+\\.)?weibo\\.(com|cn)/(d/)?(?!\\d+)(\\w+)(/\\?.*|/)?$",
             "testInputs": [
                 "http://weibo.com/2616423197",
                 "http://weibo.com/u/2616423197",
@@ -1692,7 +1692,7 @@
             "formats": [
                 {
                     "appId": "weibointernational",
-                    "format": "weibointernational://userprofile?username=$1",
+                    "format": "weibointernational://userprofile?username=$4",
                     "testResults": [
                         null,
                         null,
@@ -1703,7 +1703,7 @@
                 },
                 {
                     "appId": "moke",
-                    "format": "moke:///user?domain=$1",
+                    "format": "moke:///user?domain=$4",
                     "testResults": [
                         null,
                         null,
@@ -1792,7 +1792,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://blog\\.sina\\.(?:com|cn|com\\.cn)/(?:.*/)?s/blog_(\\w+)\\.html.*$",
+            "regex": "https?://blog\\.sina\\.(com|cn|com\\.cn)/(.*/)?s/blog_(\\w+)\\.html.*$",
             "testInputs": [
                 "http://blog.sina.cn/dpool/blog/s/blog_51177cc40102w0k1.html?cid=95642&vt=4",
                 "http://blog.sina.com.cn/s/blog_6051fbeb0102vtou.html#cre=blogpc&mod=g&loc=8&r=h&rfunc=-1",
@@ -1801,7 +1801,7 @@
             "formats": [
                 {
                     "appId": "sinablog",
-                    "format": "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=$1",
+                    "format": "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=$3",
                     "testResults": [
                         "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=51177cc40102w0k1",
                         "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=6051fbeb0102vtou",
@@ -1896,14 +1896,14 @@
         },
         {
             "title": "Open Tip",
-            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/item/([:hex:]{24})/?.*$",
+            "regex": "https?://(m\\.|www\\.|mobile\\.)?foursquare\\.com(/mobile)?/item/([:hex:]{24})/?.*$",
             "testInputs": [
                 "https://foursquare.com/item/552b6f5f498e0073829b16b1"
             ],
             "formats": [
                 {
                     "appId": "foursquare",
-                    "format": "foursquare://tips/$1",
+                    "format": "foursquare://tips/$3",
                     "testResults": [
                         "foursquare://tips/552b6f5f498e0073829b16b1"
                     ]
@@ -1912,7 +1912,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/(?:u|user)/(\\d+)/?.*$",
+            "regex": "https?://(m\\.|www\\.|mobile\\.)?foursquare\\.com(/mobile)?/(u|user)/(\\d+)/?.*$",
             "testInputs": [
                 "http://foursquare.com/u/558158",
                 "https://foursquare.com/user/558158"
@@ -1920,7 +1920,7 @@
             "formats": [
                 {
                     "appId": "foursquare",
-                    "format": "foursquare://users/$1",
+                    "format": "foursquare://users/$4",
                     "testResults": [
                         "foursquare://users/558158",
                         "foursquare://users/558158"
@@ -1930,7 +1930,7 @@
         },
         {
             "title": "Open Search",
-            "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/explore.*q=([^&]+).*?$",
+            "regex": "https?://(m\\.|www\\.|mobile\\.)?foursquare\\.com(/mobile)?/explore.*q=([^&]+).*?$",
             "testInputs": [
                 "https://foursquare.com/explore?q=bars",
                 "https://foursquare.com/explore/?q=bars"
@@ -1938,7 +1938,7 @@
             "formats": [
                 {
                     "appId": "foursquare",
-                    "format": "foursquare://venues/explore?query=$1",
+                    "format": "foursquare://venues/explore?query=$3",
                     "testResults": [
                         "foursquare://venues/explore?query=bars",
                         "foursquare://venues/explore?query=bars"
@@ -1948,7 +1948,7 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "https?://(?:www\\.)?swarmapp\\.com(?:/(?:user/)?\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+).*$",
+            "regex": "https?://(www\\.)?swarmapp\\.com(/(user/)?\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+).*$",
             "testInputs": [
                 "https://www.swarmapp.com/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
                 "https://www.swarmapp.com/timonus/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
@@ -1958,7 +1958,7 @@
             "formats": [
                 {
                     "appId": "swarm",
-                    "format": "swarm://checkins/$1",
+                    "format": "swarm://checkins/$4",
                     "testResults": [
                         "swarm://checkins/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo",
                         "swarm://checkins/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo",
@@ -2008,7 +2008,7 @@
         },
         {
             "title": "Open Listing",
-            "regex": "https?://(?:\\w+\\.)*airbnb(?:\\.\\w+)+/(?:rooms|listings)/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*airbnb(\\.\\w+)+/(rooms|listings)/(\\d+).*$",
             "testInputs": [
                 "https://m.airbnb.com/listings/3342418",
                 "https://airbnb.com/rooms/3342418",
@@ -2019,7 +2019,7 @@
             "formats": [
                 {
                     "appId": "airbnb",
-                    "format": "airbnb://rooms/$1",
+                    "format": "airbnb://rooms/$4",
                     "testResults": [
                         "airbnb://rooms/3342418",
                         "airbnb://rooms/3342418",
@@ -2032,7 +2032,7 @@
         },
         {
             "title": "Open Experience",
-            "regex": "https?://(?:\\w+\\.)*airbnb(?:\\.\\w+)+/experiences/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*airbnb(\\.\\w+)+/experiences/(\\d+).*$",
             "testInputs": [
                 "https://www.airbnb.com/experiences/70986?source=p2&searchId=648044c8-7f3b-4d66-bc3d-d65b1a86a6ac&pdpReferrer=12&pdpContext%5Bmt_pdp_referrer_id%5D=25",
                 "http://th.airbnb.com/experiences/70986"
@@ -2040,7 +2040,7 @@
             "formats": [
                 {
                     "appId": "airbnb",
-                    "format": "airbnb://d/experiences/$1",
+                    "format": "airbnb://d/experiences/$3",
                     "testResults": [
                         "airbnb://d/experiences/70986",
                         "airbnb://d/experiences/70986"
@@ -2050,7 +2050,7 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "https?://(?:www\\.)?(?:untappd\\.com/user/[a-zA-Z0-9_\\-\\.]+/checkin/|(?:untp\\.beer|untpd\\.it)/s/c)(\\d+).*$",
+            "regex": "https?://(www\\.)?(untappd\\.com/user/[a-zA-Z0-9_\\-\\.]+/checkin/|(untp\\.beer|untpd\\.it)/s/c)(\\d+).*$",
             "testInputs": [
                 "https://untappd.com/user/timonus/checkin/236836284",
                 "http://untp.beer/s/c237644605",
@@ -2059,7 +2059,7 @@
             "formats": [
                 {
                     "appId": "untappd",
-                    "format": "untappd:///?checkin=$1",
+                    "format": "untappd:///?checkin=$4",
                     "testResults": [
                         "untappd:///?checkin=236836284",
                         "untappd:///?checkin=237644605",
@@ -2070,14 +2070,14 @@
         },
         {
             "title": "Open Beer",
-            "regex": "https?://(?:www\\.)?untappd\\.com/b/[a-zA-Z0-9_\\-\\.]+/(\\d+).*$",
+            "regex": "https?://(www\\.)?untappd\\.com/b/[a-zA-Z0-9_\\-\\.]+/(\\d+).*$",
             "testInputs": [
                 "https://untappd.com/b/schlafly-beer-the-saint-louis-brewery-pumpkin-ale/8263"
             ],
             "formats": [
                 {
                     "appId": "untappd",
-                    "format": "untappd:///?beer=$1",
+                    "format": "untappd:///?beer=$2",
                     "testResults": [
                         "untappd:///?beer=8263"
                     ]
@@ -2086,14 +2086,14 @@
         },
         {
             "title": "Check in with beer",
-            "regex": "https?://(?:www\\.)?untappd\\.com/b/[a-zA-Z0-9_\\-\\.]+/(\\d+).*$",
+            "regex": "https?://(www\\.)?untappd\\.com/b/[a-zA-Z0-9_\\-\\.]+/(\\d+).*$",
             "testInputs": [
                 "https://untappd.com/b/schlafly-beer-the-saint-louis-brewery-pumpkin-ale/8263"
             ],
             "formats": [
                 {
                     "appId": "tappdthat",
-                    "format": "tappdthat://checkin/?beerID=$1",
+                    "format": "tappdthat://checkin/?beerID=$2",
                     "testResults": [
                         "tappdthat://checkin/?beerID=8263"
                     ]
@@ -2102,7 +2102,7 @@
         },
         {
             "title": "Open Business",
-            "regex": "https?://(?:www\\.|mobile\\.|m\\.)?yelp(?:\\.[a-z]+)+/biz/([a-zA-Z0-9%\\-]+).*$",
+            "regex": "https?://(www\\.|mobile\\.|m\\.)?yelp(\\.[a-z]+)+/biz/([a-zA-Z0-9%\\-]+).*$",
             "testInputs": [
                 "http://www.yelp.com/biz/sinh-sinh-restaurant-houston?pt=check_in&ref=twitter&v=4b",
                 "http://www.yelp.co.jp/biz/%E3%81%9F%E3%81%BE%E3%83%97%E3%83%A9%E3%83%BC%E3%82%B6%E3%83%86%E3%83%A9%E3%82%B9-%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82",
@@ -2111,7 +2111,7 @@
             "formats": [
                 {
                     "appId": "yelp",
-                    "format": "yelp:///biz/$1",
+                    "format": "yelp:///biz/$3",
                     "testResults": [
                         "yelp:///biz/sinh-sinh-restaurant-houston",
                         "yelp:///biz/%E3%81%9F%E3%81%BE%E3%83%97%E3%83%A9%E3%83%BC%E3%82%B6%E3%83%86%E3%83%A9%E3%82%B9-%E7%A5%9E%E5%A5%88%E5%B7%9D%E7%9C%8C%E6%A8%AA%E6%B5%9C%E5%B8%82",
@@ -2122,14 +2122,14 @@
         },
         {
             "title": "View Photos",
-            "regex": "https?://(?:www\\.|mobile\\.|m\\.)?yelp(?:\\.[a-z]+)+/biz_photos/([a-zA-Z0-9%\\-]+).*$",
+            "regex": "https?://(www\\.|mobile\\.|m\\.)?yelp(\\.[a-z]+)+/biz_photos/([a-zA-Z0-9%\\-]+).*$",
             "testInputs": [
                 "http://www.yelp.com/biz_photos/service-max-cleaning-and-restoration-miami-3"
             ],
             "formats": [
                 {
                     "appId": "yelp",
-                    "format": "yelp:///biz/photos?biz_id=$1",
+                    "format": "yelp:///biz/photos?biz_id=$3",
                     "testResults": [
                         "yelp:///biz/photos?biz_id=service-max-cleaning-and-restoration-miami-3"
                     ]
@@ -2205,7 +2205,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.|maps\\.)?google(?:\\.\\w+)+/maps/search/@?([^/,]+,[^/,]+)(,[^/]+)?.*$",
+            "regex": "https?://(www\\.|maps\\.)?google(\\.\\w+)+/maps/search/@?([^/,]+,[^/,]+)(,[^/]+)?.*$",
             "testInputs": [
                 "https://www.google.com/maps/search/37.755225,-122.476069",
                 "https://www.google.com/maps/search/37.755225,-122.476069/data=!4m2!2m1!4b1?hl=en-US&gl=us&dg=dbrw&newdg=1",
@@ -2217,7 +2217,7 @@
             "formats": [
                 {
                     "appId": "applemaps",
-                    "format": "maps://maps.apple.com/maps?q=$1",
+                    "format": "maps://maps.apple.com/maps?q=$3",
                     "testResults": [
                         "maps://maps.apple.com/maps?q=37.755225,-122.476069",
                         "maps://maps.apple.com/maps?q=37.755225,-122.476069",
@@ -2229,7 +2229,7 @@
                 },
                 {
                     "appId": "waze",
-                    "format": "waze://?q=$1",
+                    "format": "waze://?q=$3",
                     "testResults": [
                         "waze://?q=37.755225,-122.476069",
                         "waze://?q=37.755225,-122.476069",
@@ -2242,7 +2242,7 @@
             ]
         },
         {
-            "regex": "https?://(www\\.google(?:\\.\\w+)+/maps(?!/place/.*).*(\\?.*))",
+            "regex": "https?://(www\\.google(\\.\\w+)+/maps(?!/place/.*).*(\\?.*))",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
                 "https://maps.google.com/?q=@37.3161,-122.1836",
@@ -2252,7 +2252,7 @@
             "formats": [
                 {
                     "appId": "applemaps",
-                    "format": "maps://maps.apple.com/maps$2",
+                    "format": "maps://maps.apple.com/maps$3",
                     "testResults": [
                         null,
                         null,
@@ -2262,7 +2262,7 @@
                 },
                 {
                     "appId": "waze",
-                    "format": "waze://$2",
+                    "format": "waze://$3",
                     "testResults": [
                         null,
                         null,
@@ -2273,7 +2273,7 @@
             ]
         },
         {
-            "regex": "https?://(maps\\.google(?:\\.\\w+)+/(?!maps/place/.*).*(\\?.*))",
+            "regex": "https?://(maps\\.google(\\.\\w+)+/(?!maps/place/.*).*(\\?.*))",
             "testInputs": [
                 "https://www.google.com/maps/place/Anchor+Brewing+Company/@37.7632216,-122.4009458,15z/data=!4m2!3m1!1s0x0:0x976aee276c5079b2?sa=X&ei=q1qQVaLFN8WqogSI6bsw&ved=0CM4BEPwSMBc",
                 "https://maps.google.com/?q=@37.3161,-122.1836",
@@ -2283,7 +2283,7 @@
             "formats": [
                 {
                     "appId": "applemaps",
-                    "format": "maps://maps.apple.com/maps$2",
+                    "format": "maps://maps.apple.com/maps$3",
                     "testResults": [
                         null,
                         "maps://maps.apple.com/maps?q=@37.3161,-122.1836",
@@ -2293,7 +2293,7 @@
                 },
                 {
                     "appId": "waze",
-                    "format": "waze://$2",
+                    "format": "waze://$3",
                     "testResults": [
                         null,
                         "waze://?q=@37.3161,-122.1836",
@@ -2304,7 +2304,7 @@
             ]
         },
         {
-            "regex": "https?://maps\\.apple\\.com/?(?:maps/?)?\\?(.*)",
+            "regex": "https?://maps\\.apple\\.com/?(maps/?)?\\?(.*)",
             "testInputs": [
                 "http://maps.apple.com/maps?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
                 "http://maps.apple.com/maps/?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
@@ -2318,7 +2318,7 @@
             "formats": [
                 {
                     "appId": "applemaps",
-                    "format": "maps://maps.apple.com/maps?$1",
+                    "format": "maps://maps.apple.com/maps?$2",
                     "testResults": [
                         "maps://maps.apple.com/maps?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
                         "maps://maps.apple.com/maps?address=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&auid=8554658162390289549&ll=37.760092,-122.414035&lsp=9902&q=Southern%20Pacific%20Brewing&t=r",
@@ -2436,7 +2436,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?waze\\.to/?\\?([^#]+).*$",
+            "regex": "https?://(www\\.)?waze\\.to/?\\?([^#]+).*$",
             "testInputs": [
                 "http://waze.to/?ll=34.042892,-118.245853&navigate=yes",
                 "https://www.waze.to/?q=burgers"
@@ -2444,7 +2444,7 @@
             "formats": [
                 {
                     "appId": "waze",
-                    "format": "waze://?$1",
+                    "format": "waze://?$2",
                     "testResults": [
                         "waze://?ll=34.042892,-118.245853&navigate=yes",
                         "waze://?q=burgers"
@@ -2452,7 +2452,7 @@
                 },
                 {
                     "appId": "applemaps",
-                    "format": "maps://maps.apple.com/maps?$1",
+                    "format": "maps://maps.apple.com/maps?$2",
                     "testResults": [
                         "maps://maps.apple.com/maps?ll=34.042892,-118.245853&navigate=yes",
                         "maps://maps.apple.com/maps?q=burgers"
@@ -2478,7 +2478,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*(?:maps\\.(?:apple|google)(?:\\.\\w+)+|google(?:\\.\\w+)+/maps|waze\\.to).*(?:ll=|@)([\\-0-9\\.]+,[\\-0-9\\.]+).*?$",
+            "regex": "https?://(\\w+\\.)*(maps\\.(apple|google)(\\.\\w+)+|google(\\.\\w+)+/maps|waze\\.to).*(ll=|@)([\\-0-9\\.]+,[\\-0-9\\.]+).*?$",
             "testInputs": [
                 "http://maps.google.co.jp/maps?f=q&hl=ja&geocode=&q=-39.23774,175.3048&ie=UTF8&ll=-39.23774,175.3048&z=6",
                 "https://www.google.com/maps/place/Schwartz+and+Architecture/@37.7588677,-122.4044106,17z/data=!3m1!4b1!4m5!3m4!1s0x808f7e355b27add5:0xbea02036f8bac009!8m2!3d37.7588677!4d-122.4022219",
@@ -2492,7 +2492,7 @@
             "formats": [
                 {
                     "appId": "transit",
-                    "format": "transit://directions?to=$1",
+                    "format": "transit://directions?to=$7",
                     "testResults": [
                         "transit://directions?to=-39.23774,175.3048",
                         "transit://directions?to=37.7588677,-122.4044106",
@@ -2506,7 +2506,7 @@
                 },
                 {
                     "appId": "citymapper",
-                    "format": "citymapper://x-callback-url/directions?endcoord=$1",
+                    "format": "citymapper://x-callback-url/directions?endcoord=$7",
                     "testResults": [
                         "citymapper://x-callback-url/directions?endcoord=-39.23774,175.3048",
                         "citymapper://x-callback-url/directions?endcoord=37.7588677,-122.4044106",
@@ -2565,7 +2565,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)*(?:youtu\\.be/|youtube\\.com/(?:embed/|.*(?:\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
+            "regex": "https?://(\\w+\\.)*(youtu\\.be/|youtube\\.com/(embed/|.*(\\?|&)v=))([a-zA-Z0-9_\\-]+).*?((\\?|&)(start|t)=\\w+)?.*?$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2580,7 +2580,7 @@
             "formats": [
                 {
                     "appId": "ivory",
-                    "format": "ivory://https://www.youtube.com/watch?v=$1",
+                    "format": "ivory://https://www.youtube.com/watch?v=$5",
                     "testResults": [
                         "ivory://https://www.youtube.com/watch?v=MTY1Kje0yLg",
                         "ivory://https://www.youtube.com/watch?v=0uY7gLZDmn4",
@@ -2595,7 +2595,7 @@
                 },
                 {
                     "appId": "musi",
-                    "format": "musi://track/$1",
+                    "format": "musi://track/$5",
                     "testResults": [
                         "musi://track/MTY1Kje0yLg",
                         "musi://track/0uY7gLZDmn4",
@@ -2610,7 +2610,7 @@
                 },
                 {
                     "appId": "youplayer",
-                    "format": "youplayer://youtube.com/watch?v=$1",
+                    "format": "youplayer://youtube.com/watch?v=$5",
                     "testResults": [
                         "youplayer://youtube.com/watch?v=MTY1Kje0yLg",
                         "youplayer://youtube.com/watch?v=0uY7gLZDmn4",
@@ -2625,7 +2625,7 @@
                 },
                 {
                     "appId": "protube",
-                    "format": "protube://video/$1",
+                    "format": "protube://video/$5",
                     "testResults": [
                         "protube://video/MTY1Kje0yLg",
                         "protube://video/0uY7gLZDmn4",
@@ -2640,7 +2640,7 @@
                 },
                 {
                     "appId": "waffle",
-                    "format": "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=$1",
+                    "format": "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=$5",
                     "testResults": [
                         "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=MTY1Kje0yLg",
                         "com.arturremizov.waffle://PopularTodayWidget?videoIdentifier=0uY7gLZDmn4",
@@ -2655,7 +2655,7 @@
                 },
                 {
                     "appId": "cornertube",
-                    "format": "cornertube://video/https://youtu.be/$1",
+                    "format": "cornertube://video/https://youtu.be/$5",
                     "testResults": [
                         "cornertube://video/https://youtu.be/MTY1Kje0yLg",
                         "cornertube://video/https://youtu.be/0uY7gLZDmn4",
@@ -2670,7 +2670,7 @@
                 },
                 {
                     "appId": "piptube",
-                    "format": "piptube://openvideo?url=https://www.youtube.com/watch?v=$1",
+                    "format": "piptube://openvideo?url=https://www.youtube.com/watch?v=$5",
                     "testResults": [
                         "piptube://openvideo?url=https://www.youtube.com/watch?v=MTY1Kje0yLg",
                         "piptube://openvideo?url=https://www.youtube.com/watch?v=0uY7gLZDmn4",
@@ -2685,7 +2685,7 @@
                 },
                 {
                     "appId": "syndromi",
-                    "format": "syndromi://video?id=$1",
+                    "format": "syndromi://video?id=$5",
                     "testResults": [
                         "syndromi://video?id=MTY1Kje0yLg",
                         "syndromi://video?id=0uY7gLZDmn4",
@@ -2700,7 +2700,7 @@
                 },
                 {
                     "appId": "xapp",
-                    "format": "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D$1",
+                    "format": "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D$5",
                     "testResults": [
                         "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DMTY1Kje0yLg",
                         "xapp://?videoURL=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3D0uY7gLZDmn4",
@@ -2717,7 +2717,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.|m\\.)?youtube\\.com/user/([\\w]+).*$",
+            "regex": "https?://(www\\.|m\\.)?youtube\\.com/user/([\\w]+).*$",
             "testInputs": [
                 "https://www.youtube.com/user/timonominus",
                 "https://m.youtube.com/user/timonominus"
@@ -2725,7 +2725,7 @@
             "formats": [
                 {
                     "appId": "youplayer",
-                    "format": "youplayer://youtube.com/user/$1",
+                    "format": "youplayer://youtube.com/user/$2",
                     "testResults": [
                         "youplayer://youtube.com/user/timonominus",
                         "youplayer://youtube.com/user/timonominus"
@@ -2733,7 +2733,7 @@
                 },
                 {
                     "appId": "protube",
-                    "format": "protube://user/$1",
+                    "format": "protube://user/$2",
                     "testResults": [
                         "protube://user/timonominus",
                         "protube://user/timonominus"
@@ -2743,7 +2743,7 @@
         },
         {
             "title": "Open Channel",
-            "regex": "https?://(?:www\\.|m\\.)?youtube\\.com/channel/([a-zA-Z0-9_\\-]+).*$",
+            "regex": "https?://(www\\.|m\\.)?youtube\\.com/channel/([a-zA-Z0-9_\\-]+).*$",
             "testInputs": [
                 "https://www.youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
                 "https://www.youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ"
@@ -2751,7 +2751,7 @@
             "formats": [
                 {
                     "appId": "youplayer",
-                    "format": "youplayer://youtube.com/channel/$1",
+                    "format": "youplayer://youtube.com/channel/$2",
                     "testResults": [
                         "youplayer://youtube.com/channel/UC4eYXhJI4-7wSWc8UNRwD4A",
                         "youplayer://youtube.com/channel/UCqPTgFxqw_46kJGmEznQqqQ"
@@ -2759,7 +2759,7 @@
                 },
                 {
                     "appId": "protube",
-                    "format": "protube://channel/$1",
+                    "format": "protube://channel/$2",
                     "testResults": [
                         "protube://channel/UC4eYXhJI4-7wSWc8UNRwD4A",
                         "protube://channel/UCqPTgFxqw_46kJGmEznQqqQ"
@@ -2769,28 +2769,28 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://(?:www\\.|m\\.)?youtube\\.com/playlist.*list=([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "https?://(www\\.|m\\.)?youtube\\.com/playlist.*list=([a-zA-Z0-9_\\-]+).*?$",
             "testInputs": [
                 "https://www.youtube.com/playlist?list=PL2ED57C3E5C561B91"
             ],
             "formats": [
                 {
                     "appId": "youtubemusic",
-                    "format": "youtubemusic://youtube.com/playlist?list=$1",
+                    "format": "youtubemusic://youtube.com/playlist?list=$2",
                     "testResults": [
                         "youtubemusic://youtube.com/playlist?list=PL2ED57C3E5C561B91"
                     ]
                 },
                 {
                     "appId": "youplayer",
-                    "format": "youplayer://youtube.com/playlist?list=$1",
+                    "format": "youplayer://youtube.com/playlist?list=$2",
                     "testResults": [
                         "youplayer://youtube.com/playlist?list=PL2ED57C3E5C561B91"
                     ]
                 },
                 {
                     "appId": "protube",
-                    "format": "protube://playlist/$1",
+                    "format": "protube://playlist/$2",
                     "testResults": [
                         "protube://playlist/PL2ED57C3E5C561B91"
                     ]
@@ -2798,7 +2798,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*(((youtube\\.com|youtu\\.be))/(?!redirect).*)$",
+            "regex": "https?://(\\w+\\.)*(((youtube\\.com|youtu\\.be))/(?!redirect).*)$",
             "testInputs": [
                 "https://m.youtube.com/watch?v=MTY1Kje0yLg",
                 "https://www.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2821,7 +2821,7 @@
             "formats": [
                 {
                     "appId": "youtubemusic",
-                    "format": "youtubemusic://music.$1",
+                    "format": "youtubemusic://music.$2",
                     "testResults": [
                         "youtubemusic://music.youtube.com/watch?v=MTY1Kje0yLg",
                         "youtubemusic://music.youtube.com/embed/0uY7gLZDmn4?start=96",
@@ -2846,7 +2846,7 @@
         },
         {
             "title": "Open Stream",
-            "regex": "https?://(?!clips\\.)(?:[a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?!directory|videos|v)(\\w+)(?!.*/v/\\d+).*$",
+            "regex": "https?://(?!clips\\.)([a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?!directory|videos|v)(\\w+)(?!.*/v/\\d+).*$",
             "testInputs": [
                 "http://www.twitch.tv/imaginedragons",
                 "http://es-es.twitch.tv/doctorepollo/",
@@ -2858,7 +2858,7 @@
             "formats": [
                 {
                     "appId": "twitch",
-                    "format": "twitch://stream/$1",
+                    "format": "twitch://stream/$2",
                     "testResults": [
                         "twitch://stream/imaginedragons",
                         "twitch://stream/doctorepollo",
@@ -2872,14 +2872,14 @@
         },
         {
             "title": "Open Game Directory",
-            "regex": "https?://(?:[a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/directory/game/([a-zA-Z0-9_\\-%]+).*$",
+            "regex": "https?://([a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/directory/game/([a-zA-Z0-9_\\-%]+).*$",
             "testInputs": [
                 "http://www.twitch.tv/directory/game/Minecraft"
             ],
             "formats": [
                 {
                     "appId": "twitch",
-                    "format": "twitch://game/$1",
+                    "format": "twitch://game/$2",
                     "testResults": [
                         "twitch://game/Minecraft"
                     ]
@@ -2888,7 +2888,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:[a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?:(?!directory)(?:\\w+)/v|videos)/(?:(?i)video(?:%\\d.)*)?(\\d+).*$",
+            "regex": "https?://([a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/((?!directory)(\\w+)/v|videos)/((?i)video(%\\d.)*)?(\\d+).*$",
             "testInputs": [
                 "http://www.twitch.tv/fragbitelive/v/4776592",
                 "https://www.twitch.tv/videos/212106676",
@@ -2898,7 +2898,7 @@
             "formats": [
                 {
                     "appId": "twitch",
-                    "format": "twitch://video/v$1",
+                    "format": "twitch://video/v$6",
                     "testResults": [
                         "twitch://video/v4776592",
                         "twitch://video/v212106676",
@@ -2995,7 +2995,7 @@
             ]
         },
         {
-            "regex": "https?://(?:app\\.)?box\\.com/s/(\\w+).*$",
+            "regex": "https?://(app\\.)?box\\.com/s/(\\w+).*$",
             "testInputs": [
                 "https://app.box.com/s/awrlik8v6w83ugx7q2swmekfw3irm28l",
                 "https://app.box.com/s/20bj5ye64j9dlqdnkrig"
@@ -3003,7 +3003,7 @@
             "formats": [
                 {
                     "appId": "box",
-                    "format": "boxopenshared://shared_item?url=https%3A%2F%2Fapp.box.com%2Fs%2F$1",
+                    "format": "boxopenshared://shared_item?url=https%3A%2F%2Fapp.box.com%2Fs%2F$2",
                     "testResults": [
                         "boxopenshared://shared_item?url=https%3A%2F%2Fapp.box.com%2Fs%2Fawrlik8v6w83ugx7q2swmekfw3irm28l",
                         "boxopenshared://shared_item?url=https%3A%2F%2Fapp.box.com%2Fs%2F20bj5ye64j9dlqdnkrig"
@@ -3013,7 +3013,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/([a-zA-Z](\\w+))/?(\\?.*)?$",
+            "regex": "https?://(www\\.)?vimeo\\.com/([a-zA-Z](\\w+))/?(\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/timonus",
                 "http://vimeo.com/timonus/",
@@ -3025,7 +3025,7 @@
             "formats": [
                 {
                     "appId": "vimeo",
-                    "format": "vimeo://app.vimeo.com/users/$1",
+                    "format": "vimeo://app.vimeo.com/users/$2",
                     "testResults": [
                         "vimeo://app.vimeo.com/users/timonus",
                         "vimeo://app.vimeo.com/users/timonus",
@@ -3039,7 +3039,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:www\\.|player\\.)?vimeo\\.com/(?:video/)?(\\d+)/?.*$",
+            "regex": "https?://(www\\.|player\\.)?vimeo\\.com/(video/)?(\\d+)/?.*$",
             "testInputs": [
                 "https://www.vimeo.com/121634963",
                 "https://vimeo.com/125074876?ref=tw-share",
@@ -3049,7 +3049,7 @@
             "formats": [
                 {
                     "appId": "vimeo",
-                    "format": "vimeo://app.vimeo.com/videos/$1",
+                    "format": "vimeo://app.vimeo.com/videos/$3",
                     "testResults": [
                         "vimeo://app.vimeo.com/videos/121634963",
                         "vimeo://app.vimeo.com/videos/125074876",
@@ -3059,7 +3059,7 @@
                 },
                 {
                     "appId": "xapp",
-                    "format": "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F$1",
+                    "format": "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F$3",
                     "testResults": [
                         "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F121634963",
                         "xapp://?videoURL=https%3A%2F%2Fvimeo.com%2F125074876",
@@ -3071,7 +3071,7 @@
         },
         {
             "title": "Open Channel",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/channels/(\\w+)/?(\\?.*)?$",
+            "regex": "https?://(www\\.)?vimeo\\.com/channels/(\\w+)/?(\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/channels/nicetype",
                 "http://vimeo.com/channels/nicetype/",
@@ -3081,7 +3081,7 @@
             "formats": [
                 {
                     "appId": "vimeo",
-                    "format": "vimeo://app.vimeo.com/channels/$1",
+                    "format": "vimeo://app.vimeo.com/channels/$2",
                     "testResults": [
                         "vimeo://app.vimeo.com/channels/nicetype",
                         "vimeo://app.vimeo.com/channels/nicetype",
@@ -3093,7 +3093,7 @@
         },
         {
             "title": "Open Category",
-            "regex": "https?://(?:www\\.)?vimeo\\.com/categories/(\\w+)/?(\\?.*)?$",
+            "regex": "https?://(www\\.)?vimeo\\.com/categories/(\\w+)/?(\\?.*)?$",
             "testInputs": [
                 "http://www.vimeo.com/categories/animation",
                 "http://vimeo.com/categories/animation/",
@@ -3103,7 +3103,7 @@
             "formats": [
                 {
                     "appId": "vimeo",
-                    "format": "vimeo://app.vimeo.com/categories/$1",
+                    "format": "vimeo://app.vimeo.com/categories/$2",
                     "testResults": [
                         "vimeo://app.vimeo.com/categories/animation",
                         "vimeo://app.vimeo.com/categories/animation",
@@ -3115,21 +3115,21 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)?youku\\.com/v_show/id_(\\w+).*$",
+            "regex": "https?://(\\w+\\.)?youku\\.com/v_show/id_(\\w+).*$",
             "testInputs": [
                 "http://v.youku.com/v_show/id_XNDI2Mjk2MTg0.html"
             ],
             "formats": [
                 {
                     "appId": "youku",
-                    "format": "youku://play?vid=$1",
+                    "format": "youku://play?vid=$2",
                     "testResults": [
                         "youku://play?vid=XNDI2Mjk2MTg0"
                     ]
                 },
                 {
                     "appId": "youkuhd",
-                    "format": "youkuhd://play?vid=$1",
+                    "format": "youkuhd://play?vid=$2",
                     "testResults": [
                         "youkuhd://play?vid=XNDI2Mjk2MTg0"
                     ]
@@ -3138,7 +3138,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:www\\.)?bilibili\\.com/(?:.*/)?video/av(\\d+).*$",
+            "regex": "https?://(www\\.)?bilibili\\.com/(.*/)?video/av(\\d+).*$",
             "testInputs": [
                 "http://www.bilibili.com/video/av2782208/",
                 "http://www.bilibili.com/mobile/video/av2782168.html?utm_source=twitterfeed&utm_medium=twitter"
@@ -3146,7 +3146,7 @@
             "formats": [
                 {
                     "appId": "bilibili",
-                    "format": "bilibili://av/$1",
+                    "format": "bilibili://av/$3",
                     "testResults": [
                         "bilibili://av/2782208",
                         "bilibili://av/2782168"
@@ -3156,7 +3156,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:www\\.)?hulu(?:\\.\\w+)+/watch/(\\d+).*$",
+            "regex": "https?://(www\\.)?hulu(\\.\\w+)+/watch/(\\d+).*$",
             "testInputs": [
                 "http://www.hulu.com/watch/804690?linkId=14918334",
                 "http://www.hulu.com/watch/143935"
@@ -3164,7 +3164,7 @@
             "formats": [
                 {
                     "appId": "hulu",
-                    "format": "hulu://w/$1",
+                    "format": "hulu://w/$3",
                     "testResults": [
                         "hulu://w/804690",
                         "hulu://w/143935"
@@ -3174,7 +3174,7 @@
         },
         {
             "title": "Open Track",
-            "regex": "https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/track/([:alnum:]+).*$",
+            "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/track/([:alnum:]+).*$",
             "testInputs": [
                 "http://open.spotify.com/track/5QZJAcP4nu3xL2NQV4AVHO",
                 "https://play.spotify.com/track/77Ezu3tBE7gmzQ4mRnZZUf?play=true"
@@ -3182,7 +3182,7 @@
             "formats": [
                 {
                     "appId": "spotify",
-                    "format": "spotify:track:$1",
+                    "format": "spotify:track:$2",
                     "testResults": [
                         "spotify:track:5QZJAcP4nu3xL2NQV4AVHO",
                         "spotify:track:77Ezu3tBE7gmzQ4mRnZZUf"
@@ -3192,7 +3192,7 @@
         },
         {
             "title": "Open Album",
-            "regex": "https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/album/([:alnum:]+).*$",
+            "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/album/([:alnum:]+).*$",
             "testInputs": [
                 "http://open.spotify.com/album/6BK3muExDOuk0VnyMn9NVw",
                 "https://open.spotify.com/album/4G8WKL5DGAFbWNTXxp3emz?utm_content=http%3A%2F%2Fsmarturl.it%2FWowGuauSP&utm_medium=email&utm_umg_et=1543198706&utm_source=ExactTarget&utm_campaign=21323559"
@@ -3200,7 +3200,7 @@
             "formats": [
                 {
                     "appId": "spotify",
-                    "format": "spotify:album:$1",
+                    "format": "spotify:album:$2",
                     "testResults": [
                         "spotify:album:6BK3muExDOuk0VnyMn9NVw",
                         "spotify:album:4G8WKL5DGAFbWNTXxp3emz"
@@ -3210,7 +3210,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/(?:user/(?:\\w+)/)?playlist/([:alnum:]+).*$",
+            "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/(user/(\\w+)/)?playlist/([:alnum:]+).*$",
             "testInputs": [
                 "https://open.spotify.com/user/naveenium/playlist/1zw42kQZUSZlHyVVn8AecH?utm_content=buffer30eb8&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
                 "http://open.spotify.com/user/timonominus/playlist/7rdUGYrNIMEdL6xdJDlMzZ",
@@ -3219,7 +3219,7 @@
             "formats": [
                 {
                     "appId": "spotify",
-                    "format": "spotify://playlist/$1",
+                    "format": "spotify://playlist/$4",
                     "testResults": [
                         "spotify://playlist/1zw42kQZUSZlHyVVn8AecH",
                         "spotify://playlist/7rdUGYrNIMEdL6xdJDlMzZ",
@@ -3248,7 +3248,7 @@
         },
         {
             "title": "Open User",
-            "regex": "https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/user/(\\w+)(?!.*/playlist.*).*$",
+            "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/user/(\\w+)(?!.*/playlist.*).*$",
             "testInputs": [
                 "https://open.spotify.com/user/naveenium/playlist/1zw42kQZUSZlHyVVn8AecH?utm_content=buffer30eb8&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer",
                 "http://open.spotify.com/user/timonominus/playlist/7rdUGYrNIMEdL6xdJDlMzZ",
@@ -3259,7 +3259,7 @@
             "formats": [
                 {
                     "appId": "spotify",
-                    "format": "spotify:user:$1",
+                    "format": "spotify:user:$2",
                     "testResults": [
                         null,
                         null,
@@ -3272,14 +3272,14 @@
         },
         {
             "title": "Open Artist",
-            "regex": "https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/artist/(\\w+).*$",
+            "regex": "https?://(play\\.|open\\.|www\\.)?spotify\\.com/artist/(\\w+).*$",
             "testInputs": [
                 "https://open.spotify.com/artist/3vbKDsSS70ZX9D2OcvbZmS?ref=wp"
             ],
             "formats": [
                 {
                     "appId": "spotify",
-                    "format": "spotify:artist:$1",
+                    "format": "spotify:artist:$2",
                     "testResults": [
                         "spotify:artist:3vbKDsSS70ZX9D2OcvbZmS"
                     ]
@@ -3418,14 +3418,14 @@
         },
         {
             "title": "Open Track",
-            "regex": "https?://(?:www\\.)?hypem\\.com/track/([:alnum:]+).*$",
+            "regex": "https?://(www\\.)?hypem\\.com/track/([:alnum:]+).*$",
             "testInputs": [
                 "http://hypem.com/track/28vqc/Empty+Houses+-+Thunderstorms"
             ],
             "formats": [
                 {
                     "appId": "hypemachine",
-                    "format": "hypem://track/$1",
+                    "format": "hypem://track/$2",
                     "testResults": [
                         "hypem://track/28vqc"
                     ]
@@ -3434,7 +3434,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://(?:www\\.)?hypem\\.com/(?!premiere|track|popular|latest|twitter|tags)(\\w+).*$",
+            "regex": "https?://(www\\.)?hypem\\.com/(?!premiere|track|popular|latest|twitter|tags)(\\w+).*$",
             "testInputs": [
                 "http://hypem.com/espiegel",
                 "http://hypem.com/track/28vqc/Empty+Houses+-+Thunderstorms",
@@ -3444,7 +3444,7 @@
             "formats": [
                 {
                     "appId": "hypemachine",
-                    "format": "hypem://playlist/?key=PlaylistFriend&section=users&username=$1",
+                    "format": "hypem://playlist/?key=PlaylistFriend&section=users&username=$2",
                     "testResults": [
                         "hypem://playlist/?key=PlaylistFriend&section=users&username=espiegel",
                         null,
@@ -3456,7 +3456,7 @@
         },
         {
             "title": "Open Premiere",
-            "regex": "https?://(?:www\\.)?hypem\\.com/premiere/(\\w+).*$",
+            "regex": "https?://(www\\.)?hypem\\.com/premiere/(\\w+).*$",
             "testInputs": [
                 "http://hypem.com/espiegel",
                 "http://hypem.com/track/28vqc/Empty+Houses+-+Thunderstorms",
@@ -3466,7 +3466,7 @@
             "formats": [
                 {
                     "appId": "hypemachine",
-                    "format": "hypem://premiere/$1",
+                    "format": "hypem://premiere/$2",
                     "testResults": [
                         null,
                         null,
@@ -3478,7 +3478,7 @@
         },
         {
             "title": "Open Station",
-            "regex": "https?://(?:\\w+\\.)*tunein\\.com/(?:station/?\\?StationId=|radio/(?:\\S*-)*s|embed/player/s)(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*tunein\\.com/(station/?\\?StationId=|radio/(\\S*-)*s|embed/player/s)(\\d+).*$",
             "testInputs": [
                 "http://tunein.com/radio/Sparkx-Radio-s213837/",
                 "http://tunein.com/radio/Go-Go-Radio-Gibraltar-s201872/",
@@ -3490,7 +3490,7 @@
             "formats": [
                 {
                     "appId": "tunein",
-                    "format": "tunein://profile/s$1",
+                    "format": "tunein://profile/s$4",
                     "testResults": [
                         "tunein://profile/s213837",
                         "tunein://profile/s201872",
@@ -3741,7 +3741,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.)?theguardian\\.(?:com|co\\.uk)/(.*)$",
+            "regex": "https?://(www\\.)?theguardian\\.(com|co\\.uk)/(.*)$",
             "testInputs": [
                 "http://www.theguardian.com/commentisfree/picture/2015/sep/02/david-cameron-migration-crisis-steve-bell-cartoon",
                 "http://www.theguardian.com/global-development"
@@ -3749,7 +3749,7 @@
             "formats": [
                 {
                     "appId": "theguardian",
-                    "format": "gnmguardian://$1",
+                    "format": "gnmguardian://$3",
                     "testResults": [
                         "gnmguardian://commentisfree/picture/2015/sep/02/david-cameron-migration-crisis-steve-bell-cartoon",
                         "gnmguardian://global-development"
@@ -3759,7 +3759,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.)?buzzfeed\\.com/(\\w+/[a-zA-Z0-9_\\-%]+).*$",
+            "regex": "https?://(www\\.)?buzzfeed\\.com/(\\w+/[a-zA-Z0-9_\\-%]+).*$",
             "testInputs": [
                 "http://www.buzzfeed.com/brendanklinkenberg/whose-netflix-password-are-you-using#.gtMaGm7ZL2",
                 "http://www.buzzfeed.com/mathewguiver/13-amazing-faces-britney-spears-made-at-the-espys"
@@ -3767,7 +3767,7 @@
             "formats": [
                 {
                     "appId": "buzzfeed",
-                    "format": "buzzfeed://buzz/$1",
+                    "format": "buzzfeed://buzz/$2",
                     "testResults": [
                         "buzzfeed://buzz/brendanklinkenberg/whose-netflix-password-are-you-using",
                         "buzzfeed://buzz/mathewguiver/13-amazing-faces-britney-spears-made-at-the-espys"
@@ -3968,7 +3968,7 @@
         },
         {
             "title": "Open Document",
-            "regex": "https?://(?:\\w+\\.)?scribd\\.com(?:/\\w+)*/(?:doc|embeds)/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)?scribd\\.com(/\\w+)*/(doc|embeds)/(\\d+).*$",
             "testInputs": [
                 "http://www.scribd.com/doc/6099146/The-Stuyvesant-Spectator-9-11-Edition",
                 "http://www.scribd.com/mobile/doc/6099146/The-Stuyvesant-Spectator-9-11-Edition",
@@ -3978,7 +3978,7 @@
             "formats": [
                 {
                     "appId": "scribd",
-                    "format": "iscribd://doc?id=$1",
+                    "format": "iscribd://doc?id=$4",
                     "testResults": [
                         "iscribd://doc?id=6099146",
                         "iscribd://doc?id=6099146",
@@ -4076,7 +4076,7 @@
         },
         {
             "notes": "Either album or track, same prefix",
-            "regex": "https?://music\\.amazon(?:\\.\\w+)+/(albums/\\w.*)$",
+            "regex": "https?://music\\.amazon(\\.\\w+)+/(albums/\\w.*)$",
             "testInputs": [
                 "https://music.amazon.com/albums/B003HY3530?trackAsin=B003HXXRHK",
                 "https://music.amazon.com/albums/B003HY3530"
@@ -4084,7 +4084,7 @@
             "formats": [
                 {
                     "appId": "amazonmusic",
-                    "format": "amznmp3://$1",
+                    "format": "amznmp3://$2",
                     "testResults": [
                         "amznmp3://albums/B003HY3530?trackAsin=B003HXXRHK",
                         "amznmp3://albums/B003HY3530"
@@ -4158,7 +4158,7 @@
         },
         {
             "notes": "Either artist, playlist, or station",
-            "regex": "https?://music\\.amazon(?:\\.\\w+)+/((artists|(user-)?playlists|stations)/\\w.*)$",
+            "regex": "https?://music\\.amazon(\\.\\w+)+/((artists|(user-)?playlists|stations)/\\w.*)$",
             "testInputs": [
                 "https://music.amazon.com/artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
                 "https://music.amazon.com/user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
@@ -4168,7 +4168,7 @@
             "formats": [
                 {
                     "appId": "amazonmusic",
-                    "format": "amznmp3://$1",
+                    "format": "amznmp3://$2",
                     "testResults": [
                         "amznmp3://artists/B000QKRNTA?tab=CATALOG&ref=dm_wcp_artist_link_pp",
                         "amznmp3://user-playlists/b4bf15d4aa684b5694e29b89a52cb9d6sune?ref=dm_sh_26ff-4321-dmcp-52c5-c71a0&musicTerritory=US&marketplaceId=ATVPDKIKX0DER",
@@ -4179,14 +4179,14 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*watch\\.amazon(?:\\.\\w+)+/(.*)$",
+            "regex": "https?://(\\w+\\.)*watch\\.amazon(\\.\\w+)+/(.*)$",
             "testInputs": [
                 "https://watch.amazon.com/detail?asin=B0868TBBQV&territory=US&ref_=share_ios_movie&r=web"
             ],
             "formats": [
                 {
                     "appId": "amazonprimevideo",
-                    "format": "aiv://$1",
+                    "format": "aiv://$3",
                     "testResults": [
                         "aiv://detail?asin=B0868TBBQV&territory=US&ref_=share_ios_movie&r=web"
                     ]
@@ -4241,7 +4241,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:\\w+\\.)*aliexpress\\.com/(?:\\w+/)*(?:item(?:/[^/]+)?/|affi-item\\.htm.*item_id=)(\\d+)(\\.html?)?.*$",
+            "regex": "https?://(\\w+\\.)*aliexpress\\.com/(\\w+/)*(item(/[^/]+)?/|affi-item\\.htm.*item_id=)(\\d+)(\\.html?)?.*$",
             "testInputs": [
                 "http://m.aliexpress.com/item/32409017535.html",
                 "http://www.aliexpress.com/item/Foliage-plant-seeds-wheat-grass-cat-grass-seeds-wheat-seeds-about-200-particles/32439617530.html?spm=5261.7749171.1998596321.8.wpCnkX&sdom=561.108229.97206.0_32439617530",
@@ -4253,7 +4253,7 @@
             "formats": [
                 {
                     "appId": "aliexpress",
-                    "format": "aliexpress://product/detail?productId=$1",
+                    "format": "aliexpress://product/detail?productId=$5",
                     "testResults": [
                         "aliexpress://product/detail?productId=32409017535",
                         "aliexpress://product/detail?productId=32439617530",
@@ -4265,7 +4265,7 @@
                 },
                 {
                     "appId": "aliexpresshd",
-                    "format": "aliexpresshd://product/detail?productId=$1",
+                    "format": "aliexpresshd://product/detail?productId=$5",
                     "testResults": [
                         "aliexpresshd://product/detail?productId=32409017535",
                         "aliexpresshd://product/detail?productId=32439617530",
@@ -4279,7 +4279,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:\\w+\\.)?alibaba\\.com/product(?:-detail)?/(?:[a-zA-Z0-9_\\-]*_)?(\\d+).*$",
+            "regex": "https?://(\\w+\\.)?alibaba\\.com/product(-detail)?/([a-zA-Z0-9_\\-]*_)?(\\d+).*$",
             "testInputs": [
                 "http://m.alibaba.com/product/60244850644/Genuine-Leather-Watch-Band-Strap-for.html?s=p",
                 "http://www.alibaba.com/product-detail/2-4-GSM-900-1800Mhz-cdma_60082972898.html?spm=a2700.7724857.35.1.npprUl"
@@ -4287,7 +4287,7 @@
             "formats": [
                 {
                     "appId": "alibaba",
-                    "format": "enalibaba://detail/?id=$1",
+                    "format": "enalibaba://detail/?id=$4",
                     "testResults": [
                         "enalibaba://detail/?id=60244850644",
                         "enalibaba://detail/?id=60082972898"
@@ -4297,7 +4297,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
+            "regex": "https?://(www\\.|rover\\.|m\\.)?ebay(\\.\\w+)+/(itm|i)/([0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
             "testInputs": [
                 "http://www.ebay.com/itm/Mondaine-Classic-Swiss-Railways-White-Dial-Black-Leather-Mens-Watch-/181453530366?pt=LH_DefaultDomain_0&hash=item2a3f7924fe",
                 "http://www.ebay.com/itm/181453530366",
@@ -4309,7 +4309,7 @@
             "formats": [
                 {
                     "appId": "ebay",
-                    "format": "ebay://launch?itm=$1",
+                    "format": "ebay://launch?itm=$5",
                     "testResults": [
                         "ebay://launch?itm=181453530366",
                         "ebay://launch?itm=181453530366",
@@ -4345,7 +4345,7 @@
         },
         {
             "title": "Open Item",
-            "regex": "https?://(?:www\\.|m\\.)?etsy\\.com/(?:.+/)*listing/(\\d+).*$",
+            "regex": "https?://(www\\.|m\\.)?etsy\\.com/(.+/)*listing/(\\d+).*$",
             "testInputs": [
                 "https://www.etsy.com/listing/104204797/antiqued-brass-finished-golf-king-coat?ref=shop_home_active_8#20150510032301",
                 "https://www.etsy.com/listing/232911333/hand-painted-saw-blade-summer-old-truck",
@@ -4355,7 +4355,7 @@
             "formats": [
                 {
                     "appId": "etsy",
-                    "format": "etsy://listing/$1",
+                    "format": "etsy://listing/$3",
                     "testResults": [
                         "etsy://listing/104204797",
                         "etsy://listing/232911333",
@@ -4383,14 +4383,14 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:www\\.)?fancy\\.com/things/(\\d+).*$",
+            "regex": "https?://(www\\.)?fancy\\.com/things/(\\d+).*$",
             "testInputs": [
                 "http://fancy.com/things/924406547881135320/Classic-Nottingham-Rose-Gold-Watch-by-Daniel-Wellington?utm=timeline_featured"
             ],
             "formats": [
                 {
                     "appId": "fancy",
-                    "format": "fancy://things/$1",
+                    "format": "fancy://things/$2",
                     "testResults": [
                         "fancy://things/924406547881135320"
                     ]
@@ -4399,7 +4399,7 @@
         },
         {
             "title": "Open Project",
-            "regex": "https?://(?:www\\.)?behance\\.net/gallery/(?:(?:[a-zA-Z0-9_\\-\\.]/)+)?(\\d+).*$",
+            "regex": "https?://(www\\.)?behance\\.net/gallery/(([a-zA-Z0-9_\\-\\.]/)+)?(\\d+).*$",
             "testInputs": [
                 "https://www.behance.net/gallery/29303701/Use-your-eyes",
                 "https://www.behance.net/gallery/28120617/WATCHme?scid=social51758486&adbid=640601625862651904&adbpl=tw&adbpr=9313022",
@@ -4408,7 +4408,7 @@
             "formats": [
                 {
                     "appId": "behance",
-                    "format": "behance://project/$1",
+                    "format": "behance://project/$4",
                     "testResults": [
                         "behance://project/29303701",
                         "behance://project/28120617",
@@ -4419,14 +4419,14 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.)?weheartit\\.com/entry/(\\d+).*$",
+            "regex": "https?://(www\\.)?weheartit\\.com/entry/(\\d+).*$",
             "testInputs": [
                 "http://weheartit.com/entry/195395263/via/martina_morales_7965?utm_medium=social&utm_campaign=share&utm_source=twitter.com"
             ],
             "formats": [
                 {
                     "appId": "weheartit",
-                    "format": "whi://entry/$1",
+                    "format": "whi://entry/$2",
                     "testResults": [
                         "whi://entry/195395263"
                     ]
@@ -4435,7 +4435,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)?weheartit\\.com/(?!entry)([a-zA-Z0-9_\\-]+)(?!.*/collections/.+).*$$",
+            "regex": "https?://(www\\.)?weheartit\\.com/(?!entry)([a-zA-Z0-9_\\-]+)(?!.*/collections/.+).*$$",
             "testInputs": [
                 "http://weheartit.com/martina_morales_7965",
                 "http://weheartit.com/martina_morales_7965/collections/97402106-movies-series-d"
@@ -4443,7 +4443,7 @@
             "formats": [
                 {
                     "appId": "weheartit",
-                    "format": "whi://user/$1",
+                    "format": "whi://user/$2",
                     "testResults": [
                         "whi://user/martina_morales_7965",
                         null
@@ -4453,14 +4453,14 @@
         },
         {
             "title": "Open Collection",
-            "regex": "https?://(?:www\\.)?weheartit\\.com/(?!entry)(([a-zA-Z0-9_\\-]+)/collections/([a-zA-Z0-9_\\-]+)).*$",
+            "regex": "https?://(www\\.)?weheartit\\.com/(?!entry)(([a-zA-Z0-9_\\-]+)/collections/([a-zA-Z0-9_\\-]+)).*$",
             "testInputs": [
                 "http://weheartit.com/martina_morales_7965/collections/97402106-movies-series-d"
             ],
             "formats": [
                 {
                     "appId": "weheartit",
-                    "format": "whi://$1",
+                    "format": "whi://$2",
                     "testResults": [
                         "whi://martina_morales_7965/collections/97402106-movies-series-d"
                     ]
@@ -4469,7 +4469,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(?:www\\.)?eventbrite(?:\\.\\w+)+/e(?:vent)?/(?:[a-zA-Z0-9_]+-)*(\\d+).*$",
+            "regex": "https?://(www\\.)?eventbrite(\\.\\w+)+/e(vent)?/([a-zA-Z0-9_]+-)*(\\d+).*$",
             "testInputs": [
                 "https://www.eventbrite.com/e/ths-key-club-empowerment-butterfly-benefit-concert-ft-midnight-red-tickets-16544017602",
                 "http://www.eventbrite.co.uk/e/blacklistedtm-tickets-16335494905",
@@ -4479,7 +4479,7 @@
             "formats": [
                 {
                     "appId": "eventbrite",
-                    "format": "com-eventbrite-attendee:event/$1",
+                    "format": "com-eventbrite-attendee:event/$5",
                     "testResults": [
                         "com-eventbrite-attendee:event/16544017602",
                         "com-eventbrite-attendee:event/16335494905",
@@ -4561,7 +4561,7 @@
         },
         {
             "title": "Open Poll",
-            "regex": "https?://(?:www\\.)?doodle\\.com/(?:poll/)?([a-z0-9]{16}).*$",
+            "regex": "https?://(www\\.)?doodle\\.com/(poll/)?([a-z0-9]{16}).*$",
             "testInputs": [
                 "http://doodle.com/bg7qh3q9k44n6vvr",
                 "http://doodle.com/nq77e46backa2szr",
@@ -4570,7 +4570,7 @@
             "formats": [
                 {
                     "appId": "doodle",
-                    "format": "doodle://?pollId=$1",
+                    "format": "doodle://?pollId=$3",
                     "testResults": [
                         "doodle://?pollId=bg7qh3q9k44n6vvr",
                         "doodle://?pollId=nq77e46backa2szr",
@@ -4581,7 +4581,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(?:www\\.|m\\.|mobile\\.)stubhub\\.com/(?:\\S+/)*(?:\\w+-)*(\\d+).*$",
+            "regex": "https?://(www\\.|m\\.|mobile\\.)stubhub\\.com/(\\S+/)*(\\w+-)*(\\d+).*$",
             "testInputs": [
                 "http://www.stubhub.com/romeo-santos-rosemont-allstate-arena-6-12-2015-9230761/",
                 "https://www.stubhub.com/death-grips-tickets/death-grips-seattle-the-showbox-6-19-2015-9278341/"
@@ -4589,7 +4589,7 @@
             "formats": [
                 {
                     "appId": "stubhub",
-                    "format": "stubhub://stubhub.com/?event_id=$1",
+                    "format": "stubhub://stubhub.com/?event_id=$4",
                     "testResults": [
                         "stubhub://stubhub.com/?event_id=9230761",
                         "stubhub://stubhub.com/?event_id=9278341"
@@ -4638,7 +4638,7 @@
         },
         {
             "title": "Open Group",
-            "regex": "https?://(?:touch\\.)?(?:\\w+\\.)?linkedin\\.com/(?:[^/]*/)?groups/(\\d+).*$",
+            "regex": "https?://(touch\\.)?(\\w+\\.)?linkedin\\.com/([^/]*/)?groups/(\\d+).*$",
             "testInputs": [
                 "https://www.linkedin.com/groups/2366091/profile",
                 "https://www.linkedin.com/comm/groups/2366091/2366091-6320570575274287105?midToken=AQHsmk9LvK00kw&trk=eml-b2_anet_digest_weekly-group_discussions-16-grouppost%7Edisc%7E0&trkEmail=eml-b2_anet_digest_weekly-group_discussions-16-grouppost%7Edisc%7E0-null-4vfem%7Ej8aeugp2%7E5g-null-communities%7Egroup%7Ediscussion&lipi=urn%3Ali%3Apage%3Aemail_b2_anet_digest_weekly%3Bnh3Bx59KTWifF7LAPNrV2g%3D%3D",
@@ -4647,7 +4647,7 @@
             "formats": [
                 {
                     "appId": "linkedin",
-                    "format": "linkedin://groups/$1",
+                    "format": "linkedin://groups/$4",
                     "testResults": [
                         "linkedin://groups/2366091",
                         "linkedin://groups/2366091",
@@ -4658,14 +4658,14 @@
         },
         {
             "title": "Open Title",
-            "regex": "https?://(?:www\\.|m\\.)imdb\\.com/title/(tt\\d+).*$",
+            "regex": "https?://(www\\.|m\\.)imdb\\.com/title/(tt\\d+).*$",
             "testInputs": [
                 "http://m.imdb.com/title/tt1285016/?ref_=fn_al_tt_1"
             ],
             "formats": [
                 {
                     "appId": "imdb",
-                    "format": "imdb:///title/$1",
+                    "format": "imdb:///title/$2",
                     "testResults": [
                         "imdb:///title/tt1285016"
                     ]
@@ -4674,14 +4674,14 @@
         },
         {
             "title": "Open Chart",
-            "regex": "https?://(?:www\\.|m\\.)imdb\\.com/chart/(\\w+).*$",
+            "regex": "https?://(www\\.|m\\.)imdb\\.com/chart/(\\w+).*$",
             "testInputs": [
                 "http://m.imdb.com/chart/bottom"
             ],
             "formats": [
                 {
                     "appId": "imdb",
-                    "format": "imdb:///chart/$1",
+                    "format": "imdb:///chart/$2",
                     "testResults": [
                         "imdb:///chart/bottom"
                     ]
@@ -4690,14 +4690,14 @@
         },
         {
             "title": "Open Actor",
-            "regex": "https?://(?:www\\.|m\\.)imdb\\.com/name/(nm\\d+).*$",
+            "regex": "https?://(www\\.|m\\.)imdb\\.com/name/(nm\\d+).*$",
             "testInputs": [
                 "http://m.imdb.com/name/nm0251986/?ref_=m_tt_cl_i1"
             ],
             "formats": [
                 {
                     "appId": "imdb",
-                    "format": "imdb:///name/$1",
+                    "format": "imdb:///name/$2",
                     "testResults": [
                         "imdb:///name/nm0251986"
                     ]
@@ -4705,7 +4705,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.|m\\.)?strava\\.com/((activities|athletes|segments)/\\d+).*$",
+            "regex": "https?://(www\\.|m\\.)?strava\\.com/((activities|athletes|segments)/\\d+).*$",
             "testInputs": [
                 "https://www.strava.com/activities/304977054",
                 "https://www.strava.com/athletes/24752860",
@@ -4714,7 +4714,7 @@
             "formats": [
                 {
                     "appId": "strava",
-                    "format": "strava://$1",
+                    "format": "strava://$2",
                     "testResults": [
                         "strava://activities/304977054",
                         "strava://athletes/24752860",
@@ -5187,7 +5187,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*(stackoverflow\\.com/(users|questions)/(?!tagged/.*).*)",
+            "regex": "https?://(\\w+\\.)*(stackoverflow\\.com/(users|questions)/(?!tagged/.*).*)",
             "testInputs": [
                 "https://stackoverflow.com/users/3943258/tim-johnsen",
                 "https://stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
@@ -5196,7 +5196,7 @@
             "formats": [
                 {
                     "appId": "crew",
-                    "format": "crewforstackoverflow:/$1",
+                    "format": "crewforstackoverflow:/$2",
                     "testResults": [
                         "crewforstackoverflow:/stackoverflow.com/users/3943258/tim-johnsen",
                         "crewforstackoverflow:/stackoverflow.com/questions/47732387/skproductstorepromotioncontroller-update-methods-not-working/48819111#48819111",
@@ -5237,14 +5237,14 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.)zhihu\\.com/people/([a-zA-Z0-9_\\-%]+).*$",
+            "regex": "https?://(www\\.)zhihu\\.com/people/([a-zA-Z0-9_\\-%]+).*$",
             "testInputs": [
                 "http://www.zhihu.com/people/hugo-chan"
             ],
             "formats": [
                 {
                     "appId": "zhihu",
-                    "format": "zhihu://people/$1",
+                    "format": "zhihu://people/$2",
                     "testResults": [
                         "zhihu://people/hugo-chan"
                     ]
@@ -5253,14 +5253,14 @@
         },
         {
             "title": "Open Topic",
-            "regex": "https?://(?:www\\.)zhihu\\.com/topic/(\\d+).*$",
+            "regex": "https?://(www\\.)zhihu\\.com/topic/(\\d+).*$",
             "testInputs": [
                 "http://www.zhihu.com/topic/19568161"
             ],
             "formats": [
                 {
                     "appId": "zhihu",
-                    "format": "zhihu://topics/$1",
+                    "format": "zhihu://topics/$2",
                     "testResults": [
                         "zhihu://topics/19568161"
                     ]
@@ -5269,7 +5269,7 @@
         },
         {
             "title": "Open Question",
-            "regex": "https?://(?:www\\.)zhihu\\.com/question/(\\d+)(?!.*/answer/\\d+).*$",
+            "regex": "https?://(www\\.)zhihu\\.com/question/(\\d+)(?!.*/answer/\\d+).*$",
             "testInputs": [
                 "http://www.zhihu.com/question/19907735",
                 "http://www.zhihu.com/question/21439187/answer/18228340"
@@ -5277,7 +5277,7 @@
             "formats": [
                 {
                     "appId": "zhihu",
-                    "format": "zhihu://questions/$1",
+                    "format": "zhihu://questions/$2",
                     "testResults": [
                         "zhihu://questions/19907735",
                         null
@@ -5287,14 +5287,14 @@
         },
         {
             "title": "Open Answer",
-            "regex": "https?://(?:www\\.)zhihu\\.com/question/(?:\\d+)/answer/(\\d+).*$",
+            "regex": "https?://(www\\.)zhihu\\.com/question/(\\d+)/answer/(\\d+).*$",
             "testInputs": [
                 "http://www.zhihu.com/question/21439187/answer/18228340"
             ],
             "formats": [
                 {
                     "appId": "zhihu",
-                    "format": "zhihu://answers/$1",
+                    "format": "zhihu://answers/$3",
                     "testResults": [
                         "zhihu://answers/18228340"
                     ]
@@ -5337,7 +5337,7 @@
         },
         {
             "title": "Open Document",
-            "regex": "https?://(?:\\w+\\.)*quip\\.com/([a-zA-Z0-9]{12}).*$",
+            "regex": "https?://(\\w+\\.)*quip\\.com/([a-zA-Z0-9]{12}).*$",
             "testInputs": [
                 "https://quip.com/jgBUALiGBjwp",
                 "https://quip.com/FUkoAicm3jct",
@@ -5348,7 +5348,7 @@
             "formats": [
                 {
                     "appId": "quip",
-                    "format": "quip://$1",
+                    "format": "quip://$2",
                     "testResults": [
                         "quip://jgBUALiGBjwp",
                         "quip://FUkoAicm3jct",
@@ -5361,14 +5361,14 @@
         },
         {
             "title": "Open Board",
-            "regex": "https?://(?:www\\.)?trello\\.com/b/(\\w+).*$",
+            "regex": "https?://(www\\.)?trello\\.com/b/(\\w+).*$",
             "testInputs": [
                 "https://trello.com/b/rq2mYJNn/public-trello-boards"
             ],
             "formats": [
                 {
                     "appId": "trello",
-                    "format": "trello://x-callback-url/showBoard?shortlink=$1",
+                    "format": "trello://x-callback-url/showBoard?shortlink=$2",
                     "testResults": [
                         "trello://x-callback-url/showBoard?shortlink=rq2mYJNn"
                     ]
@@ -5377,14 +5377,14 @@
         },
         {
             "title": "Open Card",
-            "regex": "https?://(?:www\\.)?trello\\.com/c/(\\w+).*$",
+            "regex": "https?://(www\\.)?trello\\.com/c/(\\w+).*$",
             "testInputs": [
                 "https://trello.com/c/ockZMShP"
             ],
             "formats": [
                 {
                     "appId": "trello",
-                    "format": "trello://x-callback-url/showCard?shortlink=$1",
+                    "format": "trello://x-callback-url/showCard?shortlink=$2",
                     "testResults": [
                         "trello://x-callback-url/showCard?shortlink=ockZMShP"
                     ]
@@ -5418,7 +5418,7 @@
         },
         {
             "title": "Open Recipe",
-            "regex": "https?://(?:www\\.)?ifttt\\.com/recipes/([0-9]+).*$",
+            "regex": "https?://(www\\.)?ifttt\\.com/recipes/([0-9]+).*$",
             "testInputs": [
                 "https://ifttt.com/recipes/144705?z=119662",
                 "https://ifttt.com/recipes/144705-new-twitter-followers-in-a-google-spreadsheet?z=119662"
@@ -5426,7 +5426,7 @@
             "formats": [
                 {
                     "appId": "ifttt",
-                    "format": "ifttt://shared_recipe/$1",
+                    "format": "ifttt://shared_recipe/$2",
                     "testResults": [
                         "ifttt://shared_recipe/144705",
                         "ifttt://shared_recipe/144705"
@@ -5436,7 +5436,7 @@
         },
         {
             "title": "Add Shortcut",
-            "regex": "https?://(?:www\\.)?(?:workflow\\.is/workflows|icloud\\.com/shortcuts)/([:hex:]+).*$",
+            "regex": "https?://(www\\.)?(workflow\\.is/workflows|icloud\\.com/shortcuts)/([:hex:]+).*$",
             "testInputs": [
                 "https://workflow.is/workflows/304554907e6a473e9e810297509b00c5",
                 "https://workflow.is/workflows/e37a43302f63402a973af02e7fa8d97e",
@@ -5445,7 +5445,7 @@
             "formats": [
                 {
                     "appId": "workflow",
-                    "format": "workflow://shortcuts/$1",
+                    "format": "workflow://shortcuts/$3",
                     "testResults": [
                         "workflow://shortcuts/304554907e6a473e9e810297509b00c5",
                         "workflow://shortcuts/e37a43302f63402a973af02e7fa8d97e",
@@ -5475,7 +5475,7 @@
         },
         {
             "title": "Open Details",
-            "regex": "https?://(?:\\w+\\.)?zillow\\.com/homedetails/.*?(\\d+)_zpid.*$",
+            "regex": "https?://(\\w+\\.)?zillow\\.com/homedetails/.*?(\\d+)_zpid.*$",
             "testInputs": [
                 "http://www.zillow.com/homedetails/7500-SW-144th-St-Palmetto-Bay-FL-33158/44293525_zpid/",
                 "http://www.zillow.com/homedetails/44293525_zpid/"
@@ -5483,7 +5483,7 @@
             "formats": [
                 {
                     "appId": "zillow",
-                    "format": "zillowapp://hdp/$1",
+                    "format": "zillowapp://hdp/$2",
                     "testResults": [
                         "zillowapp://hdp/44293525",
                         "zillowapp://hdp/44293525"
@@ -5493,7 +5493,7 @@
         },
         {
             "title": "Open Listing",
-            "regex": "https?://(?:www\\.)?redfin\\.com/[a-zA-Z]{2}/(?:[a-zA-Z0-9_\\-]+/){0,2}home/(\\d+).*$",
+            "regex": "https?://(www\\.)?redfin\\.com/[a-zA-Z]{2}/([a-zA-Z0-9_\\-]+/){0,2}home/(\\d+).*$",
             "testInputs": [
                 "https://www.redfin.com/CA/San-Francisco/1261-Sanchez-St-94114/home/1760516",
                 "https://www.redfin.com/CA/San-Francisco/home/11743164",
@@ -5502,7 +5502,7 @@
             "formats": [
                 {
                     "appId": "redfin",
-                    "format": "redfin://home/$1",
+                    "format": "redfin://home/$3",
                     "testResults": [
                         "redfin://home/1760516",
                         "redfin://home/11743164",
@@ -5593,7 +5593,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:geo\\.)?(?:apps|itunes)\\.apple\\.com/(?:.*/)*story/id(\\d+).*$",
+            "regex": "https?://(geo\\.)?(apps|itunes)\\.apple\\.com/(.*/)*story/id(\\d+).*$",
             "testInputs": [
                 "https://itunes.apple.com/us/story/id1268017618",
                 "https://apps.apple.com/story/id1474913423"
@@ -5601,7 +5601,7 @@
             "formats": [
                 {
                     "appId": "appstore",
-                    "format": "itms-apps://itunes.apple.com/story/id$1",
+                    "format": "itms-apps://itunes.apple.com/story/id$4",
                     "testResults": [
                         "itms-apps://itunes.apple.com/story/id1268017618",
                         "itms-apps://itunes.apple.com/story/id1474913423"
@@ -5611,7 +5611,7 @@
         },
         {
             "title": "View Developer",
-            "regex": "https?://(?:geo\\.)?(?:apps|itunes)\\.apple\\.com/(?:.*/)*developer/(?:.*/)?id(\\d+).*$",
+            "regex": "https?://(geo\\.)?(apps|itunes)\\.apple\\.com/(.*/)*developer/(.*/)?id(\\d+).*$",
             "testInputs": [
                 "https://apps.apple.com/us/developer/matteo-villa/id1376054311",
                 "https://apps.apple.com/developer/tijo-inc/id332516208",
@@ -5620,7 +5620,7 @@
             "formats": [
                 {
                     "appId": "appstore",
-                    "format": "itms-apps://apps.apple.com/developer/id$1",
+                    "format": "itms-apps://apps.apple.com/developer/id$5",
                     "testResults": [
                         "itms-apps://apps.apple.com/developer/id1376054311",
                         "itms-apps://apps.apple.com/developer/id332516208",
@@ -6010,7 +6010,7 @@
         },
         {
             "title": "View App",
-            "regex": "https?://(?:geo\\.)?(?:itunes|apps)\\.apple\\.com/(?:.*/)*app/(?:.*/)?id(\\d+)(?!.*(&|\\?)mt=12.*).*$",
+            "regex": "https?://(geo\\.)?(itunes|apps)\\.apple\\.com/(.*/)*app/(.*/)?id(\\d+)(?!.*(&|\\?)mt=12.*).*$",
             "testInputs": [
                 "https://itunes.apple.com/au/app/opener-open-links-in-apps/id989565871?mt=8",
                 "https://geo.itunes.apple.com/us/app/opener-open-links-in-apps/id989565871",
@@ -6020,7 +6020,7 @@
             "formats": [
                 {
                     "appId": "wshlst",
-                    "format": "wshlst://$1",
+                    "format": "wshlst://$5",
                     "testResults": [
                         "wshlst://989565871",
                         "wshlst://989565871",
@@ -6030,7 +6030,7 @@
                 },
                 {
                     "appId": "pricetag",
-                    "format": "pricetag://app?url=https://itunes.apple.com/app/id$1",
+                    "format": "pricetag://app?url=https://itunes.apple.com/app/id$5",
                     "testResults": [
                         "pricetag://app?url=https://itunes.apple.com/app/id989565871",
                         "pricetag://app?url=https://itunes.apple.com/app/id989565871",
@@ -6042,14 +6042,14 @@
         },
         {
             "title": "Open Deal",
-            "regex": "https?://(?:www\\.)?slickdeals\\.net/f/(\\d+).*$",
+            "regex": "https?://(www\\.)?slickdeals\\.net/f/(\\d+).*$",
             "testInputs": [
                 "http://slickdeals.net/f/8219345-12-month-microsoft-xbox-live-gold-membership-email-delivery-28-94-gamesdeal-com?utm_campaign=167836&utm_medium=fptweet&utm_source=twitter"
             ],
             "formats": [
                 {
                     "appId": "slickdeals",
-                    "format": "slickdeals://thread/$1",
+                    "format": "slickdeals://thread/$2",
                     "testResults": [
                         "slickdeals://thread/8219345"
                     ]
@@ -6058,7 +6058,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://abcnews\\.go\\.com/.*(?:(?:\\w+-)|/story.*(?:\\?|&)id=)+(\\d+).*?$",
+            "regex": "https?://abcnews\\.go\\.com/.*((\\w+-)|/story.*(\\?|&)id=)+(\\d+).*?$",
             "testInputs": [
                 "http://abcnews.go.com/Politics/wireStory/trump-closing-mosques-35232234",
                 "http://abcnews.go.com/International/170-people-hostage-mali-hotel/story?id=35319879",
@@ -6067,7 +6067,7 @@
             "formats": [
                 {
                     "appId": "abcnewsiphone",
-                    "format": "abcnewsiphone://link/story,$1",
+                    "format": "abcnewsiphone://link/story,$4",
                     "testResults": [
                         "abcnewsiphone://link/story,35232234",
                         "abcnewsiphone://link/story,35319879",
@@ -6077,7 +6077,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)?imgur\\.com/(?:gallery/|a/|r/.*/)?(\\w+).*?$",
+            "regex": "https?://(\\w+\\.)?imgur\\.com/(gallery/|a/|r/.*/)?(\\w+).*?$",
             "testInputs": [
                 "http://m.imgur.com/gallery/UW0KFYQ",
                 "http://i.imgur.com/Eo1WO0f.jpg",
@@ -6088,7 +6088,7 @@
             "formats": [
                 {
                     "appId": "imgur",
-                    "format": "imgur://imgur.com/$1",
+                    "format": "imgur://imgur.com/$3",
                     "testResults": [
                         "imgur://imgur.com/UW0KFYQ",
                         "imgur://imgur.com/Eo1WO0f",
@@ -6101,7 +6101,7 @@
         },
         {
             "title": "View GIF",
-            "regex": "https?://(?:\\w+\\.)*giphy\\.com/(?:gifs|media)/([^/]*).*$",
+            "regex": "https?://(\\w+\\.)*giphy\\.com/(gifs|media)/([^/]*).*$",
             "note": "Links to channels don't seem to work right now",
             "testInputs": [
                 "https://giphy.com/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
@@ -6111,7 +6111,7 @@
             "formats": [
                 {
                     "appId": "giphy",
-                    "format": "giphy://shortcut/gifs/$1",
+                    "format": "giphy://shortcut/gifs/$3",
                     "testResults": [
                         "giphy://shortcut/gifs/pepsisummergram-summer-pepsi-summergram-H6niY8viJQvjYRJ7OD",
                         null,
@@ -6122,7 +6122,7 @@
         },
         {
             "title": "View GIF",
-            "regex": "https?://(?:\\w+\\.)*gfycat\\.com(?:/amp)?/([^-]*)(-.*)?$",
+            "regex": "https?://(\\w+\\.)*gfycat\\.com(/amp)?/([^-]*)(-.*)?$",
             "testInputs": [
                 "https://gfycat.com/keyaridcalf",
                 "https://gfycat.com/amp/keyaridcalf-workaholics-gif"
@@ -6130,7 +6130,7 @@
             "formats": [
                 {
                     "appId": "gfycat",
-                    "format": "gfycat://$1",
+                    "format": "gfycat://$3",
                     "testResults": [
                         "gfycat://keyaridcalf",
                         "gfycat://keyaridcalf"
@@ -6169,7 +6169,7 @@
         },
         {
             "title": "Open Track",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?track/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*tidal\\.com/(\\#!/|browse/)?track/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/track/35470518",
                 "http://tidal.com/#!/track/35470518"
@@ -6177,7 +6177,7 @@
             "formats": [
                 {
                     "appId": "tidal",
-                    "format": "tidal://track/$1",
+                    "format": "tidal://track/$3",
                     "testResults": [
                         "tidal://track/35470518",
                         "tidal://track/35470518"
@@ -6187,7 +6187,7 @@
         },
         {
             "title": "Open Album",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?album/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*tidal\\.com/(\\#!/|browse/)?album/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/album/52690849",
                 "http://tidal.com/#!/album/52690849"
@@ -6195,7 +6195,7 @@
             "formats": [
                 {
                     "appId": "tidal",
-                    "format": "tidal://album/$1",
+                    "format": "tidal://album/$3",
                     "testResults": [
                         "tidal://album/52690849",
                         "tidal://album/52690849"
@@ -6205,7 +6205,7 @@
         },
         {
             "title": "Open Artist",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?artist/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*tidal\\.com/(\\#!/|browse/)?artist/(\\d+).*$",
             "testInputs": [
                 "http://tidal.com/artist/6277037",
                 "http://tidal.com/#!/artist/6277037"
@@ -6213,7 +6213,7 @@
             "formats": [
                 {
                     "appId": "tidal",
-                    "format": "tidal://artist/$1",
+                    "format": "tidal://artist/$3",
                     "testResults": [
                         "tidal://artist/6277037",
                         "tidal://artist/6277037"
@@ -6223,7 +6223,7 @@
         },
         {
             "title": "Open Playlist",
-            "regex": "https?://(?:\\w+\\.)*tidal\\.com/(?:\\#!/|browse/)?playlist/([a-fA-F0-9\\-]+).*$",
+            "regex": "https?://(\\w+\\.)*tidal\\.com/(\\#!/|browse/)?playlist/([a-fA-F0-9\\-]+).*$",
             "testInputs": [
                 "http://tidal.com/playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42",
                 "http://tidal.com/#!/playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42"
@@ -6231,7 +6231,7 @@
             "formats": [
                 {
                     "appId": "tidal",
-                    "format": "tidal://playlist/$1",
+                    "format": "tidal://playlist/$3",
                     "testResults": [
                         "tidal://playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42",
                         "tidal://playlist/548c59ac-8ee4-40f4-8f14-3c510ce3ae42"
@@ -6405,7 +6405,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://tieba\\.baidu\\.(?:com|cn)/p/(\\d+).*$",
+            "regex": "https?://tieba\\.baidu\\.(com|cn)/p/(\\d+).*$",
             "testInputs": [
                 "http://tieba.baidu.com/p/4181204653",
                 "http://tieba.baidu.cn/p/4181204653"
@@ -6413,7 +6413,7 @@
             "formats": [
                 {
                     "appId": "tieba",
-                    "format": "com.baidu.tieba://jumptoforum?kz=$1",
+                    "format": "com.baidu.tieba://jumptoforum?kz=$2",
                     "testResults": [
                         "com.baidu.tieba://jumptoforum?kz=4181204653",
                         "com.baidu.tieba://jumptoforum?kz=4181204653"
@@ -6422,7 +6422,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.|m\\.)?vk\\.(?:com|ru)/(.*)$",
+            "regex": "https?://(www\\.|m\\.)?vk\\.(com|ru)/(.*)$",
             "testInputs": [
                 "https://vk.com/album-63183658_224587768",
                 "http://m.vk.com/wall-54066922_1304",
@@ -6432,7 +6432,7 @@
             "formats": [
                 {
                     "appId": "vk",
-                    "format": "vk://vk.com/$1",
+                    "format": "vk://vk.com/$3",
                     "testResults": [
                         "vk://vk.com/album-63183658_224587768",
                         "vk://vk.com/wall-54066922_1304",
@@ -6598,7 +6598,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:(?:www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
+            "regex": "https?://((www\\.)?apple\\.news|news\\.apple\\.com)/([a-zA-Z0-9_\\-]+).*?$",
             "testInputs": [
                 "https://apple.news/A_qfzJD7KTsqhuT5Ci4XcIw",
                 "https://apple.news/AW5OfgikKQs-rRr_tfTb37w",
@@ -6608,7 +6608,7 @@
             "formats": [
                 {
                     "appId": "applenews",
-                    "format": "applenews:/$1",
+                    "format": "applenews:/$3",
                     "testResults": [
                         "applenews:/A_qfzJD7KTsqhuT5Ci4XcIw",
                         "applenews:/AW5OfgikKQs-rRr_tfTb37w",
@@ -6667,21 +6667,21 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://news\\.ycombinator\\.com/item.*(?:\\?|&)id=(\\d+).*?$",
+            "regex": "https?://news\\.ycombinator\\.com/item.*(\\?|&)id=(\\d+).*?$",
             "testInputs": [
                 "https://news.ycombinator.com/item?id=10781731"
             ],
             "formats": [
                 {
                     "appId": "octal",
-                    "format": "octal://item?id=$1",
+                    "format": "octal://item?id=$2",
                     "testResults": [
                         "octal://item?id=10781731"
                     ]
                 },
                 {
                     "appId": "hack",
-                    "format": "hack://item?id=$1",
+                    "format": "hack://item?id=$2",
                     "testResults": [
                         "hack://item?id=10781731"
                     ]
@@ -6690,7 +6690,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://news\\.ycombinator\\.com/user.*(?:\\?|&)id=([^&]+).*?$",
+            "regex": "https?://news\\.ycombinator\\.com/user.*(\\?|&)id=([^&]+).*?$",
             "testInputs": [
                 "https://news.ycombinator.com/user?id=_jomo",
                 "https://news.ycombinator.com/user?id=_jomo&blah=blah"
@@ -6698,7 +6698,7 @@
             "formats": [
                 {
                     "appId": "octal",
-                    "format": "octal://user?id=$1",
+                    "format": "octal://user?id=$2",
                     "testResults": [
                         "octal://user?id=_jomo",
                         "octal://user?id=_jomo"
@@ -6706,7 +6706,7 @@
                 },
                 {
                     "appId": "hack",
-                    "format": "hack://user?id=$1",
+                    "format": "hack://user?id=$2",
                     "testResults": [
                         "hack://user?id=_jomo",
                         "hack://user?id=_jomo"
@@ -6715,14 +6715,14 @@
             ]
         },
         {
-            "regex": "https?://news\\.ycombinator\\.com/from.*(?:\\?|&)site=([^&]+).*?$",
+            "regex": "https?://news\\.ycombinator\\.com/from.*(\\?|&)site=([^&]+).*?$",
             "testInputs": [
                 "https://news.ycombinator.com/from?site=matrix.org"
             ],
             "formats": [
                 {
                     "appId": "hack",
-                    "format": "hack://site?id=$1",
+                    "format": "hack://site?id=$2",
                     "testResults": [
                         "hack://site?id=matrix.org"
                     ]
@@ -6730,14 +6730,14 @@
             ]
         },
         {
-            "regex": "https?://news\\.ycombinator\\.com/front.*(?:\\?|&)day=([^&]+).*?$",
+            "regex": "https?://news\\.ycombinator\\.com/front.*(\\?|&)day=([^&]+).*?$",
             "testInputs": [
                 "https://news.ycombinator.com/front?day=2018-05-10"
             ],
             "formats": [
                 {
                     "appId": "hack",
-                    "format": "hack://date?id=$1",
+                    "format": "hack://date?id=$2",
                     "testResults": [
                         "hack://date?id=2018-05-10"
                     ]
@@ -6746,7 +6746,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)?(?:nicovideo\\.jp/watch/|nico\\.ms/)((sm)?\\d+).*$",
+            "regex": "https?://(\\w+\\.)?(nicovideo\\.jp/watch/|nico\\.ms/)((sm)?\\d+).*$",
             "testInputs": [
                 "http://www.nicovideo.jp/watch/sm26814241",
                 "http://nico.ms/sm15757696",
@@ -6755,7 +6755,7 @@
             "formats": [
                 {
                     "appId": "niconico",
-                    "format": "niconico://$1",
+                    "format": "niconico://$3",
                     "testResults": [
                         "niconico://sm26814241",
                         "niconico://sm15757696",
@@ -6764,7 +6764,7 @@
                 },
                 {
                     "appId": "smileplayer2",
-                    "format": "smileplayer2://id/$1",
+                    "format": "smileplayer2://id/$3",
                     "testResults": [
                         "smileplayer2://id/sm26814241",
                         "smileplayer2://id/sm15757696",
@@ -6773,7 +6773,7 @@
                 },
                 {
                     "appId": "nicoli",
-                    "format": "nicolihttp://www.nicovideo.jp/watch/$1",
+                    "format": "nicolihttp://www.nicovideo.jp/watch/$3",
                     "testResults": [
                         "nicolihttp://www.nicovideo.jp/watch/sm26814241",
                         "nicolihttp://www.nicovideo.jp/watch/sm15757696",
@@ -6782,7 +6782,7 @@
                 },
                 {
                     "appId": "inico2",
-                    "format": "inico2http://www.nicovideo.jp/watch/$1",
+                    "format": "inico2http://www.nicovideo.jp/watch/$3",
                     "testResults": [
                         "inico2http://www.nicovideo.jp/watch/sm26814241",
                         "inico2http://www.nicovideo.jp/watch/sm15757696",
@@ -6793,7 +6793,7 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)?(?:nicovideo\\.jp/watch/|nico\\.ms/)(so\\d+).*$",
+            "regex": "https?://(\\w+\\.)?(nicovideo\\.jp/watch/|nico\\.ms/)(so\\d+).*$",
             "testInputs": [
                 "http://www.nicovideo.jp/watch/so26990332",
                 "http://www.nicovideo.jp/watch/sm26814241"
@@ -6801,7 +6801,7 @@
             "formats": [
                 {
                     "appId": "smileplayer2",
-                    "format": "smileplayer2://id/$1",
+                    "format": "smileplayer2://id/$3",
                     "testResults": [
                         "smileplayer2://id/so26990332",
                         null
@@ -6809,7 +6809,7 @@
                 },
                 {
                     "appId": "nicoli",
-                    "format": "nicolihttp://www.nicovideo.jp/watch/$1",
+                    "format": "nicolihttp://www.nicovideo.jp/watch/$3",
                     "testResults": [
                         "nicolihttp://www.nicovideo.jp/watch/so26990332",
                         null
@@ -6817,7 +6817,7 @@
                 },
                 {
                     "appId": "inico2",
-                    "format": "inico2http://www.nicovideo.jp/watch/$1",
+                    "format": "inico2http://www.nicovideo.jp/watch/$3",
                     "testResults": [
                         "inico2http://www.nicovideo.jp/watch/so26990332",
                         null
@@ -6827,28 +6827,28 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)?(?:nicovideo\\.jp/watch/|nico\\.ms/)(nm\\d+).*$",
+            "regex": "https?://(\\w+\\.)?(nicovideo\\.jp/watch/|nico\\.ms/)(nm\\d+).*$",
             "testInputs": [
                 "http://www.nicovideo.jp/watch/nm6195780"
             ],
             "formats": [
                 {
                     "appId": "niconico",
-                    "format": "niconico://$1",
+                    "format": "niconico://$3",
                     "testResults": [
                         "niconico://nm6195780"
                     ]
                 },
                 {
                     "appId": "nicoli",
-                    "format": "nicolihttp://www.nicovideo.jp/watch/$1",
+                    "format": "nicolihttp://www.nicovideo.jp/watch/$3",
                     "testResults": [
                         "nicolihttp://www.nicovideo.jp/watch/nm6195780"
                     ]
                 },
                 {
                     "appId": "inico2",
-                    "format": "inico2http://www.nicovideo.jp/watch/$1",
+                    "format": "inico2http://www.nicovideo.jp/watch/$3",
                     "testResults": [
                         "inico2http://www.nicovideo.jp/watch/nm6195780"
                     ]
@@ -6857,7 +6857,7 @@
         },
         {
             "title": "Open Live Video",
-            "regex": "https?://(?:\\w+\\.)?(?:nicovideo\\.jp/watch/|nico\\.ms/)(lv\\d+).*$",
+            "regex": "https?://(\\w+\\.)?(nicovideo\\.jp/watch/|nico\\.ms/)(lv\\d+).*$",
             "testInputs": [
                 "http://nico.ms/lv243491453",
                 "http://live.nicovideo.jp/watch/lv243491453"
@@ -6865,7 +6865,7 @@
             "formats": [
                 {
                     "appId": "niconico",
-                    "format": "niconico://$1",
+                    "format": "niconico://$3",
                     "testResults": [
                         "niconico://lv243491453",
                         "niconico://lv243491453"
@@ -6893,7 +6893,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.|m\\.)?(wolframalpha\\.com/input.*)$",
+            "regex": "https?://(www\\.|m\\.)?(wolframalpha\\.com/input.*)$",
             "testInputs": [
                 "http://www.wolframalpha.com/input/?i=number+of+days+since+january+15+1989",
                 "http://m.wolframalpha.com/input/?i=number+of+days+since+january+15+1989",
@@ -6902,7 +6902,7 @@
             "formats": [
                 {
                     "appId": "wolframalpha",
-                    "format": "wolframalpha://$1",
+                    "format": "wolframalpha://$2",
                     "testResults": [
                         "wolframalpha://wolframalpha.com/input/?i=number+of+days+since+january+15+1989",
                         "wolframalpha://wolframalpha.com/input/?i=number+of+days+since+january+15+1989",
@@ -6913,7 +6913,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:www\\.|m\\.|mobile\\.)(nytimes\\.com/\\w+/\\w+/.*)$",
+            "regex": "https?://(www\\.|m\\.|mobile\\.)(nytimes\\.com/\\w+/\\w+/.*)$",
             "testInputs": [
                 "http://www.nytimes.com/2016/01/04/us/politics/bernie-sanders-needing-early-lift-builds-iowa-ground-operation.html?ref=politics",
                 "https://m.nytimes.com/2016/01/01/us/politics/state-department-hillary-clinton-email.html?ref=topics",
@@ -6922,7 +6922,7 @@
             "formats": [
                 {
                     "appId": "nytimes",
-                    "format": "nytimes://www.$1",
+                    "format": "nytimes://www.$2",
                     "testResults": [
                         "nytimes://www.nytimes.com/2016/01/04/us/politics/bernie-sanders-needing-early-lift-builds-iowa-ground-operation.html?ref=politics",
                         "nytimes://www.nytimes.com/2016/01/01/us/politics/state-department-hillary-clinton-email.html?ref=topics",
@@ -6933,14 +6933,14 @@
         },
         {
             "title": "Open Task",
-            "regex": "https?://(?:\\w+\\.)*asana\\.com/(\\d/\\d+/\\d+.*)$",
+            "regex": "https?://(\\w+\\.)*asana\\.com/(\\d/\\d+/\\d+.*)$",
             "testInputs": [
                 "https://app.asana.com/0/42994907916648/73995206071709"
             ],
             "formats": [
                 {
                     "appId": "asana",
-                    "format": "asana://app.asana.com/$1",
+                    "format": "asana://app.asana.com/$2",
                     "testResults": [
                         "asana://app.asana.com/0/42994907916648/73995206071709"
                     ]
@@ -6985,14 +6985,14 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)?goodreads\\.com/(.*)$",
+            "regex": "https?://(\\w+\\.)?goodreads\\.com/(.*)$",
             "testInputs": [
                 "https://www.goodreads.com/review/show/1514098547"
             ],
             "formats": [
                 {
                     "appId": "goodreads",
-                    "format": "goodreads://$1",
+                    "format": "goodreads://$2",
                     "testResults": [
                         "goodreads://review/show/1514098547"
                     ]
@@ -7079,14 +7079,14 @@
         },
         {
             "title": "Add User",
-            "regex": "https?://(?:www\\.)?snapchat\\.com/add/([^/]+).*?$",
+            "regex": "https?://(www\\.)?snapchat\\.com/add/([^/]+).*?$",
             "testInputs": [
                 "https://www.snapchat.com/add/hunterwalk"
             ],
             "formats": [
                 {
                     "appId": "snapchat",
-                    "format": "snapchat://add/$1",
+                    "format": "snapchat://add/$2",
                     "testResults": [
                         "snapchat://add/hunterwalk"
                     ]
@@ -7094,14 +7094,14 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?snapchat\\.com/unlock(.*)$",
+            "regex": "https?://(www\\.)?snapchat\\.com/unlock(.*)$",
             "testInputs": [
                 "https://www.snapchat.com/unlock/?type=SNAPCODE&uuid=7d61fcc34ad3496f8b58d52211253de3&metadata=1"
             ],
             "formats": [
                 {
                     "appId": "snapchat",
-                    "format": "snapchat://unlock$1",
+                    "format": "snapchat://unlock$2",
                     "testResults": [
                         "snapchat://unlock/?type=SNAPCODE&uuid=7d61fcc34ad3496f8b58d52211253de3&metadata=1"
                     ]
@@ -7121,14 +7121,14 @@
         },
         {
             "title": "Add User",
-            "regex": "https?://(?:www\\.)?peach\\.cool/add/([^/]+).*?$",
+            "regex": "https?://(www\\.)?peach\\.cool/add/([^/]+).*?$",
             "testInputs": [
                 "http://peach.cool/add/timonus"
             ],
             "formats": [
                 {
                     "appId": "peach",
-                    "format": "peach://add/$1",
+                    "format": "peach://add/$2",
                     "testResults": [
                         "peach://add/timonus"
                     ]
@@ -7156,7 +7156,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.)?wear\\.jp/[^/]+/coordinate/(\\d+).*?$",
+            "regex": "https?://(www\\.)?wear\\.jp/[^/]+/coordinate/(\\d+).*?$",
             "testInputs": [
                 "http://wear.jp/chihirok1215/coordinate/6088645/",
                 "http://wear.jp/kumikofunayama/coordinate/6086529/?utm_source=twitter&utm_medium=w_aps&utm_campaign=code02_6086529"
@@ -7164,7 +7164,7 @@
             "formats": [
                 {
                     "appId": "wear",
-                    "format": "wear2020://wear.jp/coordinate/$1",
+                    "format": "wear2020://wear.jp/coordinate/$2",
                     "testResults": [
                         "wear2020://wear.jp/coordinate/6088645",
                         "wear2020://wear.jp/coordinate/6086529"
@@ -7174,7 +7174,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:\\w+\\.)*media\\.daum\\.net/(?:m/media/(?:[^/]+/)?newsview/|v/)(\\d+).*?$",
+            "regex": "https?://(\\w+\\.)*media\\.daum\\.net/(m/media/([^/]+/)?newsview/|v/)(\\d+).*?$",
             "testInputs": [
                 "http://m.media.daum.net/m/media/politics/newsview/20160213102546878",
                 "http://m.media.daum.net/m/media/politics/newsview/20160213063403758",
@@ -7184,7 +7184,7 @@
             "formats": [
                 {
                     "appId": "daum",
-                    "format": "daumapps://web?url=http%3A%2F%2Fv.media.daum.net%2Fv%2F$1%3Ff%3Dm",
+                    "format": "daumapps://web?url=http%3A%2F%2Fv.media.daum.net%2Fv%2F$4%3Ff%3Dm",
                     "testResults": [
                         "daumapps://web?url=http%3A%2F%2Fv.media.daum.net%2Fv%2F20160213102546878%3Ff%3Dm",
                         "daumapps://web?url=http%3A%2F%2Fv.media.daum.net%2Fv%2F20160213063403758%3Ff%3Dm",
@@ -7287,14 +7287,14 @@
         },
         {
             "title": "Open Tag",
-            "regex": "https?://(?:\\w+\\.)*deviantart\\.com/tag/([^/]+).*$",
+            "regex": "https?://(\\w+\\.)*deviantart\\.com/tag/([^/]+).*$",
             "testInputs": [
                 "http://www.deviantart.com/tag/firewatch"
             ],
             "formats": [
                 {
                     "appId": "deviantart",
-                    "format": "deviantart://tag/$1",
+                    "format": "deviantart://tag/$2",
                     "testResults": [
                         "deviantart://tag/firewatch"
                     ]
@@ -7302,14 +7302,14 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?(anchor\\.fm/.*)$",
+            "regex": "https?://(www\\.)?(anchor\\.fm/.*)$",
             "testInputs": [
                 "https://anchor.fm/quietonset/episodes/36---Mank--Citizen-Kane--HBOxWarner--The-Mandalorian-enh9o8"
             ],
             "formats": [
                 {
                     "appId": "anchor",
-                    "format": "anchorfm://$1",
+                    "format": "anchorfm://$2",
                     "testResults": [
                         "anchorfm://anchor.fm/quietonset/episodes/36---Mank--Citizen-Kane--HBOxWarner--The-Mandalorian-enh9o8"
                     ]
@@ -7318,7 +7318,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:\\w+\\.)*9gag\\.com/gag/([^/]+).*$",
+            "regex": "https?://(\\w+\\.)*9gag\\.com/gag/([^/]+).*$",
             "testInputs": [
                 "http://m.9gag.com/gag/a97qAPm",
                 "http://9gag.com/gag/a3BZ4pQ"
@@ -7326,7 +7326,7 @@
             "formats": [
                 {
                     "appId": "9gag",
-                    "format": "ninegag://9gag.com/gag/$1",
+                    "format": "ninegag://9gag.com/gag/$2",
                     "testResults": [
                         "ninegag://9gag.com/gag/a97qAPm",
                         "ninegag://9gag.com/gag/a3BZ4pQ"
@@ -7335,7 +7335,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)?tabelog\\.com/(?:\\w+/){3,4}(\\d+).*?$",
+            "regex": "https?://(\\w+\\.)?tabelog\\.com/(\\w+/){3,4}(\\d+).*?$",
             "testInputs": [
                 "http://s.tabelog.com/tokyo/A1301/A130101/13002260/",
                 "http://tabelog.com/en/tokyo/A1301/A130101/13002260/"
@@ -7343,7 +7343,7 @@
             "formats": [
                 {
                     "appId": "tabelog",
-                    "format": "tabelog-v2://rstdtl/$1",
+                    "format": "tabelog-v2://rstdtl/$3",
                     "testResults": [
                         "tabelog-v2://rstdtl/13002260",
                         "tabelog-v2://rstdtl/13002260"
@@ -7353,7 +7353,7 @@
         },
         {
             "title": "Open Auction",
-            "regex": "https?://(?:\\w+\\.)*auctions\\.yahoo\\.co\\.jp(?:/.*)?/auction/(\\w+).*$",
+            "regex": "https?://(\\w+\\.)*auctions\\.yahoo\\.co\\.jp(/.*)?/auction/(\\w+).*$",
             "testInputs": [
                 "http://page14.auctions.yahoo.co.jp/jp/auction/s482197065",
                 "http://page14.auctions.yahoo.co.jp/auction/s482197065"
@@ -7361,7 +7361,7 @@
             "formats": [
                 {
                     "appId": "yahooauctions",
-                    "format": "yjauctions://auctionitem?auctionid=$1",
+                    "format": "yjauctions://auctionitem?auctionid=$3",
                     "testResults": [
                         "yjauctions://auctionitem?auctionid=s482197065",
                         "yjauctions://auctionitem?auctionid=s482197065"
@@ -7371,7 +7371,7 @@
         },
         {
             "title": "Open Track",
-            "regex": "https?://(?:www\\.)?(soundhound\\.com/?.*t=\\d+.*)$",
+            "regex": "https?://(www\\.)?(soundhound\\.com/?.*t=\\d+.*)$",
             "testInputs": [
                 "http://soundhound.com/?t=100233113174326718",
                 "https://www.soundhound.com/?foo=bar&t=100233113174326718"
@@ -7379,7 +7379,7 @@
             "formats": [
                 {
                     "appId": "soundhound",
-                    "format": "soundhound://$1",
+                    "format": "soundhound://$2",
                     "testResults": [
                         "soundhound://soundhound.com/?t=100233113174326718",
                         "soundhound://soundhound.com/?foo=bar&t=100233113174326718"
@@ -7413,7 +7413,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:\\w+\\.)*thescore\\.com/(?:[^/]+/)?news/(\\d+).*?$",
+            "regex": "https?://(\\w+\\.)*thescore\\.com/([^/]+/)?news/(\\d+).*?$",
             "testInputs": [
                 "http://www.thescore.com/nba/news/1003047",
                 "http://www.thescore.com/news/1003738"
@@ -7421,7 +7421,7 @@
             "formats": [
                 {
                     "appId": "thescore",
-                    "format": "thescore:///news/$1",
+                    "format": "thescore:///news/$3",
                     "testResults": [
                         "thescore:///news/1003047",
                         "thescore:///news/1003738"
@@ -7430,7 +7430,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*glassdoor\\.com/(.*)$",
+            "regex": "https?://(\\w+\\.)*glassdoor\\.com/(.*)$",
             "testInputs": [
                 "https://www.glassdoor.com/Overview/Working-at-Pinterest-EI_IE503467.11,20.htm",
                 "https://www.glassdoor.com/Reviews/Employee-Review-Flipboard-RVW10328958.htm"
@@ -7438,7 +7438,7 @@
             "formats": [
                 {
                     "appId": "glassdoor",
-                    "format": "glassdoor://$1",
+                    "format": "glassdoor://$2",
                     "testResults": [
                         "glassdoor://Overview/Working-at-Pinterest-EI_IE503467.11,20.htm",
                         "glassdoor://Reviews/Employee-Review-Flipboard-RVW10328958.htm"
@@ -7448,7 +7448,7 @@
         },
         {
             "title": "Open Chat",
-            "regex": "https?://(?:www\\.)?(?:telegram|t)\\.me/(?!(?i)addstickers)([^/\\?#]+).*$",
+            "regex": "https?://(www\\.)?(telegram|t)\\.me/(?!(?i)addstickers)([^/\\?#]+).*$",
             "testInputs": [
                 "https://telegram.me/MacStories",
                 "http://telegram.me/",
@@ -7462,7 +7462,7 @@
             "formats": [
                 {
                     "appId": "telegram",
-                    "format": "tg://resolve?domain=$1",
+                    "format": "tg://resolve?domain=$3",
                     "testResults": [
                         "tg://resolve?domain=MacStories",
                         null,
@@ -7478,7 +7478,7 @@
         },
         {
             "title": "Add Stickers",
-            "regex": "https?://(?:www\\.)?(?:telegram|t)\\.me/(?i)addstickers/([^/\\?#]+).*$",
+            "regex": "https?://(www\\.)?(telegram|t)\\.me/(?i)addstickers/([^/\\?#]+).*$",
             "testInputs": [
                 "https://t.me/addstickers/NickSantini",
                 "https://telegram.me/addStickers/NickSantini"
@@ -7486,7 +7486,7 @@
             "formats": [
                 {
                     "appId": "telegram",
-                    "format": "tg://addstickers?set=$1",
+                    "format": "tg://addstickers?set=$3",
                     "testResults": [
                         "tg://addstickers?set=NickSantini",
                         "tg://addstickers?set=NickSantini"
@@ -7539,7 +7539,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*espn\\.com(?:\\.\\w+)?/(?!video).*id/(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*espn\\.com(\\.\\w+)?/(?!video).*id/(\\d+).*$",
             "testInputs": [
                 "http://www.espn.com/olympics/swimming/story/_/id/17299461/usoc-confirms-ryan-lochte-three-other-us-swimmers-robbed-rio?ex_cid=espntw",
                 "http://www.espn.com.mx/olimpicos/nota/_/id/2761177",
@@ -7553,7 +7553,7 @@
             "formats": [
                 {
                     "appId": "espn",
-                    "format": "sportscenter://x-callback-url/showStory?uid=$1",
+                    "format": "sportscenter://x-callback-url/showStory?uid=$3",
                     "testResults": [
                         "sportscenter://x-callback-url/showStory?uid=17299461",
                         "sportscenter://x-callback-url/showStory?uid=2761177",
@@ -7832,7 +7832,7 @@
         },
         {
             "title": "Open Geocache",
-            "regex": "https?://(?:www\\.)?(?:geocaching\\.com/geocache|coord\\.info)/(GC[A-Za-z0-9]+).*$",
+            "regex": "https?://(www\\.)?(geocaching\\.com/geocache|coord\\.info)/(GC[A-Za-z0-9]+).*$",
             "testInputs": [
                 "https://www.geocaching.com/geocache/GC46P90_positive-outlook",
                 "https://www.geocaching.com/geocache/GC59ZFJ_kermit-und-super-grobi",
@@ -7844,7 +7844,7 @@
             "formats": [
                 {
                     "appId": "cachly",
-                    "format": "cachly://gccode=$1",
+                    "format": "cachly://gccode=$3",
                     "testResults": [
                         "cachly://gccode=GC46P90",
                         "cachly://gccode=GC59ZFJ",
@@ -7875,7 +7875,7 @@
         },
         {
             "title": "Open Sale",
-            "regex": "https?://(?:\\w+\\.)?wallapop\\.com/(?:i/|item/.*-)(\\d+).*?$",
+            "regex": "https?://(\\w+\\.)?wallapop\\.com/(i/|item/.*-)(\\d+).*?$",
             "testInputs": [
                 "http://es.wallapop.com/item/vetusta-morla-memoria-instantanea-105787925",
                 "http://p.wallapop.com/i/106451972?_pid=wi&_uid=28825318&_me=s_tw"
@@ -7883,7 +7883,7 @@
             "formats": [
                 {
                     "appId": "wallapop",
-                    "format": "wallapop://i/$1",
+                    "format": "wallapop://i/$3",
                     "testResults": [
                         "wallapop://i/105787925",
                         "wallapop://i/106451972"
@@ -7892,7 +7892,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.|m\\.)?douyu\\.(?:com|tv)/(\\d+).*?$",
+            "regex": "https?://(www\\.|m\\.)?douyu\\.(com|tv)/(\\d+).*?$",
             "testInputs": [
                 "https://www.douyu.com/2570",
                 "https://m.douyu.com/2570",
@@ -7901,7 +7901,7 @@
             "formats": [
                 {
                     "appId": "douyu",
-                    "format": "douyutv://$1&0&",
+                    "format": "douyutv://$3&0&",
                     "testResults": [
                         "douyutv://2570&0&",
                         "douyutv://2570&0&",
@@ -8017,7 +8017,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)?pandora\\.com/station/play/(\\d+).*?",
+            "regex": "https?://(\\w+\\.)?pandora\\.com/station/play/(\\d+).*?",
             "testInputs": [
                 "http://www.pandora.com/fall-out-boy/from-under-cork-tree/dance-dance?station=939625762651725460&shareImp=true&referrer=gonzalez_252",
                 "https://www.pandora.com/chris-brown/x-deluxe-version/do-better",
@@ -8027,7 +8027,7 @@
             "formats": [
                 {
                     "appId": "pandora",
-                    "format": "pandorav2:/createStation?stationId=$1",
+                    "format": "pandorav2:/createStation?stationId=$2",
                     "testResults": [
                         null,
                         null,
@@ -8060,7 +8060,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)?mixcloud\\.com/(.+)$",
+            "regex": "https?://(\\w+\\.)?mixcloud\\.com/(.+)$",
             "testInputs": [
                 "https://m.mixcloud.com/dashradio/skee-1-on-1-with-adrian-peterson/",
                 "https://www.mixcloud.com/dashradio/skee-1-on-1-with-adrian-peterson/",
@@ -8071,7 +8071,7 @@
             "formats": [
                 {
                     "appId": "mixcloud",
-                    "format": "mc://$1",
+                    "format": "mc://$2",
                     "testResults": [
                         "mc://dashradio/skee-1-on-1-with-adrian-peterson/",
                         "mc://dashradio/skee-1-on-1-with-adrian-peterson/",
@@ -8084,7 +8084,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:\\w+\\.)?lemonde\\.fr/[^/]+/article/.*?_(\\d+).*?$",
+            "regex": "https?://(\\w+\\.)?lemonde\\.fr/[^/]+/article/.*?_(\\d+).*?$",
             "testInputs": [
                 "http://www.lemonde.fr/pixels/article/2016/12/11/jean-luc-melenchon-declare-qu-il-accordera-la-nationalite-francaise-a-mm-snowden-et-assange-s-il-est-elu_5047179_4408996.html?utm_medium=Social&utm_campaign=Echobox&utm_source=Twitter&utm_term=Autofeed#link_time=1481485993",
                 "http://www.lemonde.fr/international/article/2016/12/12/le-futur-secretaire-general-de-l-onu-antonio-guterres-appelle-a-une-reforme-globale_5047799_3210.html"
@@ -8092,7 +8092,7 @@
             "formats": [
                 {
                     "appId": "lemonde",
-                    "format": "lmfr://element/article/$1",
+                    "format": "lmfr://element/article/$2",
                     "testResults": [
                         "lmfr://element/article/5047179",
                         "lmfr://element/article/5047799"
@@ -8122,7 +8122,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?(appadvice\\.com/.*)$",
+            "regex": "https?://(www\\.)?(appadvice\\.com/.*)$",
             "testInputs": [
                 "https://appadvice.com/game/collection/best-party-games-for-party-time",
                 "https://appadvice.com/post/original-television-programming/734838",
@@ -8133,7 +8133,7 @@
             "formats": [
                 {
                     "appId": "appadvice",
-                    "format": "aaexternal://$1",
+                    "format": "aaexternal://$2",
                     "testResults": [
                         "aaexternal://appadvice.com/game/collection/best-party-games-for-party-time",
                         "aaexternal://appadvice.com/post/original-television-programming/734838",
@@ -8186,7 +8186,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:www\\.)?blendle\\.com/(?:i|item)/(?:[^/]+/[^/]+/)?([^/|\\?]*).*$",
+            "regex": "https?://(www\\.)?blendle\\.com/(i|item)/([^/]+/[^/]+/)?([^/|\\?]*).*$",
             "testInputs": [
                 "https://blendle.com/i/the-new-york-times/in-the-world-of-the-sapiosexual-the-hottest-body-part-is-the-brain/bnl-newyorktimes-20170603-18_1?sharer=eyJ2ZXJzaW9uIjoiMSIsInVpZCI6InRpbW9udXMiLCJpdGVtX2lkIjoiYm5sLW5ld3lvcmt0aW1lcy0yMDE3MDYwMy0xOF8xIn0%3D",
                 "https://blendle.com/item/bnl-newyorktimes-20170603-18_1"
@@ -8194,7 +8194,7 @@
             "formats": [
                 {
                     "appId": "blendle",
-                    "format": "blendle://item/$1",
+                    "format": "blendle://item/$4",
                     "testResults": [
                         "blendle://item/bnl-newyorktimes-20170603-18_1",
                         "blendle://item/bnl-newyorktimes-20170603-18_1"
@@ -8225,7 +8225,7 @@
         },
         {
             "title": "Open Story",
-            "regex": "https?://(?:www\\.)?lefigaro\\.fr/[^/]*/\\d+/\\d+/\\d+/\\d+-(\\w+)-.*$",
+            "regex": "https?://(www\\.)?lefigaro\\.fr/[^/]*/\\d+/\\d+/\\d+/\\d+-(\\w+)-.*$",
             "testInputs": [
                 "http://www.lefigaro.fr/actualite-france/2017/10/02/01016-20171002ARTFIG00286-attentat-de-marseille-un-texte-depose-mardi-pour-systematiser-l-expulsion-des-etrangers-delinquants.php?utm_term=Autofeed&utm_campaign=Echobox&utm_medium=Social&utm_source=Twitter#link_time=1506970243",
                 "http://www.lefigaro.fr/flash-eco/2017/10/03/97002-20171003FILWWW00014-lait-des-paturages-plus-ecolo-et-plus-rentable.php"
@@ -8233,7 +8233,7 @@
             "formats": [
                 {
                     "appId": "lefigaro",
-                    "format": "lefigarofr://article/$1/lefigaro.fr",
+                    "format": "lefigarofr://article/$2/lefigaro.fr",
                     "testResults": [
                         "lefigarofr://article/20171002ARTFIG00286/lefigaro.fr",
                         "lefigarofr://article/20171003FILWWW00014/lefigaro.fr"
@@ -8243,7 +8243,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(?:www\\.|m\\.)?ticketmaster\\.com/(?:[^/]*/)?event/(\\w+).*$",
+            "regex": "https?://(www\\.|m\\.)?ticketmaster\\.com/([^/]*/)?event/(\\w+).*$",
             "testInputs": [
                 "http://www.ticketmaster.com/event/1C00533D161BD381?camefrom=CFC_ANOTHERPLANET_web&brand=anotherplanet",
                 "http://m.ticketmaster.com/event/1C00533D161BD381?camefrom=CFC_ANOTHERPLANET_web&brand=anotherplanet",
@@ -8253,7 +8253,7 @@
             "formats": [
                 {
                     "appId": "ticketmaster",
-                    "format": "ticketmaster:///event/$1",
+                    "format": "ticketmaster:///event/$3",
                     "testResults": [
                         "ticketmaster:///event/1C00533D161BD381",
                         "ticketmaster:///event/1C00533D161BD381",
@@ -8265,7 +8265,7 @@
         },
         {
             "title": "Open Artist",
-            "regex": "https?://(?:www\\.|m\\.)?ticketmaster\\.com/(?:[^/]*/)?artist/(\\w+).*$",
+            "regex": "https?://(www\\.|m\\.)?ticketmaster\\.com/([^/]*/)?artist/(\\w+).*$",
             "testInputs": [
                 "http://www.ticketmaster.com/Thom-Yorke-tickets/artist/1370037?tm_link=edp_Artist_Name",
                 "http://m.ticketmaster.com/Thom-Yorke-tickets/artist/1370037?tm_link=edp_Artist_Name",
@@ -8275,7 +8275,7 @@
             "formats": [
                 {
                     "appId": "ticketmaster",
-                    "format": "ticketmaster:///artist/$1",
+                    "format": "ticketmaster:///artist/$3",
                     "testResults": [
                         "ticketmaster:///artist/1370037",
                         "ticketmaster:///artist/1370037",
@@ -8287,7 +8287,7 @@
         },
         {
             "title": "Open Venue",
-            "regex": "https?://(?:www\\.|m\\.)?ticketmaster\\.com/(?:[^/]*/)?venue/(\\w+).*$",
+            "regex": "https?://(www\\.|m\\.)?ticketmaster\\.com/([^/]*/)?venue/(\\w+).*$",
             "testInputs": [
                 "http://www.ticketmaster.com/Fox-Theater-Oakland-tickets-Oakland/venue/229846?tm_link=edp_Venue_Name_1",
                 "http://m.ticketmaster.com/Fox-Theater-Oakland-tickets-Oakland/venue/229846?tm_link=edp_Venue_Name_1",
@@ -8297,7 +8297,7 @@
             "formats": [
                 {
                     "appId": "ticketmaster",
-                    "format": "ticketmaster:///venue/$1",
+                    "format": "ticketmaster:///venue/$3",
                     "testResults": [
                         "ticketmaster:///venue/229846",
                         "ticketmaster:///venue/229846",
@@ -8308,14 +8308,14 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?(scrapbox\\.io/.*)$",
+            "regex": "https?://(www\\.)?(scrapbox\\.io/.*)$",
             "testInputs": [
                 "https://scrapbox.io/walpurgisn/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E7%B7%B4%E7%BF%92%E5%B8%B3"
             ],
             "formats": [
                 {
                     "appId": "porter",
-                    "format": "sbporter://$1",
+                    "format": "sbporter://$2",
                     "testResults": [
                         "sbporter://scrapbox.io/walpurgisn/%E3%82%A4%E3%83%A9%E3%82%B9%E3%83%88%E7%B7%B4%E7%BF%92%E5%B8%B3"
                     ]
@@ -8324,14 +8324,14 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.|m\\.)?kwai\\.com/i/photo/.*photoId=(\\d+).*?$",
+            "regex": "https?://(www\\.|m\\.)?kwai\\.com/i/photo/.*photoId=(\\d+).*?$",
             "testInputs": [
                 "http://www.kwai.com/i/photo/lwx?et=1_a%2F1590209410251264001_p0&photoId=4704203541&type=2&userId=604908634&fid=796339652&timestamp=1516541906439&cc=share_twitter"
             ],
             "formats": [
                 {
                     "appId": "kwai",
-                    "format": "kwai://work/$1",
+                    "format": "kwai://work/$2",
                     "testResults": [
                         "kwai://work/4704203541"
                     ]
@@ -8340,7 +8340,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(?:www\\.|m\\.)?kuaishou\\.com/(?:live/)?user/(\\d+).*?$",
+            "regex": "https?://(www\\.|m\\.)?kuaishou\\.com/(live/)?user/(\\d+).*?$",
             "testInputs": [
                 "https://m.kuaishou.com/user/604908634",
                 "https://www.kuaishou.com/live/user/604908634"
@@ -8348,7 +8348,7 @@
             "formats": [
                 {
                     "appId": "kwai",
-                    "format": "kwai://profile/$1",
+                    "format": "kwai://profile/$3",
                     "testResults": [
                         "kwai://profile/604908634",
                         "kwai://profile/604908634"
@@ -8358,7 +8358,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(?:www\\.)?(sspai\\.com/post/(\\d+)).*?$",
+            "regex": "https?://(www\\.)?(sspai\\.com/post/(\\d+)).*?$",
             "testInputs": [
                 "https://www.sspai.com/post/43552",
                 "https://sspai.com/post/41311"
@@ -8366,7 +8366,7 @@
             "formats": [
                 {
                     "appId": "sspai",
-                    "format": "sspai://$1",
+                    "format": "sspai://$2",
                     "testResults": [
                         "sspai://sspai.com/post/43552",
                         "sspai://sspai.com/post/41311"
@@ -8489,14 +8489,14 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?airtable\\.com/(\\w+/\\w+).*?$",
+            "regex": "https?://(www\\.)?airtable\\.com/(\\w+/\\w+).*?$",
             "testInputs": [
                 "https://airtable.com/tbl41aPSQnB2JJ1uE/viw6mQSohadJqqdg1"
             ],
             "formats": [
                 {
                     "appId": "airtable",
-                    "format": "airtable:///$1",
+                    "format": "airtable:///$2",
                     "testResults": [
                         "airtable:///tbl41aPSQnB2JJ1uE/viw6mQSohadJqqdg1"
                     ]
@@ -8556,7 +8556,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)(deezer\\.com/.*)$",
+            "regex": "https?://(www\\.)(deezer\\.com/.*)$",
             "testInputs": [
                 "https://www.deezer.com/us/track/124991588",
                 "http://www.deezer.com/track/8016045",
@@ -8568,7 +8568,7 @@
             "formats": [
                 {
                     "appId": "deezer",
-                    "format": "deezer://www.$1",
+                    "format": "deezer://www.$2",
                     "testResults": [
                         "deezer://www.deezer.com/us/track/124991588",
                         "deezer://www.deezer.com/track/8016045",
@@ -8603,14 +8603,14 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?(theathletic\\.com/.+)$",
+            "regex": "https?://(www\\.)?(theathletic\\.com/.+)$",
             "testInputs": [
                 "https://theathletic.com/584168/2018/10/13/sporer-diagnosing-the-islanders-defensive-improvements-since-their-season-opener/"
             ],
             "formats": [
                 {
                     "appId": "theathletic",
-                    "format": "theathletic://$1",
+                    "format": "theathletic://$2",
                     "testResults": [
                         "theathletic://theathletic.com/584168/2018/10/13/sporer-diagnosing-the-islanders-defensive-improvements-since-their-season-opener/"
                     ]
@@ -8695,7 +8695,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*newspicks\\.com/(.+)$",
+            "regex": "https?://(\\w+\\.)*newspicks\\.com/(.+)$",
             "testInputs": [
                 "https://newspicks.com/news/3530812?ref=user_904964&u=qpajax&from=twitter",
                 "https://newspicks.com/movie-series/6?movieId=238"
@@ -8703,7 +8703,7 @@
             "formats": [
                 {
                     "appId": "newspicks",
-                    "format": "newspicks://$1",
+                    "format": "newspicks://$2",
                     "testResults": [
                         "newspicks://news/3530812?ref=user_904964&u=qpajax&from=twitter",
                         "newspicks://movie-series/6?movieId=238"
@@ -8781,7 +8781,7 @@
             ]
         },
         {
-            "regex": "https?://(?:www\\.)?liketoknow\\.it/(.+)$",
+            "regex": "https?://(www\\.)?liketoknow\\.it/(.+)$",
             "testInputs": [
                 "https://www.liketoknow.it/ltk/7dAiHuJA1yx37wfETjZqUy",
                 "https://www.liketoknow.it/marvelousinthemidwest"
@@ -8789,7 +8789,7 @@
             "formats": [
                 {
                     "appId": "liketoknowit",
-                    "format": "com.rewardstyle.lt://$1",
+                    "format": "com.rewardstyle.lt://$2",
                     "testResults": [
                         "com.rewardstyle.lt://ltk/7dAiHuJA1yx37wfETjZqUy",
                         "com.rewardstyle.lt://marvelousinthemidwest"
@@ -8798,7 +8798,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*rightmove\\.co\\.uk/property[^/]+/property-(\\d+).*$",
+            "regex": "https?://(\\w+\\.)*rightmove\\.co\\.uk/property[^/]+/property-(\\d+).*$",
             "testInputs": [
                 "https://www.rightmove.co.uk/property-for-sale/property-74972759.html",
                 "https://www.rightmove.co.uk/property-to-rent/property-61343787.html"
@@ -8806,7 +8806,7 @@
             "formats": [
                 {
                     "appId": "rightmove",
-                    "format": "rightmove://PROPERTY_DETAILS?propertyId=$1",
+                    "format": "rightmove://PROPERTY_DETAILS?propertyId=$2",
                     "testResults": [
                         "rightmove://PROPERTY_DETAILS?propertyId=74972759",
                         "rightmove://PROPERTY_DETAILS?propertyId=61343787"
@@ -8860,7 +8860,7 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*teamblind\\.com/(?:s|article)/(?:\\w+-)*(\\w+).*?$",
+            "regex": "https?://(\\w+\\.)*teamblind\\.com/(s|article)/(\\w+-)*(\\w+).*?$",
             "testInputs": [
                 "https://us.teamblind.com/s/MxtjybRD",
                 "https://usapi.teamblind.com/s/ToGii3Pt",
@@ -8869,7 +8869,7 @@
             "formats": [
                 {
                     "appId": "blind",
-                    "format": "teamblind://open/?a=$1",
+                    "format": "teamblind://open/?a=$4",
                     "testResults": [
                         "teamblind://open/?a=MxtjybRD",
                         "teamblind://open/?a=ToGii3Pt",
@@ -9001,14 +9001,14 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*craigslist\\.org/(.*)$",
+            "regex": "https?://(\\w+\\.)*craigslist\\.org/(.*)$",
             "testInputs": [
                 "https://sfbay.craigslist.org/pen/sop/d/palo-alto-apple-32-pro-display-xdr/7128524663.html"
             ],
             "formats": [
                 {
                     "appId": "craigslist",
-                    "format": "craigslist://$1",
+                    "format": "craigslist://$2",
                     "testResults": [
                         "craigslist://pen/sop/d/palo-alto-apple-32-pro-display-xdr/7128524663.html"
                     ]
@@ -9017,14 +9017,14 @@
         },
         {
             "title": "Open Video",
-            "regex": "https?://(?:\\w+\\.)*dailymotion\\.com/video/(\\w+).*?$",
+            "regex": "https?://(\\w+\\.)*dailymotion\\.com/video/(\\w+).*?$",
             "testInputs": [
                 "https://www.dailymotion.com/video/x7v8llj"
             ],
             "formats": [
                 {
                     "appId": "dailymotion",
-                    "format": "dailymotion://video/$1",
+                    "format": "dailymotion://video/$2",
                     "testResults": [
                         "dailymotion://video/x7v8llj"
                     ]
@@ -9050,7 +9050,7 @@
         },
         {
             "title": "Open Comic",
-            "regex": "https?://(?:www\\.|m\\.)?xkcd\\.com/(\\d+).*?$",
+            "regex": "https?://(www\\.|m\\.)?xkcd\\.com/(\\d+).*?$",
             "testInputs": [
                 "http://xkcd.com/1508/",
                 "http://m.xkcd.com/1694/"
@@ -9058,7 +9058,7 @@
             "formats": [
                 {
                     "appId": "xkcdy",
-                    "format": "xkcdy://comics/$1",
+                    "format": "xkcdy://comics/$2",
                     "testResults": [
                         "xkcdy://comics/1508",
                         "xkcdy://comics/1694"
@@ -9127,14 +9127,14 @@
             ]
         },
         {
-            "regex": "https?://(?:\\w+\\.)*(cbsnews\\.com/.*)$",
+            "regex": "https?://(\\w+\\.)*(cbsnews\\.com/.*)$",
             "testInputs": [
                 "https://www.cbsnews.com/live-updates/trump-pardons-capitol-security-inauguration/"
             ],
             "formats": [
                 {
                     "appId": "cbsnews",
-                    "format": "cbsnewsapp://$1",
+                    "format": "cbsnewsapp://$2",
                     "testResults": [
                         "cbsnewsapp://cbsnews.com/live-updates/trump-pardons-capitol-security-inauguration/"
                     ]
@@ -9143,7 +9143,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:www\\.)walmart\\.com/ip/(?:[^/]+/)?(\\d+).*?$",
+            "regex": "https?://(www\\.)walmart\\.com/ip/([^/]+/)?(\\d+).*?$",
             "testInputs": [
                 "https://www.walmart.com/ip/XB1-Xbox-Series-X/606518560",
                 "https://www.walmart.com/ip/443574645",
@@ -9152,7 +9152,7 @@
             "formats": [
                 {
                     "appId": "walmart",
-                    "format": "walmart://ip/$1",
+                    "format": "walmart://ip/$3",
                     "testResults": [
                         "walmart://ip/606518560",
                         "walmart://ip/443574645",
@@ -9230,7 +9230,7 @@
         },
         {
             "title": "Open Product",
-            "regex": "https?://(?:\\w+\\.)*bhphotovideo\\.com/c/product/([^/]+).*?$",
+            "regex": "https?://(\\w+\\.)*bhphotovideo\\.com/c/product/([^/]+).*?$",
             "testInputs": [
                 "https://www.bhphotovideo.com/c/product/1619483-REG/sony_ilce_1_b_alpha_a1_mirrorless_digital.html",
                 "https://www.bhphotovideo.com/c/buy/Mirrorless-Cameras/ci/16158/N/4288586281",
@@ -9239,7 +9239,7 @@
             "formats": [
                 {
                     "appId": "bhphoto",
-                    "format": "bhphoto://product?product_id=$1",
+                    "format": "bhphoto://product?product_id=$2",
                     "testResults": [
                         "bhphoto://product?product_id=1619483-REG",
                         null,
@@ -11836,7 +11836,7 @@
             "docs": "https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api"
         },
         {
-            "regex": "https?://(?:www\\.|rover\\.|m\\.)?ebay(?:\\.\\w+)+/(?:itm|i)/(?:[0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
+            "regex": "https?://(www\\.|rover\\.|m\\.)?ebay(\\.\\w+)+/(itm|i)/([0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
             "format": "https://i.ebayimg.com/images/i/$1-0-1/s-l375/p.jpg",
             "docs": "https://stackoverflow.com/a/39545334/3943258"
         },
