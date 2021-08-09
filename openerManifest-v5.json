@@ -9286,7 +9286,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://((\\w+\\.)*apple\\.com/(\\w+/)?shop/.+)$",
             "testInputs": [
                 "https://www.apple.com/shop/buy-iphone/carrier-offers",
@@ -9304,7 +9303,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://news.yahoo.co.jp/.+$",
             "testInputs": [
                 "https://news.yahoo.co.jp/articles/6f725158836acbd8b7b9bf80e060ba9e447a43f3",
@@ -9344,7 +9342,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*olx\\.com\\.br/.*(/|-)(\\d+)(\\.html?)?$",
             "testInputs": [
                 "https://www.olx.com.br/vi/908354794.htm",
@@ -9366,7 +9363,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*olx\\.com\\.br/(?!.*(/|-)(\\d+)(\\.html?)?).+$",
             "testInputs": [
                 "https://www.olx.com.br/vi/908354794.htm",
@@ -9388,7 +9384,6 @@
             ]
         },
         {
-            "title": "Open Link",
             "regex": "https?://(\\w+\\.)*vinted(\\.\\w+)+/.+$",
             "testInputs": [
                 "https://www.vinted.co.uk/women/shoes/heels/high-heels/1249887661-asos-orange-heeled-sandals",
