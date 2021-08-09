@@ -9386,6 +9386,26 @@
                     ]
                 }
             ]
+        },
+        {
+            "title": "Open Link",
+            "regex": "https?://(\\w+\\.)*vinted(\\.\\w+)+/.+$",
+            "testInputs": [
+                "https://www.vinted.co.uk/women/shoes/heels/high-heels/1249887661-asos-orange-heeled-sandals",
+                "https://www.vinted.fr/member/12918-emilielou",
+                "https://www.vinted.pl/kobiety/kosmetyki/pielegnacja-twarzy/147364862-normalizujacy-tonik-do-twarzy-vianek"
+            ],
+            "formats": [
+                {
+                    "appId": "vinted",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(vinted\\\\w+://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        "vintedfr://item?id=1249887661&amp;portal=fr",
+                        "vintedfr://user?id=12918&amp;portal=fr",
+                        "vintedpl://item?id=147364862&amp;portal=pl"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -11084,6 +11104,12 @@
             "identifier": "xapp",
             "storeId": 1533525753,
             "scheme": "xapp"
+        },
+        {
+            "name": "Vinted",
+            "identifier": "vinted",
+            "storeId": 632064380,
+            "country": "gb"
         }
     ],
     "browsers": [
