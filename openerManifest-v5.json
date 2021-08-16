@@ -11104,6 +11104,7 @@
             "name": "Vinted",
             "identifier": "vinted",
             "storeId": 632064380,
+            "scheme": "vintedfr",
             "country": "gb"
         }
     ],
