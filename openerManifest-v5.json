@@ -9614,8 +9614,7 @@
             "name": "Taobao",
             "identifier": "taobao",
             "storeId": 387682726,
-            "scheme": "taobao",
-            "platform": "phone"
+            "scheme": "taobao"
         },
         {
             "name": "V for Wikipedia",
@@ -10081,13 +10080,6 @@
             "identifier": "ibooks",
             "storeId": 364709193,
             "scheme": "itms-books"
-        },
-        {
-            "name": "Taobao HD",
-            "identifier": "taobaopad",
-            "storeId": 438865278,
-            "scheme": "taobao",
-            "platform": "pad"
         },
         {
             "name": "Yelp",
