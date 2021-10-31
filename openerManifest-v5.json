@@ -8424,25 +8424,6 @@
             ]
         },
         {
-            "regex": "https?://(www\\.)?sports\\.ru/.*$",
-            "testInputs": [
-                "https://www.sports.ru/tribuna/blogs/russiateam/1628831.html",
-                "https://www.sports.ru/quincy-promes/",
-                "https://www.sports.ru/euroleague/"
-            ],
-            "formats": [
-                {
-                    "appId": "sportsru",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(sports://.*?)\\\\\".*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
-                    "testResults": [
-                        "sports://blog_post/1628831",
-                        "sports://player/136385111?category_id=208",
-                        "sports://tournament/1364371?category_id=210"
-                    ]
-                }
-            ]
-        },
-        {
             "regex": "https?://(?:\\w+\\.)?mercadolibre(?:\\.\\w+)+/(\\w\\w\\w)-(\\d+).*?$",
             "testInputs": [
                 "https://articulo.mercadolibre.com.ve/MLV-506096816-kit-rodaje-rodamiento-moto-tx-200-rin-paleta-42-15-132-_JM",
@@ -9937,8 +9918,8 @@
         {
             "name": "CodeHub",
             "identifier": "codehub",
-            "storeId": 707173885,
             "scheme": "codehub",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/codehub.jpg",
             "docs": "https://github.com/thedillonb/CodeHub/blob/master/CodeHub.iOS/AppDelegate.cs#L258-L280 and https://github.com/thedillonb/CodeHub/issues/19"
         },
         {
@@ -10202,8 +10183,8 @@
         {
             "name": "Beam",
             "identifier": "beam",
-            "storeId": 937987469,
             "scheme": "beamapp",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/beam.jpg",
             "docs": "https://twitter.com/beamreddit/status/762625995568472064"
         },
         {
@@ -10340,8 +10321,8 @@
         {
             "name": "Moke",
             "identifier": "moke",
-            "storeId": 1481905050,
             "scheme": "moke",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/moke.jpg",
             "docs": "http://moke.com/moke/url_schemes.html"
         },
         {
@@ -10817,12 +10798,6 @@
             "identifier": "slideshare",
             "storeId": 917418728,
             "scheme": "slideshare-app"
-        },
-        {
-            "name": "Sports.ru",
-            "identifier": "sportsru",
-            "storeId": 542339626,
-            "scheme": "sports"
         },
         {
             "name": "Stack Overflow",
