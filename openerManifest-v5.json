@@ -11544,8 +11544,8 @@
         {
             "name": "Ohajiki D",
             "identifier": "ohajikid",
-            "storeId": 1039646068,
             "scheme": "ohajikid",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/ohajikid-120.jpg",
             "regex": "(https?.*)",
             "format": "ood$1",
             "docs": "http://en.ohajiki.ios-web.com/url-scheme.html",
