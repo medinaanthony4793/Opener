@@ -401,6 +401,22 @@
             ]
         },
         {
+            "title": "Open Space",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/i/spaces/(\\w+).*$",
+            "testInputs": [
+                "https://mobile.twitter.com/i/spaces/1nAKEYlloblKL"
+            ],
+            "formats": [
+                {
+                    "appId": "twitter",
+                    "format": "twitter://spaces/$2",
+                    "testResults": [
+                        "twitter://spaces/1nAKEYlloblKL"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Collection",
             "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
             "testInputs": [
