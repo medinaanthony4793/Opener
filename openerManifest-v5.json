@@ -7864,10 +7864,11 @@
             ]
         },
         {
-            "regex": "https?(://(?:www\\.)?netflix\\.com/(watch|title)/.*)$",
+            "regex": "https?(://(?:www\\.)?netflix\\.com/(\\w+/)*(watch|title)/.*)$",
             "testInputs": [
                 "https://www.netflix.com/watch/70129452",
-                "https://www.netflix.com/title/70077544"
+                "https://www.netflix.com/title/70077544",
+                "https://www.netflix.com/us/title/81252357?s=i&trkid=13747225&vlang=en&clip=81522111&t=twt"
             ],
             "formats": [
                 {
@@ -7875,7 +7876,8 @@
                     "format": "nflx$1",
                     "testResults": [
                         "nflx://www.netflix.com/watch/70129452",
-                        "nflx://www.netflix.com/title/70077544"
+                        "nflx://www.netflix.com/title/70077544",
+                        "nflx://www.netflix.com/us/title/81252357?s=i&trkid=13747225&vlang=en&clip=81522111&t=twt"
                     ]
                 }
             ]
