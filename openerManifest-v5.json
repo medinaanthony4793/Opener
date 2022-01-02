@@ -12038,28 +12038,28 @@
         },
         "(https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/.*?)(?:\\?|&)?igshid(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
-            "test": {
+            "tests": {
                 "https://www.instagram.com/p/CFdlX1LpVU8/?igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/",
                 "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar&igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar"
             }
         },
         "(https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/.*?)(?:\\?|&)?s(?:=|%3D)\\d+(.*?)$": {
             "format": "$1$2",
-            "test": {
+            "tests": {
                 "https://twitter.com/dabit3/status/1308066681512775682?s=21": "https://twitter.com/dabit3/status/1308066681512775682",
-                "https://twitter.com/dabit3/status/1308066681512775682?foo=bar&s=21": "https://twitter.com/dabit3/status/1308066681512775682"
+                "https://twitter.com/dabit3/status/1308066681512775682?foo=bar&s=21": "https://twitter.com/dabit3/status/1308066681512775682?foo=bar"
             }
         },
         "(https?://(?:play\\.|open\\.|www\\.)?spotify\\.com/.*?)(?:\\?|&)?si(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
-            "test": {
+            "tests": {
                 "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf",
-                "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?foo=bar&si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf"
+                "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?foo=bar&si=Qoej9v5HR8O8q5xOWu1PGA": "https://open.spotify.com/track/7GDGodzWVL6nCOBAhZ39rf?foo=bar"
             }
         },
         "(https?://(?:(?:\\w+\\.)*amazon(?:(?:\\.\\w+)+)/.*?))(?:\\?|&)?ref(?:=|%3D)\\w+(.*?)$": {
             "format": "$1$2",
-            "test": {
+            "tests": {
                 "https://www.amazon.com/dp/B081SHMJ77/ref=cm_sw_r_sms_api_i_7s1AFbE3WS0G8": "https://www.amazon.com/dp/B081SHMJ77/",
                 "https://www.amazon.com/dp/B081RJ8DW1/ref=cm_sw_r_cp_api_fabc_V2NVFbX5E8KHT?_encoding=UTF8&psc=1": "https://www.amazon.com/dp/B081RJ8DW1/?_encoding=UTF8&psc=1"
             }
