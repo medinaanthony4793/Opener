@@ -10133,8 +10133,8 @@
         {
             "name": "Coderx",
             "identifier": "grape",
-            "storeId": 1371929193,
             "scheme": "grape",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/coderx.jpg",
             "docs": "https://db.tt/xAauKtgWxJ"
         },
         {
@@ -11682,7 +11682,6 @@
         {
             "name": "Adblock Browser",
             "identifier": "adblockbrowser",
-            "storeId": 1015653330,
             "scheme": "adblockbrowser",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/abb-120.jpg",
             "regex": "https?://(.*)$",
