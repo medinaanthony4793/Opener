@@ -492,7 +492,6 @@
             "formats": [
                 {
                     "appId": "tweetbot",
-                    "script": "function process(url, completionHandler) { completionHandler('tweetbot:///' + decodeURIComponent(url.split('tweetbot%3A%2F%2F%2F')[1])); }",
                     "script2": "function process(url, completionHandler) { completionHandler('tweetbot:///' + decodeURIComponent(url.split('tweetbot%3A%2F%2F%2F')[1])); }",
                     "testResults": [
                         "tweetbot:///mute/keyword?regex=1&text=%28%3Fi%29%28keep%20calm%20and%20%5Cw%2B%29",
@@ -604,7 +603,6 @@
                 {
                     "appId": "instagram",
                     "note": "How to generate Instagram media identifiers without making a request https://carrot.is/coding/instagram-ids / https://db.tt/U7zuLAVxbE. Max length 11 was found experimentally.",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); url = 'https://api.instagram.com/oembed?url=' + url; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4) { if (xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); completionHandler('instagram://media?id=' + res['media_id'].split('_')[0]); } else { completionHandler(null); } } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:www\\\\.)?(?:instagram\\\\.com|instagr\\\\.am)/(?:[a-zA-Z0-9_\\\\.]{1,30}/)?(?:p|tv|reel)/([a-zA-Z0-9_\\\\-]{1,11}).*$').exec(url); var match = results != null && results.length > 1 ? results[1] : null; var table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; table += table.toLowerCase() + '0123456789-_'; var base64Digits = []; for (i = 0; i < match.length; i++) { var digit = table.indexOf(match.charAt(i)); base64Digits.push(digit); } completionHandler('instagram://media?id=' + base64DigitsToBase10String(base64Digits)); }",
                     "testResults": [
                         "instagram://media?id=918912099030336544",
@@ -805,7 +803,6 @@
                 {
                     "appId": "facebook",
                     "note": "when using UIWebView processor the loaded page doesn't seem to include fb:// links, so we fish for facebook.\\w+/groups/\\d+ instead",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('facebook(?:\\\\.\\\\w+)+/groups/(\\\\d+)').exec(res); var match; if (results != null && results.length > 1) { match = 'fb://group/?id=' + results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(fb://group(?:/)?\\\\?id=\\\\d+)').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         null,
@@ -1264,7 +1261,6 @@
             "formats": [
                 {
                     "appId": "vscocam",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(vsco://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(vsco://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "vsco://user/556895/journal/5644edcf2b331e1d2f8b4569",
@@ -1290,7 +1286,6 @@
             "formats": [
                 {
                     "appId": "vscocam",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(vsco://user/.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(vsco://user/.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "vsco://user/113950/collection",
@@ -1401,7 +1396,6 @@
             "formats": [
                 {
                     "appId": "tumblr",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/post/(\\\\d+)').exec(res); var blogName = match[1]; var postID = match[2]; completionHandler('tumblr://x-callback-url/blog?blogName=' + blogName + '&postID=' + postID); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('([a-zA-Z0-9_\\-]+)\\.tumblr\\.com/post/(\\\\d+)').exec(res); var blogName = match[1]; var postID = match[2]; completionHandler('tumblr://x-callback-url/blog?blogName=' + blogName + '&postID=' + postID); }",
                     "testResults": [
                         "tumblr://x-callback-url/blog?blogName=2kindsofpeople&postID=115652499436"
@@ -1611,7 +1605,6 @@
             "formats": [
                 {
                     "appId": "flipboard",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(flipboard://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(flipboard://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "flipboard://showSection/flipboard/topic%252Findependenceday?title=July%204th%20on%20Flipboard"
@@ -1630,7 +1623,6 @@
             "formats": [
                 {
                     "appId": "flipboard",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(flipboard://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(flipboard://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "flipboard://showSection/flipboard/user%252F3204246?title=Tim%20Johnsen%20on%20Flipboard",
@@ -1848,7 +1840,6 @@
                 },
                 {
                     "appId": "googlemaps",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); completionHandler('comgooglemaps://?q=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var res = jsonRequest(url); completionHandler('comgooglemaps://?q=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); }",
                     "testResults": [
                         "comgooglemaps://?q=37.756501,-122.421146",
@@ -1857,7 +1848,6 @@
                 },
                 {
                     "appId": "applemaps",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); completionHandler('maps://maps.apple.com/maps?q=' + encodeURIComponent(res['response']['venue']['name']) + '&ll=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var res = jsonRequest(url); completionHandler('maps://maps.apple.com/maps?q=' + encodeURIComponent(res['response']['venue']['name']) + '&ll=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); }",
                     "testResults": [
                         "maps://maps.apple.com/maps?q=Ritual%20Coffee%20Roasters&ll=37.756501,-122.421146",
@@ -1866,7 +1856,6 @@
                 },
                 {
                     "appId": "waze",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); completionHandler('waze://?q=' + encodeURIComponent(res['response']['venue']['name']) + '&ll=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var res = jsonRequest(url); completionHandler('waze://?q=' + encodeURIComponent(res['response']['venue']['name']) + '&ll=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); }",
                     "testResults": [
                         "waze://?q=Ritual%20Coffee%20Roasters&ll=37.756501,-122.421146",
@@ -1875,7 +1864,6 @@
                 },
                 {
                     "appId": "transit",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); completionHandler('transit://directions?to=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var res = jsonRequest(url); completionHandler('transit://directions?to=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng']); }",
                     "testResults": [
                         "transit://directions?to=37.756501,-122.421146",
@@ -1884,7 +1872,6 @@
                 },
                 {
                     "appId": "citymapper",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); completionHandler('citymapper://x-callback-url/directions?endcoord=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng'] + '&endname=' + encodeURIComponent(res['response']['venue']['name'])); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://.*foursquare\\.com/(?:v|venue)/(?:.*/)?(\\\\w+).*$').exec(url); var venueIdentifier = match[1]; url = 'https://api.foursquare.com/v2/venues/' + venueIdentifier + '?v=20140921&client_id=Q5H4T3CZWKEKK3QKQKIIKWGISC1UKY2IXJ4BZCZXCLDQ0IMR&client_secret=J1TZFLIIZ4LK3I55AIFV3AW3Z4ICLAQIQ5KPNLTPT3ST03XH'; var res = jsonRequest(url); completionHandler('citymapper://x-callback-url/directions?endcoord=' + res['response']['venue']['location']['lat'] + ',' + res['response']['venue']['location']['lng'] + '&endname=' + encodeURIComponent(res['response']['venue']['name'])); }",
                     "testResults": [
                         "citymapper://x-callback-url/directions?endcoord=37.756501,-122.421146&endname=Ritual%20Coffee%20Roasters",
@@ -1904,7 +1891,6 @@
             "formats": [
                 {
                     "appId": "foursquare",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(foursquare://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(foursquare://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "foursquare://lists/5550f48b498e5d3067c36795",
@@ -1997,7 +1983,6 @@
             "formats": [
                 {
                     "appId": "swarm",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(swarm://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(swarm://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "swarm://checkins/54dc6e7d498e6f759fed73ad?s=9Mrny6Nrgw8DeC5kn1m79HuAx_E"
@@ -2016,7 +2001,6 @@
             "formats": [
                 {
                     "appId": "foursquare",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('foursquare\\.com/(?:v|venue)/(?:.*?/)?(\\\\w+)').exec(res)[1]; completionHandler('foursquare://venues/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('foursquare\\.com/(?:v|venue)/(?:.*?/)?(\\\\w+)').exec(res)[1]; completionHandler('foursquare://venues/' + match); }",
                     "testResults": [
                         "foursquare://venues/49ba1cbdf964a5205d531fe3",
@@ -2352,7 +2336,6 @@
                 },
                 {
                     "appId": "googlemaps",
-                    "script": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleAddress != null && appleAddress.length > 0) { googleQ = appleAddress; } else if (appleQ != null) { googleQ = appleQ; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '%20'; } query = query + '@' + googleCenter; } var url = 'comgooglemaps://?' + query; completionHandler(url); }",
                     "script2": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleAddress != null && appleAddress.length > 0) { googleQ = appleAddress; } else if (appleQ != null) { googleQ = appleQ; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '%20'; } query = query + '@' + googleCenter; } var url = 'comgooglemaps://?' + query; completionHandler(url); }",
                     "testResults": [
                         "comgooglemaps://?q=620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States%20@37.760092,-122.414035",
@@ -2367,7 +2350,6 @@
                 },
                 {
                     "appId": "waze",
-                    "script": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleQ != null) { googleQ = appleQ; } if (appleAddress != null && appleAddress.length > 0) { if (googleQ.length > 0) { googleQ = googleQ + ','; } googleQ = googleQ + appleAddress; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '&'; } query = query + 'll=' + googleCenter; } var url = 'waze://?' + query; completionHandler(url); }",
                     "script2": "function getParameterByName(url, name) { name = name.replace(RegExp('[\\[]'), '\\\\[').replace(RegExp('[\\]]'), '\\\\]'); var regex = RegExp('[\\\\?&]' + name + '=([^&#]*)'); results = regex.exec(url); return results === null ? '' : decodeURIComponent(results[1].replace(RegExp('\\\\+', 'g'), ' ')); } function process(url, completionHandler) { var appleAddress = getParameterByName(url, 'address'); if (appleAddress == null || appleAddress.length == 0) { appleAddress = getParameterByName(url, 'hnear'); } var appleLL = getParameterByName(url, 'll'); if (!appleLL) { appleLL = getParameterByName(url, 'sll'); } var appleQ = getParameterByName(url, 'q');  var googleQ= ''; var googleCenter = ''; if (appleQ != null) { googleQ = appleQ; } if (appleAddress != null && appleAddress.length > 0) { if (googleQ.length > 0) { googleQ = googleQ + ','; } googleQ = googleQ + appleAddress; } if (appleLL != null && appleLL.length > 0) { googleCenter = appleLL; } var query = ''; if (googleQ.length > 0) { query = 'q=' + encodeURIComponent(googleQ); } if (googleCenter.length > 0) { if (query.length > 0) { query = query + '&'; } query = query + 'll=' + googleCenter; } var url = 'waze://?' + query; completionHandler(url); }",
                     "testResults": [
                         "waze://?q=Southern%20Pacific%20Brewing%2C620%20Treat%20Ave%20San%20Francisco%20CA%2094110-2016%20United%20States&ll=37.760092,-122.414035",
@@ -2953,7 +2935,6 @@
             "formats": [
                 {
                     "appId": "dropbox",
-                    "script": "function process(url, completionHandler) { completionHandler('dbapi-6:/1/viewLink?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('dbapi-6:/1/viewLink?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "dbapi-6:/1/viewLink?url=https%3A%2F%2Fwww.dropbox.com%2Fs%2Fi2iy9bgprh52k4c%2F1435444012.108938.jpg%3Fdl%3D0"
@@ -2970,7 +2951,6 @@
             "formats": [
                 {
                     "appId": "dropbox",
-                    "script": "function process(url, completionHandler) { completionHandler('dbapi-6:/1/viewLink?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('dbapi-6:/1/viewLink?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "dbapi-6:/1/viewLink?url=https%3A%2F%2Fwww.dropbox.com%2Fsh%2Fa7sn3ichcezsw43%2FAACFYITTfhjek2w7LITs4Slma%3Fdl%3D0"
@@ -3531,7 +3511,6 @@
             "formats": [
                 {
                     "appId": "overcast",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(overcast:///\\\\d+)').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(overcast:///\\\\d+)').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "overcast:///41488209980950"
@@ -3562,7 +3541,6 @@
             "formats": [
                 {
                     "appId": "pocketcasts",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*(pktc://.*?)\\'.*').exec(res); var match; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(pktc://.*?)\\'.*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         "pktc://www.pocketcasts.com/social/share/show/AmWl",
@@ -3651,7 +3629,6 @@
             "formats": [
                 {
                     "appId": "overcast",
-                    "script": "function process(url, completionHandler) { completionHandler('overcast://x-callback-url/add?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('overcast://x-callback-url/add?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "overcast://x-callback-url/add?url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fpodcast%2Fserial%2Fid917918570%3Fmt%3D2",
@@ -3696,7 +3673,6 @@
             "formats": [
                 {
                     "appId": "producthunt",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('producthunt://post/(\\\\d+)').exec(res)[1]; completionHandler('producthunt://post/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('producthunt://post/(\\\\d+)').exec(res)[1]; completionHandler('producthunt://post/' + match); }",
                     "testResults": [
                         "producthunt://post/22922",
@@ -3715,7 +3691,6 @@
             "formats": [
                 {
                     "appId": "producthunt",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('producthunt://user/(\\\\d+)').exec(res)[1]; completionHandler('producthunt://user/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('producthunt://user/(\\\\d+)').exec(res)[1]; completionHandler('producthunt://user/' + match); }",
                     "testResults": [
                         "producthunt://user/141594"
@@ -3732,7 +3707,6 @@
             "formats": [
                 {
                     "appId": "producthunt",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('producthunt://collection/(\\\\d+)').exec(res)[1]; completionHandler('producthunt://collection/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('producthunt://collection/(\\\\d+)').exec(res)[1]; completionHandler('producthunt://collection/' + match); }",
                     "testResults": [
                         "producthunt://collection/12529"
@@ -3750,7 +3724,6 @@
             "formats": [
                 {
                     "appId": "ted",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(ted://talks/\\\\d+)').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(ted://talks/\\\\d+)').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "ted://talks/2253",
@@ -3826,7 +3799,6 @@
                 },
                 {
                     "appId": "narwhal",
-                    "script": "function process(url, completionHandler) { completionHandler('narwhal://open-url/' + encodeURIComponent(url.split('?')[0])); }",
                     "script2": "function process(url, completionHandler) { completionHandler('narwhal://open-url/' + encodeURIComponent(url.split('?')[0])); }",
                     "testResults": [
                         "narwhal://open-url/https%3A%2F%2Fm.reddit.com%2Fr%2Fsports%2Fcomments%2F38uhq3%2Famerican_pharoah_wins_belmont_stakes_and_triple%2F",
@@ -4089,7 +4061,6 @@
             "formats": [
                 {
                     "appId": "medium",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(medium://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url.split('\\n')[0], true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url.split(/@|\\n/)[0]); var results = RegExp('(medium://.*?)\"').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }"
                 }
             ]
@@ -4254,7 +4225,6 @@
             "formats": [
                 {
                     "appId": "groupon",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('ios-app://352683833/groupon/dispatch/(.*?)\"').exec(res)[1]; completionHandler('groupon:///dispatch/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('ios-app://352683833/groupon/dispatch/(.*?)\"').exec(res)[1]; completionHandler('groupon:///dispatch/' + match); }"
                 }
             ]
@@ -4529,7 +4499,6 @@
                 },
                 {
                     "appId": "googlemaps",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('comgooglemaps://?q=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var res = jsonRequest(url); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('comgooglemaps://?q=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "comgooglemaps://?q=44.975250244140625,-93.25302124023438",
@@ -4539,7 +4508,6 @@
                 },
                 {
                     "appId": "applemaps",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('maps://maps.apple.com/maps?q=' + encodeURIComponent(res['venue']['name']) + '&ll=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var res = jsonRequest(url); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('maps://maps.apple.com/maps?q=' + encodeURIComponent(res['venue']['name']) + '&ll=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "maps://maps.apple.com/maps?q=Day%20Block%20Event%20Center&ll=44.975250244140625,-93.25302124023438",
@@ -4549,7 +4517,6 @@
                 },
                 {
                     "appId": "waze",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('waze://?q=' + encodeURIComponent(res['venue']['name']) + '&ll=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier;  var res = jsonRequest(url); if (res['venue'] != null && res['venue']['name'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('waze://?q=' + encodeURIComponent(res['venue']['name']) + '&ll=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "waze://?q=Day%20Block%20Event%20Center&ll=44.975250244140625,-93.25302124023438",
@@ -4559,7 +4526,6 @@
                 },
                 {
                     "appId": "transit",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); if (res['venue'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('transit://directions?to=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier;  var res = jsonRequest(url); if (res['venue'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('transit://directions?to=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "transit://directions?to=44.975250244140625,-93.25302124023438",
@@ -4569,7 +4535,6 @@
                 },
                 {
                     "appId": "citymapper",
-                    "script": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier; var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); if (res['venue'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('citymapper://x-callback-url/directions?endcoord=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s?)://(?:m\\\\.|mobile\\\\.|www\\\\.)?meetup\\\\.com/([a-zA-Z0-9_\\\\-%]+)(?:/.*)?/(\\\\d+).*$').exec(url); var groupIdentifier = match[1]; var eventIdentifier = match[2]; url = 'https://api.meetup.com/' + groupIdentifier + '/events/' + eventIdentifier;  var res = jsonRequest(url); if (res['venue'] != null && res['venue']['lat'] != null & res['venue']['lon'] != null) { completionHandler('citymapper://x-callback-url/directions?endcoord=' + res['venue']['lat'] + ',' + res['venue']['lon']); } else { completionHandler(null); } }",
                     "testResults": [
                         "citymapper://x-callback-url/directions?endcoord=44.975250244140625,-93.25302124023438",
@@ -4626,7 +4591,6 @@
             "formats": [
                 {
                     "appId": "goldstar",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(goldstar://.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(goldstar://.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "goldstar://goldstar.com/events/100763"
@@ -4753,7 +4717,6 @@
             "formats": [
                 {
                     "appId": "runkeeper",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(runkeeper://\\\\?view=activity&tripuuid=(\\\\w+|-)+)').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(runkeeper://\\\\?view=activity&tripuuid=(\\\\w+|-)+)').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "runkeeper://?view=activity&tripuuid=2fa7223f-508e-450f-abe5-9e6c436db151",
@@ -4799,7 +4762,6 @@
                 },
                 {
                     "appId": "wikilinks",
-                    "script": "function process(url, completion) { url = url.replace(RegExp('\\.org/[^/]+/'), '.org/wiki/'); completion('wikilinks://openwikipediaurl?url=' + encodeURIComponent(btoa(url))); }",
                     "script2": "function process(url, completion) { url = url.replace(RegExp('\\.org/[^/]+/'), '.org/wiki/'); completion('wikilinks://openwikipediaurl?url=' + encodeURIComponent(btoa(url))); }",
                     "testResults": [
                         null,
@@ -4848,7 +4810,6 @@
                 },
                 {
                     "appId": "curiosity",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&titles=' + title; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var pageid = Object.keys(res['query']['pages'])[0]; completionHandler('curiosity://p/' + locale + '/' + pageid); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('(http(?:s)?://((?!www\\\\.)(?:([a-zA-Z0-9\\\\-]+)\\\\.)(?:\\\\w+\\\\.)*wikipedia\\\\.(?:com|org)/(?:[^/]+/)?(.*)))$').exec(url); var locale = match[3]; var title = match[4]; url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&titles=' + title; var res = jsonRequest(url); var pageid = Object.keys(res['query']['pages'])[0]; completionHandler('curiosity://p/' + locale + '/' + pageid); }",
                     "testResults": [
                         null,
@@ -4882,7 +4843,6 @@
             "formats": [
                 {
                     "appId": "wikipedia",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikipedia-official://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikipedia-official://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); }",
                     "testResults": [
                         "wikipedia-official://en.wikipedia.org/wiki/Noe%20Valley%2C%20San%20Francisco",
@@ -4891,7 +4851,6 @@
                 },
                 {
                     "appId": "viki",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('v-for-wiki://article/' + locale + '/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('v-for-wiki://article/' + locale + '/' + encodeURIComponent(title)); }",
                     "testResults": [
                         "v-for-wiki://article/en/Noe%20Valley%2C%20San%20Francisco",
@@ -4900,7 +4859,6 @@
                 },
                 {
                     "appId": "wikilinks",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; var outURL = 'https://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title); completionHandler('wikilinks://openwikipediaurl?url=' + encodeURIComponent(btoa(outURL))); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; var outURL = 'https://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title); completionHandler('wikilinks://openwikipediaurl?url=' + encodeURIComponent(btoa(outURL))); }",
                     "testResults": [
                         "wikilinks://openwikipediaurl?url=aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTm9lJTIwVmFsbGV5JTJDJTIwU2FuJTIwRnJhbmNpc2Nv",
@@ -4909,7 +4867,6 @@
                 },
                 {
                     "appId": "wikipanion",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wplink://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wplink://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); }",
                     "testResults": [
                         "wplink://en.wikipedia.org/wiki/Noe%20Valley%2C%20San%20Francisco",
@@ -4918,7 +4875,6 @@
                 },
                 {
                     "appId": "wikipanionpad",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wplink://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wplink://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); }",
                     "testResults": [
                         "wplink://en.wikipedia.org/wiki/Noe%20Valley%2C%20San%20Francisco",
@@ -4927,7 +4883,6 @@
                 },
                 {
                     "appId": "wonder",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wonder://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wonder://' + locale + '.wikipedia.org/wiki/' + encodeURIComponent(title)); }",
                     "testResults": [
                         "wonder://en.wikipedia.org/wiki/Noe%20Valley%2C%20San%20Francisco",
@@ -4944,7 +4899,6 @@
                 },
                 {
                     "appId": "wikiwand",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = JSON.parse(xmlhttp.responseText); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikiwand-article://' + locale + '/' + encodeURIComponent(title)); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var match = RegExp('http(?:s)?://(?:www\\\\.)?tamper\\\\.io/(?:curiosity|inquire)/share.*(?:(?:\\\\?|&)p=(\\\\d+).*&l=([a-zA-Z0-9\\\\-_]+)|(?:\\\\?|&)l=([a-zA-Z0-9\\\\-_]+).*&p=(\\\\d+)).*$').exec(url); var locale; if (match[2] != null) { locale = match[2]; } else if (match[3] != null) { locale = match[3]; } var pageid; if (match[1] != null) { pageid = match[1]; } else if (match[4] != null) { pageid = match[4]; } url = 'https://' + locale + '.wikipedia.org/w/api.php?action=query&format=json&pageids=' + pageid; var res = jsonRequest(url); var key = Object.keys(res['query']['pages'])[0]; var title = res['query']['pages'][key]['title']; completionHandler('wikiwand-article://' + locale + '/' + encodeURIComponent(title)); }",
                     "testResults": [
                         "wikiwand-article://en/Noe%20Valley%2C%20San%20Francisco",
@@ -4995,7 +4949,6 @@
             "formats": [
                 {
                     "appId": "workingcopy",
-                    "script": "function process(url, completionHandler) { completionHandler('working-copy://show?remote=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('working-copy://show?remote=' + encodeURIComponent(url)); }",
                     "testResults": [
                         null,
@@ -5420,7 +5373,6 @@
             "formats": [
                 {
                     "appId": "launchcenterpro",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(launch://import.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(launch://import.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "launch://import?url=tweetbot%3A%2F%2F%2Fpost%3Ftext%3D%5Bclipboard%5D&title=Tweet%20Text&description="
@@ -5428,7 +5380,6 @@
                 },
                 {
                     "appId": "launchcenterproipad",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(launch://import.*?)\"').exec(res)[1]; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(launch://import.*?)\"').exec(res)[1]; completionHandler(match); }",
                     "testResults": [
                         "launch://import?url=tweetbot%3A%2F%2F%2Fpost%3Ftext%3D%5Bclipboard%5D&title=Tweet%20Text&description="
@@ -5537,7 +5488,6 @@
             "formats": [
                 {
                     "appId": "trulia",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(urlHash=.*?)\"').exec(res)[1]; completionHandler('truliapdpforsale://?' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(urlHash=.*?)\"').exec(res)[1]; completionHandler('truliapdpforsale://?' + match); }"
                 }
             ]
@@ -5548,7 +5498,6 @@
             "formats": [
                 {
                     "appId": "truliarent",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('(urlHash=.*?)\"').exec(res)[1]; completionHandler('truliapdpforrent://?' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('(urlHash=.*?)\"').exec(res)[1]; completionHandler('truliapdpforrent://?' + match); }"
                 }
             ]
@@ -5661,7 +5610,6 @@
             "formats": [
                 {
                     "appId": "appstore",
-                    "script": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:geo\\\\.)?(?:itunes|apps)\\\\.apple\\\\.com/(?:.*/)*app/(?:.*/)?id(\\\\d+).*$').exec(url); var match; if (results != null && results.length > 1) { match = 'itms-apps://itunes.apple.com/app/id' + results[1] + '?at=1001l3kM'; }; completionHandler(match); }",
                     "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:geo\\\\.)?(?:itunes|apps)\\\\.apple\\\\.com/(?:.*/)*app/(?:.*/)?id(\\\\d+).*$').exec(url); var match = results != null && results.length > 1 ? 'itms-apps://itunes.apple.com/app/id' + results[1] + '?at=1001l3kM' : null; completionHandler(match); }",
                     "testResults": [
                         "itms-apps://itunes.apple.com/app/id989565871?at=1001l3kM",
@@ -6457,7 +6405,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6468,7 +6415,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6479,7 +6425,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url.replace('trknbr', 'trackingnumber'))); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url.replace('trknbr', 'trackingnumber'))); }"
                 }
             ]
@@ -6490,7 +6435,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6501,7 +6445,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6512,7 +6455,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6523,7 +6465,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6534,7 +6475,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6545,7 +6485,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6556,7 +6495,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6567,7 +6505,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6578,7 +6515,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6589,7 +6525,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -6600,7 +6535,6 @@
             "formats": [
                 {
                     "appId": "deliveries",
-                    "script": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('deliveries://add/' + encodeURIComponent(url)); }"
                 }
             ]
@@ -7123,7 +7057,6 @@
             "formats": [
                 {
                     "appId": "snapchat",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*(snapchat://.*?)\".*').exec(res); var match; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(snapchat://.*?)\".*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }"
                 }
             ]
@@ -7243,7 +7176,6 @@
             "formats": [
                 {
                     "appId": "deviantart",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('://gallery/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://gallery/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('://gallery/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://gallery/' + match); }",
                     "testResults": [
                         "deviantart://gallery/daekazu/D70348AB-51C4-4086-088F-BA379308C7EA",
@@ -7261,7 +7193,6 @@
             "formats": [
                 {
                     "appId": "deviantart",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('://collection/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://collection/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('://collection/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://collection/' + match); }",
                     "testResults": [
                         "deviantart://collection/Dark-Tiramisu/43D895CE-68F8-962A-A949-0A2F261EC497"
@@ -7282,7 +7213,6 @@
             "formats": [
                 {
                     "appId": "deviantart",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var match = RegExp('://deviation/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://deviation/' + match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var match = RegExp('://deviation/([^\\\"]+)').exec(res)[1]; completionHandler('deviantart://deviation/' + match); }",
                     "testResults": [
                         "deviantart://deviation/06060A99-62E7-3212-444E-CBB6A82A1B5F",
@@ -7408,7 +7338,6 @@
             "formats": [
                 {
                     "appId": "hatenablog",
-                    "script": "function process(url, completionHandler) { completionHandler('hatenablog:///open?uri=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('hatenablog:///open?uri=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "hatenablog:///open?uri=http%3A%2F%2Fko-chanblog.hatenablog.com%2Fentry%2F2016%2F04%2F10%2F093117",
@@ -7620,7 +7549,6 @@
             "formats": [
                 {
                     "appId": "vlc",
-                    "script": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "vlc-x-callback://x-callback-url/stream?url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fs%2Fs6n8yt4bm7z9mur%2FOpener.mp4",
@@ -7633,7 +7561,6 @@
                 },
                 {
                     "appId": "infuse",
-                    "script": "function process(url, completionHandler) { completionHandler('infuse://x-callback-url/play?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('infuse://x-callback-url/play?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "infuse://x-callback-url/play?url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fs%2Fs6n8yt4bm7z9mur%2FOpener.mp4",
@@ -7709,7 +7636,6 @@
             "formats": [
                 {
                     "appId": "vlc",
-                    "script": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "vlc-x-callback://x-callback-url/download?url=https%3A%2F%2Fdl.dropboxusercontent.com%2Fs%2Fs6n8yt4bm7z9mur%2FOpener.mp4",
@@ -7733,12 +7659,10 @@
                 },
                 {
                     "appId": "vlc",
-                    "script": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(url)); }"
                 },
                 {
                     "appId": "infuse",
-                    "script": "function process(url, completionHandler) { completionHandler('infuse://x-callback-url/play?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('infuse://x-callback-url/play?url=' + encodeURIComponent(url)); }"
                 },
                 {
@@ -7766,7 +7690,6 @@
             "formats": [
                 {
                     "appId": "vlc",
-                    "script": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(url)); }"
                 }
             ]
@@ -7778,17 +7701,14 @@
             "formats": [
                 {
                     "appId": "nplayer",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match; if (results != null && results.length > 1) { match = 'nplayer-' + results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? 'nplayer-' + results[1] : null; completionHandler(match); }"
                 },
                 {
                     "appId": "vlc",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match; if (results != null && results.length > 1) { match = 'vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(results[1]); }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'vlc-x-callback://x-callback-url/stream?url=' + encodeURIComponent(results[1]) : null; completionHandler(match); }"
                 },
                 {
                     "appId": "infuse",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match; if (results != null && results.length > 1) { match = 'infuse://x-callback-url/play?url=' + encodeURIComponent(results[1]); }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'infuse://x-callback-url/play?url=' + encodeURIComponent(results[1]): null; completionHandler(match); }"
                 },
                 {
@@ -7816,7 +7736,6 @@
             "formats": [
                 {
                     "appId": "vlc",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match; if (results != null && results.length > 1) { match = 'vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(results[1]); }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*og:video.*?content=\"(.*)\".*').exec(res); var match = results != null && results.length > 1 ? match = 'vlc-x-callback://x-callback-url/download?url=' + encodeURIComponent(results[1]) : null; completionHandler(match); }"
                 }
             ]
@@ -8122,7 +8041,6 @@
             "formats": [
                 {
                     "appId": "slideshare",
-                    "script": "function process(url, completionHandler) { var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function() { if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { var res = xmlhttp.responseText; var results = RegExp('.*(slideshare-app://ss/\\\\d+).*').exec(res); var match; if (results != null && results.length > 1) { match = results[1]; }; completionHandler(match); } }; xmlhttp.open('GET', url, true); xmlhttp.send(); }",
                     "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*(slideshare-app://ss/\\\\d+).*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         "slideshare-app://ss/61965473",
@@ -8164,7 +8082,6 @@
             "formats": [
                 {
                     "appId": "dropboxpaper",
-                    "script": "function process(url, completionHandler) { completionHandler('dbx-paper://open-doc?url=' + encodeURIComponent(url)); }",
                     "script2": "function process(url, completionHandler) { completionHandler('dbx-paper://open-doc?url=' + encodeURIComponent(url)); }",
                     "testResults": [
                         "dbx-paper://open-doc?url=https%3A%2F%2Fpaper.dropbox.com%2Fdoc%2FTangent-Release-Notes-xYQoYzNM07FVmuQ3Jp286"
@@ -11093,7 +11010,6 @@
             "scheme": "https",
             "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/safari-120.jpg",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler(url); }",
             "script2": "function process(url, completionHandler) { var urlRes = RegExp('https?://((www\\\\.)?apple\\\\.news|news\\\\.apple\\\\.com)').exec(url); if (urlRes != null && urlRes.length > 1) { var res = httpRequest(url); var results = RegExp('redirectToUrl.*\\\\(\"(.*)\"\\\\)').exec(res); var match = results != null && results.length > 1 ? results[1] : url; completionHandler(match); } else { completionHandler(url); } }",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11133,7 +11049,6 @@
             "storeId": 989804926,
             "scheme": "firefox",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('firefox://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('firefox://open-url?url=' + encodeURIComponent(url)); }",
             "docs": "https://github.com/mozilla/firefox-ios-open-in-client",
             "testInputs": [
@@ -11151,7 +11066,6 @@
             "storeId": 1052879175,
             "scheme": "brave",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('brave://open-url?url=' + encodeURIComponent(url)); }",
             "docs": "https://github.com/brave/ios-open-thirdparty-browser",
             "testInputs": [
@@ -11219,7 +11133,6 @@
             "storeId": 1055677337,
             "scheme": "firefox-focus",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('firefox-focus://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('firefox-focus://open-url?url=' + encodeURIComponent(url)); }",
             "docs": "https://github.com/mozilla-mobile/focus-ios/issues/32",
             "testInputs": [
@@ -11237,7 +11150,6 @@
             "storeId": 308111628,
             "scheme": "x-icabmobile",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('x-icabmobile://x-callback-url/open?url=' + encodeURIComponent(url)); }",
             "docs": "http://www.icab.de/blog/2012/07/01/icab-mobile-6-0-supports-x-callback-url/",
             "testInputs": [
@@ -11303,7 +11215,6 @@
             "storeId": 1105317682,
             "scheme": "alohabrowser",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('alohabrowser://open?link=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('alohabrowser://open?link=' + encodeURIComponent(url)); }",
             "docs": "https://db.tt/iZB4HjFsdw",
             "testInputs": [
@@ -11485,7 +11396,6 @@
             "storeId": 1400866497,
             "scheme": "wvc-x-callback",
             "regex": "https?://(.*)$",
-            "script": "function process(url, completionHandler) { completionHandler('wvc-x-callback://open?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('wvc-x-callback://open?url=' + encodeURIComponent(url)); }",
             "docs": "http://www.webvideocaster.com/integrations",
             "testInputs": [
@@ -11503,7 +11413,6 @@
             "storeId": 1203594958,
             "scheme": "inspect",
             "regex": "https?.*",
-            "script": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('inspect://open-url?url=' + encodeURIComponent(url)); }",
             "testInputs": [
                 "http://www.opener.link/",
@@ -11667,7 +11576,6 @@
             "storeId": 1385743638,
             "scheme": "berrybrowser",
             "regex": ".+",
-            "script": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
             "script2": "function process(url, completionHandler) { completionHandler('berrybrowser://?url=' + encodeURIComponent(url)); }",
             "docs": "https://db.tt/XFBJzBxqxM",
             "testInputs": [

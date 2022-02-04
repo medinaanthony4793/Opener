@@ -64,10 +64,10 @@ while actionIndex < len(data['actions']):
         
         formatKeys = format.keys()
         for keyIndex,key in enumerate(formatKeys):
-            if not key in ["appId", "appIdentifier", "app", "format", "script", "script2"]:
+            if not key in ["appId", "appIdentifier", "app", "format", "script2"]:
                 # print "Removing " + key + " from format"
                 format.pop(key, None)
-            elif (key == "script2" or key == "script") and mangle:
+            elif key == "script2" and mangle:
                 format[key] = minify(format[key], mangle=True)
                 # print format[key]
             elif key == 'app' and format['app']['scheme'] != None:
@@ -93,7 +93,7 @@ while actionIndex < len(data['actions']):
         actionIndex = actionIndex - 1
 
 # Strip unneeded keys from browsers
-browserKeysToKeep = ["identifier", "name", "displayName", "storeId", "macStoreId", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script", "script2"]
+browserKeysToKeep = ["identifier", "name", "displayName", "storeId", "macStoreId", "storeIdentifier", "scheme", "platform", "iconURL", "country", "regex", "format", "script2"]
 if not stripNewField:
     browserKeysToKeep.append("new")
 if 'browsers' in data:
@@ -106,7 +106,7 @@ if 'browsers' in data:
 			if not key in browserKeysToKeep:
                 # print "Removing " + key + " from browser"
 				browser.pop(key, None)
-			elif (key == "script2" or key == "script") and mangle:
+			elif key == "script2" and mangle:
 				browser[key] = minify(browser[key], mangle=True)
 				# print browser[key]
 			elif key == 'scheme':
@@ -131,14 +131,14 @@ if 'previews' in data:
     if stripNewField:
         data.pop('previews', None)
     else:
-        previewKeysToKeep = ["regex", "format", "script", "script2", "canSave"]
+        previewKeysToKeep = ["regex", "format", "script2", "canSave"]
         for index,preview in enumerate(data['previews']):
         	keys = preview.keys()
         	for keyIndex,key in enumerate(keys):
         		if not key in previewKeysToKeep:
     				# print 'Removing ' + key
     				preview.pop(key, None)
-        		elif (key == "script2" or key == "script") and mangle:
+        		elif key == "script2" and mangle:
     				preview[key] = minify(preview[key], mangle=True)
     				# print preview[key]
 

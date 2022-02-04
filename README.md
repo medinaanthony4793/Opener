@@ -136,7 +136,7 @@ For example
         },
         {
             ...
-            "script": "function process(url, completion) { completion('bar-app://' + encodeURIComponent(url)); }",
+            "script2": "function process(url, completion) { completion('bar-app://' + encodeURIComponent(url)); }",
             "testResults": [
                 "bar-app://https%3A%2F%2Ffoo.bar%2F1234",
                 null
