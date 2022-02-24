@@ -585,7 +585,7 @@
         },
         {
             "title": "Open Post",
-            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/([a-zA-Z0-9_\\.]{1,30}/)?(p|tv|reel)/[a-zA-Z0-9_\\-\\.]+.*$",
+            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/([a-zA-Z0-9_\\.]{1,30}/)?(p|tv|reel)/([a-zA-Z0-9_\\-\\.]{1,11}).*$",
             "testInputs": [
                 "http://instagram.com/p/zAoa96gwQg",
                 "https://instagram.com/p/zAoa96gwQg/",
@@ -603,19 +603,19 @@
                 {
                     "appId": "instagram",
                     "note": "How to generate Instagram media identifiers without making a request https://carrot.is/coding/instagram-ids / https://db.tt/U7zuLAVxbE. Max length 11 was found experimentally.",
-                    "script2": "function process(url, completionHandler) { var results = RegExp('http(?:s)?://(?:www\\\\.)?(?:instagram\\\\.com|instagr\\\\.am)/(?:[a-zA-Z0-9_\\\\.]{1,30}/)?(?:p|tv|reel)/([a-zA-Z0-9_\\\\-]{1,11}).*$').exec(url); var match = results != null && results.length > 1 ? results[1] : null; var table = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'; table += table.toLowerCase() + '0123456789-_'; var base64Digits = []; for (i = 0; i < match.length; i++) { var digit = table.indexOf(match.charAt(i)); base64Digits.push(digit); } completionHandler('instagram://media?id=' + base64DigitsToBase10String(base64Digits)); }",
+                    "format": "instagram://media?shortcode=$5",
                     "testResults": [
-                        "instagram://media?id=918912099030336544",
-                        "instagram://media?id=918912099030336544",
-                        "instagram://media?id=918912099030336544",
-                        "instagram://media?id=3",
-                        "instagram://media?id=167566273",
-                        "instagram://media?id=1658536526642407560",
-                        "instagram://media?id=1814846106920559027",
-                        "instagram://media?id=1891892270693660156",
-                        "instagram://media?id=1891892270693660156",
-                        "instagram://media?id=1891892270693660156",
-                        "instagram://media?id=2353758603441027107"
+                        "instagram://media?shortcode=zAoa96gwQg",
+                        "instagram://media?shortcode=zAoa96gwQg",
+                        "instagram://media?shortcode=zAoa96gwQg",
+                        "instagram://media?shortcode=D",
+                        "instagram://media?shortcode=J_NvB",
+                        "instagram://media?shortcode=BcETi8Fh-iI",
+                        "instagram://media?shortcode=BkvoOs1ACGz",
+                        "instagram://media?shortcode=BpBWf8cALX8",
+                        "instagram://media?shortcode=BpBWf8cALX8",
+                        "instagram://media?shortcode=BpBWf8cALX8",
+                        "instagram://media?shortcode=CCqOvqlHzgj"
                     ]
                 }
             ]
