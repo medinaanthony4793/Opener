@@ -12023,6 +12023,15 @@
             "tests": {
                 "https://click.redditmail.com/CL0/https:%2F%2Fwww.reddit.com%2Fr%2Fmacapps%2Fcomments%2Fr7b4yx%2Fopenin_v3_is_out_and_40_off_for_a_week%2Fhn0mt18%2F%3F$deep_link=true%26correlation_id=b7cc0b2d-66db-4dd2-a101-e7786868ca5a%26ref=email_post_reply%26ref_campaign=email_post_reply%26ref_source=email/3/0100017d7e24c980-e9b0c92a-e98d-498e-aff6-8eb446620001-000000/yGlIL0u28XMdjddv_6Wog4QoLjyPFmb5Fg3rNkpmOrs=226": "https://www.reddit.com/r/macapps/comments/r7b4yx/openin_v3_is_out_and_40_off_for_a_week/hn0mt18/?$deep_link=true&correlation_id=b7cc0b2d-66db-4dd2-a101-e7786868ca5a&ref=email_post_reply&ref_campaign=email_post_reply&ref_source=email/3/0100017d7e24c980-e9b0c92a-e98d-498e-aff6-8eb446620001-000000/yGlIL0u28XMdjddv_6Wog4QoLjyPFmb5Fg3rNkpmOrs=226"
             }
+        },
+        "https?://(\\w+\\.)*(rt|sputniknews)(\\.\\w+)+.*": {
+            "format": "https://www.unicef.org/ukraine",
+            "tests": {
+                "https://sputniknews.com": "https://www.unicef.org/ukraine",
+                "https://www.sputniknews.ru": "https://www.unicef.org/ukraine",
+                "https://www.rt.com": "https://www.unicef.org/ukraine",
+                "https://rt.ru": "https://www.unicef.org/ukraine"
+            }
         }
     }
 }
