@@ -2850,14 +2850,15 @@
         },
         {
             "title": "Open Stream",
-            "regex": "https?://(?!clips\\.)([a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?!directory|videos|v)(\\w+)(?!.*/v/\\d+).*$",
+            "regex": "https?://(?!clips\\.)([a-zA-Z0-9_\\-]+\\.)*twitch\\.tv/(?!directory|videos|v)(\\w+)(?!.*/(v|clip)/.*).*$",
             "testInputs": [
                 "http://www.twitch.tv/imaginedragons",
                 "http://es-es.twitch.tv/doctorepollo/",
                 "http://www.twitch.tv/fragbitelive/v/4776592",
                 "http://www.twitch.tv/directory/game/Minecraft",
                 "https://m.twitch.tv/videos/390659869?t=4h28m20s",
-                "https://clips.twitch.tv/LongResoluteStarlingPeteZaroll"
+                "https://clips.twitch.tv/LongResoluteStarlingPeteZaroll",
+                "https://www.twitch.tv/jameskryack/clip/PopularGenerousRamenAliens-dNCdrqgL0gf75m0B"
             ],
             "formats": [
                 {
@@ -2866,6 +2867,7 @@
                     "testResults": [
                         "twitch://stream/imaginedragons",
                         "twitch://stream/doctorepollo",
+                        null,
                         null,
                         null,
                         null,
