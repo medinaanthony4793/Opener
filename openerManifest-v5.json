@@ -2,7 +2,7 @@
     "actions": [
         {
             "title": "Open Tweet",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/(@?[a-zA-Z0-9_]{1,15}/)?(status|i/web/status|statuses|i/topics/tweet)/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/(@?\\w{1,15}/)?(status|i/web/status|statuses|i/topics/tweet)/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/zpower/status/588561590997352448",
                 "https://mobile.twitter.com/kiebk/status/599159327056863232?cn=cmVwbHk%3D&refsrc=email",
@@ -81,7 +81,7 @@
         },
         {
             "title": "Add Tweet to Collection",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/(@?[a-zA-Z0-9_]{1,15}/)?(status|i/web/status|statuses)/(\\d+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/(@?\\w{1,15}/)?(status|i/web/status|statuses)/(\\d+).*$",
             "testInputs": [
                 "https://twitter.com/zpower/status/588561590997352448",
                 "https://mobile.twitter.com/kiebk/status/599159327056863232?cn=cmVwbHk%3D&refsrc=email",
@@ -103,7 +103,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)(?!login)([a-zA-Z0-9_]{1,15})(/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search)(?!login)(\\w{1,15})(/with_replies|/following|/followers|/media|/favorites)?/?(\\?.*)?$",
             "testInputs": [
                 "https://mobile.twitter.com/chillmage/with_replies",
                 "https://twitter.com/hashtag/ThingsILearnedFromTheLeft?src=hash",
@@ -210,7 +210,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/intent/user\\?.*screen_name=?@?([a-zA-Z0-9_]{1,15}).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/intent/user\\?.*screen_name=?@?(\\w{1,15}).*$",
             "testInputs": [
                 "https://twitter.com/intent/user?screen_name=addyosmani"
             ],
@@ -261,7 +261,7 @@
         },
         {
             "title": "Open Hashtag",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/hashtag/([a-zA-Z0-9_]+).*$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/hashtag/(\\w+).*$",
             "testInputs": [
                 "https://mobile.twitter.com/chillmage/with_replies",
                 "https://twitter.com/hashtag/ThingsILearnedFromTheLeft?src=hash"
@@ -418,7 +418,7 @@
         },
         {
             "title": "Open Collection",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?([a-zA-Z0-9_]{1,15})/timelines/(\\d+).*?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(\\w{1,15})/timelines/(\\d+).*?$",
             "testInputs": [
                 "https://twitter.com/benward/timelines/648313913201692672",
                 "https://twitter.com/@benward/timelines/648313913201692672",
@@ -440,7 +440,7 @@
         },
         {
             "title": "Open List",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search|i)([a-zA-Z0-9_]{1,15})/lists/([^/]+)/?(\\?.*)?$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?twitter\\.com/@?(?!search|i)(\\w{1,15})/lists/([^/]+)/?(\\?.*)?$",
             "testInputs": [
                 "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list",
                 "https://twitter.com/i/lists/1344918930687729664"
@@ -466,7 +466,7 @@
         },
         {
             "title": "Open List",
-            "regex": "https?://(mobile\\.|www\\.|m\\.)?(twitter\\.com/@?(?!search)([a-zA-Z0-9_]{0,15})/lists/([^/]+)/?(\\?.*)?)$",
+            "regex": "https?://(mobile\\.|www\\.|m\\.)?(twitter\\.com/@?(?!search)(\\w{0,15})/lists/([^/]+)/?(\\?.*)?)$",
             "testInputs": [
                 "https://twitter.com/ImJeffBell/lists/jeff-s-central-asia-list",
                 "https://twitter.com/i/lists/1344918930687729664"
@@ -1956,7 +1956,7 @@
         },
         {
             "title": "Open Check-in",
-            "regex": "https?://(www\\.)?swarmapp\\.com(/(user/)?\\w+)?/checkin/([a-fA-F0-9]+\\?s=[a-zA-Z0-9_-]+).*$",
+            "regex": "https?://(www\\.)?swarmapp\\.com(/(user/)?\\w+)?/checkin/([:xdigit:]+\\?s=[a-zA-Z0-9_-]+).*$",
             "testInputs": [
                 "https://www.swarmapp.com/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
                 "https://www.swarmapp.com/timonus/checkin/5500f9a8498efebcbce3b88e?s=7mh4SF_b0MM2qFM3aJEzQpu-SDo&ref=tw",
@@ -4463,7 +4463,7 @@
         },
         {
             "title": "Open Event",
-            "regex": "https?://(www\\.)?eventbrite(\\.\\w+)+/e(vent)?/([a-zA-Z0-9_]+-)*(\\d+).*$",
+            "regex": "https?://(www\\.)?eventbrite(\\.\\w+)+/e(vent)?/(\\w+-)*(\\d+).*$",
             "testInputs": [
                 "https://www.eventbrite.com/e/ths-key-club-empowerment-butterfly-benefit-concert-ft-midnight-red-tickets-16544017602",
                 "http://www.eventbrite.co.uk/e/blacklistedtm-tickets-16335494905",
@@ -5314,7 +5314,7 @@
         },
         {
             "title": "Open Document",
-            "regex": "https?://(\\w+\\.)*quip\\.com/([a-zA-Z0-9]{12}).*$",
+            "regex": "https?://(\\w+\\.)*quip\\.com/([:alnum:]{12}).*$",
             "testInputs": [
                 "https://quip.com/jgBUALiGBjwp",
                 "https://quip.com/FUkoAicm3jct",
@@ -5393,7 +5393,7 @@
         },
         {
             "title": "Open Recipe",
-            "regex": "https?://(www\\.)?ifttt\\.com/recipes/([0-9]+).*$",
+            "regex": "https?://(www\\.)?ifttt\\.com/recipes/(\\d+).*$",
             "testInputs": [
                 "https://ifttt.com/recipes/144705?z=119662",
                 "https://ifttt.com/recipes/144705-new-twitter-followers-in-a-google-spreadsheet?z=119662"
@@ -7764,7 +7764,7 @@
         },
         {
             "title": "Open Geocache",
-            "regex": "https?://(www\\.)?(geocaching\\.com/geocache|coord\\.info)/(GC[A-Za-z0-9]+).*$",
+            "regex": "https?://(www\\.)?(geocaching\\.com/geocache|coord\\.info)/(GC[:alnum:]+).*$",
             "testInputs": [
                 "https://www.geocaching.com/geocache/GC46P90_positive-outlook",
                 "https://www.geocaching.com/geocache/GC59ZFJ_kermit-und-super-grobi",
@@ -11747,7 +11747,7 @@
             "docs": "https://stackoverflow.com/questions/2068344/how-do-i-get-a-youtube-video-thumbnail-from-the-youtube-api"
         },
         {
-            "regex": "https?://(www\\.|rover\\.|m\\.)?ebay(\\.\\w+)+/(itm|i)/([0-9A-Za-z_-]+/)?(\\d+)(/|\\?)?.*$",
+            "regex": "https?://(www\\.|rover\\.|m\\.)?ebay(\\.\\w+)+/(itm|i)/(\\w+/)?(\\d+)(/|\\?)?.*$",
             "format": "https://i.ebayimg.com/images/i/$1-0-1/s-l375/p.jpg",
             "docs": "https://stackoverflow.com/a/39545334/3943258"
         },
