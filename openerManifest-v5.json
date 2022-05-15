@@ -9477,8 +9477,8 @@
         {
             "name": "V for Wikipedia",
             "identifier": "viki",
-            "storeId": 993435362,
             "scheme": "v-for-wiki",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/viki.jpg",
             "docs": "http://bit.ly/1RIpw7c"
         },
         {
@@ -10006,8 +10006,8 @@
         {
             "name": "WikiLinks",
             "identifier": "wikilinks",
-            "storeId": 990956008,
-            "scheme": "wikilinks"
+            "scheme": "wikilinks",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/wikilinks.jpg"
         },
         {
             "name": "Le Monde",
