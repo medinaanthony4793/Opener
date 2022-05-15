@@ -1805,26 +1805,6 @@
             ]
         },
         {
-            "title": "Open Post",
-            "regex": "https?://blog\\.sina\\.(com|cn|com\\.cn)/(.*/)?s/blog_(\\w+)\\.html.*$",
-            "testInputs": [
-                "http://blog.sina.cn/dpool/blog/s/blog_51177cc40102w0k1.html?cid=95642&vt=4",
-                "http://blog.sina.com.cn/s/blog_6051fbeb0102vtou.html#cre=blogpc&mod=g&loc=8&r=h&rfunc=-1",
-                "http://blog.sina.com.cn/s/blog_6051fbeb0102vtou.html"
-            ],
-            "formats": [
-                {
-                    "appId": "sinablog",
-                    "format": "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=$3",
-                    "testResults": [
-                        "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=51177cc40102w0k1",
-                        "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=6051fbeb0102vtou",
-                        "sinablog://blog.sina.com.cn?from=sinacn&jumptype=app&articleid=6051fbeb0102vtou"
-                    ]
-                }
-            ]
-        },
-        {
             "title": "Open Venue",
             "regex": "https?://(?:m\\.|www\\.|mobile\\.)?foursquare\\.com(?:/mobile)?/(?:v|venue)(?:/\\S+)?/([:hex:]{24}).*$",
             "testInputs": [
@@ -2910,22 +2890,6 @@
                         "twitch://video/v212106676",
                         "twitch://video/v390659869",
                         "twitch://video/v502981705"
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Open Dubsmash",
-            "regex": "https?://api\\.dubsmash\\.com/goto/(\\w+).*$",
-            "testInputs": [
-                "https://api.dubsmash.com/goto/73a225"
-            ],
-            "formats": [
-                {
-                    "appId": "dubsmash",
-                    "format": "dubsmash://1/snip/$1",
-                    "testResults": [
-                        "dubsmash://1/snip/73a225"
                     ]
                 }
             ]
@@ -8625,25 +8589,6 @@
             ]
         },
         {
-            "headers": 1,
-            "regex": "https?://\\w+(\\.\\w+)+/(@|users/|web/accounts/)([^/]+).*?$\\n.*(?i)(server\":\"[^\"]*mastodon).*",
-            "note": "Headers for Mastodon servers seem to include Server=Mastodon. We use that instead of whitelisting a big blob of hosts for now.",
-            "testsThatCantBeRunCuzHeaders": [
-                "https://mastodon.technology/web/statuses/101673699373863528",
-                "https://masthead.social/@editor/101672869547896675",
-                "https://mastodon.technology/users/JPEG/statuses/101658532656614023",
-                "https://mastodon.technology/web/accounts/100301",
-                "https://mastodon.social/@Gargron/",
-                "https://mastodon.technology/users/JPEG"
-            ],
-            "formats": [
-                {
-                    "appId": "amaroq",
-                    "script2": "function process(url, completionHandler) { completionHandler('amaroq://open?url=' + encodeURIComponent(url.split('\\n')[0])); }"
-                }
-            ]
-        },
-        {
             "title": "Open Status",
             "headers": 1,
             "regex": "https?://\\w+(?:\\.\\w+)+/(?:@[^/]+|(?:(?:web|users/\\w+)/statuses))/(\\d+).*?\\n.*(?i)(?:server\":\"[^\"]*mastodon).*",
@@ -10406,12 +10351,6 @@
             "scheme": "enalibaba"
         },
         {
-            "name": "Amaroq",
-            "identifier": "amaroq",
-            "storeId": 1214116200,
-            "scheme": "amaroq"
-        },
-        {
             "name": "AppAdvice",
             "identifier": "appadvice",
             "storeId": 364906378,
@@ -10470,12 +10409,6 @@
             "identifier": "dropboxpaper",
             "storeId": 1126623662,
             "scheme": "dbx-paper"
-        },
-        {
-            "name": "Dubsmash",
-            "identifier": "dubsmash",
-            "storeId": 918820076,
-            "scheme": "dubsmash"
         },
         {
             "name": "Fancy",
@@ -10729,12 +10662,6 @@
             "identifier": "signal",
             "storeId": 874139669,
             "scheme": "sgnl"
-        },
-        {
-            "name": "Sina Blog",
-            "identifier": "sinablog",
-            "storeId": 466711718,
-            "scheme": "sinablog"
         },
         {
             "name": "SlideShare",
