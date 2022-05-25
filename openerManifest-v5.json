@@ -9259,6 +9259,41 @@
                     ]
                 }
             ]
+        },
+        {
+            "regex": "https?://(\\w+\\.)?patreon(\\.\\w+)+(/\\w+.*)$",
+            "testInputs": [
+                "https://www.patreon.com/scottmanley",
+                "https://www.patreon.com/scottmanley/",
+                "https://www.patreon.com/scottmanley/posts",
+                "https://www.patreon.com/m/scottmanley/posts",
+                "https://www.patreon.com/scottmanley/membership",
+                "https://www.patreon.com/m/scottmanley/community",
+                "https://www.patreon.com/posts/coming-soon-49177529",
+                "https://www.patreon.com/m/1100199/posts",
+                "https://www.patreon.com/join/kylehill/checkout?rid=4521823",
+                "https://www.patreon.ca/join/kylehill",
+                "https://www.patreon.com/messages/3863884-43282985"
+            ],
+            "formats": [
+                {
+                    "appId": "patreon",
+                    "format": "com.patreon.iphone://www.patreon.com$3",
+                    "testResults": [
+                        "com.patreon.iphone://www.patreon.com/scottmanley",
+                        "com.patreon.iphone://www.patreon.com/scottmanley/",
+                        "com.patreon.iphone://www.patreon.com/scottmanley/posts",
+                        "com.patreon.iphone://www.patreon.com/m/scottmanley/posts",
+                        "com.patreon.iphone://www.patreon.com/scottmanley/membership",
+                        "com.patreon.iphone://www.patreon.com/m/scottmanley/community",
+                        "com.patreon.iphone://www.patreon.com/posts/coming-soon-49177529",
+                        "com.patreon.iphone://www.patreon.com/m/1100199/posts",
+                        "com.patreon.iphone://www.patreon.com/join/kylehill/checkout?rid=4521823",
+                        "com.patreon.iphone://www.patreon.com/join/kylehill",
+                        "com.patreon.iphone://www.patreon.com/messages/3863884-43282985"
+                    ]
+                }
+            ]
         }
     ],
     "apps": [
@@ -10932,6 +10967,13 @@
             "storeId": 632064380,
             "scheme": "vintedfr",
             "country": "gb"
+        },
+        {
+            "name": "Patreon",
+            "identifier": "patreon",
+            "storeId": 1044456188,
+            "scheme": "com.patreon.iphone",
+            "iconURL": "https://s3.amazonaws.com/www.opener.link/app-icon/patreon.jpg"
         }
     ],
     "browsers": [
