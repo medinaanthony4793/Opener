@@ -12007,6 +12007,13 @@
                 "https://www.rt.com": "https://www.unicef.org/ukraine",
                 "https://rt.ru": "https://www.unicef.org/ukraine"
             }
+        },
+        "(https?://.*)(\\?|&)$": {
+            "format": "$1",
+            "tests": {
+                "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar&": "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar",
+                "https://twitter.com/reichenstein/status/1521812019615346688?": "https://twitter.com/reichenstein/status/1521812019615346688"
+            }
         }
     }
 }
