@@ -11923,14 +11923,14 @@
                 "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar&igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar"
             }
         },
-        "(https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/.*?(?:\\?|&)?)(?:s|t)(?:=|%3D)[^&]+&?(.*?)$": {
+        "(https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?!i/).*?(?:\\?|&)?)(?:s|t)(?:=|%3D)[^&]+&?(.*?)$": {
             "format": "$1$2",
             "tests": {
-                "https://twitter.com/dabit3/status/1308066681512775682?s=21": "https://twitter.com/dabit3/status/1308066681512775682",
-                "https://twitter.com/dabit3/status/1308066681512775682?foo=bar&s=21": "https://twitter.com/dabit3/status/1308066681512775682?foo=bar",
+                "https://twitter.com/dabit3/status/1308066681512775682?s=21": "https://twitter.com/dabit3/status/1308066681512775682?",
+                "https://twitter.com/dabit3/status/1308066681512775682?foo=bar&s=21": "https://twitter.com/dabit3/status/1308066681512775682?foo=bar&",
                 "https://twitter.com/dabit3/status/1308066681512775682?s=21&foo=bar": "https://twitter.com/dabit3/status/1308066681512775682?foo=bar",
-                "https://twitter.com/reichenstein/status/1521812019615346688?t=DUoz2JwrAyM2zeIr1Amrqg": "https://twitter.com/reichenstein/status/1521812019615346688",                
-                "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar&t=DUoz2JwrAyM2zeIr1Amrqg": "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar",
+                "https://twitter.com/reichenstein/status/1521812019615346688?t=DUoz2JwrAyM2zeIr1Amrqg": "https://twitter.com/reichenstein/status/1521812019615346688?",
+                "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar&t=DUoz2JwrAyM2zeIr1Amrqg": "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar&",
                 "https://twitter.com/reichenstein/status/1521812019615346688?t=DUoz2JwrAyM2zeIr1Amrqg&foo=bar": "https://twitter.com/reichenstein/status/1521812019615346688?foo=bar"
             }
         },
