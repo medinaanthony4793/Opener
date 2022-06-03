@@ -19,6 +19,7 @@ data = json.loads(open(path).read(), object_pairs_hook=OrderedDict) # http://sta
 preferredScriptName = 'script2'
 stripNewField = False
 mangle = True
+stripForBundle = False
 # if len(sys.argv) > 2:
 for i in range(2,len(sys.argv)):
     val = sys.argv[i]
@@ -31,6 +32,9 @@ for i in range(2,len(sys.argv)):
         stripNewField = True
     elif val == '--no-mangle':
         mangle = False
+    elif val == '--strip-for-bundle':
+        stripForBundle = True
+        stripNew = True
 
 # Strip unneeded keys from apps
 appKeysToKeep = ["identifier", "name", "displayName", "storeId", "macStoreId", "storeIdentifier", "scheme", "platform", "iconURL", "country"]
@@ -163,7 +167,22 @@ if 'redirectRules' in data:
     			# print "Removing " + key + " from " + ruleRegex
     			rule.pop(key, None)
 
-				
+if stripForBundle:
+    data.pop('actions')
+    data.pop('previews')
+    data.pop('redirects')
+    # Remove most keys in apps (keep name, storeId, platform, iconURL, country)
+    appKeysToKeep = ["name", "storeId", "platform", "iconURL", "country"]
+    for appIndex,app in enumerate(data['apps']):
+    	appKeys = app.keys()
+    	for keyIndex,key in enumerate(appKeys):
+    		if not key in appKeysToKeep:
+    			# print "Removing " + key + " from " + app["identifier"]
+    			app.pop(key, None)
+    
+    # Remove all browsers besides Safari            
+    data['browsers'] = [data['browsers'][0]]
+    
 data = json.dumps(data, separators=(',',':'))
 open(path.replace('.json', '-minified.json'), 'w').write(data)
 
