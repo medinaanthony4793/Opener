@@ -25,6 +25,7 @@ for i in range(2,len(sys.argv)):
     if val == '--prefer-script-v1':
         preferredScriptName = 'script'
         data.pop('redirects', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
+        data.pop('redirectRules', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
         data.pop('previews', None) # Ditto for "previews".
     elif val == '--strip-new':
         stripNewField = True
