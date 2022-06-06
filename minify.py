@@ -20,16 +20,14 @@ mangle = True
 stripForBundle = False
 for i in range(2,len(sys.argv)):
     val = sys.argv[i]
-    if val == '--prefer-script-v1':
-        # TODO: Deprecate
-        data.pop('redirects', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
-        data.pop('redirectRules', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
-        data.pop('previews', None) # Ditto for "previews".
-    elif val == '--strip-new':
+    if val == '--strip-new':
         stripNewField = True
     elif val == '--no-mangle':
         mangle = False
     elif val == '--strip-for-bundle':
+        data.pop('actions')
+        data.pop('previews')
+        data.pop('redirects')
         stripForBundle = True
         stripNew = True
 
@@ -48,7 +46,7 @@ for appIndex,app in enumerate(data['apps']):
 			
 # Strip unneeded keys from actions
 actionIndex = 0
-while actionIndex < len(data['actions']):
+while 'actions' in data and actionIndex < len(data['actions']):
     action = data['actions'][actionIndex]
     actionIndex = actionIndex + 1
     actionKeys = action.keys()
@@ -136,9 +134,6 @@ if 'redirectRules' in data:
     			rule.pop(key, None)
 
 if stripForBundle:
-    data.pop('actions')
-    data.pop('previews')
-    data.pop('redirects')
     # Remove most keys in apps (keep name, storeId, platform, iconURL, country)
     appKeysToKeep = ["name", "storeId", "platform", "iconURL", "country"]
     for appIndex,app in enumerate(data['apps']):
