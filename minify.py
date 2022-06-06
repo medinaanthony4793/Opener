@@ -15,16 +15,13 @@ path = sys.argv[1]
 
 data = json.loads(open(path).read(), object_pairs_hook=OrderedDict) # http://stackoverflow.com/a/6921760
 
-# Use the --prefer-script-v1 flag when use need the v2 format (includes only 'script', not 'script2')
-preferredScriptName = 'script2'
 stripNewField = False
 mangle = True
 stripForBundle = False
-# if len(sys.argv) > 2:
 for i in range(2,len(sys.argv)):
     val = sys.argv[i]
     if val == '--prefer-script-v1':
-        preferredScriptName = 'script'
+        # TODO: Deprecate
         data.pop('redirects', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
         data.pop('redirectRules', None) # Also strip the "redirects" entry, which isn't supported by older versions of the app.
         data.pop('previews', None) # Ditto for "previews".
@@ -77,21 +74,6 @@ while actionIndex < len(data['actions']):
                 # print format[key]
             elif key == 'app' and format['app']['scheme'] != None:
                 format['app']['scheme'] = format['app']['scheme'].replace('://', ':')
-
-        # Ensure only necessary script is included
-        if not 'format' in formatKeys:
-            if preferredScriptName == 'script2' and 'script2' in formatKeys:
-                # print 'Removing v1 script from ' + format['appId']
-                format.pop('script', None)
-            elif preferredScriptName == 'script':
-                if 'script' in formatKeys:
-                    # print 'Removing v2 script from ' + format['appId']
-                    format.pop('script2', None)
-                else:
-                    # print 'Removing format ' + format['appId'] + ' from ' + action['title']
-                    action['formats'].remove(format)
-                    formatIndex = formatIndex - 1
-
     if len(action['formats']) == 0:
         # print 'Removing action ' + action['title']
         data['actions'].remove(action)
@@ -116,20 +98,6 @@ if 'browsers' in data:
 				# print browser[key]
 			elif key == 'scheme':
 				browser[key] = browser[key].replace('://', ':')
-    
-        # Ensure only necessary script is included
-		if not 'format' in browserKeys:
-			if preferredScriptName == 'script2' and 'script2' in browserKeys:
-                # print 'Removing v1 script from ' + browser['identifier']
-				browser.pop('script', None)
-			elif preferredScriptName == 'script':
-				if 'script' in browserKeys:
-                    # print 'Removing v2 script from ' + browser['identifier']
-					browser.pop('script2', None)
-				else:
-                    # print 'Removing browser ' + browser['identifier']
-					data['browsers'].remove(browser)
-					browserIndex = browserIndex - 1
                     
 # Strip unneeded keys from previews
 if 'previews' in data:
