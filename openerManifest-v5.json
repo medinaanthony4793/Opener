@@ -11916,11 +11916,12 @@
                 "https://castro.fm/itunes/1143273587": "https://podcasts.apple.com/podcast/id1143273587"
             }
         },
-        "(https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/.*?)(?:\\?|&)?igshid(?:=|%3D)\\w+(.*?)$": {
+        "(https?://(?:www\\.)?(?:instagram\\.com|instagr\\.am)/(?!accounts).*?)(?:\\?|&)?igshid(?:=|%3D)[^&]+(.*?)$": {
             "format": "$1$2",
             "tests": {
                 "https://www.instagram.com/p/CFdlX1LpVU8/?igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/",
-                "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar&igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar"
+                "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar&igshid=q8almnz47owt": "https://www.instagram.com/p/CFdlX1LpVU8/?foo=bar",
+                "https://www.instagram.com/p/Ce-3bYask8j/?igshid=YmMyMTA2M2Y=": "https://www.instagram.com/p/Ce-3bYask8j/"
             }
         },
         "(https?://(?:mobile\\.|www\\.|m\\.)?twitter\\.com/(?!i/).*?(?:\\?|&)?)(?:s|t)(?:=|%3D)[^&]+&?(.*?)$": {
