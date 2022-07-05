@@ -239,12 +239,12 @@ There's a python script included named [minify.py](./minify.py), this script tak
 Sample usage:
 
 ```shell
-python minify.py openerManifest-v3.json
+python minify.py openerManifest-v5.json
 ```
 
 ## Versions
 
-The manifest file has a `-v3` on the end, this indicates the major version of the manifest. If there are ever changes to the app that make the manifest not backwards compatible with a former version, the suffix of the manifest file is bumped.
+The manifest file has a `-v5` on the end, this indicates the major version of the manifest. If there are ever changes to the app that make the manifest not backwards compatible with a former version, the suffix of the manifest file is bumped.
 
 <table>
 <tr><th>Manifest Version</th><th>App Version</th><th>Changes</th></tr>
