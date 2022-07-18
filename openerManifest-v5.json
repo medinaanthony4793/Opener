@@ -5243,6 +5243,22 @@
             ]
         },
         {
+            "title": "Open Pin",
+            "regex": "https?://(www\\.)zhihu\\.com/pin/(\\d+).*$",
+            "testInputs": [
+                "https://www.zhihu.com/pin/1528333170662989824"
+            ],
+            "formats": [
+                {
+                    "appId": "zhihu",
+                    "format": "zhihu://pins/$2",
+                    "testResults": [
+                        "zhihu://pins/1528333170662989824"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Note",
             "regex": "https?://(?:www\\.)evernote\\.com/shard/(s\\d+)/nl/(\\d+)/(([:hex:]+-)*[:hex:]+).*?$",
             "note": "'private' note type, owned by active user. https://bit.ly/2MsjMSt",
