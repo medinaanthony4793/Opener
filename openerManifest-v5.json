@@ -5259,6 +5259,24 @@
             ]
         },
         {
+            "title": "Open Column",
+            "regex": "https?://((www\\.)?zhihu\\.com/column|zhuanlan\\.zhihu\\.com)/([a-zA-Z0-9_\\-%]+).*$",
+            "testInputs": [
+                "https://www.zhihu.com/column/zhihu-product",
+                "https://zhuanlan.zhihu.com/zhihu-product"
+            ],
+            "formats": [
+                {
+                    "appId": "zhihu",
+                    "format": "zhihu://columns/$3",
+                    "testResults": [
+                        "zhihu://columns/zhihu-product",
+                        "zhihu://columns/zhihu-product"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Note",
             "regex": "https?://(?:www\\.)evernote\\.com/shard/(s\\d+)/nl/(\\d+)/(([:hex:]+-)*[:hex:]+).*?$",
             "note": "'private' note type, owned by active user. https://bit.ly/2MsjMSt",
