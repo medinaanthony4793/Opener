@@ -5277,6 +5277,22 @@
             ]
         },
         {
+            "title": "Open Article",
+            "regex": "https?://zhuanlan\\.zhihu\\.com/p/(\d+).*$",
+            "testInputs": [
+                "https://zhuanlan.zhihu.com/p/148668354"
+            ],
+            "formats": [
+                {
+                    "appId": "zhihu",
+                    "format": "zhihu://articles/$1",
+                    "testResults": [
+                        "zhihu://articles/148668354"
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Open Note",
             "regex": "https?://(?:www\\.)evernote\\.com/shard/(s\\d+)/nl/(\\d+)/(([:hex:]+-)*[:hex:]+).*?$",
             "note": "'private' note type, owned by active user. https://bit.ly/2MsjMSt",
