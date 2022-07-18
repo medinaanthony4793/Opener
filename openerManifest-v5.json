@@ -5178,7 +5178,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(www\\.)zhihu\\.com/people/([a-zA-Z0-9_\\-%]+).*$",
+            "regex": "https?://(www\\.)?zhihu\\.com/people/([a-zA-Z0-9_\\-%]+).*$",
             "testInputs": [
                 "http://www.zhihu.com/people/hugo-chan"
             ],
@@ -5194,7 +5194,7 @@
         },
         {
             "title": "Open Topic",
-            "regex": "https?://(www\\.)zhihu\\.com/topic/(\\d+).*$",
+            "regex": "https?://(www\\.)?zhihu\\.com/topic/(\\d+).*$",
             "testInputs": [
                 "http://www.zhihu.com/topic/19568161"
             ],
@@ -5210,7 +5210,7 @@
         },
         {
             "title": "Open Question",
-            "regex": "https?://(www\\.)zhihu\\.com/question/(\\d+)(?!.*/answer/\\d+).*$",
+            "regex": "https?://(www\\.)?zhihu\\.com/question/(\\d+)(?!.*/answer/\\d+).*$",
             "testInputs": [
                 "http://www.zhihu.com/question/19907735",
                 "http://www.zhihu.com/question/21439187/answer/18228340"
@@ -5228,7 +5228,7 @@
         },
         {
             "title": "Open Answer",
-            "regex": "https?://(www\\.)zhihu\\.com/question/(\\d+)/answer/(\\d+).*$",
+            "regex": "https?://(www\\.)?zhihu\\.com/question/(\\d+)/answer/(\\d+).*$",
             "testInputs": [
                 "http://www.zhihu.com/question/21439187/answer/18228340"
             ],
@@ -5244,7 +5244,7 @@
         },
         {
             "title": "Open Pin",
-            "regex": "https?://(www\\.)zhihu\\.com/pin/(\\d+).*$",
+            "regex": "https?://(www\\.)?zhihu\\.com/pin/(\\d+).*$",
             "testInputs": [
                 "https://www.zhihu.com/pin/1528333170662989824"
             ],
@@ -5278,7 +5278,7 @@
         },
         {
             "title": "Open Article",
-            "regex": "https?://zhuanlan\\.zhihu\\.com/p/(\d+).*$",
+            "regex": "https?://zhuanlan\\.zhihu\\.com/p/(\\d+).*$",
             "testInputs": [
                 "https://zhuanlan.zhihu.com/p/148668354"
             ],
