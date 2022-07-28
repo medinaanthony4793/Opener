@@ -8397,18 +8397,40 @@
             ]
         },
         {
-            "regex": "https?://(www\\.)?booking\\.com/.*",
+            "title": "Open Hotel",
+            "regex": "https?://(www\\.)?booking\\.com/hotel/.*",
             "testInputs": [
                 "https://www.booking.com/searchresults.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;class_interval=1&dest_id=20024809&dest_type=city&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&no_rooms=1&offset=0&postcard=0&room1=A%2CA&sb_price_type=total&src=index&src_elem=sb&ss=atlanta&ss_all=0&ssb=empty&sshis=0&",
-                "https://www.booking.com/hotel/us/omni-cnn-center.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;dest_id=20024809;dest_type=city;dist=0;group_adults=2;hapos=1;hpos=1;room1=A%2CA;sb_price_type=total;srepoch=1531889849;srfid=068e41b420575d928702c1577140e5c31414c493X1;srpvid=a07122dcf7d701af;type=total;ucfs=1&"
+                "https://www.booking.com/hotel/us/omni-cnn-center.html",
+                "https://www.booking.com/hotel/nl/hotel-restaurant-t-schouwse-hof.html"
             ],
             "formats": [
                 {
                     "appId": "booking",
-                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('.*\\\\\"(booking://.*?)\\\\\".*').exec(res); var match = results != null && results.length > 1 ? results[1] : null; completionHandler(match); }",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('android-app://com\\\\.booking/booking/hotel/(\\\\d+)').exec(res); var match = (results != null && results.length > 1) ? 'booking://hotel/' + results[1] : null; completionHandler(match); }",
+                    "testResults": [
+                        null,
+                        "booking://hotel/522909",
+                        "booking://hotel/11476"
+                    ]
+                }
+            ]
+        },
+        {
+            "regex": "https?://(www\\.)?booking\\.com/(?!hotel.*).*",
+            "testInputs": [
+                "https://www.booking.com/searchresults.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;class_interval=1&dest_id=20024809&dtdisc=0&from_sf=1&group_adults=2&group_children=0&inac=0&index_postcard=0&label_click=undef&no_rooms=1&offset=0&postcard=0&room1=A%2CA&sb_price_type=total&src=index&src_elem=sb&ss=atlanta&ss_all=0&ssb=empty&sshis=0&",
+                "https://www.booking.com/hotel/us/omni-cnn-center.html?label=gen173nr-1FCAEoggJCAlhYSDNYBHIFdXNfY2GIAQGYATG4AQfIAQzYAQHoAQH4AQKSAgF5qAID;sid=3eb3d2cf4049c37d5506fd3c570f814f;dest_id=20024809;dest_type=city;dist=0;group_adults=2;hapos=1;hpos=1;room1=A%2CA;sb_price_type=total;srepoch=1531889849;srfid=068e41b420575d928702c1577140e5c31414c493X1;srpvid=a07122dcf7d701af;type=total;ucfs=1&",
+                "https://www.booking.com/hotel/nl/hotel-restaurant-t-schouwse-hof.html"
+            ],
+            "formats": [
+                {
+                    "appId": "booking",
+                    "script2": "function process(url, completionHandler) { var res = httpRequest(url); var results = RegExp('(booking://.*?)\"').exec(res); var match = (results != null && results.length > 1) ? results[1] : null; completionHandler(match); }",
                     "testResults": [
                         "booking://searchresults?dest_id=20024809&dest_type=city&affiliate_id=375119",
-                        "booking://hotel/522909?affiliate_id=375119"
+                        null,
+                        null
                     ]
                 }
             ]
