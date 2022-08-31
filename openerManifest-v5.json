@@ -622,7 +622,7 @@
         },
         {
             "title": "Open Profile",
-            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/(?!explore|p|tv|reel)(stories/)?([a-zA-Z0-9_\\.]{1,30})(/|/?\\?)?.*$",
+            "regex": "https?://(www\\.)?(instagram\\.com|instagr\\.am)/(?!(explore|p|tv|reel)/)(stories/)?([a-zA-Z0-9_\\.]{1,30})(/|/?\\?)?.*$",
             "testInputs": [
                 "http://instagr.am/timonus",
                 "https://www.instagram.com/noelwells/?hl=en",
@@ -632,12 +632,13 @@
                 "https://www.instagram.com/stories/ferdente/?utm_source=ig_embed&ig_mid=0A50ABCE-0598-4590-B167-00A6684637B0",
                 "https://www.instagram.com/stories/joezhougrams/2718742614626356513/",
                 "https://www.instagram.com/tv/CYLfVGTogYT/",
-                "https://www.instagram.com/reel/CaSUumKp8r1/"
+                "https://www.instagram.com/reel/CaSUumKp8r1/",
+                "https://www.instagram.com/pedronveloso/"
             ],
             "formats": [
                 {
                     "appId": "instagram",
-                    "format": "instagram://user?username=$4",
+                    "format": "instagram://user?username=$5",
                     "testResults": [
                         "instagram://user?username=timonus",
                         "instagram://user?username=noelwells",
@@ -647,7 +648,8 @@
                         "instagram://user?username=ferdente",
                         "instagram://user?username=joezhougrams",
                         null,
-                        null
+                        null,
+                        "instagram://user?username=pedronveloso"
                     ]
                 }
             ]
